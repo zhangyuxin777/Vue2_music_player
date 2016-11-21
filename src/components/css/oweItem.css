@@ -1,0 +1,65 @@
+.owe-item {
+  background: #fff;
+  border: 1px #2aa8e0 solid;
+  border-radius: 0.08rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  margin: 0.2rem 0.1rem; }
+  .owe-item .line1 {
+    height: 0.9rem;
+    line-height: 0.9rem; }
+  .owe-item .line2 {
+    height: 0.6rem;
+    line-height: 0.6rem;
+    color: #00bb9c; }
+  .owe-item .line3 {
+    height: 0.6rem;
+    line-height: 0.6rem;
+    color: #cc0000; }
+  .owe-item .name {
+    font-size: 0.35rem;
+    color: #535393; }
+  .owe-item .push-div {
+    width: 30%;
+    height: 100%;
+    text-align: center; }
+  .owe-item .push-btn {
+    height: 0.65rem;
+    line-height: 0.65rem;
+    width: 1.3rem;
+    background: #2fcdfe;
+    color: white;
+    float: right;
+    margin-top: 0.125rem;
+    border-radius: 0.08rem;
+    font-size: 0.28rem; }
+  .owe-item .cycle {
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    font-size: 0.28rem; }
+  .owe-item .div_1_3 {
+    width: 33%;
+    height: 100%; }
+  .owe-item .left {
+    float: left; }
+  .owe-item .right {
+    float: right; }
+  .owe-item .text-center {
+    text-align: center; }
+  .owe-item .split-line {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: #2aa8e0;
+    display: block;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%; }
+
+.owe-item:active {
+  background: #eee; }
+
+.hide {
+  display: none; }
+
+/*# sourceMappingURL=oweItem.css.map */

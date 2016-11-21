@@ -1,0 +1,64 @@
+body {
+  font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  width: 6.4rem;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 0.24rem;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #f4f3f3;
+  color: #404040; }
+
+.mui-content {
+  background-color: #f4f3f3; }
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none !important; }
+
+.hide {
+  display: none; }
+
+.bg-white {
+  background: #fff; }
+
+.clearfix:after {
+  clear: both; }
+
+.box-shadow {
+  -webkit-box-shadow: 0 0 0.04rem #888888;
+  -moz-box-shadow: 0 0 0.04rem #888888;
+  box-shadow: 0 0 0.04rem #888888; }
+
+.place {
+  height: 0.2rem;
+  width: 100%; }
+
+.banner {
+  width: 6.4rem;
+  height: 3.03rem;
+  background: url("../html/my/image/banner.jpg");
+  background-size: 6.4rem 3.03rem; }
+  .banner .portrait-bg-div {
+    padding-top: 0.6rem; }
+  .banner .portrait-bg {
+    width: 1.68rem;
+    height: 1.68rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+    position: relative; }
+  .banner .portrait {
+    width: 1.54rem;
+    height: 1.54rem;
+    border-radius: 50%;
+    background: #fff;
+    margin-left: 0.07rem;
+    margin-top: 0.07rem;
+    position: absolute; }
+  .banner .name {
+    color: #333;
+    font-size: 0.28rem;
+    margin-top: 0.1rem;
+    text-align: center; }
+
+/*# sourceMappingURL=wl-common.css.map */

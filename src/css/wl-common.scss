@@ -1,0 +1,85 @@
+﻿$pageWidth: 6.4rem;
+
+$webkit-transform-name: -webkit-transform !default;
+$transform-name: transform !default;
+
+$line-R2: 0.5 !default;
+$line-R3: 0.33 !default;
+
+//text size
+$mainColor: #2fcdfe;
+$lineColor: #d7d7d7;
+$textLeftColor: #404040;
+$textSizeSmall: 0.24rem;
+$textSizeBig1: 0.3rem;
+$textSizeBig2: 0.32rem;
+$textSizeBig3: 0.35rem;
+
+$bgColor: #f4f3f3;
+$textRightColor: #0e0e0e;
+$rowColor1: #0e0e0e;
+
+$contentColor: #404040;
+$fontColor1: rgb(12, 144, 236);
+$fontColor: #4e4e4e;
+//height
+$rowHeight1: 0.9rem;
+$rowHeight2: 1rem;
+$rowHeight3: 1.36rem;
+$rowHeight4: 1.2rem;
+//button
+$btnRadius: 0.08rem;
+
+@mixin bigButton() {
+  background: $mainColor;
+  border-radius: $btnRadius;
+  color: white;
+  text-align: center;
+  width: 5.8rem;
+  height: 0.86rem;
+  line-height: 0.86rem;
+  font-size: 0.34rem;
+}
+
+@mixin bgPosition($spriteWidth, $spriteHeight, $iconWidth, $iconHeight, $iconX, $iconY) {
+  background-position: (($iconX / ($spriteWidth - $iconWidth)) * 100% ($iconY / ($spriteHeight - $iconHeight)) * 100%);
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin split-line() {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: $lineColor;
+  display: block;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+
+@mixin split-line-v() {
+  content: '';
+  height: 100%;
+  width: 1px;
+  background-color: $lineColor;
+  display: block;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+
+@mixin split-line-rate($rate) {
+  -webkit-transform: scaleY($rate);
+  transform: scaleY($rate);
+}
+
+@mixin split-line-rate-v($rate) {
+  -webkit-transform: scaleX($rate);
+  transform: scaleX($rate);
+}
+
+
+
