@@ -3,5 +3,3 @@ node_modules/
 dist/common.js.map
 dist/main.js
 dist/main.js.map
-src/views/css/detail.css.map
-dist/
