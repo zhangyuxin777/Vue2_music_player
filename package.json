@@ -1,7 +1,7 @@
 {
-  "name": "vuetest",
+  "name": "vueTrain",
   "description": "A Vue.js project",
-  "author": "coffcer",
+  "author": "bruce zhang",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
@@ -20,10 +20,10 @@
     "vue-loader": "^8.5.2",
     "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
-    "vuex": "^0.8.2"
+    "vuex": "^0.8.2",
+    "weui": "^1.0.2"
   },
   "devDependencies": {
-    "babel": "^6.3.13",
     "babel-core": "^6.14.0",
     "babel-cli": "^6.14.0",
     "babel-loader": "^6.2.5",
@@ -51,6 +51,6 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://git.coding.net/zhangyuxin777/Vue_Webpack.git"
+    "url": "https://github.com/zhangyuxin777/vue_vuex_sample.git"
   }
 }

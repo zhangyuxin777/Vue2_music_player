@@ -6,7 +6,7 @@
             </div>
             <div id="name" class="name"></div>
             <div class="line-box1">
-                <div class="icon-left" v-link="'/rest/list'">
+                <div class="icon-left" v-link="'/search'">
                     <div class="sprites icon1"></div>
                     <span class="icon-text">个人资料</span>
                 </div>
@@ -67,13 +67,7 @@
             return {
                 name: "",
                 img: '',
-                info: '',
-                list: [],
-                titleData: {
-                    title: "主界面",
-                    icon: 'hide',
-                    isShowBack: false
-                }
+                info: ''
             }
         },
         methods: {

@@ -10,16 +10,14 @@
     import titleBar from '../components/titleBar.vue'
     import spinner from '../components/spinner.vue'
     import Common from '../js/rock';
-    import {updateTitle,updateRestList,updateOweList} from '../vuex/actions'
+    import {updateTitle} from '../vuex/actions'
     import store from '../vuex/store';
 
     export default{
         store,
         vuex: {
             actions: {
-                updateTitle,
-                updateRestList,
-                updateOweList
+                updateTitle
             }
         },
         components: {
@@ -38,8 +36,6 @@
         ready: function () {
             Common.init(this);
             this.updateTitle('主页面', false, 'hide');
-            this.updateRestList();
-            this.updateOweList();
 
 
             //todo 导入数据用
