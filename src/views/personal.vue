@@ -6,12 +6,12 @@
             </div>
             <div id="name" class="name"></div>
             <div class="line-box1">
-                <div class="icon-left" v-link="'/search'">
+                <div class="icon-left" v-link="'/music'">
                     <div class="sprites icon1"></div>
                     <span class="icon-text">个人资料</span>
                 </div>
                 <span class="split-line-v"></span>
-                <div class="icon-right" v-link="'/today/list'">
+                <div class="icon-right" v-link="'/music/rankList'">
                     <div class="sprites icon2"></div>
                     <span class="icon-text">我的钱包</span>
                 </div>
@@ -80,6 +80,9 @@
             Common.appView.action = function () {
                 alert('1111');
             };
+            Common.showApiData('https://route.showapi.com/213-4', {topid: 5}, function (data) {
+                console.log(data);
+            });
         }
     }
 

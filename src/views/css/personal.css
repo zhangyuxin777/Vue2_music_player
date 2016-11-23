@@ -125,7 +125,6 @@ ol, ul {
   width: 0.5rem;
   overflow: hidden;
   box-sizing: border-box;
-  background: transparent url("../image/icon-list-new.png") 0 0 no-repeat;
   background-size: 7.2rem 7.2rem;
   margin: 0.3rem auto 0.15rem auto; }
 .personal-con .icon1 {

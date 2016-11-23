@@ -20,3 +20,11 @@ export const updateTitle = ({dispatch}, title, showBack, icon) => {
 export const toggleSpinner = ({dispatch}) => {
     dispatch('TOGGLE_SPINNER');
 };
+/**
+ * 排行榜 id
+ * @param dispatch
+ * @param id
+ */
+export const updateTopId = ({dispatch}, id) => {
+    dispatch('UPDATE_TOP_ID', id);
+};

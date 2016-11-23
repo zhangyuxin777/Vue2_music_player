@@ -8,40 +8,15 @@ var mui = require('../js/mui.min.js');
  * leancloud 对象
  */
 module.exports.mui = mui;
-/**
- * leancloud 对象
- */
-module.exports.AV = AV;
-
-/**
- * leancloud 对象
- */
-module.exports.data = {
-    property: [],
-    owe: [],
-    record: [],
-    today: new Date()
-};
 
 /**
  * app vue 主界面 根目录
  */
 module.exports.appView = '';
 
-/**
- * leancloud 初始化
- */
-module.exports.apiInit = function () {
-    AV.init({
-        appId: this.wlConfig().APP_ID,
-        appKey: this.wlConfig().APP_KEY
-    });
-};
-
 module.exports.init = function (view) {
 
     this.appView = view;
-    this.apiInit();
     Date.prototype.format = function (format) {
         var o = {
             "M+": this.getMonth() + 1, //month
@@ -64,15 +39,12 @@ module.exports.init = function (view) {
         }
         return format;
     };
-    var d1 = new Date();
-    this.data.today = d1.format('yyyy-MM-dd');
 };
-
 
 module.exports.wlConfig = function () {
     return {
-        APP_ID: 'I0fUV2jQRizKmIAhoPdISynA-gzGzoHsz',
-        APP_KEY: 'tQbv2WwPlkn1TBHOW0i6Olh3'
+        APP_ID: '27598',
+        APP_KEY: '32a7b9412fff4da0a5c688b77151b736'
     };
 };
 
@@ -136,6 +108,40 @@ module.exports.autoSize = function (scale) {
     console.log('autoSize');
 };
 
+/**
+ * @method GET 异步提交
+ * @param {string} url url
+ * @param {object} data 参数
+ * @param {function} callback 成功回调
+ * @param {function} error 错误回调
+ * @return {null}
+ */
+module.exports.showApiData = function (url, data, callback, error) {
+
+    var url1 = url + "?showapi_appid=" + this.wlConfig().APP_ID + "&showapi_timestamp=" + this.showApiTimeTamp() + "&showapi_sign=" + this.wlConfig().APP_KEY;
+    for (var i in data) {
+        url1 += "&" + i + "=" + data[i];
+    }
+    $.ajax({
+        async: true,
+        url: url1,
+        type: 'GET',
+        success: function (backData) {
+            callback(backData);
+        },
+        error: function (x, y, z) {
+            console.log("error!");
+            if (typeof error == 'function') {
+                error(x, y, z);
+            }
+        }
+    });
+};
+
+module.exports.showApiTimeTamp = function () {
+    var d1 = new Date();
+    return d1.format('yyyyMMddhhmmss');
+};
 
 /**
  * @method 获取页面url后面参数的值
@@ -204,6 +210,40 @@ module.exports.onlyNumber = {
 };
 
 /**
+ *  滚动条相关函数
+ */
+module.exports.scroll = function () {
+    //获取滚动条当前的位置
+    return {
+        getScrollTop: function () {
+            var st = 0;
+            if (document.documentElement && document.documentElement.scrollTop) {
+                st = document.documentElement.scrollTop;
+            }
+            else if (document.body) {
+                st = document.body.scrollTop;
+            }
+            return st;
+        },
+        //获取当前可视范围的高度
+        getClientHeight: function () {
+            var clientHeight = 0;
+            if (document.body.clientHeight && document.documentElement.clientHeight) {
+                clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+            }
+            else {
+                clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+            }
+            return clientHeight;
+        },
+        //获取文档完整的高度
+        getScrollHeight: function () {
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        }
+    }
+};
+
+/**
  *  @method 判断PC 或者是手机平板
  *  @return {boolean}
  */
@@ -219,7 +259,6 @@ module.exports.isPC = function () {
     }
     return flag;
 };
-
 
 /**
  * 字段 非undefined 非空 长度非0

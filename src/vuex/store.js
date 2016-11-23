@@ -10,6 +10,9 @@ const state = {
         icon: 'hide'
     },
     spinner: false,
+    rank: {
+        topid: 5
+    },
     search: {
         station: true,
         data: {
@@ -29,6 +32,9 @@ const mutations = {
     },
     TOGGLE_SPINNER (state) {
         state.spinner = !state.spinner;
+    },
+    UPDATE_TOP_ID(state, id) {
+        state.rank.topid = id;
     }
 };
 export default new Vuex.Store({

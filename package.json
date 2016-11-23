@@ -7,23 +7,19 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "babel-plugin-transform-runtime": "^6.15.0",
     "babel-polyfill": "^6.13.0",
-    "babel-runtime": "^6.11.6",
+    "babel-runtime": "^6.0.0",
     "jquery": "^2.2.3",
     "leancloud-storage": "^1.5.0",
     "vue": "^1.0.26",
-    "vue-hot-reload-api": "^1.3.3",
-    "vue-html-loader": "^1.2.3",
-    "vue-infinite-loading": "^1.1.4",
-    "vue-infinite-scroll": "^2.0.0",
     "vue-loader": "^8.5.2",
     "vue-router": "^0.7.13",
-    "vue-style-loader": "^1.0.0",
     "vuex": "^0.8.2",
     "weui": "^1.0.2"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.13.0",
+    "babel-runtime": "^6.0.0",
     "babel-core": "^6.14.0",
     "babel-cli": "^6.14.0",
     "babel-loader": "^6.2.5",
