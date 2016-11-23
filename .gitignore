@@ -3,3 +3,9 @@ node_modules/
 dist/common.js.map
 dist/main.js
 dist/main.js.map
+*.map
+dist/common-compiled.js
+dist/common.js
+dist/main-compiled.js
+node_modules.rar
+src/vuex/actions-compiled.js
