@@ -8,7 +8,7 @@
 
   .line1 {
     height: 100%;
-    width: 4.4rem;
+    width: 5.1rem;
     float: left;
   }
 
@@ -32,8 +32,15 @@
 
   .line2 {
     height: 100%;
-    width: 1.59rem;
+    width: .79rem;
     float: right;
+    .more {
+      width: 0.4rem;
+      height: 0.4rem;
+      display: inline-block;
+      margin-top: 0.3rem;
+      margin-left: 0.25rem;
+    }
   }
 
   .left {
@@ -52,6 +59,24 @@
     display: block;
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
+  }
+  .more {
+    font-family: Muiicons;
+    font-size: 0.4rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #888;
+    margin-top: 0.3rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    border: 1px solid;
+    border-radius: 0.06rem;
+    width: 0.5rem;
   }
 }
 

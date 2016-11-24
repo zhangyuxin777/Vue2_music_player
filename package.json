@@ -15,7 +15,7 @@
     "vue-loader": "^8.5.2",
     "vue-router": "^0.7.13",
     "vuex": "^0.8.2",
-    "weui": "^1.0.2"
+    "weui": "^1.1.0"
   },
   "devDependencies": {
     "babel-polyfill": "^6.13.0",

@@ -28,3 +28,30 @@ export const toggleSpinner = ({dispatch}) => {
 export const updateTopId = ({dispatch}, id) => {
     dispatch('UPDATE_TOP_ID', id);
 };
+/**
+ * 切换播放的歌曲
+ * @param dispatch
+ * @param obj
+ * @param list
+ */
+export const switchSong = ({dispatch}, obj, list) => {
+    dispatch('SWITCH_SONG', obj);
+    var exist = false;
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].songid == obj.songid) {
+            exist = true;
+            break;
+        }
+    }
+    if (!exist) {
+        dispatch('ADD_PLAY_LIST', obj);
+    }
+};
+/**
+ * 添加到播放列表
+ * @param dispatch
+ * @param obj
+ */
+export const addPlayList = ({dispatch}, obj) => {
+    dispatch('ADD_PLAY_LIST', obj);
+};

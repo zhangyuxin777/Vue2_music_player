@@ -58,18 +58,25 @@
   transform-origin: 50% 100%;
   color: white;
   float: left; }
+
+.play {
+  position: fixed;
+  bottom: 0; }
+
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {
-  .rank-list .split-line {
+  .split-line {
     -webkit-transform: scaleY(0.33);
     transform: scaleY(0.33); }
-  .rank-list .split-line-v {
+
+  .split-line-v {
     -webkit-transform: scaleX(0.33);
     transform: scaleX(0.33); } }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  .rank-list .split-line {
+  .split-line {
     -webkit-transform: scaleY(0.5);
     transform: scaleY(0.5); }
-  .rank-list .split-line-v {
+
+  .split-line-v {
     -webkit-transform: scaleX(0.5);
     transform: scaleX(0.5); } }
 

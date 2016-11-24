@@ -58,9 +58,27 @@
             <div class="info">{{info}}</div>
         </div>
     </div>
+
+    <div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+        <!-- 可选择菜单 -->
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell" @click="hideSheet">
+                <a href="#">菜单1</a>
+            </li>
+            <li class="mui-table-view-cell" @click="hideSheet">
+                <a href="#">菜单2</a>
+            </li>
+        </ul>
+        <!-- 取消菜单 -->
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell">
+                <a href="#sheet1"><b>取消</b></a>
+            </li>
+        </ul>
+    </div>
 </template>
 <script>
-
+    import mui from '../js/mui.min'
     var Common = require('../js/rock');
     export default{
         data () {
@@ -73,6 +91,9 @@
         methods: {
             action: function () {
                 alert('111');
+            },
+            hideSheet(){
+                mui('#sheet1').popover('toggle');
             }
         },
         ready: function () {
@@ -80,9 +101,8 @@
             Common.appView.action = function () {
                 alert('1111');
             };
-            Common.showApiData('https://route.showapi.com/213-4', {topid: 5}, function (data) {
-                console.log(data);
-            });
+//            mui.toast('asdsadas');
+//            mui('#sheet1').popover('toggle');
         }
     }
 
@@ -90,5 +110,4 @@
 </script>
 <style scoped>
     @import 'css/personal.css';
-
 </style>

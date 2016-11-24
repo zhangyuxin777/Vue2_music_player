@@ -10,8 +10,12 @@ const state = {
         icon: 'hide'
     },
     spinner: false,
+    play: {
+        list: [],
+        current:null
+    },
     rank: {
-        topid: 5
+        topid: 26
     },
     search: {
         station: true,
@@ -35,6 +39,12 @@ const mutations = {
     },
     UPDATE_TOP_ID(state, id) {
         state.rank.topid = id;
+    },
+    SWITCH_SONG(state, obj) {
+        state.play.current = obj;
+    },
+    ADD_PLAY_LIST(state, obj) {
+        state.play.list.push(obj);
     }
 };
 export default new Vuex.Store({
