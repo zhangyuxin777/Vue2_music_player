@@ -1,8 +1,10 @@
-<template xmlns:v-on="http://www.w3.org/1999/xhtml">
+<template>
     <div>
         <title-bar></title-bar>
         <router-view></router-view>
         <spinner id='spinner' :style="{ display: spinner }"></spinner>
+        <audio id="player" autoplay="autoplay" v-bind:src="current.url" v-on:timeupdate="updateProgress"
+               v-on:ended="complete"></audio>
     </div>
 </template>
 
@@ -10,14 +12,15 @@
     import titleBar from '../components/titleBar.vue'
     import spinner from '../components/spinner.vue'
     import Common from '../js/rock';
-    import {updateTitle} from '../vuex/actions'
+    import {updateTitle,progress} from '../vuex/actions'
     import store from '../vuex/store';
 
     export default{
         store,
         vuex: {
             actions: {
-                updateTitle
+                updateTitle,
+                progress
             }
         },
         components: {
@@ -31,34 +34,34 @@
                 } else {
                     return 'none'
                 }
+            },
+            status(){
+                return store.state.play.status;
+            },
+            current(){
+                if (store.state.play.current == null) {
+                    store.state.play.current = {
+                        albumpic_small: '',
+                        songname: '',
+                        singername: '',
+                        url: ''
+                    }
+                }
+                return store.state.play.current;
+            }
+        },
+        methods: {
+            updateProgress: function () {
+                this.progress(document.getElementById('player').duration, document.getElementById('player').currentTime);
+                console.log('updateProgress');
+            },
+            complete: function () {
+                console.log('complete');
             }
         },
         ready: function () {
             Common.init(this);
             this.updateTitle('主页面', false, 'hide');
-
-
-            //todo 导入数据用
-//            for (var i = 0; i < rec.record.length; i++) {
-//                var TestObject = Common.AV.Object.extend('Data_Rest');
-//                var Rest_ID = rec.record[i].Rest_ID;
-//                var Work_Date = rec.record[i].Work_Date;
-//                var Rest_Count = parseInt(rec.record[i].Rest_Count);
-//                var Rest_Money = parseInt(rec.record[i].Rest_Money);
-//                var testObject = new TestObject();
-//                testObject.set('Rest_ID', Rest_ID);
-//                testObject.set('Work_Date', Work_Date);
-//                testObject.set('Rest_Count', Rest_Count);
-//                testObject.set('Rest_Money', Rest_Money);
-//                testObject.save().then(function (testObject) {
-//                    console.log(testObject.objectId);
-//                    // 成功
-//                }, function (error) {
-//                    console.log(rec.record[i]);
-//                    console.log('error');
-//                });
-//            }
-//            console.log(rec.record.length);
         }
     }
 

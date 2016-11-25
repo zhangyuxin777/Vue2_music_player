@@ -12,7 +12,13 @@ const state = {
     spinner: false,
     play: {
         list: [],
-        current:null
+        current: null,
+        status: {
+            total: 0,
+            current: 0,
+            playing: false,
+            mode: 0
+        }
     },
     rank: {
         topid: 26
@@ -45,7 +51,11 @@ const mutations = {
     },
     ADD_PLAY_LIST(state, obj) {
         state.play.list.push(obj);
-    }
+    },
+    UPDATE_PROGRESS(state, total, current) {
+        state.play.status.total = total;
+        state.play.status.current = current;
+    },
 };
 export default new Vuex.Store({
     state,

@@ -10,8 +10,8 @@
         <div class="panel">
             <div class="box">
                 <div class="progress-bar">
-                    <div class="progress" style="width: 48%"></div>
-                    <div class="indicater" style="left: 47.5%"></div>
+                    <div class="progress" v-bind:style="{width:progress+'%'}"></div>
+                    <div class="point" v-bind:style="{left:progress+'%'}"></div>
                 </div>
                 <div class="song">
                     <div class="song-name">{{current.songname}}</div>
@@ -41,10 +41,15 @@
                     store.state.play.current = {
                         albumpic_small: '',
                         songname: '',
-                        singername: ''
+                        singername: '',
+                        url: ''
                     }
                 }
                 return store.state.play.current
+            },
+            progress(){
+                console.log((store.state.play.status.current / parseFloat(store.state.play.status.total)));
+                return (store.state.play.status.current / parseFloat(store.state.play.status.total) * 100)
             }
         }
     }

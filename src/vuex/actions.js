@@ -55,3 +55,12 @@ export const switchSong = ({dispatch}, obj, list) => {
 export const addPlayList = ({dispatch}, obj) => {
     dispatch('ADD_PLAY_LIST', obj);
 };
+/**
+ * 添加到播放列表
+ * @param dispatch
+ * @param total
+ * @param current
+ */
+export const progress = ({dispatch}, total, current) => {
+    dispatch('UPDATE_PROGRESS', total, current);
+};

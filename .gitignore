@@ -9,3 +9,4 @@ dist/common.js
 dist/main-compiled.js
 node_modules.rar
 src/vuex/actions-compiled.js
+dist/
