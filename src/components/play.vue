@@ -2,7 +2,7 @@
     @import "css/play.css";
 </style>
 
-<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<template>
     <div class="play-bar">
         <div class="cycle">
             <img v-bind:src="current.albumpic_small" class="album">
@@ -18,8 +18,9 @@
                     <div class="singer-name">{{current.singername}}</div>
                 </div>
                 <div class="control">
-                    <img class="icon" src="../image/play.png">
-                    <img class="icon" src="../image/next.png">
+                    <img class="icon" src="../image/play.png" @click="playClick()" v-bind:class="{'hide':playing}">
+                    <img class="icon" src="../image/pause.png" @click="playClick()" v-bind:class="{'hide':!playing}">
+                    <img class="icon" src="../image/next.png" @click="next()">
                     <img class="icon" src="../image/music_menu.png">
                 </div>
                 <div style="clear: both"></div>
@@ -28,11 +29,15 @@
     </div>
 </template>
 <script>
-    import {} from '../vuex/actions'
+    import {switchPlayerStatus,
+            nextSong} from '../vuex/actions'
     import store from '../vuex/store.js'
     export default {
         vuex: {
-            actions: {}
+            actions: {
+                switchPlayerStatus,
+                nextSong
+            }
         },
         computed: {
             current () {
@@ -45,11 +50,21 @@
                         url: ''
                     }
                 }
-                return store.state.play.current
+                return store.state.play.current;
             },
             progress(){
-                console.log((store.state.play.status.current / parseFloat(store.state.play.status.total)));
-                return (store.state.play.status.current / parseFloat(store.state.play.status.total) * 100)
+                return (store.state.play.status.position / parseFloat(store.state.play.status.total) * 100)
+            },
+            playing(){
+                return store.state.play.status.playing;
+            }
+        },
+        methods: {
+            playClick: function () {
+                this.switchPlayerStatus();
+            },
+            next: function () {
+                this.nextSong();
             }
         }
     }

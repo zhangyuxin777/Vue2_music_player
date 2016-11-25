@@ -56,11 +56,46 @@ export const addPlayList = ({dispatch}, obj) => {
     dispatch('ADD_PLAY_LIST', obj);
 };
 /**
- * 添加到播放列表
+ * 更新进度条
  * @param dispatch
  * @param total
  * @param current
  */
 export const progress = ({dispatch}, total, current) => {
     dispatch('UPDATE_PROGRESS', total, current);
+};
+/**
+ * 切换播放状态
+ * @param dispatch
+ */
+export const switchPlayerStatus = ({dispatch}) => {
+    dispatch('SWITCH_PLAYER_STATUS');
+};
+/**
+ * 将播放状态置为true
+ * @param dispatch
+ */
+export const playerStatus = ({dispatch}) => {
+    dispatch('PLAYER_STATUS');
+};
+/**
+ * 切换播放模式
+ * @param dispatch
+ */
+export const switchMode = ({dispatch}) => {
+    dispatch('SWITCH_MODE');
+};
+/**
+ * 上一首
+ * @param dispatch
+ */
+export const lastSong = ({dispatch}) => {
+    dispatch('LAST_SONG');
+};
+/**
+ * 下一首
+ * @param dispatch
+ */
+export const nextSong = ({dispatch}) => {
+    dispatch('NEXT_SONG');
 };

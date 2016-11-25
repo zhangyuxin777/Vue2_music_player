@@ -17,7 +17,6 @@
                 </div>
             </div>
         </div>
-        一个暂用的界面
     </div>
 
 </template>

@@ -72,6 +72,8 @@
           width: 0.5rem;
           height: 0.5rem;
           margin-left: 0.2rem; }
+  .play-bar .hide {
+    display: none; }
   .play-bar .left {
     float: left; }
   .play-bar .right {

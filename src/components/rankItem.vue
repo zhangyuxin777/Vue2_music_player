@@ -14,7 +14,7 @@
     </div>
 </template>
 <script>
-    import {switchSong,addPlayList} from '../vuex/actions'
+    import {switchSong,addPlayList,playerStatus} from '../vuex/actions'
     import store from '../vuex/store.js'
     export default {
         props: {
@@ -26,14 +26,15 @@
         vuex: {
             actions: {
                 switchSong,
-                addPlayList
+                addPlayList,
+                playerStatus
             }
         },
         methods: {
             clickItem: function () {
                 var _this = this;
-                console.log(store.state.play);
                 _this.switchSong(_this.data, store.state.play.list);
+                _this.playerStatus();
             },
             showMore: function (event) {
                 event.stopPropagation();//阻止点击事件向上冒泡
