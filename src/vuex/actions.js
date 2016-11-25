@@ -36,6 +36,7 @@ export const updateTopId = ({dispatch}, id) => {
  */
 export const switchSong = ({dispatch}, obj, list) => {
     dispatch('SWITCH_SONG', obj);
+    dispatch('SWITCH_ROTATE', false);
     var exist = false;
     for (var i = 0; i < list.length; i++) {
         if (list[i].songid == obj.songid) {
@@ -86,10 +87,19 @@ export const switchMode = ({dispatch}) => {
     dispatch('SWITCH_MODE');
 };
 /**
+ * 重新开始或停止动画
+ * @param dispatch
+ * @param isRotate
+ */
+export const switchRotate = ({dispatch}, isRotate) => {
+    dispatch('SWITCH_ROTATE', isRotate);
+};
+/**
  * 上一首
  * @param dispatch
  */
 export const lastSong = ({dispatch}) => {
+    dispatch('SWITCH_ROTATE', false);
     dispatch('LAST_SONG');
 };
 /**
@@ -97,5 +107,6 @@ export const lastSong = ({dispatch}) => {
  * @param dispatch
  */
 export const nextSong = ({dispatch}) => {
+    dispatch('SWITCH_ROTATE', false);
     dispatch('NEXT_SONG');
 };

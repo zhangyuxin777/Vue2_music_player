@@ -5,7 +5,7 @@
 <template>
     <div class="play-bar">
         <div class="cycle">
-            <img v-bind:src="current.albumpic_small" class="album">
+            <img v-bind:src="current.albumpic_small" v-bind:class="{'ani':rotate}" id="album">
         </div>
         <div class="panel">
             <div class="box">
@@ -56,7 +56,13 @@
                 return (store.state.play.status.position / parseFloat(store.state.play.status.total) * 100)
             },
             playing(){
+                if (document.getElementById('album')) {
+                    document.getElementById('album').style.animationPlayState = store.state.play.status.playing ? 'running' : "paused";
+                }
                 return store.state.play.status.playing;
+            },
+            rotate(){
+                return store.state.play.status.rotate;
             }
         },
         methods: {

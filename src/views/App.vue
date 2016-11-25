@@ -16,7 +16,10 @@
     import titleBar from '../components/titleBar.vue'
     import spinner from '../components/spinner.vue'
     import Common from '../js/rock';
-    import {updateTitle,progress,nextSong} from '../vuex/actions'
+    import {updateTitle,
+            progress,
+            nextSong,
+            switchRotate} from '../vuex/actions'
     import store from '../vuex/store';
     var player;
     export default{
@@ -24,7 +27,9 @@
         vuex: {
             actions: {
                 updateTitle,
-                progress
+                progress,
+                nextSong,
+                switchRotate
             }
         },
         components: {
@@ -78,9 +83,11 @@
             complete: function () {
                 console.log('complete');
                 this.nextSong();
+                this.switchRotate(false);
             },
             playEvent: function () {
                 console.log('playEvent');
+                this.switchRotate(true);
             },
             pauseEvent: function () {
                 console.log('pauseEvent');

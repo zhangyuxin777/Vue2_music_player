@@ -17,7 +17,8 @@ const state = {
                 total: 10000,
                 position: 1,
                 playing: false,
-                mode: 1
+                mode: 1,
+                rotate: false
             }
         },
         rank: {
@@ -65,6 +66,9 @@ const mutations = {
     PLAYER_STATUS(state) {
         state.play.status.playing = true;
     },
+    SWITCH_ROTATE(state, isRotate) {
+        state.play.status.rotate = isRotate;
+    },
     SWITCH_MODE(state) {
         if (state.play.status.mode == 0) {
             state.play.status.mode = 1;
@@ -74,6 +78,7 @@ const mutations = {
             state.play.status.mode = 0;
         }
     },
+
     LAST_SONG(state) {
         var list = state.play.list;
         state.play.status.playing = true;
@@ -93,6 +98,7 @@ const mutations = {
             state.play.current = list[Math.floor(Math.random() * list.length)];
         }
     },
+
     NEXT_SONG(state) {
         var list = state.play.list;
         state.play.status.playing = true;
