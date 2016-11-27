@@ -1,0 +1,56 @@
+input[type=search] {
+  background: rgba(221, 221, 221, 0.8);
+  width: 6rem;
+  margin: 0.2rem 0.2rem 0 0.2rem; }
+
+.mm-bg {
+  background-color: #3ac0b5;
+  color: #404040;
+  height: 100%;
+  width: 100%;
+  position: relative; }
+  .mm-bg .list-1 {
+    width: 6rem;
+    height: 1.8rem;
+    background: rgba(221, 221, 221, 0.8);
+    margin: 0.45rem auto; }
+  .mm-bg .list-2 {
+    width: 6rem;
+    height: 1.4rem;
+    margin: 0.2rem auto; }
+  .mm-bg .like {
+    width: 2.9rem;
+    height: 100%;
+    float: left;
+    background: rgba(221, 221, 221, 0.8); }
+  .mm-bg .download {
+    width: 2.9rem;
+    height: 100%;
+    float: right;
+    background: rgba(221, 221, 221, 0.8); }
+  .mm-bg .info {
+    width: 1.8rem;
+    color: #606060;
+    height: 100%;
+    float: left; }
+    .mm-bg .info .title {
+      font-size: 0.36rem;
+      margin: 0.3rem 0 0 0.2rem; }
+    .mm-bg .info .number {
+      font-size: 0.24rem;
+      margin: 0.1rem 0 0 0.2rem; }
+  .mm-bg .icon {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: 0.2rem 0.2rem 0 0;
+    float: right; }
+  .mm-bg .clear {
+    clear: both; }
+  .mm-bg .ic_like {
+    background: url("../image/music_icon_like.png");
+    background-size: 0.8rem 0.8rem; }
+  .mm-bg .ic_down {
+    background: url("../image/music_icon_downlist.png");
+    background-size: 0.8rem 0.8rem; }
+
+/*# sourceMappingURL=musicMain.css.map */

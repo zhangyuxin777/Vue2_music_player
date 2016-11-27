@@ -1,5 +1,5 @@
 module.exports = function (router) {
-    var main = require('./views/personal.vue');
+    var main = require('./views/musicMain.vue');
     var mainView = require('./views/mainView.vue');
     var search = require('./views/search.vue');
     var rankList = require('./views/rankList.vue');
