@@ -19,20 +19,15 @@ const state = {
                 playing: false,
                 mode: 1,
                 rotate: false
-            }
+            },
+            isShow: true
         },
         rank: {
             topid: 26
         }
         ,
         search: {
-            station: true,
-            data: {
-                startStation: '北京',
-                endStation: '上海',
-                startTime: '',
-                train: ''
-            }
+            keyword: ''
         }
     }
     ;
@@ -117,7 +112,11 @@ const mutations = {
         } else {
             state.play.current = list[Math.floor(Math.random() * list.length)];
         }
-    }
+    },
+
+    UPDATE_KEYWORD(state, keyword) {
+        state.search.keyword = keyword;
+    },
 };
 export default new Vuex.Store({
     state,

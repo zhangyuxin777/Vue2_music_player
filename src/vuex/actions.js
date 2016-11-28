@@ -33,20 +33,26 @@ export const updateTopId = ({dispatch}, id) => {
  * @param dispatch
  * @param obj
  * @param list
+ * @param current
  */
-export const switchSong = ({dispatch}, obj, list) => {
-    dispatch('SWITCH_SONG', obj);
-    dispatch('SWITCH_ROTATE', false);
-    var exist = false;
-    for (var i = 0; i < list.length; i++) {
-        if (list[i].songid == obj.songid) {
-            exist = true;
-            break;
+export const switchSong = ({dispatch}, obj, list, current) => {
+    if (obj.songid != current.songid) {
+        dispatch('PLAYER_STATUS');
+        dispatch('SWITCH_ROTATE', false);
+        dispatch('SWITCH_SONG', obj);
+        var exist = false;
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].songid == obj.songid) {
+                exist = true;
+                break;
+            }
+        }
+        if (!exist) {
+            dispatch('ADD_PLAY_LIST', obj);
         }
     }
-    if (!exist) {
-        dispatch('ADD_PLAY_LIST', obj);
-    }
+
+
 };
 /**
  * 添加到播放列表
@@ -109,4 +115,13 @@ export const lastSong = ({dispatch}) => {
 export const nextSong = ({dispatch}) => {
     dispatch('SWITCH_ROTATE', false);
     dispatch('NEXT_SONG');
+};
+
+/**
+ * 下一首
+ * @param dispatch
+ * @param keyword
+ */
+export const updateKeyword = ({dispatch}, keyword) => {
+    dispatch('UPDATE_KEYWORD', keyword);
 };

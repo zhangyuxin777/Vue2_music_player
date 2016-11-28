@@ -33,8 +33,8 @@
         methods: {
             clickItem: function () {
                 var _this = this;
-                _this.switchSong(_this.data, store.state.play.list);
-                _this.playerStatus();
+                _this.switchSong(_this.data, store.state.play.list,store.state.play.current);
+//                _this.playerStatus();
             },
             showMore: function (event) {
                 event.stopPropagation();//阻止点击事件向上冒泡

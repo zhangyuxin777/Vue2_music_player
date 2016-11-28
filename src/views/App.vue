@@ -9,12 +9,17 @@
                v-on:ended="complete"
                v-on:play="playEvent"
                v-on:pause="pauseEvent"></audio>
+        <div class="play" v-bind:class="{'hide':!isShow}">
+            <play></play>
+        </div>
     </div>
+
 </template>
 
 <script type="text/ecmascript-6">
     import titleBar from '../components/titleBar.vue'
     import spinner from '../components/spinner.vue'
+    import play from '../components/play.vue'
     import Common from '../js/rock';
     import {updateTitle,
             progress,
@@ -34,7 +39,8 @@
         },
         components: {
             titleBar,
-            spinner
+            spinner,
+            play
         },
         computed: {
             spinner () {
@@ -63,6 +69,9 @@
                         url: ''
                     }
                 }
+                if (!store.state.play.current.url) {
+                    store.state.play.current.url = store.state.play.current.m4a;
+                }
                 return store.state.play.current;
             },
             playing(){
@@ -74,6 +83,9 @@
                     }
                 }
                 return store.state.play.status.playing;
+            },
+            isShow(){
+                return store.state.play.isShow;
             }
         },
         methods: {
@@ -104,5 +116,10 @@
 <style>
     .hide {
         display: none;
+    }
+
+    .play {
+        position: fixed;
+        bottom: 0;
     }
 </style>

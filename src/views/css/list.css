@@ -1,11 +1,11 @@
-.rank-list .tab {
+.list-box .tab {
   width: 100%;
   height: 0.6rem;
   position: fixed;
   background: white;
   top: 0.8rem;
   z-index: 999997; }
-  .rank-list .tab .bar {
+  .list-box .tab .bar {
     height: 100%;
     line-height: 0.6rem;
     width: 1.06rem;
@@ -14,7 +14,7 @@
     float: left;
     color: #404040;
     border-bottom: 1px #d7d7d7 solid; }
-  .rank-list .tab .bar:after {
+  .list-box .tab .bar:after {
     content: '';
     height: 4px;
     width: 100%;
@@ -25,9 +25,9 @@
     background: -webkit-linear-gradient(#d7d7d7, white);
     background: -moz-linear-gradient(#d7d7d7, white);
     background: linear-gradient(#d7d7d7, white); }
-  .rank-list .tab .active-bar {
+  .list-box .tab .active-bar {
     color: #2fcdfe; }
-  .rank-list .tab .active-bar:after {
+  .list-box .tab .active-bar:after {
     content: '';
     height: 4px;
     width: 100%;
@@ -37,10 +37,13 @@
     display: block;
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%; }
-.rank-list .list {
+.list-box .list {
   width: 6.4rem;
-  margin-top: .6rem; }
-.rank-list .split-line {
+  margin-top: .6rem;
+  margin-bottom: 1.4rem; }
+.list-box .mar-t0 {
+  margin-top: 0; }
+.list-box .split-line {
   content: '';
   height: 1px;
   width: 100%;
@@ -48,7 +51,7 @@
   display: block;
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%; }
-.rank-list .split-line-v {
+.list-box .split-line-v {
   content: '';
   height: 100%;
   width: 1px;
@@ -58,10 +61,6 @@
   transform-origin: 50% 100%;
   color: white;
   float: left; }
-
-.play {
-  position: fixed;
-  bottom: 0; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {
   .split-line {
@@ -80,4 +79,4 @@
     -webkit-transform: scaleX(0.5);
     transform: scaleX(0.5); } }
 
-/*# sourceMappingURL=rankList.css.map */
+/*# sourceMappingURL=list.css.map */

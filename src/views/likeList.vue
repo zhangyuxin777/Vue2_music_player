@@ -4,22 +4,12 @@
 
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml">
     <div class="list-box">
-        <div class="tab">
-            <div class="bar" style="width: 1.08rem" v-bind:class="{'active-bar':rank.topid==26}" @click="load(26)">
-                热歌
-            </div>
-            <div class="bar" v-bind:class="{'active-bar':rank.topid==5}" @click="load(5)">内地</div>
-            <div class="bar" v-bind:class="{'active-bar':rank.topid==6}" @click="load(6)">港台</div>
-            <div class="bar" v-bind:class="{'active-bar':rank.topid==16}" @click="load(16)">韩国</div>
-            <div class="bar" v-bind:class="{'active-bar':rank.topid==17}" @click="load(17)">日本</div>
-            <div class="bar" style="width: 1.08rem" v-bind:class="{'active-bar':rank.topid==3}" @click="load(3)">
-                欧美
-            </div>
-            <span style="clear: both"></span>
-        </div>
         <div class="list">
             <item :data="data" v-for="data in list"></item>
         </div>
+    </div>
+    <div class="play">
+        <play></play>
     </div>
 </template>
 <script>

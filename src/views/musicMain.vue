@@ -15,7 +15,7 @@
                     <div class="title">最喜欢</div>
                     <div class="number">0 首</div>
                 </div>
-                <div class="ic_like icon "></div>
+                <div class="ic_like icon"></div>
             </div>
             <div class="download">
                 <div class="info">
@@ -28,16 +28,14 @@
         <div class="clear"></div>
         <div class="list-1 playlist"></div>
     </div>
-
-    <div class="play">
-        <play></play>
-    </div>
-
 </template>
 <script>
     import mui from '../js/mui.min'
     var Common = require('../js/rock');
     import play from '../components/play.vue'
+    import {updateTitle,
+            toggleSpinner} from '../vuex/actions'
+    import store from '../vuex/store';
     export default{
         data () {
             return {
@@ -46,19 +44,22 @@
                 info: ''
             }
         },
+        vuex: {
+            actions: {
+                updateTitle,
+                toggleSpinner
+            }
+        },
         components: {
             play
         },
-        methods: {
-            action: function () {
-                alert('111');
-            }
-        },
+        methods: {},
         ready: function () {
             var _this = this;
+            _this.updateTitle('主页', false, 'search');
             Common.appView.action = function () {
-                alert('1111');
-            };
+                _this.$route.router.go({path: '/music/searchList'})
+            }
         }
     }
 
