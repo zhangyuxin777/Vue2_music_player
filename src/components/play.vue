@@ -57,6 +57,7 @@
             },
             playing(){
                 if (document.getElementById('album')) {
+                    document.getElementById('album').style.webkitAnimationPlayState = store.state.play.status.playing ? 'running' : "paused";
                     document.getElementById('album').style.animationPlayState = store.state.play.status.playing ? 'running' : "paused";
                 }
                 return store.state.play.status.playing;

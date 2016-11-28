@@ -3,6 +3,9 @@ module.exports = function (router) {
     var mainView = require('./views/mainView.vue');
     var rankList = require('./views/rankList.vue');
     var searchList = require('./views/searchList.vue');
+    var likeList = require('./views/likeList.vue');
+    var playList = require('./views/likeList.vue');
+    var downList = require('./views/likeList.vue');
     //路由表
     router.map({
             //默认
@@ -20,6 +23,15 @@ module.exports = function (router) {
                     },
                     '/searchList': {
                         component: searchList
+                    },
+                    '/likeList': {
+                        component: likeList
+                    },
+                    '/playList': {
+                        component: playList
+                    },
+                    '/downList': {
+                        component: downList
                     }
                 }
             }

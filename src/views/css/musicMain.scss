@@ -25,6 +25,16 @@ input[type=search] {
     height: 1.4rem;
     margin: 0.2rem auto;
   }
+  .rank {
+    width: 2.9rem;
+    height: 100%;
+    float: left;
+  }
+  .playlist{
+    width: 2.9rem;
+    height: 100%;
+    float: left;
+  }
   .like {
     width: 2.9rem;
     height: 100%;
@@ -61,11 +71,19 @@ input[type=search] {
     clear: both;
   }
   .ic_like {
-    background: url("../image/music_icon_like.png");
+    background: url("../../image/music_icon_like.png");
     background-size: $iconSize $iconSize;
   }
   .ic_down {
-    background: url("../image/music_icon_downlist.png");
+    background: url("../../image/music_icon_downlist.png");
+    background-size: $iconSize $iconSize;
+  }
+  .ic_rank{
+    background: url("../../image/music_icon_rank.png");
+    background-size: $iconSize $iconSize;
+  }
+  .ic_play{
+    background: url("../../image/music_icon_playlist.png");
     background-size: $iconSize $iconSize;
   }
 }

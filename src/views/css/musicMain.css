@@ -18,6 +18,14 @@ input[type=search] {
     width: 6rem;
     height: 1.4rem;
     margin: 0.2rem auto; }
+  .mm-bg .rank {
+    width: 2.9rem;
+    height: 100%;
+    float: left; }
+  .mm-bg .playlist {
+    width: 2.9rem;
+    height: 100%;
+    float: left; }
   .mm-bg .like {
     width: 2.9rem;
     height: 100%;
@@ -47,10 +55,16 @@ input[type=search] {
   .mm-bg .clear {
     clear: both; }
   .mm-bg .ic_like {
-    background: url("../image/music_icon_like.png");
+    background: url("../../image/music_icon_like.png");
     background-size: 0.8rem 0.8rem; }
   .mm-bg .ic_down {
-    background: url("../image/music_icon_downlist.png");
+    background: url("../../image/music_icon_downlist.png");
+    background-size: 0.8rem 0.8rem; }
+  .mm-bg .ic_rank {
+    background: url("../../image/music_icon_rank.png");
+    background-size: 0.8rem 0.8rem; }
+  .mm-bg .ic_play {
+    background: url("../../image/music_icon_playlist.png");
     background-size: 0.8rem 0.8rem; }
 
 /*# sourceMappingURL=musicMain.css.map */

@@ -6,18 +6,23 @@
             </form>
 
         </div>
-        <div class="list-1 rank" v-link="'/music/rankList'">
-
+        <div class="list-1" v-link="'/music/rankList'">
+            <div class="rank">
+                <div class="info">
+                    <div class="title">排行榜</div>
+                </div>
+                <div class="ic_rank icon"></div>
+            </div>
         </div>
         <div class="list-2">
-            <div class="like">
+            <div class="like" v-link="'/music/likeList'">
                 <div class="info">
                     <div class="title">最喜欢</div>
                     <div class="number">0 首</div>
                 </div>
                 <div class="ic_like icon"></div>
             </div>
-            <div class="download">
+            <div class="download" v-link="'/music/downList'">
                 <div class="info">
                     <div class="title">已下载</div>
                     <div class="number">0 首</div>
@@ -26,7 +31,14 @@
             </div>
         </div>
         <div class="clear"></div>
-        <div class="list-1 playlist"></div>
+        <div class="list-1" v-link="'/music/playList'">
+            <div class="playlist">
+                <div class="info">
+                    <div class="title">播放列表</div>
+                </div>
+                <div class="ic_play icon"></div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
