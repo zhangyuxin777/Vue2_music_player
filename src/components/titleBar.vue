@@ -2,20 +2,20 @@
     @import "css/titleBar.css";
 </style>
 
-<template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<template>
     <div class="title-bar">
         <div class="btn-div-left left">
             <span id="backBtn" class="btn left mui-icon-undo" @click="back()"
-                  v-bind:class="{'hide':!titleBar.isShowBack}"></span>
+                  :class="{'hide':!titleBar.isShowBack}"></span>
         </div>
-        <span class="title" id="title" v-bind:class="{'hide': titleBar.icon=='sBar'}">{{titleBar.title}}</span>
+        <span class="title" id="title" :class="{'hide': titleBar.icon=='sBar'}">{{titleBar.title}}</span>
         <form class="search" action="javascrpit:void(0)" @submit.prevent="actionClick"
-              v-bind:class="{'hide': titleBar.icon!='sBar'}">
+              :class="{'hide': titleBar.icon!='sBar'}">
             <input type="search" placeholder="搜索" id="keyword"/>
         </form>
         <div class="btn-div-right right">
         <span id="actionBtn" class="btn right"
-              v-bind:class="{'hide': titleBar.icon=='hide',
+              :class="{'hide': titleBar.icon=='hide',
                 'mui-icon-checkmarkempty': titleBar.icon=='complete',
                 'mui-icon-search ' : titleBar.icon=='sBar',
                 'mui-icon-compose': titleBar.icon=='change',

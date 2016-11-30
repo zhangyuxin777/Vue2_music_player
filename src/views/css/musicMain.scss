@@ -1,5 +1,4 @@
 ﻿@import "../../css/wl-common";
-
 input[type=search] {
   background: rgba(221, 221, 221, 0.8);
   width: 6rem;
@@ -70,6 +69,29 @@ input[type=search] {
   .clear {
     clear: both;
   }
+
+  .sprites {
+    height: 0.5rem;
+    width: 0.5rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+    background-size: 7.2rem 7.2rem;
+    margin: 0.3rem auto 0.15rem auto;
+  }
+
+  .icon1 {
+    width: 0.57rem;
+    margin: 0.14rem auto 0.1rem auto;
+    @include bgPosition($spriteSize, $spriteSize, 50, 50, 0, 0);
+  }
+
+  .icon2 {
+    width: 0.57rem;
+    margin: 0.14rem auto 0.1rem auto;
+    @include bgPosition($spriteSize, $spriteSize, 57, 50, 60, 0);
+  }
+
   .ic_like {
     background: url("../../image/music_icon_like.png");
     background-size: $iconSize $iconSize;

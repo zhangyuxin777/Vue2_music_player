@@ -7,7 +7,7 @@
     position: fixed;
     background: white;
     top: 0.8rem;
-    z-index: 999997;
+    z-index: 999994;
     .bar {
       height: 100%;
       line-height: 0.6rem;
@@ -53,32 +53,4 @@
   .mar-t0 {
     margin-top: 0;
   }
-  .split-line {
-    @include split-line();
-  }
-  .split-line-v {
-    @include split-line-v();
-    color: white;
-    float: left;
-  }
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 3) {
-  .split-line {
-    @include split-line-rate($line-R3);
-  }
-  .split-line-v {
-    @include split-line-rate-v($line-R3);
-  }
-
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  .split-line {
-    @include split-line-rate($line-R2);
-  }
-  .split-line-v {
-    @include split-line-rate-v($line-R2);
-  }
-
 }

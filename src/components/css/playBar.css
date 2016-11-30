@@ -2,7 +2,7 @@
   height: 1.4rem;
   width: 100%;
   position: relative;
-  z-index: 999997; }
+  z-index: 999990; }
   .play-bar .cycle {
     width: 1.2rem;
     height: 1.2rem;
@@ -82,34 +82,44 @@
         height: 100%;
         line-height: 1.4rem;
         float: left; }
-        .play-bar .panel .box .control .icon {
+        .play-bar .panel .box .control .sprites {
           width: 0.5rem;
           height: 0.5rem;
+          overflow: hidden;
+          box-sizing: border-box;
+          background: transparent url("../../image/icon-list.png") 0 0 no-repeat;
+          background-size: 7.2rem 7.2rem;
+          float: left;
+          margin-top: 0.26rem;
           margin-left: 0.2rem; }
-  .play-bar .hide {
-    display: none; }
-  .play-bar .left {
-    float: left; }
-  .play-bar .right {
-    float: right; }
-  .play-bar .split-line {
-    content: '';
-    height: 1px;
-    width: 100%;
-    background-color: #d7d7d7;
-    display: block;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%; }
-  .play-bar .split-line-v {
-    content: '';
-    height: 100%;
-    width: 1px;
-    background-color: #d7d7d7;
-    display: block;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-    color: white;
-    float: left; }
+        .play-bar .panel .box .control .ic_menu {
+          background-position: 0% 0%; }
+        .play-bar .panel .box .control .ic_next {
+          background-position: 8.95522% 0%; }
+        .play-bar .panel .box .control .ic_pause {
+          background-position: 17.91045% 0%; }
+        .play-bar .panel .box .control .ic_play {
+          background-position: 26.86567% 0%; }
+
+.split-line {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: #d7d7d7;
+  display: block;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%; }
+
+.split-line-v {
+  content: '';
+  height: 100%;
+  width: 1px;
+  background-color: #d7d7d7;
+  display: block;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  color: white;
+  float: left; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {
   .rank-item:after {
@@ -128,4 +138,4 @@
     -webkit-transform: scaleY(0.5);
     transform: scaleY(0.5); } }
 
-/*# sourceMappingURL=play.css.map */
+/*# sourceMappingURL=playBar.css.map */

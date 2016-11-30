@@ -1,4 +1,6 @@
 ﻿$pageWidth: 6.4rem;
+$spriteSize: 720;
+$spriteRem: 7.2rem;
 
 $webkit-transform-name: -webkit-transform !default;
 $transform-name: transform !default;
@@ -8,6 +10,7 @@ $line-R3: 0.33 !default;
 
 //text size
 $mainColor: #2fcdfe;
+$red: #e61624;
 $lineColor: #d7d7d7;
 $textLeftColor: #404040;
 $textSizeSmall: 0.24rem;
@@ -80,6 +83,7 @@ $btnRadius: 0.08rem;
   -webkit-transform: scaleX($rate);
   transform: scaleX($rate);
 }
+
 
 
 

@@ -2,7 +2,7 @@
     @import "css/list.css";
 </style>
 
-<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<template>
     <div class="list-box">
         <div class="list">
             <item :data="data" v-for="data in list"></item>
@@ -14,7 +14,7 @@
 </template>
 <script>
     import item from '../components/rankItem.vue'
-    import play from '../components/play.vue'
+    import play from '../components/playBar.vue'
     import Common from '../js/rock';
     import store from '../vuex/store';
     import {updateTitle,

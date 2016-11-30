@@ -2,17 +2,17 @@
     @import "css/list.css";
 </style>
 
-<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<template>
     <div class="list-box">
         <div class="tab">
-            <div class="bar" style="width: 1.08rem" v-bind:class="{'active-bar':rank.topid==26}" @click="load(26)">
+            <div class="bar" style="width: 1.08rem" :class="{'active-bar':rank.topid==26}" @click="load(26)">
                 热歌
             </div>
-            <div class="bar" v-bind:class="{'active-bar':rank.topid==5}" @click="load(5)">内地</div>
-            <div class="bar" v-bind:class="{'active-bar':rank.topid==6}" @click="load(6)">港台</div>
-            <div class="bar" v-bind:class="{'active-bar':rank.topid==16}" @click="load(16)">韩国</div>
-            <div class="bar" v-bind:class="{'active-bar':rank.topid==17}" @click="load(17)">日本</div>
-            <div class="bar" style="width: 1.08rem" v-bind:class="{'active-bar':rank.topid==3}" @click="load(3)">
+            <div class="bar" :class="{'active-bar':rank.topid==5}" @click="load(5)">内地</div>
+            <div class="bar" :class="{'active-bar':rank.topid==6}" @click="load(6)">港台</div>
+            <div class="bar" :class="{'active-bar':rank.topid==16}" @click="load(16)">韩国</div>
+            <div class="bar" :class="{'active-bar':rank.topid==17}" @click="load(17)">日本</div>
+            <div class="bar" style="width: 1.08rem" :class="{'active-bar':rank.topid==3}" @click="load(3)">
                 欧美
             </div>
             <span style="clear: both"></span>
@@ -24,15 +24,12 @@
 </template>
 <script>
     import item from '../components/rankItem.vue'
-    import play from '../components/play.vue'
+    import play from '../components/playBar.vue'
     import Common from '../js/rock';
     import store from '../vuex/store';
     import {updateTitle,
             toggleSpinner,
             updateTopId} from '../vuex/actions'
-    var recordIndex = 0;
-    var todayCount = 0;
-    var todayMoney = 0;
     export default{
         data: function () {
             return {

@@ -52,10 +52,6 @@
     background-color: #5fcdae; }
   .title-bar .btn-div-right:active {
     background-color: #5fcdae; }
-  .title-bar .left {
-    float: left; }
-  .title-bar .right {
-    float: right; }
   .title-bar .hide {
     display: none; }
   .title-bar .btn-div-right {

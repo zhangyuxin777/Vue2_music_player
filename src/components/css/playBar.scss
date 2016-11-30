@@ -4,7 +4,7 @@
   height: 1.4rem;
   width: 100%;
   position: relative;
-  z-index: 999997;
+  z-index: 999990;
   .cycle {
     width: 1.2rem;
     height: 1.2rem;
@@ -100,31 +100,44 @@
         height: 100%;
         line-height: 1.4rem;
         float: left;
-        .icon {
+
+        .sprites {
           width: 0.5rem;
           height: 0.5rem;
+          overflow: hidden;
+          box-sizing: border-box;
+          background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+          background-size: $spriteRem $spriteRem;
+          float: left;
+          margin-top: 0.26rem;
           margin-left: 0.2rem;
+        }
+
+        .ic_menu {
+          @include bgPosition($spriteSize, $spriteSize, 50, 50, 0, 0);
+        }
+        .ic_next {
+          @include bgPosition($spriteSize, $spriteSize, 50, 50, 60, 0);
+        }
+        .ic_pause {
+          @include bgPosition($spriteSize, $spriteSize, 50, 50, 120, 0);
+        }
+        .ic_play {
+          @include bgPosition($spriteSize, $spriteSize, 50, 50, 180, 0);
         }
       }
     }
   }
-  .hide {
-    display: none;
-  }
-  .left {
-    float: left;
-  }
-  .right {
-    float: right;
-  }
-  .split-line {
-    @include split-line();
-  }
-  .split-line-v {
-    @include split-line-v();
-    color: white;
-    float: left;
-  }
+}
+
+.split-line {
+  @include split-line();
+}
+
+.split-line-v {
+  @include split-line-v();
+  color: white;
+  float: left;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {

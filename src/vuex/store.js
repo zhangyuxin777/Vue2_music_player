@@ -12,7 +12,13 @@ const state = {
         spinner: false,
         play: {
             list: [],
-            current: null,
+            current: {
+                albumpic_small: '',
+                songname: '',
+                singername: '',
+                url: '',
+                songid: ''
+            },
             status: {
                 total: 10000,
                 position: 1,
@@ -20,7 +26,10 @@ const state = {
                 mode: 1,
                 rotate: false
             },
-            isShow: true
+            isShow: true,
+            popList: {
+                pop: false
+            }
         },
         rank: {
             topid: 26
@@ -49,7 +58,7 @@ const mutations = {
         state.play.current = obj;
     },
     ADD_PLAY_LIST(state, obj) {
-        state.play.list.push(obj);
+        state.play.list.unshift(obj);
     },
     UPDATE_PROGRESS(state, total, position) {
         state.play.status.total = total;
@@ -96,8 +105,16 @@ const mutations = {
 
     NEXT_SONG(state) {
         var list = state.play.list;
+        if (list.length == 0) {
+            return;
+        }
+        if (list.length == 1) {
+            return;
+        }
+        state.play.status.rotate = false;
         state.play.status.playing = true;
         if (state.play.status.mode == 0) {
+
         } else if (state.play.status.mode == 1) {
             for (var i = 0; i < list.length; i++) {
                 if (state.play.current.songid == list[i].songid) {
@@ -117,6 +134,54 @@ const mutations = {
     UPDATE_KEYWORD(state, keyword) {
         state.search.keyword = keyword;
     },
+    UPDATE_POP_LIST(state, pop) {
+        state.play.popList.pop = pop;
+    },
+    REMOVE_FROM_PLAY_LIST(state, song) {
+        var list = state.play.list;
+        for (var i = 0; i < list.length; i++) {
+            if (list.length == 1) {
+                state.play.status.playing = false;
+                state.play.status.position = 1;
+                state.play.status.rotate = false;
+                state.play.status.total = 10000;
+                state.play.current = {
+                    albumpic_small: '',
+                    songname: '',
+                    singername: '',
+                    songid: '',
+                    url: 'clean'
+                };
+            }
+            if (song.songid == list[i].songid) {
+                if (song.songid == state.play.current.songid) {
+                    if (i = list.length - 1) {
+                        state.play.current = list[0];
+                    } else {
+                        state.play.current = list[i + 1];
+                    }
+                }
+                list.splice(i, 1);
+                break;
+            }
+        }
+    },
+    CLEAN_PLAY_LIST(state) {
+        state.play.list = [];
+        state.play.status.playing = false;
+        state.play.status.position = 1;
+        state.play.status.rotate = false;
+        state.play.status.total = 10000;
+        state.play.current = {
+            albumpic_small: '',
+            songname: '',
+            singername: '',
+            songid: '',
+            url: 'clean'
+        };
+
+
+    }
 };
 export default new Vuex.Store({
     state,

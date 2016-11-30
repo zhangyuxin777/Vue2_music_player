@@ -113,7 +113,6 @@ export const lastSong = ({dispatch}) => {
  * @param dispatch
  */
 export const nextSong = ({dispatch}) => {
-    dispatch('SWITCH_ROTATE', false);
     dispatch('NEXT_SONG');
 };
 
@@ -124,4 +123,29 @@ export const nextSong = ({dispatch}) => {
  */
 export const updateKeyword = ({dispatch}, keyword) => {
     dispatch('UPDATE_KEYWORD', keyword);
+};
+
+/**
+ * 切换播放列表
+ * @param dispatch
+ * @param pop
+ */
+export const togglePopList = ({dispatch}, pop) => {
+    dispatch('UPDATE_POP_LIST', pop);
+};
+/**
+ * 从播放列表删除
+ * @param dispatch
+ * @param song
+ */
+export const removeFromPlayList = ({dispatch}, song) => {
+    dispatch('REMOVE_FROM_PLAY_LIST', song);
+};
+/**
+ * 清空播放列表
+ * @param dispatch
+ * @param song
+ */
+export const cleanPlayList = ({dispatch}, song) => {
+    dispatch('CLEAN_PLAY_LIST', song);
 };

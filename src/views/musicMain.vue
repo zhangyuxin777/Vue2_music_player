@@ -1,4 +1,4 @@
-<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<template >
     <div class="mm-bg">
         <div class="search">
             <form onsubmit="{alert('sdsd')}">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="clear"></div>
-        <div class="list-1" v-link="'/music/playList'">
+        <div class="list-1" @click="toPop">
             <div class="playlist">
                 <div class="info">
                     <div class="title">播放列表</div>
@@ -44,9 +44,10 @@
 <script>
     import mui from '../js/mui.min'
     var Common = require('../js/rock');
-    import play from '../components/play.vue'
+    import play from '../components/playBar.vue'
     import {updateTitle,
-            toggleSpinner} from '../vuex/actions'
+            toggleSpinner,
+            togglePopList} from '../vuex/actions'
     import store from '../vuex/store';
     export default{
         data () {
@@ -59,13 +60,18 @@
         vuex: {
             actions: {
                 updateTitle,
-                toggleSpinner
+                toggleSpinner,
+                togglePopList
             }
         },
         components: {
             play
         },
-        methods: {},
+        methods: {
+            toPop: function () {
+                this.togglePopList(true);
+            }
+        },
         ready: function () {
             var _this = this;
             _this.updateTitle('主页', false, 'search');

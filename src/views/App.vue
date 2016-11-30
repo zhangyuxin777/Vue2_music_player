@@ -1,25 +1,31 @@
+<style scoped>
+    @import "css/app.css";
+</style>
 <template>
     <div>
         <title-bar></title-bar>
         <router-view></router-view>
         <spinner id='spinner' :style="{ display: spinner }"></spinner>
         <audio id="player" autoplay="autoplay" rel="{{playing}}" val="{{mode}}"
-               v-bind:src="current.url"
-               v-on:timeupdate="updateProgress"
-               v-on:ended="complete"
-               v-on:play="playEvent"
-               v-on:pause="pauseEvent"></audio>
-        <div class="play" v-bind:class="{'hide':!isShow}">
-            <play></play>
+               :src="current.url"
+               @timeupdate="updateProgress"
+               @ended="complete"
+               @play="playEvent"
+               @pause="pauseEvent"
+               @error="error"
+               @stalled="stalled"></audio>
+        <div class="play" :class="{'hide':!isShow}">
+            <play-bar></play-bar>
         </div>
+        <pop-list></pop-list>
     </div>
-
 </template>
 
 <script type="text/ecmascript-6">
     import titleBar from '../components/titleBar.vue'
     import spinner from '../components/spinner.vue'
-    import play from '../components/play.vue'
+    import playBar from '../components/playBar.vue'
+    import popList from '../views/playList.vue'
     import Common from '../js/rock';
     import {updateTitle,
             progress,
@@ -27,6 +33,7 @@
             switchRotate} from '../vuex/actions'
     import store from '../vuex/store';
     var player;
+    var urlError = false;
     export default{
         store,
         vuex: {
@@ -40,7 +47,8 @@
         components: {
             titleBar,
             spinner,
-            play
+            playBar,
+            popList
         },
         computed: {
             spinner () {
@@ -61,26 +69,22 @@
                 return store.state.play.status.mode;
             },
             current(){
-                if (store.state.play.current == null) {
-                    store.state.play.current = {
-                        albumpic_small: '',
-                        songname: '',
-                        singername: '',
-                        url: ''
-                    }
-                }
                 if (!store.state.play.current.url) {
                     store.state.play.current.url = store.state.play.current.m4a;
                 }
+                console.log(store.state.play.current);
                 return store.state.play.current;
             },
             playing(){
                 if (player && player.currentSrc.length != 0) {
-                    if (store.state.play.status.playing) {
-                        player.play();
-                    } else {
-                        player.pause();
+                    if (!urlError) {
+                        if (store.state.play.status.playing) {
+                            player.play();
+                        } else {
+                            player.pause();
+                        }
                     }
+
                 }
                 return store.state.play.status.playing;
             },
@@ -98,11 +102,18 @@
                 this.switchRotate(false);
             },
             playEvent: function () {
-                console.log('playEvent');
+                urlError = false;
                 this.switchRotate(true);
             },
             pauseEvent: function () {
-                console.log('pauseEvent');
+                urlError = false;
+            },
+            stalled: function () {
+                console.log('stalled');
+            },
+            error: function () {
+                urlError = true;
+                console.log('error');
             }
         },
         ready: function () {

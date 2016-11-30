@@ -4,7 +4,7 @@
   position: fixed;
   background: white;
   top: 0.8rem;
-  z-index: 999997; }
+  z-index: 999994; }
   .list-box .tab .bar {
     height: 100%;
     line-height: 0.6rem;
@@ -43,40 +43,5 @@
   margin-bottom: 1.4rem; }
 .list-box .mar-t0 {
   margin-top: 0; }
-.list-box .split-line {
-  content: '';
-  height: 1px;
-  width: 100%;
-  background-color: #d7d7d7;
-  display: block;
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%; }
-.list-box .split-line-v {
-  content: '';
-  height: 100%;
-  width: 1px;
-  background-color: #d7d7d7;
-  display: block;
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  color: white;
-  float: left; }
-
-@media only screen and (-webkit-min-device-pixel-ratio: 3) {
-  .split-line {
-    -webkit-transform: scaleY(0.33);
-    transform: scaleY(0.33); }
-
-  .split-line-v {
-    -webkit-transform: scaleX(0.33);
-    transform: scaleX(0.33); } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  .split-line {
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5); }
-
-  .split-line-v {
-    -webkit-transform: scaleX(0.5);
-    transform: scaleX(0.5); } }
 
 /*# sourceMappingURL=list.css.map */

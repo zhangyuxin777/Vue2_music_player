@@ -1,27 +1,27 @@
 <style scoped>
-    @import "css/play.css";
+    @import "css/playBar.css";
 </style>
 
 <template>
     <div class="play-bar">
         <div class="cycle">
-            <img v-bind:src="current.albumpic_small" v-bind:class="{'ani':rotate}" id="album">
+            <img :src="current.albumpic_small" :class="{'ani':rotate}" id="album">
         </div>
         <div class="panel">
             <div class="box">
                 <div class="progress-bar">
-                    <div class="progress" v-bind:style="{width:progress+'%'}"></div>
-                    <div class="point" v-bind:style="{left:progress+'%'}"></div>
+                    <div class="progress" :style="{width:progress+'%'}"></div>
+                    <div class="point" :style="{left:progress+'%'}"></div>
                 </div>
                 <div class="song">
                     <div class="song-name">{{current.songname}}</div>
                     <div class="singer-name">{{current.singername}}</div>
                 </div>
                 <div class="control">
-                    <img class="icon" src="../image/play.png" @click="playClick()" v-bind:class="{'hide':playing}">
-                    <img class="icon" src="../image/pause.png" @click="playClick()" v-bind:class="{'hide':!playing}">
-                    <img class="icon" src="../image/next.png" @click="next()">
-                    <img class="icon" src="../image/music_menu.png">
+                    <div class="sprites ic_play" @click="playClick" :class="{'hide':playing}"></div>
+                    <div class="sprites ic_pause" @click="playClick" :class="{'hide':!playing}"></div>
+                    <div class="sprites ic_next" @click="next"></div>
+                    <div class="sprites ic_menu" @click="toPop"></div>
                 </div>
                 <div style="clear: both"></div>
             </div>
@@ -30,26 +30,19 @@
 </template>
 <script>
     import {switchPlayerStatus,
-            nextSong} from '../vuex/actions'
+            nextSong,
+            togglePopList} from '../vuex/actions'
     import store from '../vuex/store.js'
     export default {
         vuex: {
             actions: {
                 switchPlayerStatus,
-                nextSong
+                nextSong,
+                togglePopList
             }
         },
         computed: {
             current () {
-                console.log(store.state.play.current);
-                if (store.state.play.current == null) {
-                    store.state.play.current = {
-                        albumpic_small: '',
-                        songname: '',
-                        singername: '',
-                        url: ''
-                    }
-                }
                 return store.state.play.current;
             },
             progress(){
@@ -72,6 +65,9 @@
             },
             next: function () {
                 this.nextSong();
+            },
+            toPop: function () {
+                this.togglePopList(true);
             }
         }
     }
