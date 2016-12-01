@@ -152,18 +152,17 @@ const mutations = {
                     songid: '',
                     url: 'clean'
                 };
-            }
-            if (song.songid == list[i].songid) {
+            } else if (song.songid == list[i].songid) {
                 if (song.songid == state.play.current.songid) {
-                    if (i = list.length - 1) {
+                    if (i == list.length - 1) {
                         state.play.current = list[0];
                     } else {
                         state.play.current = list[i + 1];
                     }
                 }
-                list.splice(i, 1);
-                break;
             }
+            list.splice(i, 1);
+            break;
         }
     },
     CLEAN_PLAY_LIST(state) {

@@ -1,4 +1,4 @@
-<template >
+<template>
     <div class="mm-bg">
         <div class="search">
             <form onsubmit="{alert('sdsd')}">
@@ -11,7 +11,7 @@
                 <div class="info">
                     <div class="title">排行榜</div>
                 </div>
-                <div class="ic_rank icon"></div>
+                <div class="sprites ic_rank"></div>
             </div>
         </div>
         <div class="list-2">
@@ -20,14 +20,14 @@
                     <div class="title">最喜欢</div>
                     <div class="number">0 首</div>
                 </div>
-                <div class="ic_like icon"></div>
+                <div class="sprites ic_like"></div>
             </div>
             <div class="download" v-link="'/music/downList'">
                 <div class="info">
                     <div class="title">已下载</div>
                     <div class="number">0 首</div>
                 </div>
-                <div class="ic_down icon "></div>
+                <div class="sprites ic_down "></div>
             </div>
         </div>
         <div class="clear"></div>
@@ -36,7 +36,7 @@
                 <div class="info">
                     <div class="title">播放列表</div>
                 </div>
-                <div class="ic_play icon"></div>
+                <div class="sprites ic_play"></div>
             </div>
         </div>
     </div>

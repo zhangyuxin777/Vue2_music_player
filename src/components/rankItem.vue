@@ -9,7 +9,7 @@
             <div id='singername' class='singername right'>{{data.singername}}</div>
         </div>
         <div class='line2'>
-            <img src="../image/more.png" class="more">
+            <div class="sprites ic_more"></div>
         </div>
     </div>
 </template>
@@ -33,7 +33,7 @@
         methods: {
             clickItem: function () {
                 var _this = this;
-                _this.switchSong(_this.data, store.state.play.list,store.state.play.current);
+                _this.switchSong(_this.data, store.state.play.list, store.state.play.current);
 //                _this.playerStatus();
             },
             showMore: function (event) {

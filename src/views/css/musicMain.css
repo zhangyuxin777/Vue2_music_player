@@ -55,32 +55,26 @@ input[type=search] {
   .mm-bg .clear {
     clear: both; }
   .mm-bg .sprites {
-    height: 0.5rem;
-    width: 0.5rem;
+    height: 0.8rem;
+    width: 0.8rem;
     overflow: hidden;
     box-sizing: border-box;
     background: transparent url("../../image/icon-list.png") 0 0 no-repeat;
-    background-size: 7.2rem 7.2rem;
-    margin: 0.3rem auto 0.15rem auto; }
-  .mm-bg .icon1 {
-    width: 0.57rem;
-    margin: 0.14rem auto 0.1rem auto;
-    background-position: 0% 0%; }
-  .mm-bg .icon2 {
-    width: 0.57rem;
-    margin: 0.14rem auto 0.1rem auto;
-    background-position: 9.04977% 0%; }
+    background-size: 5.76rem 5.76rem; }
   .mm-bg .ic_like {
-    background: url("../../image/music_icon_like.png");
-    background-size: 0.8rem 0.8rem; }
+    width: 0.88rem;
+    margin: 0.25rem 0 0 0;
+    background-position: 19.0625% 39.0625%; }
   .mm-bg .ic_down {
-    background: url("../../image/music_icon_downlist.png");
-    background-size: 0.8rem 0.8rem; }
+    margin: 0.25rem 0 0 0;
+    background-position: 0% 39.0625%; }
   .mm-bg .ic_rank {
-    background: url("../../image/music_icon_rank.png");
-    background-size: 0.8rem 0.8rem; }
+    width: 0.9rem;
+    margin: 0.25rem 0 0 0;
+    background-position: 78.125% 39.0625%; }
   .mm-bg .ic_play {
-    background: url("../../image/music_icon_playlist.png");
-    background-size: 0.8rem 0.8rem; }
+    width: 0.9rem;
+    margin: 0.25rem 0 0 0;
+    background-position: 57.8125% 39.0625%; }
 
 /*# sourceMappingURL=musicMain.css.map */
