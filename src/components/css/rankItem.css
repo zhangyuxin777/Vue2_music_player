@@ -51,6 +51,17 @@
     margin-right: 0.1rem;
     border-radius: 0.06rem;
     width: 0.5rem; }
+  .rank-item .sprites {
+    height: 0.4rem;
+    width: 0.4rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("../../image/icon-list.png") 0 0 no-repeat;
+    background-size: 5.76rem 5.76rem; }
+  .rank-item .ic_more {
+    margin-top: 0.3rem;
+    margin-left: 0.1rem;
+    background-position: 35.73529% 0%; }
 
 .rank-item:active {
   background: #eee; }

@@ -1,4 +1,5 @@
 ﻿@import "../../css/wl-common";
+
 input[type=search] {
   background: rgba(221, 221, 221, 0.8);
   width: 6rem;
@@ -29,7 +30,7 @@ input[type=search] {
     height: 100%;
     float: left;
   }
-  .playlist{
+  .playlist {
     width: 2.9rem;
     height: 100%;
     float: left;
@@ -71,42 +72,32 @@ input[type=search] {
   }
 
   .sprites {
-    height: 0.5rem;
-    width: 0.5rem;
+    height: 0.8rem;
+    width: 0.8rem;
     overflow: hidden;
     box-sizing: border-box;
     background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
-    background-size: 7.2rem 7.2rem;
-    margin: 0.3rem auto 0.15rem auto;
-  }
-
-  .icon1 {
-    width: 0.57rem;
-    margin: 0.14rem auto 0.1rem auto;
-    @include bgPosition($spriteSize, $spriteSize, 50, 50, 0, 0);
-  }
-
-  .icon2 {
-    width: 0.57rem;
-    margin: 0.14rem auto 0.1rem auto;
-    @include bgPosition($spriteSize, $spriteSize, 57, 50, 60, 0);
+    background-size: $spriteRem/10.0*8 $spriteRem/10.0*8;
   }
 
   .ic_like {
-    background: url("../../image/music_icon_like.png");
-    background-size: $iconSize $iconSize;
+    width: 0.88rem;
+    margin: 0.25rem 0 0 0;
+    @include bgPosition($spriteSize, $spriteSize, 80, 80, 122, 250);
   }
   .ic_down {
-    background: url("../../image/music_icon_downlist.png");
-    background-size: $iconSize $iconSize;
+    margin: 0.25rem 0 0 0;
+    @include bgPosition($spriteSize, $spriteSize, 80, 80, 0, 250);
   }
   .ic_rank{
-    background: url("../../image/music_icon_rank.png");
-    background-size: $iconSize $iconSize;
+    width: 0.9rem;
+    margin: 0.25rem 0 0 0;
+    @include bgPosition($spriteSize, $spriteSize, 80, 80, 500, 250);
   }
   .ic_play{
-    background: url("../../image/music_icon_playlist.png");
-    background-size: $iconSize $iconSize;
+    width: 0.9rem;
+    margin: 0.25rem 0 0 0;
+    @include bgPosition($spriteSize, $spriteSize, 80, 80, 370, 250);
   }
 }
 
