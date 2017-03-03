@@ -1,7 +1,4 @@
 <template>
-
-    <div>
-        <router-view></router-view>
-    </div>
+  <div>asdasdasd</div>
 </template>
 

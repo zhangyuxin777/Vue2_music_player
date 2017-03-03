@@ -1,74 +1,59 @@
 <style scoped>
-    @import "css/list.css";
+  @import "css/rankList.css";
 </style>
-
 <template>
-    <div class="list-box">
-        <div class="tab">
-            <div class="bar" style="width: 1.08rem" :class="{'active-bar':rank.topid==26}" @click="load(26)">
-                热歌
-            </div>
-            <div class="bar" :class="{'active-bar':rank.topid==5}" @click="load(5)">内地</div>
-            <div class="bar" :class="{'active-bar':rank.topid==6}" @click="load(6)">港台</div>
-            <div class="bar" :class="{'active-bar':rank.topid==16}" @click="load(16)">韩国</div>
-            <div class="bar" :class="{'active-bar':rank.topid==17}" @click="load(17)">日本</div>
-            <div class="bar" style="width: 1.08rem" :class="{'active-bar':rank.topid==3}" @click="load(3)">
-                欧美
-            </div>
-            <span style="clear: both"></span>
+  <ul class="rank-list">
+    <li v-for="(item,index) in list" class="item">
+      <img class="picture" :src="item.picUrl"/>
+      <div class="top-list">
+        <div class="top-item" rel="" v-for="(topItem,topIndex) in item.songList">
+          {{topIndex+1}}.{{topItem.songname}}-{{topItem.singername}}
         </div>
-        <div class="list">
-            <item :data="data" v-for="data in list"></item>
-        </div>
-    </div>
+      </div>
+      <span class="split-line"></span>
+    </li>
+  </ul>
 </template>
-<script>
-    import item from '../components/rankItem.vue'
-    import play from '../components/playBar.vue'
-    import Common from '../js/rock';
-    import store from '../vuex/store';
-    import {updateTitle,
-            toggleSpinner,
-            updateTopId} from '../vuex/actions'
-    export default{
-        data: function () {
-            return {
-                list: []
-            }
+<script type="text/ecmascript-6">
+  export default{
+    data () {
+      return {
+        topList: []
+      }
+    },
+    methods: {
+      show (data) {
+        console.log(data)
+      }
+    },
+    computed: {
+      list () {
+        return this.topList
+      },
+      songList () {
+        return this.topList.songList
+      }
+    },
+
+    mounted () {
+      this.$http.jsonp('http://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg', {
+        params: {
+          g_tk: 5381,
+          uin: 0,
+          format: 'jsonp',
+          inCharset: 'utf-8',
+          outCharset: 'utf-8',
+          notice: 0,
+          platform: 'h5',
+          needNewCode: 1,
+          _: new Date().getTime()
         },
-        vuex: {
-            actions: {
-                updateTitle,
-                toggleSpinner,
-                updateTopId
-            }
-        },
-        components: {
-            item,
-            play
-        },
-        computed: {
-            rank () {
-                return store.state.rank
-            }
-        },
-        methods: {
-            load: function (topid) {
-                var _this = this;
-                _this.toggleSpinner();
-                Common.showApiData('https://route.showapi.com/213-4', {topid: topid}, function (data) {
-                    _this.updateTopId(topid);
-                    console.log(data);
-                    _this.list = data.showapi_res_body.pagebean.songlist.slice(0, 50);
-                    _this.toggleSpinner();
-                });
-            }
-        },
-        ready: function () {
-            var _this = this;
-            _this.updateTitle('排行榜', true, 'hide');
-            _this.load(store.state.rank.topid);
-        }
+        jsonp: 'jsonpCallback'
+      }).then(function (response) {
+        this.topList = response.data.data.topList
+        this.show(response.data.data.topList)
+      })
     }
+  }
 
 </script>
