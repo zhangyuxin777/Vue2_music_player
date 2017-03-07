@@ -1,0 +1,162 @@
+﻿@import "../../css/wl-common";
+
+.play-bar {
+  height: 1.4rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 999990;
+  .cycle {
+    width: 1.2rem;
+    height: 1.2rem;
+    bottom: 0.1rem;
+    margin-left: 0.1rem;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    z-index: 999997;
+    -webkit-box-shadow: 0 0 0.15rem #888;
+    -moz-box-shadow: 0 0 0.15rem #888;
+    box-shadow: 0 0 0.15rem #888;
+    padding: 0.02rem;
+    #album {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+    .ani {
+      -webkit-animation: rotate 30s infinite linear;
+      animation: rotate 30s infinite linear;
+    }
+    @-webkit-keyframes rotate {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+  }
+  .panel {
+    height: 1.2rem;
+    bottom: -1px;
+    background: white;
+    position: absolute;
+    z-index: 999995;
+    box-shadow: 0 0 0.15rem #888;
+    .box {
+      height: 100%;
+      padding: 0.15rem 0.1rem 0.1rem 0.1rem;
+      width: 5rem;
+      margin-left: 1.4rem;
+      .progress-bar {
+        height: 2px;
+        background: #ddd;
+        position: relative;
+        border-radius: 1px;
+        margin-right: 0.04rem;
+        .progress {
+          height: 100%;
+          background: $mainColor;
+          border-radius: 1px 0 0 1px;
+        }
+        .point {
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          background: $mainColor;
+          border-radius: 50%;
+          top: -2px;
+        }
+      }
+      .song {
+        width: 2.5rem;
+        height: 100%;
+        float: left;
+        .song-name {
+          font-size: 0.24rem;
+          margin-top: 0.15rem;
+          color: $textRightColor;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .singer-name {
+          font-size: 0.2rem;
+          margin-top: 0.04rem;
+          color: #808080;
+        }
+      }
+      .control {
+        width: 2.3rem;
+        height: 100%;
+        line-height: 1.4rem;
+        float: left;
+
+        .sprites {
+          width: 0.5rem;
+          height: 0.5rem;
+          overflow: hidden;
+          box-sizing: border-box;
+          background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+          background-size: $spriteRem $spriteRem;
+          float: left;
+          margin-top: 0.26rem;
+          margin-left: 0.2rem;
+        }
+
+        .ic_menu {
+          @include bgPosition($spriteSize, $spriteSize, 50, 50, 0, 0);
+        }
+        .ic_next {
+          @include bgPosition($spriteSize, $spriteSize, 50, 50, 60, 0);
+        }
+        .ic_pause {
+          @include bgPosition($spriteSize, $spriteSize, 50, 50, 120, 0);
+        }
+        .ic_play {
+          @include bgPosition($spriteSize, $spriteSize, 50, 50, 180, 0);
+        }
+      }
+    }
+  }
+}
+
+.split-line {
+  @include split-line();
+}
+
+.split-line-v {
+  @include split-line-v();
+  color: white;
+  float: left;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+  .rank-item:after {
+    @include split-line-rate($line-R3);
+  }
+
+  .split-line {
+    @include split-line-rate($line-R3);
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .rank-item:after {
+    @include split-line-rate($line-R2);
+  }
+
+  .split-line {
+    @include split-line-rate($line-R2);
+  }
+}

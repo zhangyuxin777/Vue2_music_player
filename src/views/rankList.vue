@@ -3,7 +3,7 @@
 </style>
 <template>
   <ul class="rank-list">
-    <li v-for="(item,index) in list" class="item">
+    <li v-for="(item,index) in list" class="item" @click="toList(item.id)">
       <img class="picture" :src="item.picUrl"/>
       <div class="top-list">
         <div class="top-item" rel="" v-for="(topItem,topIndex) in item.songList">
@@ -22,16 +22,18 @@
       }
     },
     methods: {
-      show (data) {
-        console.log(data)
+      toList (id) {
+        this.$store.dispatch('increment')
+        this.$router.push({
+          name: 'rankContent',
+          query: {id: id}
+        })
+        console.log(this.$store.state.count)
       }
     },
     computed: {
       list () {
         return this.topList
-      },
-      songList () {
-        return this.topList.songList
       }
     },
 
@@ -51,7 +53,6 @@
         jsonp: 'jsonpCallback'
       }).then(function (response) {
         this.topList = response.data.data.topList
-        this.show(response.data.data.topList)
       })
     }
   }

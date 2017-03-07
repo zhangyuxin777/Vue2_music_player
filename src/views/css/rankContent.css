@@ -1,0 +1,42 @@
+.rank-content .banner {
+  width: 6.4rem;
+  overflow: hidden; }
+  .rank-content .banner img {
+    width: 6.4rem; }
+.rank-content .list .item {
+  height: 0.9rem; }
+  .rank-content .list .item .split-line {
+    width: 5.5rem;
+    margin-left: 0.9rem; }
+  .rank-content .list .item .i-title {
+    width: 0.9rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    float: left;
+    font-size: 0.28rem;
+    color: gray; }
+  .rank-content .list .item .i-content {
+    height: 0.9rem;
+    width: 4.8rem;
+    float: left;
+    padding-right: 0.1rem; }
+    .rank-content .list .item .i-content .songname {
+      height: 0.5rem;
+      line-height: 0.65rem;
+      color: black;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+    .rank-content .list .item .i-content .singername {
+      height: 0.4rem;
+      line-height: 0.3rem;
+      font-size: 0.2rem;
+      color: #909090;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+  .rank-content .list .item .red {
+    color: red; }
+
+/*# sourceMappingURL=rankContent.css.map */

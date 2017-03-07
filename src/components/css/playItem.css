@@ -1,0 +1,79 @@
+.playing-item {
+  height: 0.8rem;
+  width: 100%; }
+  .playing-item .song-name {
+    font-size: 0.26rem;
+    color: #0e0e0e;
+    width: 3.6rem;
+    float: left;
+    margin-top: 0.25rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .playing-item .playing-name {
+    width: 3.25rem; }
+  .playing-item .singer-name {
+    font-size: 0.20rem;
+    color: #999;
+    width: 1.3rem;
+    float: left;
+    margin-top: 0.24rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .playing-item .icon-box {
+    width: 0.5rem;
+    float: right;
+    height: 100%; }
+  .playing-item .icon {
+    font-family: Muiicons;
+    font-size: 0.5rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #888;
+    margin-top: 0.15rem; }
+  .playing-item .hide {
+    display: none; }
+  .playing-item .red {
+    color: #e61624; }
+  .playing-item .playing-song {
+    width: 0.35rem;
+    float: left;
+    height: 100%; }
+  .playing-item .sprites {
+    width: 0.3rem;
+    height: 0.3rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("../../image/icon-list.png") 0 0 no-repeat;
+    background-size: 4.32rem 4.32rem;
+    float: left;
+    margin-top: 0.29rem; }
+  .playing-item .ic_menu {
+    background-position: 44.92754% 0%; }
+
+.playing-item:after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: #d7d7d7;
+  display: block;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  clear: both; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+  .playing-item:after {
+    -webkit-transform: scaleY(0.33);
+    transform: scaleY(0.33); } }
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .playing-item:after {
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5); } }
+
+/*# sourceMappingURL=playItem.css.map */

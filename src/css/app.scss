@@ -1,8 +1,5 @@
 ﻿@import "wl-common";
 
-html{
-  background: aliceblue;
-}
 body {
   width: $pageWidth;
   margin: 0 auto;
@@ -75,7 +72,7 @@ input:focus {
   display: none;
 }
 
-.clearfix:after {
+.clear {
   clear: both;
 }
 
