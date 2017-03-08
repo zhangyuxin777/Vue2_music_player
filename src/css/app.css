@@ -20,6 +20,12 @@ input::-webkit-inner-spin-button {
   background-image: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
   color: #666; }
 
+::-webkit-scrollbar-track {
+  display: none; }
+
+::-webkit-scrollbar {
+  width: 0; }
+
 input[type='number'] {
   -moz-appearance: textfield;
   -webkit-appearance: none !important; }

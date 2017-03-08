@@ -27,6 +27,14 @@ input::-webkit-inner-spin-button {
   color: #666;
 }
 
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
   -webkit-appearance: none !important;

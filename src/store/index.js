@@ -77,7 +77,6 @@ const mutations = {
       state.play.current = list[Math.floor(Math.random() * list.length)]
     }
   },
-
   REMOVE_FROM_PLAY_LIST (state, song) {
     let list = state.play.list
     let index = list.indexOf(song)
@@ -97,6 +96,36 @@ const mutations = {
     }
     list.splice(index, 1)
   },
+  CLEAN_PLAY_LIST (state) {
+    state.play.list = []
+    state.play.status.playing = false
+    state.play.status.position = 1
+    state.play.status.rotate = false
+    state.play.status.total = 10000
+    state.play.popList.pop = false
+    state.play.current = {
+      data: {
+        singer: [{name: ''}],
+        songname: ''
+      }
+    }
+  },
+  UPDATE_POP_LIST (state, pop) {
+    state.play.popList.pop = pop
+  },
+  UPDATE_PROGRESS (state, obj) {
+    state.play.status.total = obj.total
+    state.play.status.position = obj.position
+  },
+  SWITCH_PLAYER_STATUS (state) {
+    state.play.status.playing = !state.play.status.playing
+  },
+  PLAYER_STATUS (state) {
+    state.play.status.playing = true
+  },
+  SWITCH_ROTATE (state, isRotate) {
+    state.play.status.rotate = isRotate
+  },
   UPDATE_TITLE (state, title, showBack, icon) {
     state.titleBar.title = title
     state.titleBar.isShowBack = showBack
@@ -112,22 +141,6 @@ const mutations = {
     state.play.status.playing = true
     state.play.current = obj
   },
-  ADD_PLAY_LIST (state, obj) {
-    state.play.list.unshift(obj)
-  },
-  UPDATE_PROGRESS (state, obj) {
-    state.play.status.total = obj.total
-    state.play.status.position = obj.position
-  },
-  SWITCH_PLAYER_STATUS (state) {
-    state.play.status.playing = !state.play.status.playing
-  },
-  PLAYER_STATUS (state) {
-    state.play.status.playing = true
-  },
-  SWITCH_ROTATE (state, isRotate) {
-    state.play.status.rotate = isRotate
-  },
   SWITCH_MODE (state) {
     if (state.play.status.mode === 0) {
       state.play.status.mode = 1
@@ -139,26 +152,6 @@ const mutations = {
   },
   UPDATE_KEYWORD (state, keyword) {
     state.search.keyword = keyword
-  },
-  UPDATE_POP_LIST (state, pop) {
-    state.play.popList.pop = pop
-  },
-  CLEAN_PLAY_LIST (state) {
-    state.play.list = []
-    state.play.status.playing = false
-    state.play.status.position = 1
-    state.play.status.rotate = false
-    state.play.status.total = 10000
-    state.play.current = {
-      albumpic_small: '',
-      songname: '',
-      singername: '',
-      songid: '',
-      url: 'clean'
-    }
-  },
-  INCREMENT (state) {
-    state.count++
   }
 }
 

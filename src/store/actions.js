@@ -131,6 +131,6 @@ export const removeFromPlayList = ({commit}, song) => {
  * @param commit
  * @param song
  */
-export const cleanPlayList = ({commit}, song) => {
-  commit('CLEAN_PLAY_LIST', song)
+export const cleanPlayList = ({commit}) => {
+  commit('CLEAN_PLAY_LIST')
 }
