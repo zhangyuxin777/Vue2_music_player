@@ -4,6 +4,7 @@
 <template>
   <div id="app">
     <play-bar></play-bar>
+    <play-list></play-list>
     <router-view></router-view>
     <audio id="player" autoplay="autoplay"
            :src="url"
@@ -20,21 +21,19 @@
 
 <script>
   import playBar from './components/playBar'
+  import playList from './components/playList'
   let player = null
   var urlError = false
   export default {
     name: 'app',
     components: {
-      playBar
+      playBar,
+      playList
     },
     computed: {
       mode () {
         if (player && player.currentSrc.length !== 0) {
-          if (this.$store.state.play.status.mode === 0) {
-            player.loop = true
-          } else {
-            player.loop = false
-          }
+          player.loop = (this.$store.state.play.status.mode === 0)
         }
         return this.$store.state.play.status.mode
       },
@@ -91,7 +90,6 @@
     },
     watch: {
       playing (val) {
-        console.log(val)
         if (player && player.currentSrc.length !== 0 && !urlError) {
           if (val) {
             player.play()

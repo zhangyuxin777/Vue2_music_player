@@ -52,6 +52,20 @@
       .red {
         color: red;
       }
+      .sprites {
+        width: 0.4rem;
+        height: 0.4rem;
+        overflow: hidden;
+        box-sizing: border-box;
+        background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+        background-size: $spriteRem/5*4 $spriteRem/5*4;
+        float: left;
+      }
+      .ic_menu {
+        @include bgPosition($spriteSize, $spriteSize, 40, 40, 305, 0);
+        margin-top: 0.25rem;
+        margin-left: 0.25rem;
+      }
     }
   }
 }

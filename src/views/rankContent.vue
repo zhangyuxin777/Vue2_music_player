@@ -7,8 +7,11 @@
       <img :src="getBanner" id="banImg">
     </div>
     <ul class="list">
-      <li v-for="(item,index) in list" class="item" @click="playSong(item)">
-        <div class="i-title" :class="{red : index<3}">{{index+1}}</div>
+      <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.data.songid">
+        <div class="i-title" :class="{red : index<3}">
+          <span class="sprites ic_menu" :class="{hide : !isCurrent(item.data.songid)}"></span>
+          <span :class="{hide : isCurrent(item.data.songid)}">{{index+1}}</span>
+        </div>
         <div class="i-content">
           <div class="songname">{{item.data.songname}}</div>
           <div class="singername">{{item.data.singer[0].name}} - {{item.data.albumname}}</div>
@@ -32,6 +35,9 @@
     methods: {
       playSong (item) {
         this.$store.dispatch('playSong', item)
+      },
+      isCurrent (id) {
+        return id === this.$store.state.play.current.data.songid
       }
     },
     computed: {

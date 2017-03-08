@@ -15,9 +15,7 @@ const state = {
     list: [],
     current: {
       data: {
-        singer: [{
-          name: ''
-        }],
+        singer: [{name: ''}],
         songname: ''
       }
     },
@@ -73,21 +71,31 @@ const mutations = {
     if (state.play.status.mode === 0) {
 
     } else if (state.play.status.mode === 1) {
-      let done = false
-      list.forEach(function (item, index, list) {
-        if (!done && state.play.current.data.songid === item.data.songid) {
-          if (index === list.length - 1) {
-            state.play.current = list[0]
-            done = true
-          } else {
-            state.play.current = list[index + 1]
-            done = true
-          }
-        }
-      })
+      let index = list.indexOf(state.play.current)
+      state.play.current = list[(index === list.length - 1 ? 0 : index + 1)]
     } else {
       state.play.current = list[Math.floor(Math.random() * list.length)]
     }
+  },
+
+  REMOVE_FROM_PLAY_LIST (state, song) {
+    let list = state.play.list
+    let index = list.indexOf(song)
+    if (list.length === 1) {
+      state.play.status.playing = false
+      state.play.status.position = 1
+      state.play.status.rotate = false
+      state.play.status.total = 10000
+      state.play.current = {
+        data: {
+          singer: [{name: ''}],
+          songname: ''
+        }
+      }
+    } else if (song.data.songid === state.play.current.data.songid) {
+      state.play.current = list[(index === list.length - 1 ? 0 : index + 1)]
+    }
+    list.splice(index, 1)
   },
   UPDATE_TITLE (state, title, showBack, icon) {
     state.titleBar.title = title

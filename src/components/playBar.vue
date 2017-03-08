@@ -30,7 +30,6 @@
 </template>
 <script>
   export default {
-
     computed: {
       current () {
         return this.$store.state.play.current
@@ -62,7 +61,7 @@
         this.$store.dispatch('nextSong')
       },
       toPop: function () {
-        this.$store.dispatch('togglePopList')
+        this.$store.dispatch('togglePopList', true)
       }
     }
   }

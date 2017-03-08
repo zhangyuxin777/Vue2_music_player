@@ -38,5 +38,17 @@
       text-overflow: ellipsis; }
   .rank-content .list .item .red {
     color: red; }
+  .rank-content .list .item .sprites {
+    width: 0.4rem;
+    height: 0.4rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("../../image/icon-list.png") 0 0 no-repeat;
+    background-size: 5.76rem 5.76rem;
+    float: left; }
+  .rank-content .list .item .ic_menu {
+    background-position: 44.85294% 0%;
+    margin-top: 0.25rem;
+    margin-left: 0.25rem; }
 
 /*# sourceMappingURL=rankContent.css.map */
