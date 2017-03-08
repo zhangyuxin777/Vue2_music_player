@@ -5,7 +5,7 @@
   width: 100%;
   position: fixed;
   bottom: 0;
-  z-index: 999990;
+  z-index: 90;
   .cycle {
     width: 1.2rem;
     height: 1.2rem;
@@ -14,7 +14,7 @@
     border-radius: 50%;
     background: white;
     position: absolute;
-    z-index: 999997;
+    z-index: 97;
     -webkit-box-shadow: 0 0 0.15rem #888;
     -moz-box-shadow: 0 0 0.15rem #888;
     box-shadow: 0 0 0.15rem #888;
@@ -51,7 +51,7 @@
     bottom: -1px;
     background: white;
     position: absolute;
-    z-index: 999995;
+    z-index: 95;
     box-shadow: 0 0 0.15rem #888;
     .box {
       height: 100%;

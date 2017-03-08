@@ -6,7 +6,7 @@
   background: transparent;
   transition: background 0.5s, height 0s ease;
   -webkit-transition: background 0.5s, height 0s ease;
-  z-index: 999997; }
+  z-index: 97; }
 
 .play-pop-box {
   position: fixed;
@@ -16,7 +16,7 @@
   bottom: -6.4rem;
   transition: bottom 0.5s;
   -webkit-transition: bottom 0.5s;
-  z-index: 999998; }
+  z-index: 98; }
   .play-pop-box .title-box {
     height: 0.8rem;
     line-height: 0.8rem;

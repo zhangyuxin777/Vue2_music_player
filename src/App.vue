@@ -1,5 +1,6 @@
 <style scoped>
   @import "css/app.css";
+  @import "css/mui/mui.min.css";
 </style>
 <template>
   <div id="app">

@@ -33,7 +33,7 @@
   </div>
 </template>
 <script>
-//  import mui from '../js/mui.all'
+  import mui from '../js/mui.all'
   export default{
     computed: {
       list () {
@@ -48,15 +48,16 @@
     },
     methods: {
       clean () {
-//        let _this = this
-//        if (_this.list.length > 0) {
-//          mui.confirm('确定清空播放列表?', '提示', ['确定', '取消'], function (e) {
-//            if (e.index === 0) {
-//              _this.$store.dispatch('cleanPlayList')
-//              console.log('clean')
-//            }
-//          })
-//        }
+        let _this = this
+        if (_this.list.length > 0) {
+          console.log(true)
+          mui.confirm('确定清空播放列表?', '提示', ['确定', '取消'], function (e) {
+            if (e.index === 0) {
+              _this.$store.dispatch('cleanPlayList')
+              console.log('clean')
+            }
+          })
+        }
       },
       toDown () {
         this.$store.dispatch('togglePopList', false)
