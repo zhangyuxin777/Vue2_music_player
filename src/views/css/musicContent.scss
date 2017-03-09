@@ -1,0 +1,91 @@
+@import "../../css/wl-common";
+
+.music-content {
+  position: absolute;
+  width: $pageWidth;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  .header {
+    position: absolute;
+    height: 0.9rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    .back {
+      width: 0.9rem;
+      height: 0.9rem;
+      padding-top: 0.18rem;
+      padding-left: 0.2rem;
+      display: inline-block;
+      .ic_back {
+        width: 0.6rem;
+        height: 0.6rem;
+        background-size: $spriteRem/5*6 $spriteRem/5*6;
+        @include bgPosition($spriteSize, $spriteSize, 60, 60, 475, 0);
+      }
+    }
+    .title{
+      display: inline-block;
+      width: 5.4rem;
+      height: 100%;
+    }
+  }
+  .header:after {
+    @include split-line();
+    background: #777777;
+
+  }
+  .bg-op {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: 0;
+    .bg {
+      height: 110%;
+      position: absolute;
+      left: 50%;
+      top: -5%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+    }
+    .mask {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+  }
+  .cd {
+    position: relative;
+    width: 4.96rem;
+    height: 4.96rem;
+    background: url("../../image/disc.png");
+    background-size: 4.96rem 4.96rem;
+    margin: 2rem auto 0 auto;
+    z-index: 1;
+  }
+  .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+  }
+  .blur {
+    -webkit-filter: blur(20px); /* Chrome, Opera */
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    .header:after {
+      @include split-line-rate($line-R3);
+    }
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .header:after {
+      @include split-line-rate($line-R2);
+    }
+  }
+}

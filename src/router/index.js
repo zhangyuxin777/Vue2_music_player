@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import main from '../views/mainView'
 import rankList from '../views/rankList'
 import rankContent from '../views/rankContent'
+import musicContent from '../views/musicContent'
 Vue.use(Router)
 
 export default new Router({
@@ -21,6 +22,11 @@ export default new Router({
       path: '/rankContent',
       name: 'rankContent',
       component: rankContent
+    },
+    {
+      path: '/musicContent',
+      name: 'musicContent',
+      component: musicContent
     }
   ]
 })

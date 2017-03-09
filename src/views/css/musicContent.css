@@ -1,0 +1,82 @@
+.music-content {
+  position: absolute;
+  width: 6.4rem;
+  top: 0;
+  bottom: 0;
+  overflow: hidden; }
+  .music-content .header {
+    position: absolute;
+    height: 0.9rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 5; }
+    .music-content .header .back {
+      width: 0.9rem;
+      height: 0.9rem;
+      padding-top: 0.18rem;
+      padding-left: 0.2rem;
+      display: inline-block; }
+      .music-content .header .back .ic_back {
+        width: 0.6rem;
+        height: 0.6rem;
+        background-size: 8.64rem 8.64rem;
+        background-position: 71.9697% 0%; }
+    .music-content .header .title {
+      display: inline-block;
+      width: 5.4rem;
+      height: 100%; }
+  .music-content .header:after {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: #d7d7d7;
+    display: block;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    background: #777777; }
+  .music-content .bg-op {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: 0; }
+    .music-content .bg-op .bg {
+      height: 110%;
+      position: absolute;
+      left: 50%;
+      top: -5%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%); }
+    .music-content .bg-op .mask {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1; }
+  .music-content .cd {
+    position: relative;
+    width: 4.96rem;
+    height: 4.96rem;
+    background: url("../../image/disc.png");
+    background-size: 4.96rem 4.96rem;
+    margin: 2rem auto 0 auto;
+    z-index: 1; }
+  .music-content .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("../../image/icon-list.png") 0 0 no-repeat; }
+  .music-content .blur {
+    -webkit-filter: blur(20px);
+    /* Chrome, Opera */
+    -ms-filter: blur(20px);
+    filter: blur(20px); }
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    .music-content .header:after {
+      -webkit-transform: scaleY(0.33);
+      transform: scaleY(0.33); } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .music-content .header:after {
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5); } }
+
+/*# sourceMappingURL=musicContent.css.map */

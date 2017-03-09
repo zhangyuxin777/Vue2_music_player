@@ -1,6 +1,3 @@
-export const increment = ({commit}) => {
-  commit('INCREMENT')
-}
 
 /**
  * 播放歌曲

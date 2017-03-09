@@ -1,6 +1,6 @@
 <style scoped>
-  @import "css/app.css";
   @import "css/mui/mui.min.css";
+  @import "css/app.css";
 </style>
 <template>
   <div id="app">
@@ -16,7 +16,7 @@
            @error="error"
            @stalled="stalled">
     </audio>
-    <div style="height: 1.4rem"></div>
+    <div style="height: 1.4rem;background: transparent"></div>
   </div>
 </template>
 

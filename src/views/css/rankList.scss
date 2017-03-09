@@ -7,10 +7,15 @@
     width: 100%;
     padding-top: 0.15rem;
     .picture {
+      position: relative;
       height: 1.6rem;
       width: 1.6rem;
       margin-left: 0.2rem;
       float: left;
+      img {
+        height: 1.6rem;
+        width: 1.6rem;
+      }
     }
     .top-list {
       width: 4.6rem;
@@ -32,6 +37,35 @@
       bottom: 0;
       width: 4.4rem;
       right: 0;
+    }
+    .listen_box {
+      position: absolute;
+      bottom: 0;
+      color: white;
+      width: 100%;
+      font-size: 0.17rem;
+      text-align: right;
+      height: 0.4rem;
+      line-height: 0.4rem;
+      background: rgba(0,0,0,0.3);
+    }
+    .sprites {
+      width: 0.25rem;
+      height: 0.25rem;
+      overflow: hidden;
+      box-sizing: border-box;
+      background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+      background-size: $spriteRem/5*2.5 $spriteRem/5*2.5;
+      float: right;
+    }
+    .ic_listen {
+      @include bgPosition($spriteSize, $spriteSize, 250, 25, 295, 0);
+      margin-top: 0.07rem;
+    }
+    .listen_count {
+      float: right;
+      margin-left: 0.03rem;
+      margin-right: 0.03rem;
     }
   }
 }

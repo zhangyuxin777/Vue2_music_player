@@ -1,8 +1,13 @@
 ﻿@import "wl-common";
 
+html {
+  background: white;
+}
+
 body {
   width: $pageWidth;
   margin: 0 auto;
+  background: white;
 }
 
 * {

@@ -1,26 +1,22 @@
 <style scoped>
-  @import "css/rankContent.css";
+  @import "css/musicContent.css";
 </style>
 <template>
-  <div class="rank-content">
-    <div class="banner">
-      <img :src="getBanner" id="banImg">
+  <div class="music-content">
+    <div class="bg-op">
+      <img :src="songImg" class="bg blur" alt="">
+      <div class="mask"></div>
     </div>
-    <ul class="list">
-      <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.data.songid">
-        <div class="i-title" :class="{red : index<3}">
-          <span class="sprites ic_menu" :class="{hide : !isCurrent(item.data.songid)}"></span>
-          <span :class="{hide : isCurrent(item.data.songid)}">{{index+1}}</span>
-        </div>
-        <div class="i-content">
-          <div class="songname">{{item.data.songname}}</div>
-          <div class="singername">{{item.data.singer[0].name}} - {{item.data.albumname}}</div>
-        </div>
-        <div class="more sprites ic_more" @click="toMore(item)"></div>
-        <div class="clear"></div>
-        <span class="split-line"></span>
-      </li>
-    </ul>
+    <div class="header">
+      <div class="back">
+        <div class="sprites ic_back"></div>
+      </div>
+      <div class="title">
+        <div class="songname"></div>
+        <div class="singername"></div>
+      </div>
+    </div>
+    <div class="cd"></div>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -38,12 +34,14 @@
       },
       isCurrent (id) {
         return id === this.$store.state.play.current.data.songid
-      },
-      toMore (item) {
-        event.stopPropagation()
       }
     },
     computed: {
+      songImg () {
+        if (this.$store.state.play.current.data.albummid) {
+          return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + this.$store.state.play.current.data.albummid + '.jpg'
+        }
+      },
       list () {
         return this.topList
       },
