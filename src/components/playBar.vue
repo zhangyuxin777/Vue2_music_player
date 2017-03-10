@@ -5,7 +5,7 @@
 <template>
   <div class="play-bar">
     <div class="cycle">
-      <img :src="songImg" :class="{'ani':rotate}" id="album">
+      <img :src="songImg" :class="{'ani':rotate}" @click="toContent" id="album">
     </div>
     <div class="panel">
       <div class="box">
@@ -54,14 +54,19 @@
       }
     },
     methods: {
-      playClick: function () {
+      playClick () {
         this.$store.dispatch('switchPlayerStatus')
       },
-      next: function () {
+      next () {
         this.$store.dispatch('nextSong')
       },
-      toPop: function () {
+      toPop () {
         this.$store.dispatch('togglePopList', true)
+      },
+      toContent () {
+        if (this.$store.state.play.current.data.songid) {
+          this.$store.dispatch('switchMusicContent', true)
+        }
       }
     }
   }

@@ -5,9 +5,12 @@ html {
 }
 
 body {
+  font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  -webkit-tap-highlight-color: transparent;
   width: $pageWidth;
   margin: 0 auto;
   background: white;
+  font-size: 0.24rem;
 }
 
 * {
@@ -59,6 +62,12 @@ input:focus {
   outline: none;
 }
 
+#app {
+  width: 6.4rem;
+  margin: 0 auto;
+  padding: 0;
+}
+
 .split-line {
   @include split-line();
 }
@@ -83,6 +92,12 @@ input:focus {
 
 .hide {
   display: none;
+}
+
+.transparent {
+  opacity: 0 !important;
+  z-index: 0 !important;
+  height: 0 !important;
 }
 
 .clear {

@@ -8,15 +8,20 @@
       <div class="mask"></div>
     </div>
     <div class="header">
-      <div class="back">
+      <div class="back" @click="back">
         <div class="sprites ic_back"></div>
       </div>
       <div class="title">
-        <div class="songname"></div>
-        <div class="singername"></div>
+        <div class="songname">{{current.data.songname}}</div>
+        <div class="singername">{{current.data.singer[0].name}}</div>
       </div>
+      <div class="clear"></div>
     </div>
-    <div class="cd"></div>
+    <div class="cd" :class="{'ani':rotate}" id="record">
+      <div class="cd-side"></div>
+      <img :src="songImg" class="cd-img" alt="">
+    </div>
+    <div class="needle"></div>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -34,37 +39,30 @@
       },
       isCurrent (id) {
         return id === this.$store.state.play.current.data.songid
+      },
+      back () {
+        this.$store.dispatch('switchMusicContent', false)
       }
     },
     computed: {
+      current () {
+        return this.$store.state.play.current
+      },
+      rotate () {
+        if (document.getElementById('record')) {
+          document.getElementById('record').style.webkitAnimationPlayState = this.$store.state.play.status.playing ? 'running' : 'paused'
+          document.getElementById('record').style.animationPlayState = this.$store.state.play.status.playing ? 'running' : 'paused'
+        }
+        return this.$store.state.play.status.rotate
+      },
       songImg () {
         if (this.$store.state.play.current.data.albummid) {
           return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + this.$store.state.play.current.data.albummid + '.jpg'
         }
-      },
-      list () {
-        return this.topList
-      },
-      getBanner () {
-        return this.topinfo.pic_h5
       }
     },
     beforeMount () {
-      this.$http.jsonp('https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg', {
-        params: {
-          topid: this.topid,
-          format: 'jsonp',
-          inCharset: 'utf8',
-          outCharset: 'utf-8',
-          notice: 0,
-          platform: 'yqq',
-          needNewCode: 0
-        },
-        jsonp: 'jsonpCallback'
-      }).then(function (response) {
-        this.topList = response.data.songlist
-        this.topinfo = response.data.topinfo
-      })
+
     }
   }
 

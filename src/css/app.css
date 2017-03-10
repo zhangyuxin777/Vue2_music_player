@@ -2,9 +2,12 @@ html {
   background: white; }
 
 body {
+  font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  -webkit-tap-highlight-color: transparent;
   width: 6.4rem;
   margin: 0 auto;
-  background: white; }
+  background: white;
+  font-size: 0.24rem; }
 
 * {
   box-sizing: border-box; }
@@ -46,6 +49,11 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 input:focus {
   outline: none; }
 
+#app {
+  width: 6.4rem;
+  margin: 0 auto;
+  padding: 0; }
+
 .split-line {
   content: '';
   height: 1px;
@@ -83,6 +91,11 @@ input:focus {
 
 .hide {
   display: none; }
+
+.transparent {
+  opacity: 0 !important;
+  z-index: 0 !important;
+  height: 0 !important; }
 
 .clear {
   clear: both; }

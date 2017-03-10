@@ -1,10 +1,15 @@
 <style scoped>
   @import "css/mui/mui.min.css";
   @import "css/app.css";
+  @import "css/animate.css";
+  @import "css/magic.css";
 </style>
 <template>
   <div id="app">
-    <play-bar></play-bar>
+    <transition name="play-bar-tran" enter-active-class="animated slideInUp fast"
+                leave-active-class="animated slideOutDown fast" mode="out-in">
+      <play-bar v-show="!showContent"></play-bar>
+    </transition>
     <play-list></play-list>
     <router-view></router-view>
     <audio id="player" autoplay="autoplay"
@@ -17,19 +22,25 @@
            @stalled="stalled">
     </audio>
     <div style="height: 1.4rem;background: transparent"></div>
+    <transition name="music-con-tran" enter-active-class="animated slideInUp"
+                leave-active-class="animated slideOutDown fast" mode="out-in">
+      <music-content v-show="showContent"></music-content>
+    </transition>
   </div>
 </template>
 
 <script>
   import playBar from './components/playBar'
   import playList from './components/playList'
+  import musicContent from './components/musicContent'
   let player = null
-  var urlError = false
+  let urlError = false
   export default {
     name: 'app',
     components: {
       playBar,
-      playList
+      playList,
+      musicContent
     },
     computed: {
       mode () {
@@ -49,17 +60,20 @@
       playing () {
         if (player && player.currentSrc.length !== 0) {
           if (!urlError) {
-//            if (this.$store.state.play.status.playing) {
-//              player.play()
-//            } else {
-//              player.pause()
-//            }
+            if (this.$store.state.play.status.playing) {
+              player.play()
+            } else {
+              player.pause()
+            }
           }
         }
         return this.$store.state.play.status.playing
       },
       isShow () {
         return this.$store.state.play.isShow
+      },
+      showContent () {
+        return this.$store.state.play.showMusicContent
       }
     },
     methods: {
@@ -102,16 +116,3 @@
     }
   }
 </script>
-
-<style>
-  #app {
-    font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Helvetica, Arial, 'Lucida Grande', sans-serif;
-    width: 6.4rem;
-    margin: 0 auto;
-    padding: 0;
-    font-size: 0.24rem;
-    -webkit-tap-highlight-color: transparent;
-    background-color: white;
-    color: #404040;
-  }
-</style>

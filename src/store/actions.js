@@ -8,7 +8,14 @@ export const playSong = ({commit}, song) => {
   commit('SWITCH_ROTATE', false)
   commit('PLAY_SONG', song)
 }
-
+/**
+ * 切换显示musicContent
+ * @param commit
+ * @param isShow
+ */
+export const switchMusicContent = ({commit}, isShow) => {
+  commit('SWITCH_MUSIC_CONTENT', isShow)
+}
 /**
  * 更新标题 和按钮
  * @param commit
@@ -28,15 +35,6 @@ export const updateTitle = ({commit}, title, showBack, icon) => {
 export const toggleSpinner = ({commit}) => {
   commit('TOGGLE_SPINNER')
 }
-/**
- * 排行榜 id
- * @param commit
- * @param id
- */
-export const updateTopId = ({commit}, id) => {
-  commit('UPDATE_TOP_ID', id)
-}
-
 /**
  * 添加到播放列表
  * @param commit

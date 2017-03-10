@@ -27,6 +27,7 @@ const state = {
       rotate: false
     },
     isShow: true,
+    showMusicContent: false,
     popList: {
       pop: false
     }
@@ -57,6 +58,9 @@ const mutations = {
       state.play.current = song
       state.play.status.playing = true
     }
+  },
+  SWITCH_MUSIC_CONTENT  (state, showContent) {
+    state.play.showMusicContent = showContent
   },
   NEXT_SONG (state) {
     let list = state.play.list

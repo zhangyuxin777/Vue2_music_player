@@ -1,11 +1,12 @@
 @import "../../css/wl-common";
 
 .music-content {
-  position: absolute;
+  position: fixed;
   width: $pageWidth;
   top: 0;
   bottom: 0;
   overflow: hidden;
+  background: white;
   .header {
     position: absolute;
     height: 0.9rem;
@@ -17,7 +18,7 @@
       height: 0.9rem;
       padding-top: 0.18rem;
       padding-left: 0.2rem;
-      display: inline-block;
+      float: left;
       .ic_back {
         width: 0.6rem;
         height: 0.6rem;
@@ -25,10 +26,27 @@
         @include bgPosition($spriteSize, $spriteSize, 60, 60, 475, 0);
       }
     }
-    .title{
-      display: inline-block;
+    .title {
+      float: left;
       width: 5.4rem;
       height: 100%;
+      .songname {
+        color: white;
+        font-size: 0.28rem;
+        height: 0.5rem;
+        line-height: 0.6rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .singername {
+        color: white;
+        height: 0.3rem;
+        line-height: 0.3rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
     }
   }
   .header:after {
@@ -62,10 +80,57 @@
     position: relative;
     width: 4.96rem;
     height: 4.96rem;
-    background: url("../../image/disc.png");
-    background-size: 4.96rem 4.96rem;
     margin: 2rem auto 0 auto;
-    z-index: 1;
+    z-index: 2;
+    .cd-img {
+      position: absolute;
+      width: 3.02rem;
+      height: 3.02rem;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      z-index: 2;
+      border-radius: 50%;
+    }
+    .cd-side {
+      position: absolute;
+      width: 4.96rem;
+      height: 4.96rem;
+      background: url("../../image/disc.png");
+      background-size: 4.96rem 4.96rem;
+      z-index: 1;
+    }
+  }
+  .needle {
+    position: absolute;
+    width: 1.68rem;
+    height: 2.44rem;
+    background: url("../../image/needle.png");
+    background-size: 1.68rem 2.44rem;
+    z-index: 4;
+    top: 0.91rem;
+    left:2.9rem;
+  }
+  .ani {
+    -webkit-animation: rotate 30s infinite linear;
+    animation: rotate 30s infinite linear;
+  }
+  @-webkit-keyframes rotate {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
   .sprites {
     overflow: hidden;
