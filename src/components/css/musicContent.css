@@ -115,6 +115,28 @@
   .music-content .ani {
     -webkit-animation: rotate 30s infinite linear;
     animation: rotate 30s infinite linear; }
+  .music-content .progress-box {
+    position: absolute;
+    bottom: 1.8rem; }
+    .music-content .progress-box .progress-bar {
+      position: relative;
+      height: 2px;
+      width: 5rem;
+      left: 0.7rem;
+      background: #ddd;
+      border-radius: 1px;
+      margin-right: 0.04rem; }
+      .music-content .progress-box .progress-bar .progress {
+        height: 100%;
+        background: #e61624;
+        border-radius: 1px 0 0 1px; }
+      .music-content .progress-box .progress-bar .point {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #e61624;
+        border-radius: 50%;
+        top: -2px; }
   .music-content .control-box {
     width: 6.4rem;
     height: 1.5rem;

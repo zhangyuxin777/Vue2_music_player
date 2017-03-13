@@ -128,7 +128,32 @@
     -webkit-animation: rotate 30s infinite linear;
     animation: rotate 30s infinite linear;
   }
-
+  .progress-box {
+    position: absolute;
+    bottom: 1.8rem;
+    .progress-bar {
+      position: relative;
+      height: 2px;
+      width: 5rem;
+      left: 0.7rem;
+      background: #ddd;
+      border-radius: 1px;
+      margin-right: 0.04rem;
+      .progress {
+        height: 100%;
+        background: $mainColor;
+        border-radius: 1px 0 0 1px;
+      }
+      .point {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: $mainColor;
+        border-radius: 50%;
+        top: -2px;
+      }
+    }
+  }
   .control-box {
     width: $pageWidth;
     height: 1.5rem;

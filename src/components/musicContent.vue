@@ -24,7 +24,12 @@
       <img :src="songImg" class="cd-img" alt="">
     </div>
     <div class="needle"></div>
-    <div class="progress-box"></div>
+    <div class="progress-box">
+      <div class="progress-bar">
+        <div class="progress" :style="{width:progress+'%'}"></div>
+        <div class="point" :style="{left:progress+'%'}"></div>
+      </div>
+    </div>
     <div class="control-box">
       <div class="sprites mode" @click="switchMode"
            :class="{'m_0' : mode===0 ,'m_1' : mode===1 ,'m_2' : mode===2}"></div>
