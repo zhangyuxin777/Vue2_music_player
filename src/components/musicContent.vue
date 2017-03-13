@@ -25,10 +25,12 @@
     </div>
     <div class="needle"></div>
     <div class="progress-box">
+      <span class="current_time">{{currentTime.m}}:{{currentTime.s}}</span>
       <div class="progress-bar">
         <div class="progress" :style="{width:progress+'%'}"></div>
         <div class="point" :style="{left:progress+'%'}"></div>
       </div>
+        <div class="total_time">{{totalTime.m}}:{{totalTime.s}}</div>
     </div>
     <div class="control-box">
       <div class="sprites mode" @click="switchMode"
@@ -78,6 +80,19 @@
       },
       progress () {
         return (this.$store.state.play.status.position / parseFloat(this.$store.state.play.status.total) * 100)
+      },
+      currentTime () {
+        let num = (Array(2).join('0') + parseInt(this.$store.state.play.status.position % 60)).slice(-2)
+        return {
+          m: parseInt(this.$store.state.play.status.position / 60),
+          s: num
+        }
+      },
+      totalTime () {
+        return {
+          m: parseInt(this.$store.state.play.status.total / 60),
+          s: parseInt(this.$store.state.play.status.total % 60)
+        }
       },
       playing () {
         return this.$store.state.play.status.playing
