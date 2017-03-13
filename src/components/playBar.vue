@@ -18,8 +18,7 @@
           <div class="singer-name">{{current.data.singer[0].name}}</div>
         </div>
         <div class="control">
-          <div class="sprites ic_play" @click="playClick" :class="{'hide':playing}"></div>
-          <div class="sprites ic_pause" @click="playClick" :class="{'hide':!playing}"></div>
+          <div class="sprites" @click="playClick" :class="{'ic_pause':playing , 'ic_play' : !playing}"></div>
           <div class="sprites ic_next" @click="next"></div>
           <div class="sprites ic_menu" @click="toPop"></div>
         </div>

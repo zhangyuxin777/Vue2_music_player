@@ -2,7 +2,7 @@
   height: 1.4rem;
   width: 100%;
   position: fixed;
-  bottom: 0;
+  bottom: -0.02rem;
   z-index: 90; }
   .play-bar .cycle {
     width: 1.2rem;

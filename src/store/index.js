@@ -70,13 +70,34 @@ const mutations = {
     if (list.length === 1) {
       return
     }
+    if (state.play.status.mode === 0) {
+      return
+    }
     state.play.status.rotate = false
     state.play.status.playing = true
-    if (state.play.status.mode === 0) {
-
-    } else if (state.play.status.mode === 1) {
+    if (state.play.status.mode === 1) {
       let index = list.indexOf(state.play.current)
       state.play.current = list[(index === list.length - 1 ? 0 : index + 1)]
+    } else {
+      state.play.current = list[Math.floor(Math.random() * list.length)]
+    }
+  },
+  LAST_SONG (state) {
+    let list = state.play.list
+    if (list.length === 0) {
+      return
+    }
+    if (list.length === 1) {
+      return
+    }
+    if (state.play.status.mode === 0) {
+      return
+    }
+    state.play.status.rotate = false
+    state.play.status.playing = true
+    if (state.play.status.mode === 1) {
+      let index = list.indexOf(state.play.current)
+      state.play.current = list[(index === 0 ? list.length - 1 : index - 1)]
     } else {
       state.play.current = list[Math.floor(Math.random() * list.length)]
     }

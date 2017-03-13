@@ -85,7 +85,6 @@ export const switchRotate = ({commit}, isRotate) => {
  * @param commit
  */
 export const lastSong = ({commit}) => {
-  commit('SWITCH_ROTATE', false)
   commit('LAST_SONG')
 }
 /**

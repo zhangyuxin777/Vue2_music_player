@@ -68,12 +68,24 @@
       transform: translateX(-50%);
       -webkit-transform: translateX(-50%);
     }
+    .blur {
+      -webkit-filter: blur(30px); /* Chrome, Opera */
+      -ms-filter: blur(30px);
+      filter: blur(30px);
+    }
     .mask {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 1;
+    }
+    .gradient {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: -webkit-linear-gradient(transparent, transparent, black);
     }
   }
   .cd {
@@ -110,11 +122,92 @@
     background-size: 1.68rem 2.44rem;
     z-index: 4;
     top: 0.91rem;
-    left:2.9rem;
+    left: 2.9rem;
   }
   .ani {
     -webkit-animation: rotate 30s infinite linear;
     animation: rotate 30s infinite linear;
+  }
+
+  .control-box {
+    width: $pageWidth;
+    height: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    .play {
+      position: absolute;
+      height: 1.05rem;
+      width: 1.05rem;
+      background-size: $spriteRem/5.0*10 $spriteRem/5.0*10;
+      @include bgPosition($spriteSize, $spriteSize, 100, 100, 0, 56);
+      top: 0.75rem;
+      left: 3.2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .pause {
+      position: absolute;
+      height: 1.05rem;
+      width: 1.05rem;
+      background-size: $spriteRem/5.0*10 $spriteRem/5.0*10;
+      @include bgPosition($spriteSize, $spriteSize, 100, 100, 56, 56);
+      top: 0.75rem;
+      left: 3.2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .last-song {
+      position: absolute;
+      height: 0.75rem;
+      width: 0.75rem;
+      background-size: $spriteRem/5.0*7.5 $spriteRem/5.0*7.5;
+      @include bgPosition($spriteSize, $spriteSize, 75, 75, 175, 59);
+      top: 0.75rem;
+      left: 1.8rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .next-song {
+      position: absolute;
+      height: 0.75rem;
+      width: 0.75rem;
+      background-size: $spriteRem/5.0*7.5 $spriteRem/5.0*7.5;
+      @include bgPosition($spriteSize, $spriteSize, 75, 75, 117, 59);
+      top: 0.75rem;
+      left: 4.6rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .mode {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.75rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      left: .5rem;
+    }
+    .m_0 {
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 421, 59);
+    }
+    .m_1 {
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 361, 59);
+    }
+    .m_2 {
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 295, 59);
+    }
+    .menu {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.75rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      right: .1rem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 240, 59);
+    }
   }
   @-webkit-keyframes rotate {
     0% {
@@ -136,11 +229,6 @@
     overflow: hidden;
     box-sizing: border-box;
     background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
-  }
-  .blur {
-    -webkit-filter: blur(20px); /* Chrome, Opera */
-    -ms-filter: blur(20px);
-    filter: blur(20px);
   }
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .header:after {
