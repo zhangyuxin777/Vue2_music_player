@@ -44,9 +44,6 @@
     },
     computed: {
       mode () {
-        if (player && player.currentSrc.length !== 0) {
-          player.loop = (this.$store.state.play.status.mode === 0)
-        }
         return this.$store.state.play.status.mode
       },
       current () {
@@ -58,15 +55,6 @@
         }
       },
       playing () {
-        if (player && player.currentSrc.length !== 0) {
-          if (!urlError) {
-            if (this.$store.state.play.status.playing) {
-              player.play()
-            } else {
-              player.pause()
-            }
-          }
-        }
         return this.$store.state.play.status.playing
       },
       isShow () {
@@ -102,6 +90,9 @@
     },
     mounted () {
       player = document.getElementById('player')
+//      let mode = this.$store.state.play.status.mode
+//      player.loop = (mode === 0 || (mode === 1 && this.$store.state.play.list.length === 1))
+//      console.log((mode === 0 || (mode === 1 && this.$store.state.play.list.length === 1)))
     },
     watch: {
       playing (val) {
@@ -112,6 +103,11 @@
             player.pause()
           }
         }
+//        let mode = this.$store.state.play.status.mode
+//        player.loop = (mode === 0 || (mode === 1 && this.$store.state.play.list.length === 1))
+      },
+      mode (val) {
+        player.loop = (val === 0 || (val === 1 && this.$store.state.play.list.length === 1))
       }
     }
   }

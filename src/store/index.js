@@ -32,8 +32,8 @@ const state = {
       pop: false
     }
   },
-  rank: {
-    topid: ''
+  like: {
+    list: []
   },
   search: {
     keyword: ''
@@ -43,18 +43,14 @@ const state = {
 
 const mutations = {
   PLAY_SONG (state, song) {
-    let isExist = false
-    for (let item of state.play.list) {
-      if (item === song) {
-        isExist = true
-        break
-      }
-    }
+    let isExist = state.play.list.indexOf(song) >= 0
     if (!isExist) {
+      state.play.status.rotate = false
       state.play.list.push(song)
       state.play.current = song
       state.play.status.playing = true
     } else if (state.play.current !== song) {
+      state.play.status.rotate = false
       state.play.current = song
       state.play.status.playing = true
     }
@@ -64,13 +60,7 @@ const mutations = {
   },
   NEXT_SONG (state) {
     let list = state.play.list
-    if (list.length === 0) {
-      return
-    }
-    if (list.length === 1) {
-      return
-    }
-    if (state.play.status.mode === 0) {
+    if (list.length === 0 || list.length === 1 || state.play.status.mode === 0) {
       return
     }
     state.play.status.rotate = false
@@ -84,13 +74,7 @@ const mutations = {
   },
   LAST_SONG (state) {
     let list = state.play.list
-    if (list.length === 0) {
-      return
-    }
-    if (list.length === 1) {
-      return
-    }
-    if (state.play.status.mode === 0) {
+    if (list.length === 0 || list.length === 1 || state.play.status.mode === 0) {
       return
     }
     state.play.status.rotate = false
@@ -100,6 +84,14 @@ const mutations = {
       state.play.current = list[(index === 0 ? list.length - 1 : index - 1)]
     } else {
       state.play.current = list[Math.floor(Math.random() * list.length)]
+    }
+  },
+  SWITCH_LIKE (state, song) {
+    let index = state.like.list.indexOf(song)
+    if (index >= 0) {
+      state.like.list.splice(index, 1)
+    } else {
+      state.like.list.push(song)
     }
   },
   REMOVE_FROM_PLAY_LIST (state, song) {
@@ -155,12 +147,6 @@ const mutations = {
     state.titleBar.title = title
     state.titleBar.isShowBack = showBack
     state.titleBar.icon = icon
-  },
-  TOGGLE_SPINNER (state) {
-    state.spinner = !state.spinner
-  },
-  UPDATE_TOP_ID (state, id) {
-    state.rank.topid = id
   },
   SWITCH_SONG (state, obj) {
     state.play.status.playing = true

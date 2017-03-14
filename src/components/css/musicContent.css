@@ -80,13 +80,13 @@
       height: 100%;
       z-index: 1;
       background: -webkit-linear-gradient(transparent, transparent, black); }
-  .music-content .cd {
+  .music-content .cd-box .cd {
     position: relative;
     width: 4.96rem;
     height: 4.96rem;
-    margin: 2rem auto 0 auto;
+    margin: 2.2rem auto 0 auto;
     z-index: 2; }
-    .music-content .cd .cd-img {
+    .music-content .cd-box .cd .cd-img {
       position: absolute;
       width: 3.02rem;
       height: 3.02rem;
@@ -96,25 +96,93 @@
       -webkit-transform: translate(-50%, -50%);
       z-index: 2;
       border-radius: 50%; }
-    .music-content .cd .cd-side {
+    .music-content .cd-box .cd .cd-side {
       position: absolute;
       width: 4.96rem;
       height: 4.96rem;
       background: url("../../image/disc.png");
       background-size: 4.96rem 4.96rem;
       z-index: 1; }
-  .music-content .needle {
+  .music-content .cd-box .needle {
     position: absolute;
-    width: 1.68rem;
-    height: 2.44rem;
-    background: url("../../image/needle.png");
-    background-size: 1.68rem 2.44rem;
+    width: 1.42rem;
+    height: 2.24rem;
+    background: url("../../image/needle_1.png");
+    background-size: 1.42rem 2.24rem;
     z-index: 4;
-    top: 0.91rem;
-    left: 2.9rem; }
-  .music-content .ani {
+    top: 1.08rem;
+    left: 3.15rem;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    -webkit-transition: transform 0.5s, -webkit-transform 0.5s;
+    transform: rotate(-25deg);
+    -webkit-transform: rotate(-25deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0; }
+  .music-content .cd-box .needle_2 {
+    position: absolute;
+    top: 0.93rem;
+    left: 3.03rem;
+    width: 0.48rem;
+    height: 0.22rem;
+    background: url("../../image/needle_2.png");
+    background-size: 0.48rem 0.22rem;
+    z-index: 5; }
+  .music-content .cd-box .needle_play {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0; }
+  .music-content .cd-box .ani {
     -webkit-animation: rotate 30s infinite linear;
     animation: rotate 30s infinite linear; }
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+  .music-content .click-box {
+    position: absolute;
+    bottom: 2.7rem;
+    height: 1rem;
+    width: 6.4rem; }
+    .music-content .click-box .like {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      left: 2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: 7.2rem 7.2rem;
+      background-position: 71.79104% 8.80597%; }
+    .music-content .click-box .like-do {
+      background-size: 7.2rem 7.2rem;
+      background-position: 89.70149% 8.80597%; }
+    .music-content .click-box .download {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      left: 3.2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: 7.2rem 7.2rem;
+      background-position: 80.74627% 8.80597%; }
+    .music-content .click-box .more {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      right: 1.5rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: 7.2rem 7.2rem;
+      background-position: 98.65672% 8.80597%; }
   .music-content .progress-box {
     position: absolute;
     bottom: 1.9rem;
@@ -219,16 +287,6 @@
       background-size: 7.2rem 7.2rem;
       right: .1rem;
       background-position: 35.8209% 8.80597%; }
-@-webkit-keyframes rotate {
-  0% {
-    -webkit-transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg); } }
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
   .music-content .sprites {
     overflow: hidden;
     box-sizing: border-box;

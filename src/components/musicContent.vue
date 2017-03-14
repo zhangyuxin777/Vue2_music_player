@@ -19,18 +19,26 @@
       </div>
       <div class="clear"></div>
     </div>
-    <div class="cd" :class="{'ani':rotate}" id="record">
-      <div class="cd-side"></div>
-      <img :src="songImg" class="cd-img" alt="">
+    <div class="cd-box">
+      <div class="cd" :class="{'ani':rotate}" id="record">
+        <div class="cd-side"></div>
+        <img :src="songImg" class="cd-img" alt="">
+      </div>
+      <div class="needle" :class="{'needle_play' : playing}"></div>
+      <div class="needle_2"></div>
     </div>
-    <div class="needle"></div>
+    <div class="click-box">
+      <div class="sprites like" :class="{'like-do' : isLike}" @click="switchLike"></div>
+      <div class="sprites download"></div>
+      <div class="sprites more"></div>
+    </div>
     <div class="progress-box">
       <span class="current_time">{{currentTime.m}}:{{currentTime.s}}</span>
       <div class="progress-bar">
         <div class="progress" :style="{width:progress+'%'}"></div>
         <div class="point" :style="{left:progress+'%'}"></div>
       </div>
-        <div class="total_time">{{totalTime.m}}:{{totalTime.s}}</div>
+      <div class="total_time">{{totalTime.m}}:{{totalTime.s}}</div>
     </div>
     <div class="control-box">
       <div class="sprites mode" @click="switchMode"
@@ -51,29 +59,6 @@
         topinfo: ''
       }
     },
-    methods: {
-      playClick () {
-        this.$store.dispatch('switchPlayerStatus')
-      },
-      next () {
-        this.$store.dispatch('nextSong')
-      },
-      last () {
-        this.$store.dispatch('lastSong')
-      },
-      switchMode () {
-        this.$store.dispatch('switchMode')
-      },
-      toPop () {
-        this.$store.dispatch('togglePopList', true)
-      },
-      isCurrent (id) {
-        return id === this.$store.state.play.current.data.songid
-      },
-      back () {
-        this.$store.dispatch('switchMusicContent', false)
-      }
-    },
     computed: {
       current () {
         return this.$store.state.play.current
@@ -89,9 +74,10 @@
         }
       },
       totalTime () {
+        let num = (Array(2).join('0') + parseInt(this.$store.state.play.status.total % 60)).slice(-2)
         return {
           m: parseInt(this.$store.state.play.status.total / 60),
-          s: parseInt(this.$store.state.play.status.total % 60)
+          s: num
         }
       },
       playing () {
@@ -111,6 +97,36 @@
       },
       mode () {
         return this.$store.state.play.status.mode
+      },
+      isLike () {
+        return this.$store.state.like.list.indexOf(this.$store.state.play.current) >= 0
+      }
+    },
+    methods: {
+      playClick () {
+        this.$store.dispatch('switchPlayerStatus')
+      },
+      switchLike () {
+        console.log('switchLike')
+        this.$store.dispatch('switchLike', this.$store.state.play.current)
+      },
+      next () {
+        this.$store.dispatch('nextSong')
+      },
+      last () {
+        this.$store.dispatch('lastSong')
+      },
+      switchMode () {
+        this.$store.dispatch('switchMode')
+      },
+      toPop () {
+        this.$store.dispatch('togglePopList', true)
+      },
+      isCurrent (id) {
+        return id === this.$store.state.play.current.data.songid
+      },
+      back () {
+        this.$store.dispatch('switchMusicContent', false)
       }
     },
     beforeMount () {

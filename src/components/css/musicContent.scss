@@ -88,45 +88,128 @@
       background: -webkit-linear-gradient(transparent, transparent, black);
     }
   }
-  .cd {
-    position: relative;
-    width: 4.96rem;
-    height: 4.96rem;
-    margin: 2rem auto 0 auto;
-    z-index: 2;
-    .cd-img {
-      position: absolute;
-      width: 3.02rem;
-      height: 3.02rem;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      z-index: 2;
-      border-radius: 50%;
-    }
-    .cd-side {
-      position: absolute;
+  .cd-box {
+    .cd {
+      position: relative;
       width: 4.96rem;
       height: 4.96rem;
-      background: url("../../image/disc.png");
-      background-size: 4.96rem 4.96rem;
-      z-index: 1;
+      margin: 2.2rem auto 0 auto;
+      z-index: 2;
+      .cd-img {
+        position: absolute;
+        width: 3.02rem;
+        height: 3.02rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        z-index: 2;
+        border-radius: 50%;
+      }
+      .cd-side {
+        position: absolute;
+        width: 4.96rem;
+        height: 4.96rem;
+        background: url("../../image/disc.png");
+        background-size: 4.96rem 4.96rem;
+        z-index: 1;
+      }
+    }
+    .needle {
+      position: absolute;
+      width: 1.42rem;
+      height: 2.24rem;
+      background: url("../../image/needle_1.png");
+      background-size: 1.42rem 2.24rem;
+      z-index: 4;
+      top: 1.08rem;
+      left: 3.15rem;
+      transition: transform 0.5s, -webkit-transform 0.5s;
+      -webkit-transition: transform 0.5s, -webkit-transform 0.5s;
+      transform: rotate(-25deg);
+      -webkit-transform: rotate(-25deg);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+    .needle_2 {
+      position: absolute;
+      top: 0.93rem;
+      left: 3.03rem;
+      width: 0.48rem;
+      height: 0.22rem;
+      background: url("../../image/needle_2.png");
+      background-size: 0.48rem 0.22rem;
+      z-index: 5;
+    }
+    .needle_play {
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+    .ani {
+      -webkit-animation: rotate 30s infinite linear;
+      animation: rotate 30s infinite linear;
+    }
+    @-webkit-keyframes rotate {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
-  .needle {
+  .click-box {
     position: absolute;
-    width: 1.68rem;
-    height: 2.44rem;
-    background: url("../../image/needle.png");
-    background-size: 1.68rem 2.44rem;
-    z-index: 4;
-    top: 0.91rem;
-    left: 2.9rem;
-  }
-  .ani {
-    -webkit-animation: rotate 30s infinite linear;
-    animation: rotate 30s infinite linear;
+    bottom: 2.7rem;
+    height: 1rem;
+    width: $pageWidth;
+    .like {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      left: 2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 481, 59);
+    }
+    .like-do {
+      background-size: $spriteRem $spriteRem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 601, 59);
+    }
+    .download {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      left: 3.2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 541, 59);
+    }
+    .more {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      right: 1.5rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 661, 59);
+    }
   }
   .progress-box {
     position: absolute;
@@ -248,22 +331,7 @@
       @include bgPosition($spriteSize, $spriteSize, 50, 50, 240, 59);
     }
   }
-  @-webkit-keyframes rotate {
-    0% {
-      -webkit-transform: rotate(0deg);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-    }
-  }
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+
   .sprites {
     overflow: hidden;
     box-sizing: border-box;

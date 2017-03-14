@@ -5,7 +5,6 @@
  * @param song
  */
 export const playSong = ({commit}, song) => {
-  commit('SWITCH_ROTATE', false)
   commit('PLAY_SONG', song)
 }
 /**
@@ -17,6 +16,14 @@ export const switchMusicContent = ({commit}, isShow) => {
   commit('SWITCH_MUSIC_CONTENT', isShow)
 }
 /**
+ * 从喜欢列表里添加或删除
+ * @param commit
+ * @param song
+ */
+export const switchLike = ({commit}, song) => {
+  commit('SWITCH_LIKE', song)
+}
+/**
  * 更新标题 和按钮
  * @param commit
  * @param title 标题
@@ -26,14 +33,6 @@ export const switchMusicContent = ({commit}, isShow) => {
 export const updateTitle = ({commit}, title, showBack, icon) => {
   document.title = title
   commit('UPDATE_TITLE', title, showBack, icon)
-}
-
-/**
- * 显示或隐藏 滚动条
- * @param commit
- */
-export const toggleSpinner = ({commit}) => {
-  commit('TOGGLE_SPINNER')
 }
 /**
  * 添加到播放列表
@@ -123,7 +122,6 @@ export const removeFromPlayList = ({commit}, song) => {
 /**
  * 清空播放列表
  * @param commit
- * @param song
  */
 export const cleanPlayList = ({commit}) => {
   commit('CLEAN_PLAY_LIST')
