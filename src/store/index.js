@@ -24,7 +24,8 @@ const state = {
       position: 1,
       playing: false,
       mode: 1,
-      rotate: false
+      rotate: false,
+      showLyric: false
     },
     isShow: true,
     showMusicContent: false,

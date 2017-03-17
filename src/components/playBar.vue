@@ -28,29 +28,21 @@
   </div>
 </template>
 <script>
+  import {mapState} from 'vuex'
   export default {
     computed: {
-      current () {
-        return this.$store.state.play.current
-      },
-      songImg () {
-        if (this.$store.state.play.current.data.albummid) {
-          return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + this.$store.state.play.current.data.albummid + '.jpg'
+      ...mapState({
+        progress: state => (state.play.status.position / parseFloat(state.play.status.total) * 100),
+        mode: state => state.play.status.mode,
+        current: state => state.play.current,
+        playing: state => state.play.status.playing,
+        rotate: state => state.play.status.rotate,
+        songImg: state => {
+          if (state.play.current.data.albummid) {
+            return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + state.play.current.data.albummid + '.jpg'
+          }
         }
-      },
-      progress () {
-        return (this.$store.state.play.status.position / parseFloat(this.$store.state.play.status.total) * 100)
-      },
-      playing () {
-        if (document.getElementById('album')) {
-          document.getElementById('album').style.webkitAnimationPlayState = this.$store.state.play.status.playing ? 'running' : 'paused'
-          document.getElementById('album').style.animationPlayState = this.$store.state.play.status.playing ? 'running' : 'paused'
-        }
-        return this.$store.state.play.status.playing
-      },
-      rotate () {
-        return this.$store.state.play.status.rotate
-      }
+      })
     },
     methods: {
       playClick () {
@@ -65,6 +57,14 @@
       toContent () {
         if (this.$store.state.play.current.data.songid) {
           this.$store.dispatch('switchMusicContent', true)
+        }
+      }
+    },
+    watch: {
+      playing (playing) {
+        if (document.getElementById('album')) {
+          document.getElementById('album').style.webkitAnimationPlayState = playing ? 'running' : 'paused'
+          document.getElementById('album').style.animationPlayState = playing ? 'running' : 'paused'
         }
       }
     }

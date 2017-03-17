@@ -19,6 +19,7 @@
       </div>
       <div class="clear"></div>
     </div>
+    <div class="lyric-box"></div>
     <div class="cd-box">
       <div class="cd" :class="{'ani':rotate}" id="record">
         <div class="cd-side"></div>
@@ -51,63 +52,45 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import Base64 from '../js/base64'
+  import {mapState} from 'vuex'
   export default{
-    data () {
-      return {
-        topList: [],
-        topid: this.$route.query.id,
-        topinfo: ''
-      }
-    },
     computed: {
-      current () {
-        return this.$store.state.play.current
-      },
-      progress () {
-        return (this.$store.state.play.status.position / parseFloat(this.$store.state.play.status.total) * 100)
-      },
-      currentTime () {
-        let num = (Array(2).join('0') + parseInt(this.$store.state.play.status.position % 60)).slice(-2)
-        return {
-          m: parseInt(this.$store.state.play.status.position / 60),
-          s: num
+      ...mapState({
+        progress: state => (state.play.status.position / parseFloat(state.play.status.total) * 100),
+        mode: state => state.play.status.mode,
+        current: state => state.play.current,
+        playing: state => state.play.status.playing,
+        rotate: state => state.play.status.rotate,
+        currentTime: state => {
+          let num = (Array(2).join('0') + parseInt(state.play.status.position % 60)).slice(-2)
+          return {
+            m: parseInt(state.play.status.position / 60),
+            s: num
+          }
+        },
+        totalTime: state => {
+          let num = (Array(2).join('0') + parseInt(state.play.status.total % 60)).slice(-2)
+          return {
+            m: parseInt(state.play.status.total / 60),
+            s: num
+          }
+        },
+        songImg: state => {
+          if (state.play.current.data.albummid) {
+            return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + state.play.current.data.albummid + '.jpg'
+          }
+        },
+        isLike: state => {
+          return state.like.list.indexOf(state.play.current) >= 0
         }
-      },
-      totalTime () {
-        let num = (Array(2).join('0') + parseInt(this.$store.state.play.status.total % 60)).slice(-2)
-        return {
-          m: parseInt(this.$store.state.play.status.total / 60),
-          s: num
-        }
-      },
-      playing () {
-        return this.$store.state.play.status.playing
-      },
-      rotate () {
-        if (document.getElementById('record')) {
-          document.getElementById('record').style.webkitAnimationPlayState = this.$store.state.play.status.playing ? 'running' : 'paused'
-          document.getElementById('record').style.animationPlayState = this.$store.state.play.status.playing ? 'running' : 'paused'
-        }
-        return this.$store.state.play.status.rotate
-      },
-      songImg () {
-        if (this.$store.state.play.current.data.albummid) {
-          return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + this.$store.state.play.current.data.albummid + '.jpg'
-        }
-      },
-      mode () {
-        return this.$store.state.play.status.mode
-      },
-      isLike () {
-        return this.$store.state.like.list.indexOf(this.$store.state.play.current) >= 0
-      }
+      })
     },
     methods: {
       playClick () {
         this.$store.dispatch('switchPlayerStatus')
       },
       switchLike () {
-        console.log('switchLike')
         this.$store.dispatch('switchLike', this.$store.state.play.current)
       },
       next () {
@@ -129,9 +112,21 @@
         this.$store.dispatch('switchMusicContent', false)
       }
     },
-    beforeMount () {
-
+    watch: {
+      current (curr) {
+        console.log('current')
+        this.$http.jsonp('https://api.darlin.me/music/lyric/' + curr.data.songid, {
+          jsonp: 'callback'
+        }).then(function (response) {
+          console.log(Base64.decode(response.data.lyric))
+        })
+      },
+      playing (playing) {
+        if (document.getElementById('record')) {
+          document.getElementById('record').style.webkitAnimationPlayState = playing ? 'running' : 'paused'
+          document.getElementById('record').style.animationPlayState = playing ? 'running' : 'paused'
+        }
+      }
     }
   }
-
 </script>
