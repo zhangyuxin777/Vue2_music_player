@@ -7,6 +7,7 @@
   bottom: 0;
   overflow: hidden;
   background: white;
+  z-index: 20;
   .header {
     position: absolute;
     height: 0.9rem;
@@ -86,6 +87,27 @@
       height: 100%;
       z-index: 1;
       background: -webkit-linear-gradient(transparent, transparent, black);
+    }
+  }
+  .lyric-box {
+    position: absolute;
+    top: 0.9rem;
+    bottom: 2.3rem;
+    width: $pageWidth;
+    overflow: auto;
+    .lyric-list {
+      background: transparent;
+      .item {
+        background: transparent;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        color: #bbb;
+        text-align: center;
+        font-size: 0.22rem;
+      }
+      .current {
+        color: white;
+      }
     }
   }
   .cd-box {

@@ -19,8 +19,16 @@
       </div>
       <div class="clear"></div>
     </div>
-    <div class="lyric-box"></div>
-    <div class="cd-box">
+    <div class="lyric-box" v-show="showLyric" @click="switchLyric">
+      <ul class="lyric-list">
+        <li v-for="(item,index) in list" class="item">
+          <div class="text" :class="{'current': (item.m * 60 + item.s)==(currentTime.m * 60 + currentTime.s)}">
+            {{item.text}}
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="cd-box" v-show="!showLyric" @click="switchLyric">
       <div class="cd" :class="{'ani':rotate}" id="record">
         <div class="cd-side"></div>
         <img :src="songImg" class="cd-img" alt="">
@@ -28,7 +36,7 @@
       <div class="needle" :class="{'needle_play' : playing}"></div>
       <div class="needle_2"></div>
     </div>
-    <div class="click-box">
+    <div class="click-box" v-show="!showLyric">
       <div class="sprites like" :class="{'like-do' : isLike}" @click="switchLike"></div>
       <div class="sprites download"></div>
       <div class="sprites more"></div>
@@ -55,6 +63,11 @@
   import Base64 from '../js/base64'
   import {mapState} from 'vuex'
   export default{
+    data () {
+      return {
+        lyricList: []
+      }
+    },
     computed: {
       ...mapState({
         progress: state => (state.play.status.position / parseFloat(state.play.status.total) * 100),
@@ -62,6 +75,7 @@
         current: state => state.play.current,
         playing: state => state.play.status.playing,
         rotate: state => state.play.status.rotate,
+        showLyric: state => state.play.status.showLyric,
         currentTime: state => {
           let num = (Array(2).join('0') + parseInt(state.play.status.position % 60)).slice(-2)
           return {
@@ -83,6 +97,9 @@
         },
         isLike: state => {
           return state.like.list.indexOf(state.play.current) >= 0
+        },
+        list () {
+          return this.lyricList
         }
       })
     },
@@ -102,6 +119,9 @@
       switchMode () {
         this.$store.dispatch('switchMode')
       },
+      switchLyric () {
+        this.$store.dispatch('switchLyric')
+      },
       toPop () {
         this.$store.dispatch('togglePopList', true)
       },
@@ -119,6 +139,18 @@
           jsonp: 'callback'
         }).then(function (response) {
           console.log(Base64.decode(response.data.lyric))
+          let sss = Base64.decode(response.data.lyric)
+          this.lyricList = []
+          sss.split('[').slice(5).map((item, index) => {
+            let time = item.split(']')[0]
+            this.lyricList.push({
+              m: time.split(':')[0],
+              s: time.split(':')[1].split('.')[0],
+              time: time,
+              text: item.split(']')[1]
+            })
+          })
+          console.log(this.lyricList)
         })
       },
       playing (playing) {

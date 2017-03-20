@@ -131,6 +131,9 @@ const mutations = {
   UPDATE_POP_LIST (state, pop) {
     state.play.popList.pop = pop
   },
+  SWITCH_LYRIC (state) {
+    state.play.status.showLyric = !state.play.status.showLyric
+  },
   UPDATE_PROGRESS (state, obj) {
     state.play.status.total = obj.total
     state.play.status.position = obj.position

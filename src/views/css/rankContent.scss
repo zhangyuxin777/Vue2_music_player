@@ -1,6 +1,8 @@
 @import "../../css/wl-common";
 
 .rank-content {
+  position: relative;
+  z-index: 5;
   .banner {
     width: 6.4rem;
     overflow: hidden;

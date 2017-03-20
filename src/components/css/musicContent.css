@@ -4,7 +4,8 @@
   top: 0;
   bottom: 0;
   overflow: hidden;
-  background: white; }
+  background: white;
+  z-index: 20; }
   .music-content .header {
     position: absolute;
     height: 0.9rem;
@@ -80,6 +81,23 @@
       height: 100%;
       z-index: 1;
       background: -webkit-linear-gradient(transparent, transparent, black); }
+  .music-content .lyric-box {
+    position: absolute;
+    top: 0.9rem;
+    bottom: 2.3rem;
+    width: 6.4rem;
+    overflow: auto; }
+    .music-content .lyric-box .lyric-list {
+      background: transparent; }
+      .music-content .lyric-box .lyric-list .item {
+        background: transparent;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        color: #bbb;
+        text-align: center;
+        font-size: 0.22rem; }
+      .music-content .lyric-box .lyric-list .current {
+        color: white; }
   .music-content .cd-box .cd {
     position: relative;
     width: 4.96rem;
