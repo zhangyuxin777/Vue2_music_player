@@ -19,10 +19,10 @@
       </div>
       <div class="clear"></div>
     </div>
-    <div class="lyric-box" v-show="showLyric" @click="switchLyric">
-      <ul class="lyric-list">
-        <li v-for="(item,index) in list" class="item">
-          <div class="text" :class="{'current': (item.m * 60 + item.s)==(currentTime.m * 60 + currentTime.s)}">
+    <div class="lyric-box" id="lyricBox" v-show="showLyric" @click="switchLyric">
+      <ul class="lyric-list" id="lyricList">
+        <li v-for="(item,index) in list" class="item lyricItem">
+          <div class="text" :id="item.id">
             {{item.text}}
           </div>
         </li>
@@ -61,11 +61,15 @@
 </template>
 <script type="text/ecmascript-6">
   import Base64 from '../js/base64'
+  import Common from '../js/rock'
+  import $ from 'jquery'
   import {mapState} from 'vuex'
   export default{
     data () {
       return {
-        lyricList: []
+        lyricList: {},
+        currentLyric: null,
+        index: 0
       }
     },
     computed: {
@@ -134,29 +138,49 @@
     },
     watch: {
       current (curr) {
-        console.log('current')
         this.$http.jsonp('https://api.darlin.me/music/lyric/' + curr.data.songid, {
           jsonp: 'callback'
         }).then(function (response) {
-          console.log(Base64.decode(response.data.lyric))
           let sss = Base64.decode(response.data.lyric)
-          this.lyricList = []
-          sss.split('[').slice(5).map((item, index) => {
+          this.lyricList = {}
+          try {
+            document.getElementById(this.currentLyric).classList.remove('current')
+          } catch (e) {
+          }
+          this.currentLyric = null
+          sss.split('[').slice(5).map((item) => {
             let time = item.split(']')[0]
-            this.lyricList.push({
-              m: time.split(':')[0],
-              s: time.split(':')[1].split('.')[0],
+            this.lyricList[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
+              id: this.current.data.songid.toString() + '_' + (parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1])),
               time: time,
               text: item.split(']')[1]
-            })
+            }
           })
-          console.log(this.lyricList)
         })
       },
       playing (playing) {
         if (document.getElementById('record')) {
           document.getElementById('record').style.webkitAnimationPlayState = playing ? 'running' : 'paused'
           document.getElementById('record').style.animationPlayState = playing ? 'running' : 'paused'
+        }
+      },
+      progress () {
+        let time = parseInt(this.currentTime.m) * 60 + parseInt(this.currentTime.s)
+        let id = this.current.data.songid.toString() + '_' + time.toString()
+        if (this.lyricList.hasOwnProperty(time) && id !== this.currentLyric) {
+          try {
+            let ele = $('#lyricBox').find('.current')
+            $('#lyricBox').animate({'scrollTop': $('#lyricBox').scrollTop() + ele.offset().top - $('#lyricBox').offset().top - this.$store.state.fontSize * 0.1 * 35}, 350)
+          } catch (e) {
+          }
+          if (Common.trim(this.lyricList[time].text).length !== 0) {
+            try {
+              document.getElementById(id).classList.add('current')
+              document.getElementById(this.currentLyric).classList.remove('current')
+            } catch (e) {
+            }
+            this.currentLyric = id
+          }
         }
       }
     }

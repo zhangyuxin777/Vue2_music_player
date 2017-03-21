@@ -39,7 +39,8 @@ const state = {
   search: {
     keyword: ''
   },
-  count: 0
+  count: 0,
+  fontSize: 0
 }
 
 const mutations = {
@@ -133,6 +134,9 @@ const mutations = {
   },
   SWITCH_LYRIC (state) {
     state.play.status.showLyric = !state.play.status.showLyric
+  },
+  SET_FONT_SIZE (state, size) {
+    state.fontSize = size
   },
   UPDATE_PROGRESS (state, obj) {
     state.play.status.total = obj.total

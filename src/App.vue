@@ -34,6 +34,7 @@
   import playList from './components/playList'
   import musicContent from './components/musicContent'
   import {mapState} from 'vuex'
+  import $ from 'jquery'
   let player = null
   let urlError = false
   export default {
@@ -84,6 +85,7 @@
     },
     mounted () {
       player = document.getElementById('player')
+      this.$store.dispatch('setFontSize', $('html').css('font-size').split('px')[0])
     },
     watch: {
       playing (val) {

@@ -38,5 +38,9 @@ export default {
     document.body.className = document.body.className.replace(reg, ' ')
 
     console.log('autoSize')
+  },
+  trim: function (str) {
+    if (str != undefined && str != null)
+      return str.replace(/(^\s*)|(\s*$)/g, "")
   }
 }
