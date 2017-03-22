@@ -2,7 +2,7 @@
 
 .play-bar {
   height: 1.4rem;
-  width: 100%;
+  width: $pageWidth;
   position: fixed;
   bottom: -0.02rem;
   z-index: 90;
@@ -107,7 +107,7 @@
           height: 0.5rem;
           overflow: hidden;
           box-sizing: border-box;
-          background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+          @include getBackground('icon-list.png');
           background-size: $spriteRem $spriteRem;
           float: left;
           margin-top: 0.26rem;

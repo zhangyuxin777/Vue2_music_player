@@ -81,9 +81,38 @@
       height: 100%;
       z-index: 1;
       background: -webkit-linear-gradient(transparent, transparent, black); }
-  .music-content .lyric-box {
+  .music-content .voice-box {
     position: absolute;
     top: 0.9rem;
+    width: 6.4rem;
+    height: 0.45rem; }
+    .music-content .voice-box .range {
+      width: 4.5rem;
+      left: 1.2rem;
+      position: absolute;
+      bottom: 0.17rem; }
+    .music-content .voice-box input[type=range] {
+      -webkit-appearance: none; }
+    .music-content .voice-box input[type=range]:focus {
+      outline: none; }
+    .music-content .voice-box input[type=range]::-webkit-slider-runnable-track {
+      height: 0.03rem;
+      background: rgba(80, 80, 80, 0.5);
+      cursor: pointer; }
+    .music-content .voice-box input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 0.13rem;
+      width: 0.13rem;
+      margin-top: -0.05rem;
+      background: white;
+      border-radius: 50%; }
+    .music-content .voice-box input[type=range]::-moz-range-progress {
+      background: linear-gradient(to right, #059CFA, white 100%, white);
+      height: 0.1rem;
+      border-radius: 50%; }
+  .music-content .lyric-box {
+    position: absolute;
+    top: 1.4rem;
     bottom: 2.3rem;
     width: 6.4rem;
     overflow: auto; }
@@ -102,7 +131,7 @@
     position: relative;
     width: 4.96rem;
     height: 4.96rem;
-    margin: 2.2rem auto 0 auto;
+    margin: 2.15rem auto 0 auto;
     z-index: 2; }
     .music-content .cd-box .cd .cd-img {
       position: absolute;
@@ -118,14 +147,14 @@
       position: absolute;
       width: 4.96rem;
       height: 4.96rem;
-      background: url("../../image/disc.png");
+      background: transparent url("http://on7hxaasw.bkt.clouddn.com/disc.png") 0 0 no-repeat;
       background-size: 4.96rem 4.96rem;
       z-index: 1; }
   .music-content .cd-box .needle {
     position: absolute;
     width: 1.42rem;
     height: 2.24rem;
-    background: url("../../image/needle_1.png");
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/needle_1.png") 0 0 no-repeat;
     background-size: 1.42rem 2.24rem;
     z-index: 4;
     top: 1.08rem;
@@ -138,11 +167,11 @@
     transform-origin: 0 0; }
   .music-content .cd-box .needle_2 {
     position: absolute;
-    top: 0.93rem;
+    top: 0.9rem;
     left: 3.03rem;
     width: 0.48rem;
     height: 0.22rem;
-    background: url("../../image/needle_2.png");
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/needle_2.png") 0 0 no-repeat;
     background-size: 0.48rem 0.22rem;
     z-index: 5; }
   .music-content .cd-box .needle_play {
@@ -209,7 +238,7 @@
       color: white;
       margin-left: 0.13rem;
       font-size: 0.18rem;
-      display: inline-block; }
+      float: left; }
     .music-content .progress-box .total_time {
       color: white;
       font-size: 0.18rem;
@@ -223,7 +252,7 @@
       background: #ddd;
       border-radius: 1px;
       margin-right: 0.04rem;
-      bottom: 0.17rem; }
+      bottom: 0.1rem; }
       .music-content .progress-box .progress-bar .progress {
         height: 100%;
         background: #e61624;
@@ -308,7 +337,7 @@
   .music-content .sprites {
     overflow: hidden;
     box-sizing: border-box;
-    background: transparent url("../../image/icon-list.png") 0 0 no-repeat; }
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=0322") 0 0 no-repeat; }
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .music-content .header:after {
       -webkit-transform: scaleY(0.33);

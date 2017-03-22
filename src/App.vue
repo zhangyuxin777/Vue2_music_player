@@ -1,5 +1,5 @@
 <style scoped>
-  @import "css/mui/mui.min.css";
+  /*@import "css/mui/mui.min.css";*/
   @import "css/app.css";
   @import "css/animate.css";
   @import "css/magic.css";
@@ -35,6 +35,7 @@
   import musicContent from './components/musicContent'
   import {mapState} from 'vuex'
   import $ from 'jquery'
+  import Common from './js/rock'
   let player = null
   let urlError = false
   export default {
@@ -86,6 +87,34 @@
     mounted () {
       player = document.getElementById('player')
       this.$store.dispatch('setFontSize', $('html').css('font-size').split('px')[0])
+      let _this = this
+      document.onkeydown = function (event) {
+        if (event && event.keyCode === 32) {
+          _this.$store.dispatch('switchPlayerStatus')
+          event.stopPropagation()
+          event.preventDefault()
+        } else if (event && event.keyCode === 37) {
+          _this.$store.dispatch('lastSong')
+          event.stopPropagation()
+          event.preventDefault()
+        } else if (event && event.keyCode === 39) {
+          _this.$store.dispatch('nextSong')
+          event.stopPropagation()
+          event.preventDefault()
+        } else if (event && event.keyCode === 38) {
+          player.volume = (_this.$store.state.play.status.volume > 0.9 ? 1 : _this.$store.state.play.status.volume += 0.1)
+          event.stopPropagation()
+          event.preventDefault()
+        } else if (event && event.keyCode === 40) {
+          player.volume = (_this.$store.state.play.status.volume < 0.1 ? 0 : _this.$store.state.play.status.volume -= 0.1)
+          event.stopPropagation()
+          event.preventDefault()
+        }
+      }
+      window.onresize = function () {
+        $('html').css('background', Common.isPC() ? 'aliceblue' : 'white')
+      }
+      window.onresize()
     },
     watch: {
       playing (val) {

@@ -13,9 +13,10 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "rangeslider.js": "^2.3.0",
     "vue": "^2.2.1",
-    "vue-router": "^2.2.0",
     "vue-resource": "^1.2.1",
+    "vue-router": "^2.2.0",
     "vuex": "^2.2.1"
   },
   "devDependencies": {
@@ -29,7 +30,6 @@
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "webpack-dev-server": "^1.12.0",
-
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",

@@ -77,7 +77,7 @@
     width: 0.4rem;
     overflow: hidden;
     box-sizing: border-box;
-    background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+    @include getBackground('icon-list.png');
     background-size: $spriteRem/5.0*4 $spriteRem/5.0*4;
   }
   .ic_more {

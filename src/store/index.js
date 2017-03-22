@@ -25,7 +25,9 @@ const state = {
       playing: false,
       mode: 1,
       rotate: false,
-      showLyric: false
+      showLyric: false,
+      volume: 1,
+      seekTo: 0
     },
     isShow: true,
     showMusicContent: false,
@@ -137,6 +139,9 @@ const mutations = {
   },
   SET_FONT_SIZE (state, size) {
     state.fontSize = size
+  },
+  SEEK_TO (state, position) {
+    state.seekTo = position
   },
   UPDATE_PROGRESS (state, obj) {
     state.play.status.total = obj.total

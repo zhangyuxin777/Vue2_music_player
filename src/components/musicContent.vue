@@ -19,6 +19,9 @@
       </div>
       <div class="clear"></div>
     </div>
+    <div class="voice-box" v-show="showLyric">
+      <input id="range" class="range" type="range" min="0" max="300" @input="" v-model="value">
+    </div>
     <div class="lyric-box" id="lyricBox" v-show="showLyric" @click="switchLyric">
       <ul class="lyric-list" id="lyricList">
         <li v-for="(item,index) in list" class="item lyricItem">
@@ -69,7 +72,8 @@
       return {
         lyricList: {},
         currentLyric: null,
-        index: 0
+        index: 0,
+        value: 0
       }
     },
     computed: {
@@ -90,8 +94,8 @@
         totalTime: state => {
           let num = (Array(2).join('0') + parseInt(state.play.status.total % 60)).slice(-2)
           return {
-            m: parseInt(state.play.status.total / 60),
-            s: num
+            m: isNaN(parseInt(state.play.status.total / 60)) ? 0 : parseInt(state.play.status.total / 60),
+            s: isNaN(parseInt(state.play.status.total % 60)) ? 0 : num
           }
         },
         songImg: state => {
@@ -164,7 +168,8 @@
           document.getElementById('record').style.animationPlayState = playing ? 'running' : 'paused'
         }
       },
-      progress () {
+      progress (pro) {
+        this.value = 3 * pro
         let time = parseInt(this.currentTime.m) * 60 + parseInt(this.currentTime.s)
         let id = this.current.data.songid.toString() + '_' + time.toString()
         if (this.lyricList.hasOwnProperty(time) && id !== this.currentLyric) {

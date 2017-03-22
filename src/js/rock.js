@@ -2,7 +2,7 @@
  * Created by pc on 2016/9/9.
  */
 export default {
-  wlScreen: function () {
+  wlScreen () {
     return {
       minHeight: '',
       currentHeight: '',
@@ -11,7 +11,7 @@ export default {
       orientation: '0'
     }
   },
-  autoSize: function (scale) {
+  autoSize (scale) {
     this.wlScreen().currentHeight = window.innerHeight
     this.wlScreen().currentWidth = window.innerWidth
     this.wlScreen().minHeight = this.wlScreen().currentHeight - 150
@@ -31,16 +31,27 @@ export default {
     //   var actualHeight = window.screen.height / devicePixelRatio
     //   minWidth = actualWidth < actualHeight ? actualWidth : actualHeight
     // }
-    var w = minWidth > 640 ? 640 : minWidth
+    var w = this.isPC() ? 400 : (minWidth > 640 ? 640 : minWidth)
     docEle.style.fontSize = w / initWidth * initSize + 'px'
 
     var reg = new RegExp('(\\s|^)' + 'hide' + '(\\s|$)')
     document.body.className = document.body.className.replace(reg, ' ')
-
     console.log('autoSize')
   },
-  trim: function (str) {
+  trim (str) {
     if (str != undefined && str != null)
       return str.replace(/(^\s*)|(\s*$)/g, "")
+  },
+  isPC () {
+    var userAgentInfo = navigator.userAgent
+    var Agents = ["Android", "Linux", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"]
+    var flag = true
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false
+        break
+      }
+    }
+    return flag
   }
 }

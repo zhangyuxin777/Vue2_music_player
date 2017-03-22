@@ -29,6 +29,13 @@ export const setFontSize = ({commit}, size) => {
   commit('SET_FONT_SIZE', size)
 }
 /**
+ * 切换是否显示歌词
+ * @param commit
+ */
+export const seekTo = ({commit}, position) => {
+  commit('SEEK_TO', position)
+}
+/**
  * 从喜欢列表里添加或删除
  * @param commit
  * @param song
