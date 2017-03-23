@@ -46,6 +46,14 @@ const state = {
 }
 
 const mutations = {
+  INIT (state, obj) {
+    console.log(obj)
+    obj.playList ? state.play.list = obj.playList : ''
+    obj.playCurrent ? state.play.current = obj.playCurrent : ''
+    obj.playStatus ? state.play.status = obj.playStatus : ''
+    obj.likeList ? state.like.list = obj.likeList : ''
+    obj.playStatus ? state.play.status.playing = false : ''
+  },
   PLAY_SONG (state, song) {
     let isExist = state.play.list.indexOf(song) >= 0
     if (!isExist) {

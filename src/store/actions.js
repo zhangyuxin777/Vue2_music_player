@@ -7,49 +7,20 @@ export const playSong = ({commit}, song) => {
   commit('PLAY_SONG', song)
 }
 /**
- * 切换显示musicContent
+ * 上一首
  * @param commit
- * @param isShow
  */
-export const switchMusicContent = ({commit}, isShow) => {
-  commit('SWITCH_MUSIC_CONTENT', isShow)
+export const lastSong = ({commit}) => {
+  commit('LAST_SONG')
 }
 /**
- * 切换是否显示歌词
+ * 下一首
  * @param commit
  */
-export const switchLyric = ({commit}) => {
-  commit('SWITCH_LYRIC')
+export const nextSong = ({commit}) => {
+  commit('NEXT_SONG')
 }
-/**
- * 设置字号
- * @param commit
- */
-export const setFontSize = ({commit}, size) => {
-  commit('SET_FONT_SIZE', size)
-}
-/**
- * 快进
- * @param commit
- */
-export const seekTo = ({commit}, position) => {
-  commit('SEEK_TO', position)
-}
-/**
- * 声音
- * @param commit
- */
-export const setVolume = ({commit}, volume) => {
-  commit('SET_VOLUME', volume)
-}
-/**
- * 从喜欢列表里添加或删除
- * @param commit
- * @param song
- */
-export const switchLike = ({commit}, song) => {
-  commit('SWITCH_LIKE', song)
-}
+
 /**
  * 更新标题 和按钮
  * @param commit
@@ -62,13 +33,45 @@ export const updateTitle = ({commit}, title, showBack, icon) => {
   commit('UPDATE_TITLE', title, showBack, icon)
 }
 /**
- * 添加到播放列表
+ * 设置字号
  * @param commit
- * @param obj
  */
-export const addPlayList = ({commit}, obj) => {
-  commit('ADD_PLAY_LIST', obj)
+export const setFontSize = ({commit}, size) => {
+  commit('SET_FONT_SIZE', size)
 }
+
+/**
+ * 切换播放列表
+ * @param commit
+ * @param pop
+ */
+export const togglePopList = ({commit}, pop) => {
+  commit('UPDATE_POP_LIST', pop)
+}
+/**
+ * 从播放列表删除
+ * @param commit
+ * @param song
+ */
+export const removeFromPlayList = ({commit}, song) => {
+  commit('REMOVE_FROM_PLAY_LIST', song)
+}
+/**
+ * 清空播放列表
+ * @param commit
+ */
+export const cleanPlayList = ({commit}) => {
+  commit('CLEAN_PLAY_LIST')
+}
+/**
+ * 从喜欢列表里添加或删除
+ * @param commit
+ * @param song
+ */
+export const switchLike = ({commit}, song) => {
+  commit('SWITCH_LIKE', song)
+}
+
 /**
  * 更新进度条
  * @param commit
@@ -99,6 +102,21 @@ export const switchMode = ({commit}) => {
   commit('SWITCH_MODE')
 }
 /**
+ * 切换显示musicContent
+ * @param commit
+ * @param isShow
+ */
+export const switchMusicContent = ({commit}, isShow) => {
+  commit('SWITCH_MUSIC_CONTENT', isShow)
+}
+/**
+ * 切换是否显示歌词
+ * @param commit
+ */
+export const switchLyric = ({commit}) => {
+  commit('SWITCH_LYRIC')
+}
+/**
  * 重新开始或停止动画
  * @param commit
  * @param isRotate
@@ -107,49 +125,21 @@ export const switchRotate = ({commit}, isRotate) => {
   commit('SWITCH_ROTATE', isRotate)
 }
 /**
- * 上一首
+ * 快进
  * @param commit
  */
-export const lastSong = ({commit}) => {
-  commit('LAST_SONG')
+export const seekTo = ({commit}, position) => {
+  commit('SEEK_TO', position)
 }
 /**
- * 下一首
+ * 声音
  * @param commit
  */
-export const nextSong = ({commit}) => {
-  commit('NEXT_SONG')
+export const setVolume = ({commit}, volume) => {
+  commit('SET_VOLUME', volume)
 }
 
-/**
- * 下一首
- * @param commit
- * @param keyword
- */
-export const updateKeyword = ({commit}, keyword) => {
-  commit('UPDATE_KEYWORD', keyword)
+export const init = ({commit}, obj) => {
+  commit('INIT', obj)
 }
 
-/**
- * 切换播放列表
- * @param commit
- * @param pop
- */
-export const togglePopList = ({commit}, pop) => {
-  commit('UPDATE_POP_LIST', pop)
-}
-/**
- * 从播放列表删除
- * @param commit
- * @param song
- */
-export const removeFromPlayList = ({commit}, song) => {
-  commit('REMOVE_FROM_PLAY_LIST', song)
-}
-/**
- * 清空播放列表
- * @param commit
- */
-export const cleanPlayList = ({commit}) => {
-  commit('CLEAN_PLAY_LIST')
-}

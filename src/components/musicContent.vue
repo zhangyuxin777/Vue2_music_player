@@ -67,6 +67,7 @@
   import Base64 from '../js/base64'
   import Common from '../js/rock'
   import $ from 'jquery'
+  import storage from '../js/storage'
   import {mapState} from 'vuex'
   export default{
     data () {
@@ -86,6 +87,7 @@
         rotate: state => state.play.status.rotate,
         showLyric: state => state.play.status.showLyric,
         volume: state => state.play.status.volume,
+        isLike: state => (state.like.list.indexOf(state.play.current) >= 0),
         currentTime: state => {
           let num = (Array(2).join('0') + parseInt(state.play.status.position % 60)).slice(-2)
           return {
@@ -104,9 +106,6 @@
           if (state.play.current.data.albummid) {
             return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + state.play.current.data.albummid + '.jpg'
           }
-        },
-        isLike: state => {
-          return state.like.list.indexOf(state.play.current) >= 0
         },
         list () {
           return this.lyricList
@@ -167,7 +166,6 @@
           })
         })
         this.value = parseInt(document.getElementById('volume').getAttribute('max')) * this.$store.state.play.status.volume
-        console.log(document.getElementById('volume').getAttribute('max') * this.$store.state.play.status.volume)
       },
       playing (playing) {
         if (document.getElementById('record')) {
@@ -181,7 +179,7 @@
         if (this.lyricList.hasOwnProperty(time) && id !== this.currentLyric) {
           try {
             let ele = $('#lyricBox').find('.current')
-            $('#lyricBox').animate({'scrollTop': $('#lyricBox').scrollTop() + ele.offset().top - $('#lyricBox').offset().top - this.$store.state.fontSize * 0.1 * 35}, 350)
+            $('#lyricBox').animate({'scrollTop': $('#lyricBox').scrollTop() + ele.offset().top - $('#lyricBox').offset().top - this.$store.state.fontSize * 0.1 * 35 + 35}, 350)
           } catch (e) {
           }
           if (Common.trim(this.lyricList[time].text).length !== 0) {
@@ -196,6 +194,9 @@
       },
       volume (volume) {
         this.value = parseInt(document.getElementById('volume').getAttribute('max')) * volume
+      },
+      isLike () {
+        storage.setL('likeList', this.$store.state.like.list)
       }
     }
   }

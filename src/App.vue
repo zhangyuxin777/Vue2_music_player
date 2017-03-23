@@ -36,6 +36,7 @@
   import {mapState} from 'vuex'
   import $ from 'jquery'
   import Common from './js/rock'
+  import storage from './js/storage'
   let player = null
   let urlError = false
   export default {
@@ -47,6 +48,10 @@
     },
     computed: {
       ...mapState({
+        playList: state => state.play.list,
+        playStatus: state => state.play.status,
+        playCurrent: state => state.play.current,
+        likeList: state => state.like.list,
         mode: state => state.play.status.mode,
         current: state => state.play.current,
         playing: state => state.play.status.playing,
@@ -86,9 +91,15 @@
       }
     },
     mounted () {
-      player = document.getElementById('player')
-      this.$store.dispatch('setFontSize', $('html').css('font-size').split('px')[0])
       let _this = this
+      player = document.getElementById('player')
+      _this.$store.dispatch('setFontSize', $('html').css('font-size').split('px')[0])
+      _this.$store.dispatch('init', {
+        playList: storage.getL('playList'),
+        playCurrent: storage.getL('playCurrent'),
+        playStatus: storage.getL('playStatus'),
+        likeList: storage.getL('likeList')
+      })
       document.onkeydown = function (event) {
         if (event && event.keyCode === 32) {
           _this.$store.dispatch('switchPlayerStatus')
@@ -135,6 +146,16 @@
       },
       volume (volume) {
         player.volume = volume
+      },
+      playList (list) {
+        storage.setL('playList', list)
+      },
+      likeList (list) {
+        storage.setL('likeList', list)
+      },
+      playCurrent (current) {
+        storage.setL('playCurrent', current)
+        storage.setL('playStatus', this.$store.state.play.status)
       }
     }
   }
