@@ -13,6 +13,7 @@ const state = {
   spinner: false,
   play: {
     list: [],
+    songIdList: [],
     current: {
       data: {
         singer: [{name: ''}],
