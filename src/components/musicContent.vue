@@ -20,7 +20,8 @@
       <div class="clear"></div>
     </div>
     <div class="voice-box" v-show="showLyric">
-      <input id="range" class="range" type="range" min="0" max="300" @input="" v-model="value">
+      <span class="sprites ic_voice"></span>
+      <input id="volume" class="range" type="range" min="0" max="100" @input="volumeChange" v-model="value">
     </div>
     <div class="lyric-box" id="lyricBox" v-show="showLyric" @click="switchLyric">
       <ul class="lyric-list" id="lyricList">
@@ -84,6 +85,7 @@
         playing: state => state.play.status.playing,
         rotate: state => state.play.status.rotate,
         showLyric: state => state.play.status.showLyric,
+        volume: state => state.play.status.volume,
         currentTime: state => {
           let num = (Array(2).join('0') + parseInt(state.play.status.position % 60)).slice(-2)
           return {
@@ -138,6 +140,9 @@
       },
       back () {
         this.$store.dispatch('switchMusicContent', false)
+      },
+      volumeChange () {
+        this.$store.dispatch('setVolume', event.target.value / parseFloat(event.target.getAttribute('max')))
       }
     },
     watch: {
@@ -161,6 +166,8 @@
             }
           })
         })
+        this.value = parseInt(document.getElementById('volume').getAttribute('max')) * this.$store.state.play.status.volume
+        console.log(document.getElementById('volume').getAttribute('max') * this.$store.state.play.status.volume)
       },
       playing (playing) {
         if (document.getElementById('record')) {
@@ -169,7 +176,6 @@
         }
       },
       progress (pro) {
-        this.value = 3 * pro
         let time = parseInt(this.currentTime.m) * 60 + parseInt(this.currentTime.s)
         let id = this.current.data.songid.toString() + '_' + time.toString()
         if (this.lyricList.hasOwnProperty(time) && id !== this.currentLyric) {
@@ -187,6 +193,9 @@
             this.currentLyric = id
           }
         }
+      },
+      volume (volume) {
+        this.value = parseInt(document.getElementById('volume').getAttribute('max')) * volume
       }
     }
   }

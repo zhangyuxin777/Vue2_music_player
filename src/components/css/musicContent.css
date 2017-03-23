@@ -86,9 +86,17 @@
     top: 0.9rem;
     width: 6.4rem;
     height: 0.45rem; }
+    .music-content .voice-box .ic_voice {
+      width: 0.4rem;
+      height: 0.4rem;
+      background-size: 5.76rem 5.76rem;
+      float: left;
+      background-position: 80.58824% 0%;
+      margin-top: 0.025rem;
+      margin-left: 0.4rem; }
     .music-content .voice-box .range {
-      width: 4.5rem;
-      left: 1.2rem;
+      width: 4.8rem;
+      left: 0.9rem;
       position: absolute;
       bottom: 0.17rem; }
     .music-content .voice-box input[type=range] {
@@ -273,7 +281,7 @@
       position: absolute;
       height: 1.05rem;
       width: 1.05rem;
-      background-size: 14.4rem 14.4rem;
+      background-size: 15.696rem 15.696rem;
       background-position: 0% 9.03226%;
       top: 0.75rem;
       left: 3.2rem;
@@ -283,7 +291,7 @@
       position: absolute;
       height: 1.05rem;
       width: 1.05rem;
-      background-size: 14.4rem 14.4rem;
+      background-size: 15.696rem 15.696rem;
       background-position: 9.03226% 9.03226%;
       top: 0.75rem;
       left: 3.2rem;
@@ -337,7 +345,7 @@
   .music-content .sprites {
     overflow: hidden;
     box-sizing: border-box;
-    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=0322") 0 0 no-repeat; }
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03231037") 0 0 no-repeat; }
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .music-content .header:after {
       -webkit-transform: scaleY(0.33);

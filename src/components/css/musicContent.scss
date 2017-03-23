@@ -94,9 +94,18 @@
     top: 0.9rem;
     width: 6.4rem;
     height: 0.45rem;
+    .ic_voice {
+      width: 0.4rem;
+      height: 0.4rem;
+      background-size: $spriteRem/5*4 $spriteRem/5*4;
+      float: left;
+      @include bgPosition($spriteSize, $spriteSize, 40, 40, 548, 0);
+      margin-top: 0.025rem;
+      margin-left: 0.4rem;
+    }
     .range {
-      width: 4.5rem;
-      left: 1.2rem;
+      width: 4.8rem;
+      left: 0.9rem;
       position: absolute;
       bottom: 0.17rem;;
     }
@@ -124,6 +133,7 @@
       height: 0.1rem;
       border-radius: 50%;
     }
+
   }
   .lyric-box {
     position: absolute;
@@ -318,7 +328,7 @@
       position: absolute;
       height: 1.05rem;
       width: 1.05rem;
-      background-size: $spriteRem/5.0*10 $spriteRem/5.0*10;
+      background-size: $spriteRem/5.0*10.9 $spriteRem/5.0*10.9;
       @include bgPosition($spriteSize, $spriteSize, 100, 100, 0, 56);
       top: 0.75rem;
       left: 3.2rem;
@@ -329,7 +339,7 @@
       position: absolute;
       height: 1.05rem;
       width: 1.05rem;
-      background-size: $spriteRem/5.0*10 $spriteRem/5.0*10;
+      background-size: $spriteRem/5.0*10.9 $spriteRem/5.0*10.9;
       @include bgPosition($spriteSize, $spriteSize, 100, 100, 56, 56);
       top: 0.75rem;
       left: 3.2rem;
@@ -393,7 +403,7 @@
   .sprites {
     overflow: hidden;
     box-sizing: border-box;
-    @include getBackground('icon-list.png?v=0322');
+    @include getBackground('icon-list.png?v=03231037');
   }
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .header:after {

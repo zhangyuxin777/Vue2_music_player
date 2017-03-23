@@ -143,6 +143,9 @@ const mutations = {
   SEEK_TO (state, position) {
     state.seekTo = position
   },
+  SET_VOLUME (state, volume) {
+    state.play.status.volume = volume
+  },
   UPDATE_PROGRESS (state, obj) {
     state.play.status.total = obj.total
     state.play.status.position = obj.position
