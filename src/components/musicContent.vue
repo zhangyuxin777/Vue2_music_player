@@ -87,7 +87,16 @@
         rotate: state => state.play.status.rotate,
         showLyric: state => state.play.status.showLyric,
         volume: state => state.play.status.volume,
-        isLike: state => (state.like.list.indexOf(state.play.current) >= 0),
+        isLike: state => {
+          let isExist = false
+          for (let item of state.like.list) {
+            if (item.data.songid === state.play.current.data.songid) {
+              isExist = true
+              break
+            }
+          }
+          return isExist
+        },
         currentTime: state => {
           let num = (Array(2).join('0') + parseInt(state.play.status.position % 60)).slice(-2)
           return {
@@ -146,11 +155,11 @@
     },
     watch: {
       current (curr) {
+        this.lyricList = {}
         this.$http.jsonp('https://api.darlin.me/music/lyric/' + curr.data.songid, {
           jsonp: 'callback'
         }).then(function (response) {
           let sss = Base64.decode(response.data.lyric)
-          this.lyricList = {}
           try {
             document.getElementById(this.currentLyric).classList.remove('current')
           } catch (e) {

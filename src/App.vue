@@ -51,6 +51,7 @@
         playList: state => state.play.list,
         playStatus: state => state.play.status,
         playCurrent: state => state.play.current,
+        autoplay: state => state.play.status.autoPlay,
         likeList: state => state.like.list,
         mode: state => state.play.status.mode,
         current: state => state.play.current,
@@ -140,6 +141,9 @@
       },
       mode (mode) {
         player.loop = (mode === 0 || (mode === 1 && this.$store.state.play.list.length === 1))
+      },
+      autoplay (autoplay) {
+        player.autoplay = autoplay
       },
       listLength (length) {
         player.loop = (this.$store.state.play.status.mode === 0) || (length === 1 && this.$store.state.play.status.mode === 1)

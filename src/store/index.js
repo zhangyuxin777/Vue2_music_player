@@ -13,7 +13,6 @@ const state = {
   spinner: false,
   play: {
     list: [],
-    songIdList: [],
     current: {
       data: {
         singer: [{name: ''}],
@@ -28,7 +27,8 @@ const state = {
       rotate: false,
       showLyric: false,
       volume: 1,
-      seekTo: 0
+      seekTo: 0,
+      autoPlay: true
     },
     isShow: true,
     showMusicContent: false,
@@ -53,10 +53,22 @@ const mutations = {
     obj.playCurrent ? state.play.current = obj.playCurrent : ''
     obj.playStatus ? state.play.status = obj.playStatus : ''
     obj.likeList ? state.like.list = obj.likeList : ''
-    obj.playStatus ? state.play.status.playing = false : ''
+    if (obj.playStatus) {
+      state.play.status.autoPlay = false
+      state.play.status.playing = false
+      state.play.status.position = 1
+      state.play.status.rotate = false
+    }
   },
   PLAY_SONG (state, song) {
-    let isExist = state.play.list.indexOf(song) >= 0
+    state.play.status.autoPlay = true
+    let isExist = false
+    for (let item of state.play.list) {
+      if (item.data.songid === song.data.songid) {
+        isExist = true
+        break
+      }
+    }
     if (!isExist) {
       state.play.status.rotate = false
       state.play.list.push(song)
@@ -72,6 +84,7 @@ const mutations = {
     state.play.showMusicContent = showContent
   },
   NEXT_SONG (state) {
+    state.play.status.autoPlay = true
     let list = state.play.list
     if (list.length === 0 || list.length === 1 || state.play.status.mode === 0) {
       return
@@ -79,13 +92,20 @@ const mutations = {
     state.play.status.rotate = false
     state.play.status.playing = true
     if (state.play.status.mode === 1) {
-      let index = list.indexOf(state.play.current)
+      let index = 0
+      for (let item of list) {
+        if (item.data.songid === state.play.current.data.songid) {
+          break
+        }
+        index += 1
+      }
       state.play.current = list[(index === list.length - 1 ? 0 : index + 1)]
     } else {
       state.play.current = list[Math.floor(Math.random() * list.length)]
     }
   },
   LAST_SONG (state) {
+    state.play.status.autoPlay = true
     let list = state.play.list
     if (list.length === 0 || list.length === 1 || state.play.status.mode === 0) {
       return
@@ -93,15 +113,29 @@ const mutations = {
     state.play.status.rotate = false
     state.play.status.playing = true
     if (state.play.status.mode === 1) {
-      let index = list.indexOf(state.play.current)
+      let index = 0
+      for (let item of list) {
+        if (item.data.songid === state.play.current.data.songid) {
+          break
+        }
+        index += 1
+      }
       state.play.current = list[(index === 0 ? list.length - 1 : index - 1)]
     } else {
       state.play.current = list[Math.floor(Math.random() * list.length)]
     }
   },
   SWITCH_LIKE (state, song) {
-    let index = state.like.list.indexOf(song)
-    if (index >= 0) {
+    let index = 0
+    let isExist = false
+    for (let item of state.like.list) {
+      if (item.data.songid === song.data.songid) {
+        isExist = true
+        break
+      }
+      index += 1
+    }
+    if (isExist) {
       state.like.list.splice(index, 1)
     } else {
       state.like.list.push(song)
@@ -109,7 +143,13 @@ const mutations = {
   },
   REMOVE_FROM_PLAY_LIST (state, song) {
     let list = state.play.list
-    let index = list.indexOf(song)
+    let index = 0
+    for (let item of list) {
+      if (item.data.songid === song.data.songid) {
+        break
+      }
+      index += 1
+    }
     if (list.length === 1) {
       state.play.status.playing = false
       state.play.status.position = 1
@@ -160,6 +200,7 @@ const mutations = {
     state.play.status.position = obj.position
   },
   SWITCH_PLAYER_STATUS (state) {
+    state.play.status.autoPlay = true
     state.play.status.playing = !state.play.status.playing
   },
   PLAYER_STATUS (state) {
