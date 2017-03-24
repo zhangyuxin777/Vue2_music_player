@@ -156,6 +156,9 @@
     watch: {
       current (curr) {
         this.lyricList = {}
+        if (!curr.data.songid) {
+          return
+        }
         this.$http.jsonp('https://api.darlin.me/music/lyric/' + curr.data.songid, {
           jsonp: 'callback'
         }).then(function (response) {
@@ -183,8 +186,14 @@
         }
       },
       progress (pro) {
-        let time = parseInt(this.currentTime.m) * 60 + parseInt(this.currentTime.s)
-        let id = this.current.data.songid.toString() + '_' + time.toString()
+        let time = 0
+        let id = null
+        try {
+          time = parseInt(this.currentTime.m) * 60 + parseInt(this.currentTime.s)
+          id = this.current.data.songid.toString() + '_' + time.toString()
+        } catch (e) {
+
+        }
         if (this.lyricList.hasOwnProperty(time) && id !== this.currentLyric) {
           try {
             let ele = $('#lyricBox').find('.current')
@@ -206,6 +215,9 @@
       },
       isLike () {
         storage.setL('likeList', this.$store.state.like.list)
+      },
+      showLyric () {
+        storage.setL('playStatus', this.$store.state.play.status)
       }
     }
   }

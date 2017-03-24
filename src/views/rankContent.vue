@@ -43,6 +43,7 @@
         return id === this.$store.state.play.current.data.songid
       },
       toMore (item) {
+        this.$store.dispatch('switchInfo', item)
         event.stopPropagation()
       }
     },

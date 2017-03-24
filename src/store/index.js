@@ -21,7 +21,7 @@ const state = {
     },
     status: {
       total: 10000,
-      position: 1,
+      position: 0,
       playing: false,
       mode: 1,
       rotate: false,
@@ -34,6 +34,9 @@ const state = {
     showMusicContent: false,
     popList: {
       pop: false
+    },
+    info: {
+      show: false
     }
   },
   like: {
@@ -56,7 +59,7 @@ const mutations = {
     if (obj.playStatus) {
       state.play.status.autoPlay = false
       state.play.status.playing = false
-      state.play.status.position = 1
+      state.play.status.position = 0
       state.play.status.rotate = false
     }
   },
@@ -152,7 +155,7 @@ const mutations = {
     }
     if (list.length === 1) {
       state.play.status.playing = false
-      state.play.status.position = 1
+      state.play.status.position = 0
       state.play.status.rotate = false
       state.play.status.total = 10000
       state.play.current = {
@@ -169,7 +172,7 @@ const mutations = {
   CLEAN_PLAY_LIST (state) {
     state.play.list = []
     state.play.status.playing = false
-    state.play.status.position = 1
+    state.play.status.position = 0
     state.play.status.rotate = false
     state.play.status.total = 10000
     state.play.popList.pop = false
@@ -185,6 +188,13 @@ const mutations = {
   },
   SWITCH_LYRIC (state) {
     state.play.status.showLyric = !state.play.status.showLyric
+  },
+  SWITCH_INFO (state, info) {
+    if (info) {
+      state.play.info.show = true
+    } else {
+      state.play.info.show = false
+    }
   },
   SET_FONT_SIZE (state, size) {
     state.fontSize = size

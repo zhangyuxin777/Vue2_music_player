@@ -10,6 +10,7 @@
                 leave-active-class="animated slideOutDown fast" mode="out-in">
       <play-bar v-show="!showMusicContent"></play-bar>
     </transition>
+    <info-list></info-list>
     <play-list></play-list>
     <router-view></router-view>
     <audio id="player" autoplay="autoplay"
@@ -31,6 +32,7 @@
 
 <script>
   import playBar from './components/playBar'
+  import infoList from './components/infoList'
   import playList from './components/playList'
   import musicContent from './components/musicContent'
   import {mapState} from 'vuex'
@@ -44,6 +46,7 @@
     components: {
       playBar,
       playList,
+      infoList,
       musicContent
     },
     computed: {
