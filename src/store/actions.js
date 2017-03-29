@@ -119,10 +119,10 @@ export const switchLyric = ({commit}) => {
 /**
  * 切换显示歌曲信息
  * @param commit
- * @param isShow
+ * @param obj
  */
-export const switchInfo = ({commit}, info) => {
-  commit('SWITCH_INFO', info)
+export const switchInfo = ({commit}, obj) => {
+  commit('SWITCH_INFO', obj)
 }
 /**
  * 重新开始或停止动画

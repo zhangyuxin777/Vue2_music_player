@@ -36,7 +36,14 @@ const state = {
       pop: false
     },
     info: {
-      show: false
+      show: false,
+      isMusicContent: false,
+      current: {
+        data: {
+          singer: [{name: ''}],
+          songname: ''
+        }
+      }
     }
   },
   like: {
@@ -189,9 +196,11 @@ const mutations = {
   SWITCH_LYRIC (state) {
     state.play.status.showLyric = !state.play.status.showLyric
   },
-  SWITCH_INFO (state, info) {
-    if (info) {
+  SWITCH_INFO (state, obj) {
+    if (obj) {
+      state.play.info.current = obj.current
       state.play.info.show = true
+      state.play.info.isMusicContent = obj.isMusicContent
     } else {
       state.play.info.show = false
     }

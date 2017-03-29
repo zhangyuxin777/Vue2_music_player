@@ -43,7 +43,10 @@
         return id === this.$store.state.play.current.data.songid
       },
       toMore (item) {
-        this.$store.dispatch('switchInfo', item)
+        this.$store.dispatch('switchInfo', {
+          current: item,
+          isMusicContent: false
+        })
         event.stopPropagation()
       }
     },

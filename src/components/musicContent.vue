@@ -43,7 +43,7 @@
     <div class="click-box" v-show="!showLyric">
       <div class="sprites like" :class="{'like-do' : isLike}" @click="switchLike"></div>
       <div class="sprites download"></div>
-      <div class="sprites more"></div>
+      <div class="sprites more" @click="toMore"></div>
     </div>
     <div class="progress-box">
       <span class="current_time">{{currentTime.m}}:{{currentTime.s}}</span>
@@ -151,6 +151,13 @@
       },
       volumeChange () {
         this.$store.dispatch('setVolume', event.target.value / parseFloat(event.target.getAttribute('max')))
+      },
+      toMore () {
+        this.$store.dispatch('switchInfo', {
+          current: this.$store.state.play.current,
+          isMusicContent: true
+        })
+        event.stopPropagation()
       }
     },
     watch: {
