@@ -75,6 +75,148 @@
         this.topinfo = response.data.topinfo
       })
       document.body.scrollTop = 0
+      /***
+       * 专辑详情
+       */
+//      this.$http.jsonp('https://c.y.qq.com/v8/fcg-bin/fcg_v8_album_info_cp.fcg', {
+//        params: {
+//          albummid: '003wYYY91FstKX',
+//          g_tk: 5381,
+//          loginUin: 0,
+//          hostUin: 0,
+//          format: 'jsonp',
+//          inCharset: 'utf8',
+//          outCharset: 'utf-8',
+//          notice: 0,
+//          platform: 'yqq',
+//          needNewCode: 0
+//        },
+//        jsonp: 'jsonpCallback'
+//      }).then(function (response) {
+//        console.log(response)
+//      })
+      /***
+       * 歌手详情 以及热门歌曲
+       */
+//      this.$http.jsonp('https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg', {
+//        params: {
+//          g_tk: 5381,
+//          loginUin: 0,
+//          hostUin: 0,
+//          format: 'jsonp',
+//          inCharset: 'utf-8',
+//          outCharset: 'utf-8',
+//          notice: 0,
+//          platform: 'yqq',
+//          needNewCode: 0,
+//          singermid: '0000mFvh1jtLcz',
+//          order: 'listen',
+//          begin: 0,
+//          num: 30,
+//          from: 'h5',
+//          songstatus: 1,
+//          _: new Date().getTime()
+//        },
+//        jsonp: 'jsonpCallback'
+//      }).then(function (response) {
+//        console.log(response)
+//      })
+      /***
+       * 专辑列表
+       */
+//      this.$http.jsonp('https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_album.fcg', {
+//        params: {
+//          g_tk: 5381,
+//          loginUin: 0,
+//          hostUin: 0,
+//          format: 'jsonp',
+//          inCharset: 'utf-8',
+//          outCharset: 'utf-8',
+//          notice: 0,
+//          platform: 'yqq',
+//          needNewCode: 0,
+//          singermid: '0000mFvh1jtLcz',
+//          order: 'time',
+//          begin: 0,
+//          num: 6,
+//          from: 'h5',
+//          songstatus: 1
+//        },
+//        jsonp: 'jsonpCallback'
+//      }).then(function (response) {
+//        console.log(response)
+//      })
+      /***
+       * 相似歌手
+       */
+//      this.$http.jsonp('https://c.y.qq.com/v8/fcg-bin/fcg_v8_simsinger.fcg', {
+//        params: {
+//          utf8: 1,
+//          g_tk: 5381,
+//          loginUin: 0,
+//          hostUin: 0,
+//          format: 'jsonp',
+//          inCharset: 'utf-8',
+//          outCharset: 'utf-8',
+//          notice: 0,
+//          platform: 'yqq',
+//          needNewCode: 0,
+//          singer_mid: '0000mFvh1jtLcz',
+//          start: 0,
+//          num: 6,
+//          from: 'h5',
+//          songstatus: 1
+//        },
+//        jsonp: 'jsonpCallback'
+//      }).then(function (response) {
+//        console.log(response)
+//      })
+      /***
+       * mv 列表
+       */
+//      this.$http.jsonp('https://c.y.qq.com/mv/fcgi-bin/fcg_singer_mv.fcg', {
+//        params: {
+//          cid: 205360581,
+//          g_tk: 5381,
+//          loginUin: 0,
+//          hostUin: 0,
+//          format: 'jsonp',
+//          inCharset: 'utf-8',
+//          outCharset: 'utf-8',
+//          notice: 0,
+//          platform: 'yqq',
+//          needNewCode: 0,
+//          singermid: '0000mFvh1jtLcz',
+//          order: 'listen',
+//          begin: 0,
+//          num: 6,
+//          from: 'h5',
+//          songstatus: 1
+//        },
+//        jsonp: 'jsonpCallback'
+//      }).then(function (response) {
+//        console.log(response)
+//      })
+      /**
+       * mv 详情
+       */
+      this.$http.jsonp('https://c.y.qq.com/mv/fcgi-bin/fcg_getmvinfo.fcg', {
+        params: {
+          g_tk: 5381,
+          uin: 0,
+          format: 'jsonp',
+          inCharset: 'utf-8',
+          outCharset: 'utf-8',
+          notice: 0,
+          platform: 'h5',
+          needNewCode: 1,
+          vid: 'd0012yal7fi',
+          _: new Date().getTime()
+        },
+        jsonp: 'jsonpCallback'
+      }).then(function (response) {
+        console.log(response)
+      })
     }
   }
 
