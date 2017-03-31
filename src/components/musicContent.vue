@@ -64,6 +64,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import API from '../js/api'
   import Base64 from '../js/base64'
   import Common from '../js/rock'
   import $ from 'jquery'
@@ -167,35 +168,34 @@
           return
         }
         try {
-          this.$http.jsonp('https://api.darlin.me/music/lyric/' + curr.data.songid, {
-            jsonp: 'callback'
-          }).then(function (response) {
+          let _this = this
+          API.getLyric(curr.data.songid, function (response) {
             let sss = Base64.decode(response.data.lyric)
             try {
               document.getElementById(this.currentLyric).classList.remove('current')
             } catch (e) {
             }
-            this.currentLyric = null
+            _this.currentLyric = null
             sss.split('[').slice(5).map((item) => {
               let time = item.split(']')[0]
-              this.lyricList[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
-                id: this.current.data.songid.toString() + '_' + (parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1])),
+              _this.lyricList[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
+                id: _this.current.data.songid.toString() + '_' + (parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1])),
                 time: time,
                 text: item.split(']')[1]
               }
             })
           }, function (response) {
-            console.log('歌词失败')
+            console.log('获取歌词失败')
             let myArray = [0, 1, 2, 3, 4, 5, 6, 7]
             for (let item of myArray) {
               if (item === 7) {
-                this.lyricList[item] = {
+                _this.lyricList[item] = {
                   id: item,
                   time: item,
                   text: '暂无歌词'
                 }
               } else {
-                this.lyricList[item] = {
+                _this.lyricList[item] = {
                   id: item,
                   time: item,
                   text: ''

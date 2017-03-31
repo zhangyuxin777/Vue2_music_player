@@ -24,6 +24,7 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
+  import API from '../js/api'
   export default{
     data () {
       return {
@@ -45,21 +46,9 @@
       }
     },
     beforeMount () {
-      this.$http.jsonp('http://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg', {
-        params: {
-          g_tk: 5381,
-          uin: 0,
-          format: 'jsonp',
-          inCharset: 'utf-8',
-          outCharset: 'utf-8',
-          notice: 0,
-          platform: 'h5',
-          needNewCode: 1,
-          _: new Date().getTime()
-        },
-        jsonp: 'jsonpCallback'
-      }).then(function (response) {
-        this.topList = response.data.data.topList
+      let _this = this
+      API.rankList(function (response) {
+        _this.topList = response.data.data.topList
       })
     },
     mounted () {

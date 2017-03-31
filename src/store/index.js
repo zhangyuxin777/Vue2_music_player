@@ -58,7 +58,6 @@ const state = {
 
 const mutations = {
   INIT (state, obj) {
-    console.log(obj)
     obj.playList ? state.play.list = obj.playList : ''
     obj.playCurrent ? state.play.current = obj.playCurrent : ''
     obj.playStatus ? state.play.status = obj.playStatus : ''
