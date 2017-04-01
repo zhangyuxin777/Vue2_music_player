@@ -73,7 +73,7 @@ export default {
   /***
    * 专辑列表 所有
    */
-  albumList (callback, error) {
+  albumList (page,callback, error) {
     request('https://c.y.qq.com/v8/fcg-bin/album_library', {
       params: {
         g_tk: 5381,
@@ -86,7 +86,7 @@ export default {
         platform: 'yqq',
         needNewCode: 0,
         cmd: 'firstpage',
-        page: 0,
+        page: page,
         pagesize: 20,
         sort: 1,
         language: -1,
@@ -147,14 +147,14 @@ export default {
   /***
    * 歌手列表
    */
-  singerList (callback, error) {
+  singerList (page, callback, error) {
     request('https://c.y.qq.com/v8/fcg-bin/v8.fcg', {
       params: {
         channel: 'singer',
         page: 'list',
         key: 'all_all_all',
         pagesize: 100,
-        pagenum: 1,
+        pagenum: page,
         g_tk: 5381,
         loginUin: 0,
         hostUin: 0,
@@ -197,7 +197,9 @@ export default {
   /**
    * 歌单列表  todo  该接口无效
    */
-  dissList (callback, error) {
+  dissList (page, callback, error) {
+    let sin = (page - 1) * 30
+    let ein = page * 30 - 1
     request('https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg', {
       params: {
         rnd: Math.random(),
@@ -213,8 +215,8 @@ export default {
         needNewCode: 0,
         categoryId: 10000000,
         sortId: 5,
-        sin: 0,
-        ein: 29
+        sin: sin,
+        ein: ein
       }
     }, callback, error);
   },
@@ -245,7 +247,7 @@ export default {
   /***
    * mv 列表
    */
-  mvList (callback, error) {
+  mvList (page,callback, error) {
     request('https://c.y.qq.com/v8/fcg-bin/getmv_by_tag', {
       params: {
         g_tk: 5381,
@@ -262,7 +264,7 @@ export default {
         year: 0,
         area: 0,
         tag: 0,
-        pageno: 0,
+        pageno: page,
         pagecount: 20,
         otype: 'json',
         taglist: 1,

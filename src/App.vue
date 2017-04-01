@@ -22,7 +22,6 @@
            @error="error"
            @stalled="stalled">
     </audio>
-    <div style="height: 1.4rem;background: transparent"></div>
     <transition name="music-con-tran" enter-active-class="animated slideInUp"
                 leave-active-class="animated slideOutDown fast" mode="out-in">
       <music-content v-show="showMusicContent"></music-content>

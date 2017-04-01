@@ -1,0 +1,32 @@
+.singer-list {
+  background: #efeff4;
+  position: absolute;
+  width: 6.4rem; }
+  .singer-list .title {
+    margin: 0.3rem 0.2rem 0 0.2rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.27rem;
+    border-left: 0.05rem solid #e61624;
+    padding-left: 0.1rem; }
+  .singer-list .list {
+    margin: 0.3rem 0 0 0.2rem;
+    background: #efeff4; }
+    .singer-list .list .item {
+      position: relative;
+      height: 2.2rem;
+      width: 1.865rem;
+      display: inline-block;
+      margin: 0 0.2rem 0.2rem 0;
+      background: #efeff4; }
+      .singer-list .list .item img {
+        height: 1.865rem;
+        width: 1.865rem; }
+      .singer-list .list .item .singer {
+        width: 1.865rem;
+        white-space: nowrap;
+        text-align: center;
+        overflow: hidden;
+        font-size: 0.2rem; }
+
+/*# sourceMappingURL=singerList.css.map */

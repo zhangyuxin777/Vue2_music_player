@@ -134,14 +134,12 @@ export const switchRotate = ({commit}, isRotate) => {
 }
 /**
  * 快进
- * @param commit
  */
 export const seekTo = ({commit}, position) => {
   commit('SEEK_TO', position)
 }
 /**
  * 声音
- * @param commit
  */
 export const setVolume = ({commit}, volume) => {
   commit('SET_VOLUME', volume)
@@ -149,5 +147,9 @@ export const setVolume = ({commit}, volume) => {
 
 export const init = ({commit}, obj) => {
   commit('INIT', obj)
+}
+
+export const switchBar = ({commit}, obj) => {
+  commit('SWITCH_BAR', obj)
 }
 

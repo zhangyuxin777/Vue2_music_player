@@ -1,29 +1,20 @@
 <style scoped>
-  @import "css/rankList.css";
+  @import "css/dissList.css";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
-    <div>
-      <ul class="rank-list">
+    <div class="diss-list">
+      <div class="title">热门歌单</div>
+      <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="toContent(item.id)">
-          <div class="picture">
-            <img :src="item.picUrl"/>
-            <div class="listen_box">
-              <span class="listen_count">{{(item.listenCount/10000).toFixed(0)}}万</span>
-              <span class="sprites ic_listen"></span>
-            </div>
-          </div>
-          <div class="top-list">
-            <div class="top-item" rel="" v-for="(topItem,topIndex) in item.songList">
-              {{topIndex+1}}.{{topItem.songname}}-{{topItem.singername}}
-            </div>
-          </div>
-          <span class="split-line"></span>
+          <img :src="item.imgurl"/>
+          <div class="singer">{{item.dissname}}</div>
         </li>
       </ul>
       <div style="height: 1.4rem;background: transparent"></div>
     </div>
+
   </transition>
 </template>
 <script type="text/ecmascript-6">
@@ -31,7 +22,9 @@
   export default{
     data () {
       return {
-        topList: []
+        infoList: [],
+        page: 1,
+        isLoading: false
       }
     },
     methods: {
@@ -45,13 +38,13 @@
     },
     computed: {
       list () {
-        return this.topList
+        return this.infoList
       }
     },
     beforeMount () {
       let _this = this
-      API.rankList(function (response) {
-        _this.topList = response.data.data.topList
+      API.firstPage(function (response) {
+        _this.infoList = response.data.data.hotdiss.list
       })
     },
     mounted () {

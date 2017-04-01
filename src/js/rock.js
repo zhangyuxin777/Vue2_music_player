@@ -42,6 +42,31 @@ export default {
     if (str != undefined && str != null)
       return str.replace(/(^\s*)|(\s*$)/g, "")
   },
+  scroll: {
+    getScrollTop: function () {
+      var st = 0
+      if (document.documentElement && document.documentElement.scrollTop) {
+        st = document.documentElement.scrollTop;
+      }
+      else if (document.body) {
+        st = document.body.scrollTop;
+      }
+      return st
+    },
+    getClientHeight: function () {
+      var clientHeight = 0
+      if (document.body.clientHeight && document.documentElement.clientHeight) {
+        clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight)
+      }
+      else {
+        clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight)
+      }
+      return clientHeight
+    },
+    getScrollHeight: function () {
+      return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)
+    }
+  },
   isPC () {
     var userAgentInfo = navigator.userAgent
     var Agents = ["Android", "Linux", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"]

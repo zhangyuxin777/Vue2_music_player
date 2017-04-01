@@ -53,7 +53,8 @@ const state = {
     keyword: ''
   },
   count: 0,
-  fontSize: 0
+  fontSize: 0,
+  barStatus: 0
 }
 
 const mutations = {
@@ -244,6 +245,9 @@ const mutations = {
     } else {
       state.play.status.mode = 0
     }
+  },
+  SWITCH_BAR (state, status) {
+    state.barStatus = status
   },
   UPDATE_KEYWORD (state, keyword) {
     state.search.keyword = keyword
