@@ -1,0 +1,40 @@
+@import "../../css/wl-common";
+
+.diss-list {
+  background: $bgColor;
+  position: absolute;
+  width: 6.4rem;
+  .title {
+    margin: 0.3rem 0.2rem 0 0.2rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.27rem;
+    border-left: 0.05rem solid $mainColor;
+    padding-left: 0.1rem;
+  }
+  .list {
+    margin: 0.3rem 0.1rem 0 0.1rem;
+    background: $bgColor;
+    $wid: 2.9rem;
+    .item {
+      position: relative;
+      height: 3.5rem;
+      width: $wid;
+      display: inline-block;
+      margin: 0 0.1rem 0.2rem 0.1rem;
+      background: $bgColor;
+      img {
+        height: $wid;
+        width: $wid;
+      }
+      .singer {
+        width: $wid;
+        height: 0.8rem;
+        //white-space: nowrap;
+        //text-align: center;
+        overflow: hidden;
+        font-size: 0.2rem;
+      }
+    }
+  }
+}

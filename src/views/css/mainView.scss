@@ -1,0 +1,55 @@
+@import "../../css/wl-common";
+
+.main {
+  $hei: 0.8rem;
+  .tab {
+    width: 100%;
+    height: $hei;
+    position: fixed;
+    background: white;
+    z-index: 4;
+    .bar {
+      height: 100%;
+      line-height: $hei;
+      width: 1.06rem;
+      text-align: center;
+      font-size: 0.24rem;
+      float: left;
+      color: #606060;
+      border-bottom: 1px $lineColor solid;
+    }
+    .bar:first-child, .bar:last-child {
+      width: 1.08rem;
+    }
+    .bar:after {
+      content: '';
+      height: 4px;
+      width: 100%;
+      background-color: $lineColor;
+      display: block;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+      background: -webkit-linear-gradient($lineColor, white);
+      background: -moz-linear-gradient($lineColor, white);
+      background: linear-gradient($lineColor, white);
+    }
+    .active-bar {
+      color: $mainColor;
+    }
+    .active-bar:after {
+      content: '';
+      height: 4px;
+      width: 100%;
+      background: -webkit-linear-gradient($mainColor, white);
+      background: -moz-linear-gradient($mainColor, white);
+      background: linear-gradient($mainColor, white);
+      display: block;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+    }
+  }
+  .content {
+    position: absolute;
+    margin-top: $hei;
+  }
+}

@@ -4,20 +4,28 @@
   height: 1rem;
   background: #fff;
   padding-left: 0.2rem;
-  padding-right: 0.2rem;
 
   .line1 {
     height: 100%;
-    width: 5.1rem;
+    width: 5.3rem;
     float: left;
   }
 
   .songname {
     font-size: 0.27rem;
     color: $textRightColor;
-    width: 100%;
     height: 0.5rem;
     padding-top: 0.14rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+  .songname-remark {
+    font-size: 0.25rem;
+    color: #b0b0b0;
+    height: 0.5rem;
+    padding-top: 0.15rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -69,7 +77,7 @@
     width: 0.4rem;
     overflow: hidden;
     box-sizing: border-box;
-    background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+    @include getBackground('icon-list.png');
     background-size: $spriteRem/5.0*4 $spriteRem/5.0*4;
   }
   .ic_more {

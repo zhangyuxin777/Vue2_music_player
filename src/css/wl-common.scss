@@ -9,7 +9,7 @@ $line-R2: 0.5 !default;
 $line-R3: 0.33 !default;
 
 //text size
-$mainColor: #2fcdfe;
+$mainColor: #e61624;
 $red: #e61624;
 $lineColor: #d7d7d7;
 $textLeftColor: #404040;
@@ -18,7 +18,7 @@ $textSizeBig1: 0.3rem;
 $textSizeBig2: 0.32rem;
 $textSizeBig3: 0.35rem;
 
-$bgColor: #f4f3f3;
+$bgColor: #efeff4;
 $textRightColor: #0e0e0e;
 $rowColor1: #0e0e0e;
 
@@ -84,6 +84,13 @@ $btnRadius: 0.08rem;
   transform: scaleX($rate);
 }
 
+//path
+$imgPath: 'http://on7hxaasw.bkt.clouddn.com/';
+
+@mixin getBackground($src) {
+  $src: $imgPath+$src;
+  background: transparent url($src) 0 0 no-repeat;
+}
 
 
 

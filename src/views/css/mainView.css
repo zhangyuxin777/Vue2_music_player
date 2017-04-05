@@ -1,0 +1,45 @@
+.main .tab {
+  width: 100%;
+  height: 0.8rem;
+  position: fixed;
+  background: white;
+  z-index: 4; }
+  .main .tab .bar {
+    height: 100%;
+    line-height: 0.8rem;
+    width: 1.06rem;
+    text-align: center;
+    font-size: 0.24rem;
+    float: left;
+    color: #606060;
+    border-bottom: 1px #d7d7d7 solid; }
+  .main .tab .bar:first-child, .main .tab .bar:last-child {
+    width: 1.08rem; }
+  .main .tab .bar:after {
+    content: '';
+    height: 4px;
+    width: 100%;
+    background-color: #d7d7d7;
+    display: block;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    background: -webkit-linear-gradient(#d7d7d7, white);
+    background: -moz-linear-gradient(#d7d7d7, white);
+    background: linear-gradient(#d7d7d7, white); }
+  .main .tab .active-bar {
+    color: #e61624; }
+  .main .tab .active-bar:after {
+    content: '';
+    height: 4px;
+    width: 100%;
+    background: -webkit-linear-gradient(#e61624, white);
+    background: -moz-linear-gradient(#e61624, white);
+    background: linear-gradient(#e61624, white);
+    display: block;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%; }
+.main .content {
+  position: absolute;
+  margin-top: 0.8rem; }
+
+/*# sourceMappingURL=mainView.css.map */

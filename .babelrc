@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["latest", {
+      "es2015": { "modules": false }
+    }],
+    "stage-2"
+  ],
+  "plugins": ["transform-runtime"],
+  "comments": false,
+  "ignore": [
+    "./src/js/mui.all.js"
+  ],
+  "env": {
+    "test": {
+      "presets": ["latest", "stage-2"],
+      "plugins": [ "istanbul" ]
+    }
+  }
+}

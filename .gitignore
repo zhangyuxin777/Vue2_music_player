@@ -1,7 +1,17 @@
+.DS_Store
 node_modules/
+npm-debug.log
+yarn-error.log
+test/unit/coverage
+test/e2e/reports
+selenium-debug.log
+.idea/workspace.xml
 .idea/
+<<<<<<< HEAD
 *.map
 dist/common-compiled.js
 dist/main-compiled.js
 node_modules.rar
 src/vuex/actions-compiled.js
+=======
+>>>>>>> c0acf98bc88452eb383037a40bce53763cfb2edb

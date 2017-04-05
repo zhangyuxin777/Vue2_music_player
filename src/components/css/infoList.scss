@@ -1,0 +1,156 @@
+﻿@import "../../css/wl-common";
+
+.box-bg {
+  position: fixed;
+  height: 0;
+  width: 6.4rem;
+  top: 0;
+  background: transparent;
+  transition: background 0.5s, height 0s ease;
+  -webkit-transition: background 0.5s, height 0s ease;
+  z-index: 97;
+}
+
+.info-pop-box {
+  position: fixed;
+  height: 4.8rem;
+  width: 6.4rem;
+  background: white;
+  bottom: -6.4rem;
+  transition: bottom 0.5s;
+  -webkit-transition: bottom 0.5s;
+  z-index: 98;
+  .title-box {
+    height: 0.8rem;
+    line-height: 0.8rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.21rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    .title {
+      width: 0.7rem;
+      color: #999;
+      text-align: left;
+    }
+    .songname {
+      color: #999;
+      float: left;
+      width: 5.3rem;
+      height: 0.8rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+    .opacity0 {
+      opacity: 0;
+    }
+  }
+  .list {
+    position: relative;
+    padding-left: 0.2rem;
+    height: 5.7rem;
+    width: 100%;
+    overflow: auto;
+  }
+}
+
+.play-pop {
+  bottom: 0;
+}
+
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bg-pop {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+.info-min-size {
+  height: 3.21rem;
+}
+
+.info-item {
+  height: 0.8rem;
+  width: 100%;
+  .hide {
+    display: none;
+  }
+  .sprites {
+    width: 0.4rem;
+    height: 0.4rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    @include getBackground('icon-list.png?v=03291620');
+    background-size: $spriteRem/5*4 $spriteRem/5*4;
+    float: left;
+    margin-top: 0.2rem;
+  }
+  .ic_next {
+    @include bgPosition($spriteSize, $spriteSize, 30, 30, 0, 124);
+  }
+  .ic_add {
+    @include bgPosition($spriteSize, $spriteSize, 30, 30, 60, 124);
+  }
+  .ic_download {
+    background-size: $spriteRem/5*4.1 $spriteRem/5*4.1;
+    @include bgPosition($spriteSize, $spriteSize, 30, 30, 247, 124);
+  }
+  .ic_singer {
+    @include bgPosition($spriteSize, $spriteSize, 30, 30, 124, 124);
+  }
+  .ic_cd {
+    background-size: $spriteRem/5*3.9 $spriteRem/5*3.9;
+    @include bgPosition($spriteSize, $spriteSize, 30, 30, 186, 124);
+  }
+  .con {
+    font-size: 0.24rem;
+    line-height: 0.8rem;
+    margin-left: 0.5rem;
+    height: 0.8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+  .con:after {
+    @include split-line();
+    background: #e0e0e0;
+    clear: both;
+  }
+}
+
+.playing-item:after {
+  @include split-line();
+  clear: both;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+  .item:after {
+    @include split-line-rate($line-R3);
+  }
+  .playing-item:after {
+    @include split-line-rate($line-R3);
+  }
+  .con:after {
+    @include split-line-rate($line-R3);
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .item:after {
+    @include split-line-rate($line-R2);
+  }
+  .playing-item:after {
+    @include split-line-rate($line-R2);
+  }
+  .con:after {
+    @include split-line-rate($line-R2);
+  }
+}
+

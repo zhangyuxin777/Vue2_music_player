@@ -1,8 +1,9 @@
 .play-bar {
   height: 1.4rem;
-  width: 100%;
-  position: relative;
-  z-index: 999990; }
+  width: 6.4rem;
+  position: fixed;
+  bottom: -0.02rem;
+  z-index: 90; }
   .play-bar .cycle {
     width: 1.2rem;
     height: 1.2rem;
@@ -11,7 +12,7 @@
     border-radius: 50%;
     background: white;
     position: absolute;
-    z-index: 999997;
+    z-index: 97;
     -webkit-box-shadow: 0 0 0.15rem #888;
     -moz-box-shadow: 0 0 0.15rem #888;
     box-shadow: 0 0 0.15rem #888;
@@ -38,7 +39,7 @@
     bottom: -1px;
     background: white;
     position: absolute;
-    z-index: 999995;
+    z-index: 95;
     box-shadow: 0 0 0.15rem #888; }
     .play-bar .panel .box {
       height: 100%;
@@ -53,13 +54,13 @@
         margin-right: 0.04rem; }
         .play-bar .panel .box .progress-bar .progress {
           height: 100%;
-          background: #2fcdfe;
+          background: #e61624;
           border-radius: 1px 0 0 1px; }
         .play-bar .panel .box .progress-bar .point {
           position: absolute;
           width: 6px;
           height: 6px;
-          background: #2fcdfe;
+          background: #e61624;
           border-radius: 50%;
           top: -2px; }
       .play-bar .panel .box .song {
@@ -67,15 +68,15 @@
         height: 100%;
         float: left; }
         .play-bar .panel .box .song .song-name {
-          font-size: 0.27rem;
+          font-size: 0.24rem;
           margin-top: 0.15rem;
           color: #0e0e0e;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis; }
         .play-bar .panel .box .song .singer-name {
-          font-size: 0.22rem;
-          margin-top: 0.02rem;
+          font-size: 0.2rem;
+          margin-top: 0.04rem;
           color: #808080; }
       .play-bar .panel .box .control {
         width: 2.3rem;
@@ -87,7 +88,7 @@
           height: 0.5rem;
           overflow: hidden;
           box-sizing: border-box;
-          background: transparent url("../../image/icon-list.png") 0 0 no-repeat;
+          background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
           background-size: 7.2rem 7.2rem;
           float: left;
           margin-top: 0.26rem;

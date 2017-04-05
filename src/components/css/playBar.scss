@@ -2,9 +2,10 @@
 
 .play-bar {
   height: 1.4rem;
-  width: 100%;
-  position: relative;
-  z-index: 999990;
+  width: $pageWidth;
+  position: fixed;
+  bottom: -0.02rem;
+  z-index: 90;
   .cycle {
     width: 1.2rem;
     height: 1.2rem;
@@ -13,7 +14,7 @@
     border-radius: 50%;
     background: white;
     position: absolute;
-    z-index: 999997;
+    z-index: 97;
     -webkit-box-shadow: 0 0 0.15rem #888;
     -moz-box-shadow: 0 0 0.15rem #888;
     box-shadow: 0 0 0.15rem #888;
@@ -50,7 +51,7 @@
     bottom: -1px;
     background: white;
     position: absolute;
-    z-index: 999995;
+    z-index: 95;
     box-shadow: 0 0 0.15rem #888;
     .box {
       height: 100%;
@@ -82,7 +83,7 @@
         height: 100%;
         float: left;
         .song-name {
-          font-size: 0.27rem;
+          font-size: 0.24rem;
           margin-top: 0.15rem;
           color: $textRightColor;
           overflow: hidden;
@@ -90,8 +91,8 @@
           text-overflow: ellipsis;
         }
         .singer-name {
-          font-size: 0.22rem;
-          margin-top: 0.02rem;
+          font-size: 0.2rem;
+          margin-top: 0.04rem;
           color: #808080;
         }
       }
@@ -106,7 +107,7 @@
           height: 0.5rem;
           overflow: hidden;
           box-sizing: border-box;
-          background: transparent url('../../image/icon-list.png') 0 0 no-repeat;
+          @include getBackground('icon-list.png');
           background-size: $spriteRem $spriteRem;
           float: left;
           margin-top: 0.26rem;

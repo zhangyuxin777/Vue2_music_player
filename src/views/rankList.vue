@@ -1,74 +1,64 @@
 <style scoped>
-    @import "css/list.css";
+  @import "css/rankList.css";
 </style>
-
 <template>
-    <div class="list-box">
-        <div class="tab">
-            <div class="bar" style="width: 1.08rem" :class="{'active-bar':rank.topid==26}" @click="load(26)">
-                热歌
+  <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
+              leave-active-class="animated fadeOut" mode="out-in">
+    <div>
+      <ul class="rank-list">
+        <li v-for="(item,index) in list" class="item" @click="toContent(item.id)">
+          <div class="picture">
+            <img :src="item.picUrl"/>
+            <div class="listen_box">
+              <span class="listen_count">{{(item.listenCount/10000).toFixed(0)}}万</span>
+              <span class="sprites ic_listen"></span>
             </div>
-            <div class="bar" :class="{'active-bar':rank.topid==5}" @click="load(5)">内地</div>
-            <div class="bar" :class="{'active-bar':rank.topid==6}" @click="load(6)">港台</div>
-            <div class="bar" :class="{'active-bar':rank.topid==16}" @click="load(16)">韩国</div>
-            <div class="bar" :class="{'active-bar':rank.topid==17}" @click="load(17)">日本</div>
-            <div class="bar" style="width: 1.08rem" :class="{'active-bar':rank.topid==3}" @click="load(3)">
-                欧美
+          </div>
+          <div class="top-list">
+            <div class="top-item" rel="" v-for="(topItem,topIndex) in item.songList">
+              {{topIndex+1}}.{{topItem.songname}}-{{topItem.singername}}
             </div>
-            <span style="clear: both"></span>
-        </div>
-        <div class="list">
-            <item :data="data" v-for="data in list"></item>
-        </div>
+          </div>
+          <span class="split-line"></span>
+        </li>
+      </ul>
+      <div style="height: 1.4rem;background: transparent"></div>
     </div>
+  </transition>
 </template>
-<script>
-    import item from '../components/rankItem.vue'
-    import play from '../components/playBar.vue'
-    import Common from '../js/rock';
-    import store from '../vuex/store';
-    import {updateTitle,
-            toggleSpinner,
-            updateTopId} from '../vuex/actions'
-    export default{
-        data: function () {
-            return {
-                list: []
-            }
-        },
-        vuex: {
-            actions: {
-                updateTitle,
-                toggleSpinner,
-                updateTopId
-            }
-        },
-        components: {
-            item,
-            play
-        },
-        computed: {
-            rank () {
-                return store.state.rank
-            }
-        },
-        methods: {
-            load: function (topid) {
-                var _this = this;
-                _this.toggleSpinner();
-                Common.showApiData('https://route.showapi.com/213-4', {topid: topid}, function (data) {
-                    _this.updateTopId(topid);
-                    console.log(data);
-                    _this.list = data.showapi_res_body.pagebean.songlist.slice(0, 50);
-                    _this.toggleSpinner();
-                });
-            }
-        },
-        ready: function () {
-            var _this = this;
-            _this.updateTitle('排行榜', true, 'hide');
-            _this.load(store.state.rank.topid);
-        }
+<script type="text/ecmascript-6">
+  import API from '../js/api'
+  export default{
+    data () {
+      return {
+        topList: []
+      }
+    },
+    methods: {
+      toContent (id) {
+        sessionStorage.setItem('rankListScrollTop', document.body.scrollTop)
+        this.$router.push({
+          name: 'rankContent',
+          query: {id: id}
+        })
+      }
+    },
+    computed: {
+      list () {
+        return this.topList
+      }
+    },
+    beforeMount () {
+      let _this = this
+      API.rankList(function (response) {
+        _this.topList = response.data.data.topList
+      })
+    },
+    mounted () {
+      setTimeout(function () {
+        document.body.scrollTop = parseInt(sessionStorage.getItem('rankListScrollTop'))
+      }, 1000)
     }
+  }
 
 </script>

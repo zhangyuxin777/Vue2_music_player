@@ -1,0 +1,419 @@
+@import "../../css/wl-common";
+
+.music-content {
+  position: fixed;
+  width: $pageWidth;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: white;
+  z-index: 20;
+  .header {
+    position: absolute;
+    height: 0.9rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    .back {
+      width: 0.9rem;
+      height: 0.9rem;
+      padding-top: 0.18rem;
+      padding-left: 0.2rem;
+      float: left;
+      .ic_back {
+        width: 0.6rem;
+        height: 0.6rem;
+        background-size: $spriteRem/5*6 $spriteRem/5*6;
+        @include bgPosition($spriteSize, $spriteSize, 60, 60, 475, 0);
+      }
+    }
+    .title {
+      float: left;
+      width: 5.4rem;
+      height: 100%;
+      .songname {
+        color: white;
+        font-size: 0.28rem;
+        height: 0.5rem;
+        line-height: 0.6rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .singername {
+        color: white;
+        height: 0.3rem;
+        line-height: 0.3rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  .header:after {
+    @include split-line();
+    background: #777777;
+
+  }
+  .bg-op {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: 0;
+    .bg {
+      height: 110%;
+      position: absolute;
+      left: 50%;
+      top: -5%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+    }
+    .blur {
+      -webkit-filter: blur(30px); /* Chrome, Opera */
+      -ms-filter: blur(30px);
+      filter: blur(30px);
+    }
+    .mask {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .gradient {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: -webkit-linear-gradient(transparent, transparent, black);
+    }
+  }
+  .voice-box {
+    position: absolute;
+    top: 0.9rem;
+    width: 6.4rem;
+    height: 0.45rem;
+    .ic_voice {
+      width: 0.4rem;
+      height: 0.4rem;
+      background-size: $spriteRem/5*4 $spriteRem/5*4;
+      float: left;
+      @include bgPosition($spriteSize, $spriteSize, 40, 40, 548, 0);
+      margin-top: 0.025rem;
+      margin-left: 0.4rem;
+    }
+    .range {
+      width: 4.8rem;
+      left: 0.9rem;
+      position: absolute;
+      bottom: 0.17rem;;
+    }
+    input[type=range] {
+      -webkit-appearance: none;
+    }
+    input[type=range]:focus {
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      height: 0.03rem;
+      background: rgba(80, 80, 80, 0.5);
+      cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 0.13rem;
+      width: 0.13rem;
+      margin-top: -0.05rem;
+      background: white;
+      border-radius: 50%;
+    }
+    input[type=range]::-moz-range-progress {
+      background: linear-gradient(to right, #059CFA, white 100%, white);
+      height: 0.1rem;
+      border-radius: 50%;
+    }
+
+  }
+  .lyric-box {
+    position: absolute;
+    top: 1.4rem;
+    bottom: 2.3rem;
+    width: $pageWidth;
+    overflow: auto;
+    .lyric-list {
+      background: transparent;
+      .item {
+        background: transparent;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        color: #bbb;
+        text-align: center;
+        font-size: 0.22rem;
+      }
+      .current {
+        color: white;
+      }
+    }
+  }
+  .cd-box {
+    .cd {
+      position: relative;
+      width: 4.96rem;
+      height: 4.96rem;
+      margin: 2.15rem auto 0 auto;
+      z-index: 2;
+      .cd-img {
+        position: absolute;
+        width: 3.02rem;
+        height: 3.02rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        z-index: 2;
+        border-radius: 50%;
+      }
+      .cd-side {
+        position: absolute;
+        width: 4.96rem;
+        height: 4.96rem;
+        @include getBackground('disc.png');
+        background-size: 4.96rem 4.96rem;
+        z-index: 1;
+      }
+    }
+    .needle {
+      position: absolute;
+      width: 1.42rem;
+      height: 2.24rem;
+      @include getBackground('needle_1.png');
+      background-size: 1.42rem 2.24rem;
+      z-index: 4;
+      top: 1.08rem;
+      left: 3.15rem;
+      transition: transform 0.5s, -webkit-transform 0.5s;
+      -webkit-transition: transform 0.5s, -webkit-transform 0.5s;
+      transform: rotate(-25deg);
+      -webkit-transform: rotate(-25deg);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+    .needle_2 {
+      position: absolute;
+      top: 0.9rem;
+      left: 3.03rem;
+      width: 0.48rem;
+      height: 0.22rem;
+      @include getBackground('needle_2.png');
+      background-size: 0.48rem 0.22rem;
+      z-index: 5;
+    }
+    .needle_play {
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+    .ani {
+      -webkit-animation: rotate 30s infinite linear;
+      animation: rotate 30s infinite linear;
+    }
+    @-webkit-keyframes rotate {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  .click-box {
+    position: absolute;
+    bottom: 2.7rem;
+    height: 1rem;
+    width: $pageWidth;
+    .like {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      left: 2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 481, 59);
+    }
+    .like-do {
+      background-size: $spriteRem $spriteRem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 601, 59);
+    }
+    .download {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      left: 3.2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 541, 59);
+    }
+    .more {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.5rem;
+      right: 1.5rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 661, 59);
+    }
+  }
+  .progress-box {
+    position: absolute;
+    bottom: 1.9rem;
+    width: $pageWidth;
+    .current_time {
+      color: white;
+      margin-left: 0.13rem;
+      font-size: 0.18rem;
+      float: left;
+    }
+    .total_time {
+      color: white;
+      font-size: 0.18rem;
+      float: right;
+      margin-right: 0.13rem;
+    }
+    .progress-bar {
+      position: absolute;
+      height: 2px;
+      width: 5rem;
+      left: 0.7rem;
+      background: #ddd;
+      border-radius: 1px;
+      margin-right: 0.04rem;
+      bottom: 0.1rem;
+      .progress {
+        height: 100%;
+        background: $mainColor;
+        border-radius: 1px 0 0 1px;
+      }
+      .point {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: $mainColor;
+        border-radius: 50%;
+        top: -2px;
+      }
+    }
+  }
+  .control-box {
+    width: $pageWidth;
+    height: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    .play {
+      position: absolute;
+      height: 1.05rem;
+      width: 1.05rem;
+      background-size: $spriteRem/5.0*10.9 $spriteRem/5.0*10.9;
+      @include bgPosition($spriteSize, $spriteSize, 100, 100, 0, 56);
+      top: 0.75rem;
+      left: 3.2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .pause {
+      position: absolute;
+      height: 1.05rem;
+      width: 1.05rem;
+      background-size: $spriteRem/5.0*10.9 $spriteRem/5.0*10.9;
+      @include bgPosition($spriteSize, $spriteSize, 100, 100, 56, 56);
+      top: 0.75rem;
+      left: 3.2rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .last-song {
+      position: absolute;
+      height: 0.75rem;
+      width: 0.75rem;
+      background-size: $spriteRem/5.0*7.5 $spriteRem/5.0*7.5;
+      @include bgPosition($spriteSize, $spriteSize, 75, 75, 175, 59);
+      top: 0.75rem;
+      left: 1.8rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .next-song {
+      position: absolute;
+      height: 0.75rem;
+      width: 0.75rem;
+      background-size: $spriteRem/5.0*7.5 $spriteRem/5.0*7.5;
+      @include bgPosition($spriteSize, $spriteSize, 75, 75, 117, 59);
+      top: 0.75rem;
+      left: 4.6rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .mode {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.75rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      left: .5rem;
+    }
+    .m_0 {
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 421, 59);
+    }
+    .m_1 {
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 361, 59);
+    }
+    .m_2 {
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 295, 59);
+    }
+    .menu {
+      position: absolute;
+      height: 0.5rem;
+      width: 0.5rem;
+      top: 0.75rem;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-size: $spriteRem $spriteRem;
+      right: .1rem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 240, 59);
+    }
+  }
+
+  .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    @include getBackground('icon-list.png?v=03231037');
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    .header:after {
+      @include split-line-rate($line-R3);
+    }
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .header:after {
+      @include split-line-rate($line-R2);
+    }
+  }
+}

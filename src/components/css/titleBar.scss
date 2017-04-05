@@ -30,14 +30,14 @@
   }
   .search {
     width: 4.78rem;
-    height: 0.6rem;
+    height: 0.55rem;
     float: left;
     input[type=search] {
       width: 100%;
       height: 100%;
       margin: 0;
-      background: #006cbf;
-      color: white;
+      background: white;
+      color: $mainColor;
     }
   }
 

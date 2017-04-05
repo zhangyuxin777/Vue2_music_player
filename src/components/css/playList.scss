@@ -1,0 +1,158 @@
+﻿@import "../../css/wl-common";
+
+.box-bg {
+  position: fixed;
+  height: 0;
+  width: 6.4rem;
+  top: 0;
+  background: transparent;
+  transition: background 0.5s, height 0s ease;
+  -webkit-transition: background 0.5s, height 0s ease;
+  z-index: 97;
+}
+
+.play-pop-box {
+  position: fixed;
+  height: 6.4rem;
+  width: 6.4rem;
+  background: white;
+  bottom: -6.4rem;
+  transition: bottom 0.5s;
+  -webkit-transition: bottom 0.5s;
+  z-index: 98;
+  .title-box {
+    height: 0.8rem;
+    line-height: 0.8rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.28rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    .title {
+      float: left;
+      width: 4.79rem;
+      .count {
+        font-size: 0.22rem;
+      }
+    }
+    .cleanList {
+      width: 0.6rem;
+      font-size: 0.22rem;
+      text-align: right;
+      color: #999;
+    }
+    .opacity0 {
+      opacity: 0;
+    }
+  }
+  .list {
+    position: relative;
+    padding-left: 0.2rem;
+    height: 5.7rem;
+    width: 100%;
+    overflow: auto;
+  }
+}
+
+.play-pop {
+  bottom: 0;
+}
+
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bg-pop {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+.playing-item {
+  height: 0.8rem;
+  width: 100%;
+  .song-name {
+    font-size: 0.24rem;
+    color: $textRightColor;
+    width: 3.8rem;
+    float: left;
+    margin-top: 0.28rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .playing-name {
+    width: 3.45rem;
+  }
+  .singer-name {
+    font-size: 0.20rem;
+    color: #999;
+    width: 1.5rem;
+    float: left;
+    margin-top: 0.3rem;
+    padding-left: 0.1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .icon-box {
+    width: 0.5rem;
+    float: right;
+    height: 100%;
+  }
+  .hide {
+    display: none;
+  }
+  .red {
+    color: $red;
+  }
+  .playing-song {
+    width: 0.35rem;
+    float: left;
+    height: 100%;
+  }
+  .sprites {
+    width: 0.3rem;
+    height: 0.3rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    @include getBackground('icon-list.png');
+    background-size: $spriteRem/5*3 $spriteRem/5*3;
+    float: left;
+    margin-top: 0.29rem;
+  }
+
+  .ic_menu {
+    @include bgPosition($spriteSize, $spriteSize, 30, 30, 310, 0);
+  }
+  .ic_close {
+    @include bgPosition($spriteSize, $spriteSize, 30, 30, 370, 0);
+    float: right;
+    margin-right: 0.2rem;
+  }
+}
+
+.playing-item:after {
+  @include split-line();
+  clear: both;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+  .item:after {
+    @include split-line-rate($line-R3);
+  }
+  .playing-item:after {
+    @include split-line-rate($line-R3);
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .item:after {
+    @include split-line-rate($line-R2);
+  }
+  .playing-item:after {
+    @include split-line-rate($line-R2);
+  }
+}
+
