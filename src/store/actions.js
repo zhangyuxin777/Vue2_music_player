@@ -153,3 +153,7 @@ export const switchBar = ({commit}, obj) => {
   commit('SWITCH_BAR', obj)
 }
 
+export const addMainList = ({commit}, obj) => {
+  commit('ADD_MAIN_LIST', obj)
+}
+

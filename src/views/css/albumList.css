@@ -1,7 +1,8 @@
 .album-list {
   background: #efeff4;
   position: absolute;
-  width: 6.4rem; }
+  width: 6.4rem;
+  margin-top: 0.03rem; }
   .album-list .title {
     margin: 0.3rem 0.2rem 0 0.2rem;
     height: 0.3rem;
@@ -14,27 +15,25 @@
     background: #efeff4; }
     .album-list .list .item {
       position: relative;
-      height: 3.5rem;
-      width: 2.9rem;
+      height: 3.85rem;
       display: inline-block;
-      margin: 0 0.1rem 0.2rem 0.1rem;
+      margin: 0 0.1rem 0.3rem 0.1rem;
+      background: #efeff4;
+      overflow: hidden;
+      width: 2.9rem;
       background: #efeff4; }
       .album-list .list .item img {
         height: 2.9rem;
         width: 2.9rem; }
       .album-list .list .item .album-name {
         width: 2.9rem;
-        height: 0.4rem;
-        white-space: nowrap;
+        max-height: 0.62rem;
         text-align: center;
-        overflow: hidden;
-        font-size: 0.24rem; }
+        font-size: 0.24rem;
+        overflow: hidden; }
       .album-list .list .item .singer {
         width: 2.9rem;
-        height: 0.8rem;
-        white-space: nowrap;
         text-align: center;
-        overflow: hidden;
         font-size: 0.2rem;
         color: #aaa; }
 

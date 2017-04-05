@@ -3,11 +3,11 @@
 .main {
   $hei: 0.8rem;
   .tab {
-    width: 100%;
+    width: $pageWidth;
     height: $hei;
     position: fixed;
     background: white;
-    z-index: 4;
+    z-index: 18;
     .bar {
       height: 100%;
       line-height: $hei;
@@ -16,33 +16,33 @@
       font-size: 0.24rem;
       float: left;
       color: #606060;
-      border-bottom: 1px $lineColor solid;
+      //border-bottom: 1px white solid;
     }
     .bar:first-child, .bar:last-child {
       width: 1.08rem;
     }
     .bar:after {
       content: '';
-      height: 4px;
+      height: $tabHei;
       width: 100%;
       background-color: $lineColor;
       display: block;
       -webkit-transform-origin: 50% 100%;
       transform-origin: 50% 100%;
-      background: -webkit-linear-gradient($lineColor, white);
-      background: -moz-linear-gradient($lineColor, white);
-      background: linear-gradient($lineColor, white);
+      background: -webkit-linear-gradient(white, white);
+      background: -moz-linear-gradient(white, white);
+      background: linear-gradient(white, white);
     }
     .active-bar {
       color: $mainColor;
     }
     .active-bar:after {
       content: '';
-      height: 4px;
+      height: $tabHei;
       width: 100%;
-      background: -webkit-linear-gradient($mainColor, white);
-      background: -moz-linear-gradient($mainColor, white);
-      background: linear-gradient($mainColor, white);
+      background: -webkit-linear-gradient($mainColor, $mainColor);
+      background: -moz-linear-gradient($mainColor, $mainColor);
+      background: linear-gradient($mainColor, $mainColor);
       display: block;
       -webkit-transform-origin: 50% 100%;
       transform-origin: 50% 100%;
@@ -51,5 +51,6 @@
   .content {
     position: absolute;
     margin-top: $hei;
+    z-index: 5;
   }
 }

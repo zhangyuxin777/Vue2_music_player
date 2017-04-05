@@ -26,7 +26,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-  //  import API from '../js/api'
+  import API from '../js/api'
+  import Common from '../js/rock'
   import rankList from './rankList'
   import singerList from './singerList'
   import dissList from './dissList'
@@ -35,9 +36,18 @@
   import {mapState} from 'vuex'
   export default{
     data () {
-      return {}
+      return {
+        isLoading: false,
+        page: {
+          0: 1,
+          1: 1,
+          2: 1,
+          3: 1,
+          4: 1,
+          5: 1
+        }
+      }
     },
-
     components: {
       rankList,
       singerList,
@@ -53,8 +63,68 @@
     methods: {
       switchBar (barStatus) {
         this.$store.dispatch('switchBar', barStatus)
+      },
+      loadMore () {
+        let _this = this
+        switch (this.$store.state.barStatus) {
+          case 0:
+            break
+          case 1:
+            console.log('loading singer')
+            API.singerList(_this.page[1], function (response) {
+              _this.$store.dispatch('addMainList', {
+                name: 'singer',
+                list: response.data.data.list
+              })
+              if (response.data.data.list.length !== 0) {
+                _this.page[1] += 1
+              }
+              _this.isLoading = false
+            })
+            break
+          case 2:
+            break
+          case 3:
+            console.log('loading album')
+            API.albumList(_this.page[3], function (response) {
+              _this.$store.dispatch('addMainList', {
+                name: 'album',
+                list: response.data.data.albumlist
+              })
+              if (response.data.data.albumlist.length !== 0) {
+                _this.page[3] += 1
+              }
+              _this.isLoading = false
+            })
+            break
+          case 4:
+            break
+          case 5:
+            console.log('loading mv')
+            API.mvList(_this.page[5], function (response) {
+              _this.$store.dispatch('addMainList', {
+                name: 'mv',
+                list: response.data.data.mvlist
+              })
+              if (response.data.data.mvlist.length !== 0) {
+                _this.page[5] += 1
+              }
+              _this.isLoading = false
+            })
+            break
+        }
       }
     },
-    watch: {}
+    mounted () {
+      let _this = this
+      window.onscroll = function () {
+        if (!_this.isLoading) {
+          if (Common.scroll.getScrollTop() + Common.scroll.getClientHeight() >= Common.scroll.getScrollHeight() - 10) {
+            _this.isLoading = true
+            _this.loadMore()
+          }
+        }
+      }
+    }
   }
 </script>

@@ -5,7 +5,10 @@
   bottom: 0;
   overflow: hidden;
   background: white;
-  z-index: 20; }
+  opacity: 0;
+  transition: opacity 0.5s, z-index 0s ease;
+  -webkit-transition: opacity 0.5s, z-index 0s ease;
+  z-index: 0; }
   .music-content .header {
     position: absolute;
     height: 0.9rem;
@@ -354,5 +357,9 @@
     .music-content .header:after {
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5); } }
+
+.op-show {
+  opacity: 1 !important;
+  z-index: 20 !important; }
 
 /*# sourceMappingURL=musicContent.css.map */

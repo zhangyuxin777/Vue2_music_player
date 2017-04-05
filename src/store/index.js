@@ -49,6 +49,11 @@ const state = {
   like: {
     list: []
   },
+  list: {
+    singer: [],
+    album: [],
+    mv: []
+  },
   search: {
     keyword: ''
   },
@@ -248,6 +253,11 @@ const mutations = {
   },
   SWITCH_BAR (state, status) {
     state.barStatus = status
+  },
+  ADD_MAIN_LIST (state, obj) {
+    obj.list.map(function (item) {
+      state.list[obj.name].push(item)
+    })
   },
   UPDATE_KEYWORD (state, keyword) {
     state.search.keyword = keyword

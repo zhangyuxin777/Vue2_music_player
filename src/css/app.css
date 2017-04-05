@@ -92,6 +92,13 @@ input:focus {
 .hide {
   display: none; }
 
+.pop {
+  bottom: 0; }
+
+.op-hide {
+  opacity: 0;
+  z-index: 0; }
+
 .transparent {
   opacity: 0 !important;
   z-index: 0 !important;

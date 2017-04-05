@@ -2,7 +2,7 @@
   @import "css/musicContent.css";
 </style>
 <template>
-  <div class="music-content">
+  <div class="music-content" :class="{'op-show':showMusicContent}">
     <div class="bg-op">
       <img :src="songImg" class="bg blur" alt="">
       <div class="mask"></div>
@@ -87,6 +87,7 @@
         playing: state => state.play.status.playing,
         rotate: state => state.play.status.rotate,
         showLyric: state => state.play.status.showLyric,
+        showMusicContent: state => state.play.showMusicContent,
         volume: state => state.play.status.volume,
         isLike: state => {
           let isExist = false

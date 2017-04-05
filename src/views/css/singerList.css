@@ -1,7 +1,8 @@
 .singer-list {
   background: #efeff4;
   position: absolute;
-  width: 6.4rem; }
+  width: 6.4rem;
+  margin-top: 0.03rem; }
   .singer-list .title {
     margin: 0.3rem 0.2rem 0 0.2rem;
     height: 0.3rem;

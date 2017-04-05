@@ -27,7 +27,7 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
-  import API from '../js/api'
+//  import API from '../js/api'
   export default{
     data () {
       return {
@@ -49,10 +49,10 @@
       }
     },
     beforeMount () {
-      let _this = this
-      API.rankList(function (response) {
-        _this.topList = response.data.data.topList
-      })
+//      let _this = this
+//      API.rankList(function (response) {
+//        _this.topList = response.data.data.topList
+//      })
     },
     mounted () {
       setTimeout(function () {
