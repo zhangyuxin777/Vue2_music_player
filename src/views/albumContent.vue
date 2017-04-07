@@ -6,7 +6,7 @@
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="rank-content">
       <div class="banner">
-        <img :src="getBanner" id="banImg" class="banner-img" v-if="getBanner">
+        <img :src="getBanner" id="banImg" v-if="getBanner">
       </div>
       <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.data.songid">

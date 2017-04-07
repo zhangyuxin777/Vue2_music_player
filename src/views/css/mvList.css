@@ -27,7 +27,10 @@
       .mv-list .list .item .album-name {
         width: 2.9rem;
         text-align: center;
-        font-size: 0.24rem; }
+        max-height: 0.62rem;
+        overflow: hidden;
+        font-size: 0.24rem;
+        text-overflow: ellipsis; }
       .mv-list .list .item .singer {
         width: 2.9rem;
         height: 0.4rem;

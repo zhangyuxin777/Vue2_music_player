@@ -4,7 +4,7 @@
   .rank-content .banner {
     width: 6.4rem;
     overflow: hidden; }
-    .rank-content .banner img {
+    .rank-content .banner .banner-img {
       width: 6.4rem; }
   .rank-content .list .item {
     height: 0.9rem; }

@@ -7,7 +7,7 @@
     <div class="singer-list">
       <div class="title">全部歌手</div>
       <ul class="list">
-        <li v-for="(item,index) in list" class="item" @click="toContent(item.id)">
+        <li v-for="(item,index) in list" class="item" @click="toContent(item.Fsinger_mid)">
           <img :src="picUrl(item)"/>
           <div class="singer">{{item.Fsinger_name.split('(')[0]}}</div>
         </li>
@@ -18,8 +18,7 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
-//  import API from '../js/api'
-  //  import Common from '../js/rock'
+  import API from '../js/api'
   import {mapState} from 'vuex'
   export default{
     data () {
@@ -33,7 +32,7 @@
       toContent (id) {
         sessionStorage.setItem('singerListScrollTop', document.body.scrollTop)
         this.$router.push({
-          name: 'rankContent',
+          name: 'singerContent',
           query: {id: id}
         })
       },
@@ -47,13 +46,13 @@
       })
     },
     beforeMount () {
-//      let _this = this
-//      API.singerList(1, function (response) {
-//        _this.$store.dispatch('addMainList', {
-//          name: 'singer',
-//          list: response.data.data.list
-//        })
-//      })
+      let _this = this
+      API.singerList(1, function (response) {
+        _this.$store.dispatch('addMainList', {
+          name: 'singer',
+          list: response.data.data.list
+        })
+      })
     },
     mounted () {
       setTimeout(function () {

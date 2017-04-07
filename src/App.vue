@@ -6,10 +6,7 @@
 </style>
 <template>
   <div id="app">
-    <transition name="play-bar-tran" enter-active-class="animated slideInUp fast"
-                leave-active-class="animated slideOutDown fast" mode="out-in">
-      <play-bar v-show="!showMusicContent"></play-bar>
-    </transition>
+    <play-bar></play-bar>
     <info-list></info-list>
     <play-list></play-list>
     <router-view></router-view>

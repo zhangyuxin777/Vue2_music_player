@@ -1,0 +1,30 @@
+@import "../../css/wl-common";
+
+.singer-Content {
+  z-index: 20;
+  .banner{
+    position: relative;
+    height: 3rem;
+  }
+ .singer-img{
+   height: 2rem;
+   width: 2rem;
+   border-radius: 50%;
+   margin-top: 0.5rem;
+   margin-left: 0.5rem;
+ }
+  .focus__gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    width: $pageWidth;
+    background-image: -webkit-linear-gradient(top,transparent,currentColor 80%);
+  }
+  .focus__gradient::after {
+    content: "";
+    display: block;
+    padding-top: 60%;
+  }
+}
+

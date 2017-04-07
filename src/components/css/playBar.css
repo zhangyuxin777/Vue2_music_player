@@ -2,8 +2,10 @@
   height: 1.4rem;
   width: 6.4rem;
   position: fixed;
+  z-index: 90;
   bottom: -0.02rem;
-  z-index: 90; }
+  transition: bottom 0.5s;
+  -webkit-transition: bottom 0.5s; }
   .play-bar .cycle {
     width: 1.2rem;
     height: 1.2rem;
@@ -101,6 +103,9 @@
           background-position: 17.91045% 0%; }
         .play-bar .panel .box .control .ic_play {
           background-position: 26.86567% 0%; }
+
+.play-bar-down {
+  bottom: -1.4rem; }
 
 .split-line {
   content: '';

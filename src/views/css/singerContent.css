@@ -1,0 +1,24 @@
+.singer-Content {
+  z-index: 20; }
+  .singer-Content .banner {
+    position: relative;
+    height: 3rem; }
+  .singer-Content .singer-img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem; }
+  .singer-Content .focus__gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    width: 6.4rem;
+    background-image: -webkit-linear-gradient(top, transparent, currentColor 80%); }
+  .singer-Content .focus__gradient::after {
+    content: "";
+    display: block;
+    padding-top: 60%; }
+
+/*# sourceMappingURL=singerContent.css.map */
