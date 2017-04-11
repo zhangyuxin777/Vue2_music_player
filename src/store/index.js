@@ -89,7 +89,7 @@ const mutations = {
       state.play.list.push(song)
       state.play.current = song
       state.play.status.playing = true
-    } else if (state.play.current !== song) {
+    } else if (state.play.current.data.songid !== song.data.songid) {
       state.play.status.rotate = false
       state.play.current = song
       state.play.status.playing = true

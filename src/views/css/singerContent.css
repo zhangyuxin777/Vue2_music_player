@@ -2,23 +2,133 @@
   z-index: 20; }
   .singer-Content .banner {
     position: relative;
-    height: 3rem; }
+    height: 4rem; }
   .singer-Content .singer-img {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem; }
-  .singer-Content .focus__gradient {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
     width: 6.4rem;
-    background-image: -webkit-linear-gradient(top, transparent, currentColor 80%); }
-  .singer-Content .focus__gradient::after {
-    content: "";
-    display: block;
-    padding-top: 60%; }
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%); }
+  .singer-Content .tab {
+    width: 6.4rem;
+    height: 0.7rem;
+    background: white;
+    z-index: 18; }
+    .singer-Content .tab .bar {
+      height: 100%;
+      line-height: 0.7rem;
+      width: 1.59rem;
+      text-align: center;
+      font-size: 0.23rem;
+      float: left;
+      color: #606060; }
+    .singer-Content .tab .bar:first-child, .singer-Content .tab .bar:last-child {
+      width: 1.6rem; }
+    .singer-Content .tab .bar:after {
+      content: '';
+      height: 0.03rem;
+      width: 100%;
+      background-color: #d7d7d7;
+      display: block;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+      background: -webkit-linear-gradient(white, white);
+      background: -moz-linear-gradient(white, white);
+      background: linear-gradient(white, white); }
+    .singer-Content .tab .active-bar {
+      color: #e61624; }
+    .singer-Content .tab .active-bar:after {
+      content: '';
+      height: 0.03rem;
+      width: 100%;
+      background: -webkit-linear-gradient(#e61624, #e61624);
+      background: -moz-linear-gradient(#e61624, #e61624);
+      background: linear-gradient(#e61624, #e61624);
+      display: block;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%; }
+  .singer-Content .album-list {
+    position: relative; }
+    .singer-Content .album-list .item {
+      height: 1rem; }
+      .singer-Content .album-list .item .split-line {
+        width: 5.2rem;
+        margin-left: 1.2rem; }
+      .singer-Content .album-list .item .i-title {
+        width: 1rem;
+        height: 1rem;
+        float: left; }
+        .singer-Content .album-list .item .i-title .pic {
+          width: 0.8rem;
+          height: 0.8rem;
+          margin-left: 0.1rem;
+          margin-top: 0.1rem; }
+      .singer-Content .album-list .item .i-content {
+        height: 1rem;
+        width: 4.8rem;
+        float: left;
+        padding-right: 0.1rem;
+        padding-left: 0.2rem; }
+        .singer-Content .album-list .item .i-content .songname {
+          height: 0.5rem;
+          line-height: 0.65rem;
+          color: black;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+        .singer-Content .album-list .item .i-content .singername {
+          height: 0.4rem;
+          line-height: 0.4rem;
+          font-size: 0.2rem;
+          color: #909090;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+  .singer-Content .mv-list {
+    position: relative; }
+    .singer-Content .mv-list .item {
+      height: 1rem; }
+      .singer-Content .mv-list .item .split-line {
+        width: 4.7rem;
+        margin-left: 1.7rem; }
+      .singer-Content .mv-list .item .i-title {
+        width: 1.5rem;
+        height: 1rem;
+        float: left; }
+        .singer-Content .mv-list .item .i-title .pic {
+          width: 1.4rem;
+          height: 0.8rem;
+          margin-left: 0.1rem;
+          margin-top: 0.1rem; }
+      .singer-Content .mv-list .item .i-content {
+        height: 1rem;
+        width: 4.8rem;
+        float: left;
+        padding-right: 0.1rem;
+        padding-left: 0.2rem; }
+        .singer-Content .mv-list .item .i-content .songname {
+          height: 0.5rem;
+          line-height: 0.65rem;
+          color: black;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+        .singer-Content .mv-list .item .i-content .singername {
+          height: 0.4rem;
+          line-height: 0.4rem;
+          font-size: 0.2rem;
+          color: #909090;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+  .singer-Content .detail {
+    background: #efeff4; }
+    .singer-Content .detail .title {
+      margin: 0.3rem 0.2rem 0 0.2rem;
+      height: 0.3rem;
+      line-height: 0.3rem;
+      font-size: 0.27rem;
+      border-left: 0.05rem solid #e61624;
+      padding-left: 0.1rem; }
 
 /*# sourceMappingURL=singerContent.css.map */

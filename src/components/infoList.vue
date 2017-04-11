@@ -23,7 +23,7 @@
           <div class="sprites ic_download"></div>
           <div class="con">下载</div>
         </li>
-        <li class="info-item">
+        <li class="info-item" @click="toSinger(current.data.singer[0].mid)">
           <div class="sprites ic_singer"></div>
           <div class="con">歌手：{{current.data.singer[0].name}}</div>
         </li>
@@ -44,11 +44,22 @@
         pop: state => state.play.info.show,
         current: state => state.play.info.current,
         isMusicContent: state => state.play.info.isMusicContent
-      })
+      }),
+      isCurrent () {
+        return this.$store.state.play.info.current.data.songid === this.$store.state.play.current.data.songid
+      }
     },
     methods: {
       toDown () {
         this.$store.dispatch('switchInfo', null)
+      },
+      toSinger (id) {
+        this.$router.push({
+          name: 'singerContent',
+          query: {id: id}
+        })
+        this.$store.dispatch('switchInfo', null)
+        this.$store.dispatch('switchMusicContent', false)
       }
     }
   }

@@ -8,9 +8,16 @@
     <div class="rank-content singer-Content">
       <div class="banner">
         <img :src="getBanner" id="banImg" class="singer-img" v-if="getBanner">
-
       </div>
-      <ul class="list">
+      <div class="tab">
+        <div class="bar" :class="{'active-bar':getBarStatus === 0}" @click="switchBar(0)">热门 30</div>
+        <div class="bar" :class="{'active-bar':getBarStatus === 1}" @click="switchBar(1)">专辑 {{getAlbumList.length}}
+        </div>
+        <div class="bar" :class="{'active-bar':getBarStatus === 2}" @click="switchBar(2)">MV {{getMVList.length}}</div>
+        <div class="bar" :class="{'active-bar':getBarStatus === 3}" @click="switchBar(3)">歌手信息</div>
+        <span style="clear: both"></span>
+      </div>
+      <ul class="list" v-show="getBarStatus === 0">
         <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.musicData.songid">
           <div class="i-title">
             <span class="sprites ic_menu" :class="{hide : !isCurrent(item.musicData.songid)}"></span>
@@ -25,6 +32,37 @@
           <span class="split-line"></span>
         </li>
       </ul>
+      <ul class="album-list" v-show="getBarStatus === 1">
+        <li v-for="(item,index) in getAlbumList" class="item" @click="" track-by="item.albumMID">
+          <div class="i-title">
+            <img class="pic" :src="getAlbumImg(item.albumMID)" alt="">
+          </div>
+          <div class="i-content">
+            <div class="songname">{{item.albumName}}</div>
+            <div class="singername">{{item.pubTime}}</div>
+          </div>
+          <div class="clear"></div>
+          <span class="split-line"></span>
+        </li>
+      </ul>
+      <ul class="mv-list" v-show="getBarStatus === 2">
+        <li v-for="(item,index) in getMVList" class="item" @click="" track-by="item.vid">
+          <div class="i-title">
+            <img class="pic" :src="item.pic" alt="">
+          </div>
+          <div class="i-content">
+            <div class="songname">{{item.title}}</div>
+            <div class="singername">{{item.date}}</div>
+          </div>
+          <div class="clear"></div>
+          <span class="split-line"></span>
+        </li>
+      </ul>
+      <div class="detail" v-show="getBarStatus === 3">
+        <div class="title">歌手简介</div>
+        <span>{{singerDetail}}</span>
+      </div>
+      <div style="height: 1.4rem;background: transparent"></div>
     </div>
   </transition>
 </template>
@@ -34,39 +72,87 @@
     data () {
       return {
         infoList: [],
+        albumList: [],
+        mvList: [],
         _id: this.$route.query.id,
-        info: ''
+        info: '',
+        barStatus: 0,
+        detail: ''
       }
     },
     methods: {
       playSong (item) {
-        this.$store.dispatch('playSong', item)
+        let currItem = {
+          data: item.musicData
+        }
+        this.$store.dispatch('playSong', currItem)
       },
       isCurrent (id) {
         return id === this.$store.state.play.current.data.songid
       },
       toMore (item) {
+        let currItem = {
+          data: item.musicData
+        }
         this.$store.dispatch('switchInfo', {
-          current: item,
+          current: currItem,
           isMusicContent: false
         })
         event.stopPropagation()
+      },
+      switchBar (barStatus) {
+        this.barStatus = barStatus
+      },
+      getAlbumImg (id) {
+        return '//y.gtimg.cn/music/photo_new/T002R150x150M000' + id + '.jpg?max_age=2592000'
       }
     },
     computed: {
       list () {
         return this.infoList
       },
+      getAlbumList () {
+        return this.albumList
+      },
+      getMVList () {
+        return this.mvList
+      },
       getBanner () {
-        return '//y.gtimg.cn/music/photo_new/T001R150x150M000' + this.$route.query.id + '.jpg?max_age=2592000'
+        return '//y.gtimg.cn/music/photo_new/T001R500x500M000' + this.$route.query.id + '.jpg?max_age=2592000'
+      },
+      getId () {
+        return this.$route.query.id
+      },
+      getBarStatus () {
+        return this.barStatus
+      },
+      singerDetail () {
+        return this.detail
       }
     },
     beforeMount () {
       let _this = this
       API.singerDetail(this.$route.query.id, function (response) {
         _this.infoList = response.data.data.list
+        _this.detail = response.data.data.SingerDesc
+      })
+      API.albumListBySinger(this.$route.query.id, function (response) {
+        _this.albumList = response.data.data.list
+      })
+      API.mvListBySinger(this.$route.query.id, function (response) {
+        _this.mvList = response.data.data.list
+        console.log(response)
       })
       document.body.scrollTop = 0
+    },
+    watch: {
+      getId (id) {
+        let _this = this
+        API.singerDetail(this.$route.query.id, function (response) {
+          _this.infoList = response.data.data.list
+        })
+        console.log('singerContent-watch-id:' + id)
+      }
     }
   }
 

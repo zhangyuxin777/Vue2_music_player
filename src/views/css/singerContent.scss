@@ -2,29 +2,166 @@
 
 .singer-Content {
   z-index: 20;
-  .banner{
+  .banner {
     position: relative;
-    height: 3rem;
+    height: 4rem;
   }
- .singer-img{
-   height: 2rem;
-   width: 2rem;
-   border-radius: 50%;
-   margin-top: 0.5rem;
-   margin-left: 0.5rem;
- }
-  .focus__gradient {
+  .singer-img {
+    width: 6.4rem;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    width: $pageWidth;
-    background-image: -webkit-linear-gradient(top,transparent,currentColor 80%);
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
   }
-  .focus__gradient::after {
-    content: "";
-    display: block;
-    padding-top: 60%;
+  .tab {
+    $hei: 0.7rem;
+    width: $pageWidth;
+    height: $hei;
+    background: white;
+    z-index: 18;
+    .bar {
+      height: 100%;
+      line-height: $hei;
+      width: 1.59rem;
+      text-align: center;
+      font-size: 0.23rem;
+      float: left;
+      color: #606060;
+      //border-bottom: 1px white solid;
+    }
+    .bar:first-child, .bar:last-child {
+      width: 1.6rem;
+    }
+    .bar:after {
+      content: '';
+      height: $tabHei;
+      width: 100%;
+      background-color: $lineColor;
+      display: block;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+      background: -webkit-linear-gradient(white, white);
+      background: -moz-linear-gradient(white, white);
+      background: linear-gradient(white, white);
+    }
+    .active-bar {
+      color: $mainColor;
+    }
+    .active-bar:after {
+      content: '';
+      height: $tabHei;
+      width: 100%;
+      background: -webkit-linear-gradient($mainColor, $mainColor);
+      background: -moz-linear-gradient($mainColor, $mainColor);
+      background: linear-gradient($mainColor, $mainColor);
+      display: block;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+    }
+  }
+  .album-list {
+    position: relative;
+    .item {
+      $size: 1rem;
+      height: $size;
+      .split-line {
+        width: 5.2rem;
+        margin-left: 1.2rem;
+      }
+      .i-title {
+        width: $size;
+        height: $size;
+        float: left;
+        .pic {
+          width: 0.8rem;
+          height: 0.8rem;
+          margin-left: 0.1rem;
+          margin-top: 0.1rem;
+        }
+      }
+      .i-content {
+        height: $size;
+        width: 4.8rem;
+        float: left;
+        padding-right: 0.1rem;
+        padding-left: 0.2rem;
+        .songname {
+          height: 0.5rem;
+          line-height: 0.65rem;
+          color: black;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+
+        }
+        .singername {
+          height: 0.4rem;
+          line-height: 0.4rem;
+          font-size: 0.2rem;
+          color: #909090;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+  .mv-list {
+    position: relative;
+    .item {
+      $size: 1rem;
+      height: $size;
+      .split-line {
+        width: 4.7rem;
+        margin-left: 1.7rem;
+      }
+      .i-title {
+        width: 1.5rem;
+        height: $size;
+        float: left;
+        .pic {
+          width: 1.4rem;
+          height: 0.8rem;
+          margin-left: 0.1rem;
+          margin-top: 0.1rem;
+        }
+      }
+      .i-content {
+        height: $size;
+        width: 4.8rem;
+        float: left;
+        padding-right: 0.1rem;
+        padding-left: 0.2rem;
+        .songname {
+          height: 0.5rem;
+          line-height: 0.65rem;
+          color: black;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .singername {
+          height: 0.4rem;
+          line-height: 0.4rem;
+          font-size: 0.2rem;
+          color: #909090;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+  .detail{
+    background: $bgColor;
+    .title {
+      margin: 0.3rem 0.2rem 0 0.2rem;
+      height: 0.3rem;
+      line-height: 0.3rem;
+      font-size: 0.27rem;
+      border-left: 0.05rem solid $mainColor;
+      padding-left: 0.1rem;
+    }
   }
 }
 
