@@ -18,7 +18,7 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
-  import API from '../js/api'
+//  import API from '../js/api'
   import {mapState} from 'vuex'
   export default{
     data () {
@@ -46,13 +46,13 @@
       })
     },
     beforeMount () {
-      let _this = this
-      API.singerList(1, function (response) {
-        _this.$store.dispatch('addMainList', {
-          name: 'singer',
-          list: response.data.data.list
-        })
-      })
+//      let _this = this
+//      API.singerList(1, function (response) {
+//        _this.$store.dispatch('addMainList', {
+//          name: 'singer',
+//          list: response.data.data.list
+//        })
+//      })
     },
     mounted () {
       setTimeout(function () {

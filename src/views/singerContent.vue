@@ -6,8 +6,18 @@
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="rank-content singer-Content">
+      <div class="header">
+        <div class="back">
+          <div class="sprites ic_back"></div>
+        </div>
+        <div class="title">
+          <div class="singername">{{getSingerName}}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
       <div class="banner">
         <img :src="getBanner" id="banImg" class="singer-img" v-if="getBanner">
+        <div class="float-div"></div>
       </div>
       <div class="tab">
         <div class="bar" :class="{'active-bar':getBarStatus === 0}" @click="switchBar(0)">热门 30</div>
@@ -60,9 +70,9 @@
       </ul>
       <div class="detail" v-show="getBarStatus === 3">
         <div class="title">歌手简介</div>
-        <span>{{singerDetail}}</span>
+        <div class="con">{{singerDetail}}</div>
       </div>
-      <div style="height: 1.4rem;background: transparent"></div>
+      <div class="position"></div>
     </div>
   </transition>
 </template>
@@ -77,7 +87,8 @@
         _id: this.$route.query.id,
         info: '',
         barStatus: 0,
-        detail: ''
+        detail: '',
+        singerName: ''
       }
     },
     methods: {
@@ -128,6 +139,9 @@
       },
       singerDetail () {
         return this.detail
+      },
+      getSingerName () {
+        return this.singerName
       }
     },
     beforeMount () {
@@ -135,6 +149,7 @@
       API.singerDetail(this.$route.query.id, function (response) {
         _this.infoList = response.data.data.list
         _this.detail = response.data.data.SingerDesc
+        _this.singerName = response.data.data.singer_name
       })
       API.albumListBySinger(this.$route.query.id, function (response) {
         _this.albumList = response.data.data.list
@@ -150,6 +165,14 @@
         let _this = this
         API.singerDetail(this.$route.query.id, function (response) {
           _this.infoList = response.data.data.list
+          _this.detail = response.data.data.SingerDesc
+          _this.singerName = response.data.data.singer_name
+        })
+        API.albumListBySinger(this.$route.query.id, function (response) {
+          _this.albumList = response.data.data.list
+        })
+        API.mvListBySinger(this.$route.query.id, function (response) {
+          _this.mvList = response.data.data.list
         })
         console.log('singerContent-watch-id:' + id)
       }

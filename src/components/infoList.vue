@@ -54,10 +54,17 @@
         this.$store.dispatch('switchInfo', null)
       },
       toSinger (id) {
-        this.$router.push({
-          name: 'singerContent',
-          query: {id: id}
-        })
+        if (window.location.hash.indexOf('singerContent') >= 0) {
+          this.$router.replace({
+            name: 'singerContent',
+            query: {id: id}
+          })
+        } else {
+          this.$router.push({
+            name: 'singerContent',
+            query: {id: id}
+          })
+        }
         this.$store.dispatch('switchInfo', null)
         this.$store.dispatch('switchMusicContent', false)
       }

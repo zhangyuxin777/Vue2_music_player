@@ -1,5 +1,5 @@
 .mv-list {
-  background: #efeff4;
+  background: #f0f4f3;
   position: absolute;
   width: 6.4rem;
   margin-top: 0.03rem; }
@@ -12,7 +12,7 @@
     padding-left: 0.1rem; }
   .mv-list .list {
     margin: 0.3rem 0.1rem 0 0.1rem;
-    background: #efeff4; }
+    background: #f0f4f3; }
     .mv-list .list .item {
       position: relative;
       height: 2.6rem;
@@ -20,7 +20,7 @@
       width: 2.9rem;
       display: inline-block;
       margin: 0 0.1rem 0.2rem 0.1rem;
-      background: #efeff4; }
+      background: #f0f4f3; }
       .mv-list .list .item img {
         height: 1.635rem;
         width: 2.9rem; }

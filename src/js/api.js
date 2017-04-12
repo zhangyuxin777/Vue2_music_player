@@ -292,7 +292,7 @@ export default {
         singermid: singermid,
         order: 'listen',
         begin: 0,
-        num: 6,
+        num: 10,
         from: 'h5',
         songstatus: 1
       },

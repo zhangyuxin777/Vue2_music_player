@@ -108,7 +108,7 @@ input:focus {
   clear: both; }
 
 .bg-color {
-  background: #efeff4; }
+  background: #f0f4f3; }
 
 .bg-white {
   background: #fff; }
@@ -120,7 +120,7 @@ ol, ul:not(.mui-pciker-list) {
   background-color: #ffffff; }
 
 .mui-content {
-  background-color: #efeff4; }
+  background-color: #f0f4f3; }
 
 .mui-popup-backdrop {
   z-index: 999998; }

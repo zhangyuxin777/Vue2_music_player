@@ -1,8 +1,48 @@
 .singer-Content {
-  z-index: 20; }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  background: #f0f4f3; }
+  .singer-Content .header {
+    position: absolute;
+    height: 0.9rem;
+    width: 100%;
+    z-index: 5; }
+    .singer-Content .header .back {
+      width: 0.9rem;
+      height: 0.9rem;
+      padding-top: 0.18rem;
+      padding-left: 0.2rem;
+      float: left; }
+      .singer-Content .header .back .ic_back {
+        width: 0.6rem;
+        height: 0.6rem;
+        background-size: 8.64rem 8.64rem;
+        background-position: 71.9697% 0%; }
+    .singer-Content .header .title {
+      float: left;
+      width: 5.4rem;
+      height: 100%; }
+      .singer-Content .header .title .singername {
+        font-size: 0.35rem;
+        color: white;
+        line-height: 0.9rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+  .singer-Content .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03231037") 0 0 no-repeat; }
   .singer-Content .banner {
     position: relative;
     height: 4rem; }
+    .singer-Content .banner .float-div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent, rgba(0, 0, 0, 0.2)); }
   .singer-Content .singer-img {
     width: 6.4rem;
     position: absolute;
@@ -47,8 +87,12 @@
       display: block;
       -webkit-transform-origin: 50% 100%;
       transform-origin: 50% 100%; }
+  .singer-Content .list {
+    background: #f0f4f3; }
   .singer-Content .album-list {
-    position: relative; }
+    background: #f0f4f3;
+    position: relative;
+    margin-top: 0.02rem; }
     .singer-Content .album-list .item {
       height: 1rem; }
       .singer-Content .album-list .item .split-line {
@@ -85,7 +129,9 @@
           white-space: nowrap;
           text-overflow: ellipsis; }
   .singer-Content .mv-list {
-    position: relative; }
+    background: #f0f4f3;
+    position: relative;
+    margin-top: 0.02rem; }
     .singer-Content .mv-list .item {
       height: 1rem; }
       .singer-Content .mv-list .item .split-line {
@@ -122,7 +168,7 @@
           white-space: nowrap;
           text-overflow: ellipsis; }
   .singer-Content .detail {
-    background: #efeff4; }
+    background: #f0f4f3; }
     .singer-Content .detail .title {
       margin: 0.3rem 0.2rem 0 0.2rem;
       height: 0.3rem;
@@ -130,5 +176,12 @@
       font-size: 0.27rem;
       border-left: 0.05rem solid #e61624;
       padding-left: 0.1rem; }
+    .singer-Content .detail .con {
+      padding: 0.2rem;
+      color: #606060;
+      line-height: 0.4rem; }
+  .singer-Content .position {
+    height: 1.4rem;
+    background: #f0f4f3; }
 
 /*# sourceMappingURL=singerContent.css.map */
