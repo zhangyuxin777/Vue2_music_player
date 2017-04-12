@@ -27,7 +27,7 @@
           <div class="sprites ic_singer"></div>
           <div class="con">歌手：{{current.data.singer[0].name}}</div>
         </li>
-        <li class="info-item">
+        <li class="info-item" @click="toAlbum(current.data.albummid)">
           <div class="sprites ic_cd"></div>
           <div class="con">专辑：{{current.data.albumname}}</div>
         </li>
@@ -62,6 +62,21 @@
         } else {
           this.$router.push({
             name: 'singerContent',
+            query: {id: id}
+          })
+        }
+        this.$store.dispatch('switchInfo', null)
+        this.$store.dispatch('switchMusicContent', false)
+      },
+      toAlbum (id) {
+        if (window.location.hash.indexOf('albumContent') >= 0) {
+          this.$router.replace({
+            name: 'albumContent',
+            query: {id: id}
+          })
+        } else {
+          this.$router.push({
+            name: 'albumContent',
             query: {id: id}
           })
         }

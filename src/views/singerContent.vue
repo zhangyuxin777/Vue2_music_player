@@ -7,7 +7,7 @@
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="rank-content singer-Content">
       <div class="header">
-        <div class="back">
+        <div class="back" @click="back">
           <div class="sprites ic_back"></div>
         </div>
         <div class="title">
@@ -116,6 +116,9 @@
       },
       getAlbumImg (id) {
         return '//y.gtimg.cn/music/photo_new/T002R150x150M000' + id + '.jpg?max_age=2592000'
+      },
+      back () {
+        window.history.back()
       }
     },
     computed: {
@@ -156,7 +159,6 @@
       })
       API.mvListBySinger(this.$route.query.id, function (response) {
         _this.mvList = response.data.data.list
-        console.log(response)
       })
       document.body.scrollTop = 0
     },

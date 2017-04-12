@@ -1,0 +1,69 @@
+.album-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  background: #f0f4f3;
+  width: 6.4rem; }
+  .album-content .header {
+    position: absolute;
+    height: 0.9rem;
+    width: 100%;
+    z-index: 5; }
+    .album-content .header .back {
+      width: 0.9rem;
+      height: 0.9rem;
+      padding-top: 0.18rem;
+      padding-left: 0.2rem;
+      float: left; }
+      .album-content .header .back .ic_back {
+        width: 0.6rem;
+        height: 0.6rem;
+        background-size: 8.64rem 8.64rem;
+        background-position: 71.9697% 0%; }
+    .album-content .header .title {
+      float: left;
+      width: 5.4rem;
+      height: 100%; }
+      .album-content .header .title .singername {
+        font-size: 0.35rem;
+        color: white;
+        line-height: 0.9rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+  .album-content .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03231037") 0 0 no-repeat; }
+  .album-content .banner {
+    position: relative;
+    height: 4rem; }
+    .album-content .banner .blur {
+      -webkit-filter: blur(30px);
+      -ms-filter: blur(30px);
+      filter: blur(30px); }
+    .album-content .banner .mask {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1; }
+    .album-content .banner .float-div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: -webkit-linear-gradient(top, rgba(200, 200, 200, 0.6), rgba(200, 200, 200, 0.6)); }
+  .album-content .singer-img {
+    width: 6.4rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%); }
+  .album-content .list {
+    background: #f0f4f3; }
+  .album-content .position {
+    height: 1.4rem;
+    background: #f0f4f3; }
+
+/*# sourceMappingURL=albumContent.css.map */
