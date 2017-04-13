@@ -121,6 +121,46 @@ input:focus {
   background: #fff;
 }
 
+.header {
+  $hei:0.7rem;
+  position: absolute;
+  height: $hei;
+  width: 100%;
+  z-index: 5;
+  .back {
+    width: $hei;
+    height: $hei;
+    padding-top: 0.1rem;
+    padding-left: 0.2rem;
+    float: left;
+    .ic_back {
+      width: 0.5rem;
+      height: 0.5rem;
+      background-size: $spriteRem/5*4.5 $spriteRem/5*4.5;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 483, -5);
+    }
+  }
+  .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    @include getBackground('icon-list.png?v=03231037');
+  }
+  .title {
+    float: left;
+    width: 5.4rem;
+    height: 100%;
+    margin-left: 0.2rem;
+    .singername {
+      font-size: 0.3rem;
+      color: white;
+      line-height: $hei;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
 ol, ul:not(.mui-pciker-list) {
   list-style: none;
   padding: 0;

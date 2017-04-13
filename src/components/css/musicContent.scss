@@ -7,27 +7,20 @@
   bottom: 0;
   overflow: hidden;
   background: white;
-  opacity: 0;
-  transition: opacity 0.5s, height 0.5s ease;
-  -webkit-transition: opacity 0.5s, height 0.5s ease;
+  //opacity: 0;
+  //transition: opacity 0.5s, height 0.5s ease;
+  //-webkit-transition: opacity 0.5s, height 0.5s ease;
   z-index: 0;
   .header {
+    $hei:0.9rem;
     position: absolute;
-    height: 0.9rem;
+    height: $hei;
     width: 100%;
-    background: rgba(0, 0, 0, 0.1);
     z-index: 5;
     .back {
-      width: 0.9rem;
-      height: 0.9rem;
       padding-top: 0.18rem;
-      padding-left: 0.2rem;
-      float: left;
       .ic_back {
-        width: 0.6rem;
-        height: 0.6rem;
-        background-size: $spriteRem/5*6 $spriteRem/5*6;
-        @include bgPosition($spriteSize, $spriteSize, 60, 60, 475, 0);
+
       }
     }
     .title {
@@ -44,6 +37,7 @@
         text-overflow: ellipsis;
       }
       .singername {
+        font-size: 0.24rem;
         color: white;
         height: 0.3rem;
         line-height: 0.3rem;
@@ -219,8 +213,8 @@
       transform-origin: 0 0;
     }
     .ani {
-      -webkit-animation: rotate 30s infinite linear;
-      animation: rotate 30s infinite linear;
+      -webkit-animation: rotate 60s infinite linear;
+      animation: rotate 60s infinite linear;
     }
     @-webkit-keyframes rotate {
       0% {
@@ -241,7 +235,7 @@
   }
   .click-box {
     position: absolute;
-    bottom: 2.7rem;
+    bottom: 2.4rem;
     height: 1rem;
     width: $pageWidth;
     .like {
@@ -421,6 +415,6 @@
   }
 }
 .op-show {
-  opacity: 1 !important;
-  z-index: 20 !important;
+  //opacity: 1 !important;
+  //z-index: 20 !important;
 }

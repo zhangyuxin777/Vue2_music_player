@@ -2,7 +2,7 @@
   @import "css/musicContent.css";
 </style>
 <template>
-  <div class="music-content" :class="{'op-show':showMusicContent}">
+  <div class="music-content op-show">
     <div class="bg-op">
       <img :src="songImg" class="bg blur" alt="">
       <div class="mask"></div>
@@ -149,6 +149,7 @@
         return id === this.$store.state.play.current.data.songid
       },
       back () {
+        window.history.back()
         this.$store.dispatch('switchMusicContent', false)
       },
       volumeChange () {

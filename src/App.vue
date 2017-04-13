@@ -19,7 +19,6 @@
            @error="error"
            @stalled="stalled">
     </audio>
-    <music-content></music-content>
   </div>
 </template>
 
@@ -27,7 +26,6 @@
   import playBar from './components/playBar'
   import infoList from './components/infoList'
   import playList from './components/playList'
-  import musicContent from './components/musicContent'
   import {mapState} from 'vuex'
   import $ from 'jquery'
   import Common from './js/rock'
@@ -39,8 +37,7 @@
     components: {
       playBar,
       playList,
-      infoList,
-      musicContent
+      infoList
     },
     computed: {
       ...mapState({

@@ -113,6 +113,39 @@ input:focus {
 .bg-white {
   background: #fff; }
 
+.header {
+  position: absolute;
+  height: 0.7rem;
+  width: 100%;
+  z-index: 5; }
+  .header .back {
+    width: 0.7rem;
+    height: 0.7rem;
+    padding-top: 0.1rem;
+    padding-left: 0.2rem;
+    float: left; }
+    .header .back .ic_back {
+      width: 0.5rem;
+      height: 0.5rem;
+      background-size: 6.48rem 6.48rem;
+      background-position: 72.08955% -0.74627%; }
+  .header .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03231037") 0 0 no-repeat; }
+  .header .title {
+    float: left;
+    width: 5.4rem;
+    height: 100%;
+    margin-left: 0.2rem; }
+    .header .title .singername {
+      font-size: 0.3rem;
+      color: white;
+      line-height: 0.7rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+
 ol, ul:not(.mui-pciker-list) {
   list-style: none;
   padding: 0;

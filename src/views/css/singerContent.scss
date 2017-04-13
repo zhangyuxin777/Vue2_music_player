@@ -8,23 +8,6 @@
   background: $bgColor;
   width: $pageWidth;
   .header {
-    position: absolute;
-    height: 0.9rem;
-    width: 100%;
-    z-index: 5;
-    .back {
-      width: 0.9rem;
-      height: 0.9rem;
-      padding-top: 0.18rem;
-      padding-left: 0.2rem;
-      float: left;
-      .ic_back {
-        width: 0.6rem;
-        height: 0.6rem;
-        background-size: $spriteRem/5*6 $spriteRem/5*6;
-        @include bgPosition($spriteSize, $spriteSize, 60, 60, 475, 0);
-      }
-    }
     .title {
       float: left;
       width: 5.4rem;

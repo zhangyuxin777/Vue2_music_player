@@ -24,8 +24,8 @@
       height: 100%;
       border-radius: 50%; }
     .play-bar .cycle .ani {
-      -webkit-animation: rotate 30s infinite linear;
-      animation: rotate 30s infinite linear; }
+      -webkit-animation: rotate 40s infinite linear;
+      animation: rotate 40s infinite linear; }
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg); }

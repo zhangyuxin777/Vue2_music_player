@@ -5,27 +5,14 @@
   bottom: 0;
   overflow: hidden;
   background: white;
-  opacity: 0;
-  transition: opacity 0.5s, height 0.5s ease;
-  -webkit-transition: opacity 0.5s, height 0.5s ease;
   z-index: 0; }
   .music-content .header {
     position: absolute;
     height: 0.9rem;
     width: 100%;
-    background: rgba(0, 0, 0, 0.1);
     z-index: 5; }
     .music-content .header .back {
-      width: 0.9rem;
-      height: 0.9rem;
-      padding-top: 0.18rem;
-      padding-left: 0.2rem;
-      float: left; }
-      .music-content .header .back .ic_back {
-        width: 0.6rem;
-        height: 0.6rem;
-        background-size: 8.64rem 8.64rem;
-        background-position: 71.9697% 0%; }
+      padding-top: 0.18rem; }
     .music-content .header .title {
       float: left;
       width: 5.4rem;
@@ -39,6 +26,7 @@
         white-space: nowrap;
         text-overflow: ellipsis; }
       .music-content .header .title .singername {
+        font-size: 0.24rem;
         color: white;
         height: 0.3rem;
         line-height: 0.3rem;
@@ -191,8 +179,8 @@
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0; }
   .music-content .cd-box .ani {
-    -webkit-animation: rotate 30s infinite linear;
-    animation: rotate 30s infinite linear; }
+    -webkit-animation: rotate 60s infinite linear;
+    animation: rotate 60s infinite linear; }
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg); }
@@ -205,7 +193,7 @@
     transform: rotate(360deg); } }
   .music-content .click-box {
     position: absolute;
-    bottom: 2.7rem;
+    bottom: 2.4rem;
     height: 1rem;
     width: 6.4rem; }
     .music-content .click-box .like {
@@ -357,9 +345,5 @@
     .music-content .header:after {
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5); } }
-
-.op-show {
-  opacity: 1 !important;
-  z-index: 20 !important; }
 
 /*# sourceMappingURL=musicContent.css.map */
