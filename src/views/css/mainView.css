@@ -1,9 +1,9 @@
 .main .tab {
-  width: 100%;
+  width: 6.4rem;
   height: 0.8rem;
   position: fixed;
   background: white;
-  z-index: 4; }
+  z-index: 18; }
   .main .tab .bar {
     height: 100%;
     line-height: 0.8rem;
@@ -11,35 +11,35 @@
     text-align: center;
     font-size: 0.24rem;
     float: left;
-    color: #606060;
-    border-bottom: 1px #d7d7d7 solid; }
+    color: #606060; }
   .main .tab .bar:first-child, .main .tab .bar:last-child {
     width: 1.08rem; }
   .main .tab .bar:after {
     content: '';
-    height: 4px;
+    height: 0.03rem;
     width: 100%;
     background-color: #d7d7d7;
     display: block;
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
-    background: -webkit-linear-gradient(#d7d7d7, white);
-    background: -moz-linear-gradient(#d7d7d7, white);
-    background: linear-gradient(#d7d7d7, white); }
+    background: -webkit-linear-gradient(white, white);
+    background: -moz-linear-gradient(white, white);
+    background: linear-gradient(white, white); }
   .main .tab .active-bar {
     color: #e61624; }
   .main .tab .active-bar:after {
     content: '';
-    height: 4px;
+    height: 0.03rem;
     width: 100%;
-    background: -webkit-linear-gradient(#e61624, white);
-    background: -moz-linear-gradient(#e61624, white);
-    background: linear-gradient(#e61624, white);
+    background: -webkit-linear-gradient(#e61624, #e61624);
+    background: -moz-linear-gradient(#e61624, #e61624);
+    background: linear-gradient(#e61624, #e61624);
     display: block;
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%; }
 .main .content {
   position: absolute;
-  margin-top: 0.8rem; }
+  margin-top: 0.8rem;
+  z-index: 5; }
 
 /*# sourceMappingURL=mainView.css.map */

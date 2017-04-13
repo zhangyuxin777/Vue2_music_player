@@ -6,10 +6,7 @@
 </style>
 <template>
   <div id="app">
-    <transition name="play-bar-tran" enter-active-class="animated slideInUp fast"
-                leave-active-class="animated slideOutDown fast" mode="out-in">
-      <play-bar v-show="!showMusicContent"></play-bar>
-    </transition>
+    <play-bar></play-bar>
     <info-list></info-list>
     <play-list></play-list>
     <router-view></router-view>
@@ -22,10 +19,7 @@
            @error="error"
            @stalled="stalled">
     </audio>
-    <transition name="music-con-tran" enter-active-class="animated slideInUp"
-                leave-active-class="animated slideOutDown fast" mode="out-in">
-      <music-content v-show="showMusicContent"></music-content>
-    </transition>
+    <music-content></music-content>
   </div>
 </template>
 

@@ -5,6 +5,7 @@
   background: $bgColor;
   position: absolute;
   width: 6.4rem;
+  margin-top: $tabHei;
   .title {
     margin: 0.3rem 0.2rem 0 0.2rem;
     height: 0.3rem;
@@ -31,10 +32,11 @@
       }
       .album-name{
         width: $wid;
-        //white-space: nowrap;
         text-align: center;
-        //overflow: hidden;
+        max-height: 0.62rem;
+        overflow: hidden;
         font-size: 0.24rem;
+        text-overflow: ellipsis;
       }
       .singer {
         width: $wid;

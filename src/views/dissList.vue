@@ -18,7 +18,7 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
-  import API from '../js/api'
+//  import API from '../js/api'
   export default{
     data () {
       return {
@@ -42,10 +42,10 @@
       }
     },
     beforeMount () {
-      let _this = this
-      API.firstPage(function (response) {
-        _this.infoList = response.data.data.hotdiss.list
-      })
+//      let _this = this
+//      API.firstPage(function (response) {
+//        _this.infoList = response.data.data.hotdiss.list
+//      })
     },
     mounted () {
       setTimeout(function () {

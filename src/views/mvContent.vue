@@ -6,7 +6,7 @@
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="rank-content">
       <div class="banner">
-        <img :src="getBanner" id="banImg" class="banner-img" v-if="getBanner">
+        <img :src="getBanner" id="banImg" v-if="getBanner">
       </div>
       <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.data.songid">
@@ -66,6 +66,46 @@
         _this.topinfo = response.data.topinfo
       })
       document.body.scrollTop = 0
+
+      /***
+       * 专辑列表
+       */
+//      API.albumList('0000mFvh1jtLcz', function (response) {
+//        console.log(response)
+//      })
+      /***
+       * 专辑详情
+       */
+//      API.albumDetail('003wYYY91FstKX', function (response) {
+//        console.log(response)
+//      })
+      /***
+       * 歌手详情 以及热门歌曲
+       */
+//      API.singerDetail('0000mFvh1jtLcz', function (response) {
+//        console.log(response)
+//      })
+      /***
+       * 相似歌手
+       */
+//      API.similarSinger('0000mFvh1jtLcz', function (response) {
+//        console.log(response)
+//      })
+      /***
+       * mv 列表
+       */
+//      API.mvList('0000mFvh1jtLcz', function (response) {
+//        console.log(response)
+//      })
+      /**
+       * mv 详情
+       */
+//      API.mvDetail('d0012yal7fi', function (response) {
+//        console.log(response)
+//      })
+      API.mvList(function (response) {
+        console.log(response)
+      })
     }
   }
 

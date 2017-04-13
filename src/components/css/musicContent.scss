@@ -7,7 +7,10 @@
   bottom: 0;
   overflow: hidden;
   background: white;
-  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.5s, height 0.5s ease;
+  -webkit-transition: opacity 0.5s, height 0.5s ease;
+  z-index: 0;
   .header {
     position: absolute;
     height: 0.9rem;
@@ -416,4 +419,8 @@
       @include split-line-rate($line-R2);
     }
   }
+}
+.op-show {
+  opacity: 1 !important;
+  z-index: 20 !important;
 }

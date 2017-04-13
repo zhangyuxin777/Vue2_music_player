@@ -3,7 +3,7 @@
 </style>
 
 <template>
-  <div class="play-bar">
+  <div class="play-bar" :class="{'play-bar-down':showMusicContent}">
     <div class="cycle">
       <img :src="songImg" :class="{'ani':rotate}" @click="toContent" id="album">
     </div>
@@ -37,6 +37,7 @@
         current: state => state.play.current,
         playing: state => state.play.status.playing,
         rotate: state => state.play.status.rotate,
+        showMusicContent: state => state.play.showMusicContent,
         songImg: state => {
           if (state.play.current.data.albummid) {
             return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + state.play.current.data.albummid + '.jpg'

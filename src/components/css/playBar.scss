@@ -4,8 +4,10 @@
   height: 1.4rem;
   width: $pageWidth;
   position: fixed;
-  bottom: -0.02rem;
   z-index: 90;
+  bottom: -0.02rem;
+  transition: bottom 0.5s;
+  -webkit-transition: bottom 0.5s;
   .cycle {
     width: 1.2rem;
     height: 1.2rem;
@@ -129,6 +131,9 @@
       }
     }
   }
+}
+.play-bar-down {
+  bottom: -1.4rem;
 }
 
 .split-line {
