@@ -13,7 +13,7 @@
           <div class="singer">{{item.singername}}</div>
         </li>
       </ul>
-      <div style="height: 1.4rem;background: transparent"></div>
+      <div class="position"></div>
     </div>
 
   </transition>
@@ -31,7 +31,7 @@
     },
     methods: {
       toContent (id) {
-        sessionStorage.setItem('singerListScrollTop', document.body.scrollTop)
+        sessionStorage.setItem('mvListScrollTop', document.body.scrollTop)
         this.$router.push({
           name: 'rankContent',
           query: {id: id}
@@ -56,9 +56,6 @@
 //      })
     },
     mounted () {
-      setTimeout(function () {
-        document.body.scrollTop = parseInt(sessionStorage.getItem('singerListScrollTop'))
-      }, 1000)
     }
   }
 

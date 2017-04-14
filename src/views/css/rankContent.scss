@@ -3,6 +3,12 @@
 .rank-content {
   position: relative;
   z-index: 5;
+  background: $bgColor;
+  .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    @include getBackground('icon-list.png?v=03231037');
+  }
   .banner {
     width: 6.4rem;
     overflow: hidden;
@@ -11,6 +17,7 @@
     }
   }
   .list {
+    background: $bgColor;
     .item {
       $size: 0.9rem;
       height: $size;

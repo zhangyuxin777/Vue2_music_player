@@ -10,13 +10,22 @@
           <div class="sprites ic_back"></div>
         </div>
         <div class="title">
-          <div class="singername"></div>
+          <div class="singername">专辑</div>
         </div>
         <div class="clear"></div>
       </div>
       <div class="banner">
         <img :src="getBanner" id="banImg" class="singer-img blur" v-if="getBanner">
         <div class="float-div"></div>
+        <div class="info">
+          <img :src="getBanner" class="album-pic" alt="">
+          <img src="http://on7hxaasw.bkt.clouddn.com/album_cover.png" class="album-back" alt="">
+          <div class="detail">
+            <div class="album-name">{{getAlbumName}}</div>
+            <div class="singer">歌手: {{getSingerName}}</div>
+            <div class="date">发行时间: {{getDate}}</div>
+          </div>
+        </div>
       </div>
       <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.songid">
@@ -45,9 +54,9 @@
         infoList: [],
         _id: this.$route.query.id,
         info: '',
-        barStatus: 0,
-        detail: '',
-        singerName: ''
+        singerName: '',
+        albumName: '',
+        date: ''
       }
     },
     methods: {
@@ -83,20 +92,40 @@
       },
       getBanner () {
         return '//y.gtimg.cn/music/photo_new/T002R300x300M000' + this.$route.query.id + '.jpg?max_age=2592000'
+      },
+      getAlbumName () {
+        return this.albumName
+      },
+      getSingerName () {
+        return this.singerName
+      },
+      getDate () {
+        return this.date
       }
     },
     beforeMount () {
       let _this = this
       API.albumDetail(this.$route.query.id, function (response) {
         _this.infoList = response.data.data.list
+        _this.albumName = response.data.data.name
+        _this.singerName = response.data.data.singername
+        _this.date = response.data.data.aDate
       })
       document.body.scrollTop = 0
+    },
+    mounted () {
+      if (window.location.hash.indexOf('musicContent') < 0) {
+        this.$store.dispatch('switchMusicContent', false)
+      }
     },
     watch: {
       getId (id) {
         let _this = this
         API.albumDetail(this.$route.query.id, function (response) {
           _this.infoList = response.data.data.list
+          _this.albumName = response.data.data.name
+          _this.singerName = response.data.data.singername
+          _this.date = response.data.data.aDate
         })
         console.log('albumContent-watch-id:' + id)
       }

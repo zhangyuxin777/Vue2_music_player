@@ -19,7 +19,6 @@
            @error="error"
            @stalled="stalled">
     </audio>
-    <music-content></music-content>
   </div>
 </template>
 
@@ -27,7 +26,6 @@
   import playBar from './components/playBar'
   import infoList from './components/infoList'
   import playList from './components/playList'
-  import musicContent from './components/musicContent'
   import {mapState} from 'vuex'
   import $ from 'jquery'
   import Common from './js/rock'
@@ -39,8 +37,7 @@
     components: {
       playBar,
       playList,
-      infoList,
-      musicContent
+      infoList
     },
     computed: {
       ...mapState({
@@ -97,6 +94,10 @@
         playStatus: storage.getL('playStatus'),
         likeList: storage.getL('likeList')
       })
+      if (window.location.hash.indexOf('musicContent') < 0) {
+        this.$store.dispatch('switchMusicContent', false)
+      }
+      console.log('test')
       document.onkeydown = function (event) {
         if (event && event.keyCode === 32) {
           _this.$store.dispatch('switchPlayerStatus')

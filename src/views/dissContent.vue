@@ -66,46 +66,14 @@
         _this.topinfo = response.data.topinfo
       })
       document.body.scrollTop = 0
-
-      /***
-       * 专辑列表
-       */
-//      API.albumList('0000mFvh1jtLcz', function (response) {
-//        console.log(response)
-//      })
-      /***
-       * 专辑详情
-       */
-//      API.albumDetail('003wYYY91FstKX', function (response) {
-//        console.log(response)
-//      })
-      /***
-       * 歌手详情 以及热门歌曲
-       */
-//      API.singerDetail('0000mFvh1jtLcz', function (response) {
-//        console.log(response)
-//      })
-      /***
-       * 相似歌手
-       */
-//      API.similarSinger('0000mFvh1jtLcz', function (response) {
-//        console.log(response)
-//      })
-      /***
-       * mv 列表
-       */
-//      API.mvList('0000mFvh1jtLcz', function (response) {
-//        console.log(response)
-//      })
-      /**
-       * mv 详情
-       */
-//      API.mvDetail('d0012yal7fi', function (response) {
-//        console.log(response)
-//      })
       API.mvList(function (response) {
         console.log(response)
       })
+    },
+    mounted () {
+      if (window.location.hash.indexOf('musicContent') < 0) {
+        this.$store.dispatch('switchMusicContent', false)
+      }
     }
   }
 

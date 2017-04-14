@@ -57,8 +57,16 @@
       },
       toContent () {
         if (this.$store.state.play.current.data.songid) {
+          this.$router.push({
+            name: 'musicContent'
+          })
           this.$store.dispatch('switchMusicContent', true)
         }
+      }
+    },
+    mounted () {
+      if (window.location.hash.indexOf('musicContent') >= 0) {
+        this.$store.dispatch('switchMusicContent', true)
       }
     },
     watch: {

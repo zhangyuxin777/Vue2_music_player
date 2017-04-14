@@ -5,6 +5,16 @@
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="rank-content">
+      <div class="header">
+        <div class="back" @click="back">
+          <div class="sprites ic_back"></div>
+        </div>
+        <div class="title">
+          <div class="songname"></div>
+          <div class="singername"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
       <div class="banner">
         <img :src="getBanner" id="banImg" class="banner-img" v-if="getBanner">
       </div>
@@ -23,6 +33,7 @@
           <span class="split-line"></span>
         </li>
       </ul>
+      <div class="position" :class="{hide : list.length <= 0}"></div>
     </div>
   </transition>
 </template>
@@ -49,6 +60,10 @@
           isMusicContent: false
         })
         event.stopPropagation()
+      },
+      back () {
+        window.history.back()
+        this.$store.dispatch('switchMusicContent', false)
       }
     },
     computed: {
@@ -66,6 +81,11 @@
         _this.topinfo = response.data.topinfo
       })
       document.body.scrollTop = 0
+    },
+    mounted () {
+      if (window.location.hash.indexOf('musicContent') < 0) {
+        this.$store.dispatch('switchMusicContent', false)
+      }
     }
   }
 

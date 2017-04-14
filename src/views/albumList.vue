@@ -13,7 +13,7 @@
           <div class="singer">{{item.singer_name}}</div>
         </li>
       </ul>
-      <div style="height: 1.4rem;background: transparent"></div>
+      <div class="position"></div>
     </div>
 
   </transition>
@@ -56,9 +56,6 @@
       })
     },
     mounted () {
-      setTimeout(function () {
-        document.body.scrollTop = parseInt(sessionStorage.getItem('albumListScrollTop'))
-      }, 1000)
     }
   }
 

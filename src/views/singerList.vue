@@ -12,9 +12,8 @@
           <div class="singer">{{item.Fsinger_name.split('(')[0]}}</div>
         </li>
       </ul>
-      <div style="height: 1.4rem;background: transparent"></div>
+      <div class="position" :class="{hide : list.length <= 0}"></div>
     </div>
-
   </transition>
 </template>
 <script type="text/ecmascript-6">
@@ -55,9 +54,6 @@
 //      })
     },
     mounted () {
-      setTimeout(function () {
-        document.body.scrollTop = parseInt(sessionStorage.getItem('singerListScrollTop'))
-      }, 1000)
     }
   }
 

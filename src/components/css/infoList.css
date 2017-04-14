@@ -50,11 +50,6 @@
 .play-pop {
   bottom: 0; }
 
-ol, ul {
-  list-style: none;
-  padding: 0;
-  margin: 0; }
-
 .bg-pop {
   background: rgba(0, 0, 0, 0.2);
   height: 100%; }

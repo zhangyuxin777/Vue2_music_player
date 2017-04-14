@@ -1,62 +1,69 @@
 .rank-content {
   position: relative;
-  z-index: 5; }
+  z-index: 5;
+  background: #f0f4f3; }
+  .rank-content .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03231037") 0 0 no-repeat; }
   .rank-content .banner {
     width: 6.4rem;
     overflow: hidden; }
     .rank-content .banner .banner-img {
       width: 6.4rem; }
-  .rank-content .list .item {
-    height: 0.9rem; }
-    .rank-content .list .item .split-line {
-      width: 5.5rem;
-      margin-left: 0.9rem; }
-    .rank-content .list .item .i-title {
-      width: 0.9rem;
-      height: 0.9rem;
-      line-height: 0.9rem;
-      text-align: center;
-      float: left;
-      font-size: 0.28rem;
-      color: gray; }
-    .rank-content .list .item .i-content {
-      height: 0.9rem;
-      width: 4.8rem;
-      float: left;
-      padding-right: 0.1rem; }
-      .rank-content .list .item .i-content .songname {
-        height: 0.5rem;
-        line-height: 0.65rem;
-        color: black;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis; }
-      .rank-content .list .item .i-content .singername {
+  .rank-content .list {
+    background: #f0f4f3; }
+    .rank-content .list .item {
+      height: 0.9rem; }
+      .rank-content .list .item .split-line {
+        width: 5.5rem;
+        margin-left: 0.9rem; }
+      .rank-content .list .item .i-title {
+        width: 0.9rem;
+        height: 0.9rem;
+        line-height: 0.9rem;
+        text-align: center;
+        float: left;
+        font-size: 0.28rem;
+        color: gray; }
+      .rank-content .list .item .i-content {
+        height: 0.9rem;
+        width: 4.8rem;
+        float: left;
+        padding-right: 0.1rem; }
+        .rank-content .list .item .i-content .songname {
+          height: 0.5rem;
+          line-height: 0.65rem;
+          color: black;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+        .rank-content .list .item .i-content .singername {
+          height: 0.4rem;
+          line-height: 0.3rem;
+          font-size: 0.2rem;
+          color: #909090;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+      .rank-content .list .item .red {
+        color: red; }
+      .rank-content .list .item .sprites {
+        width: 0.4rem;
         height: 0.4rem;
-        line-height: 0.3rem;
-        font-size: 0.2rem;
-        color: #909090;
         overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis; }
-    .rank-content .list .item .red {
-      color: red; }
-    .rank-content .list .item .sprites {
-      width: 0.4rem;
-      height: 0.4rem;
-      overflow: hidden;
-      box-sizing: border-box;
-      background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
-      background-size: 5.76rem 5.76rem;
-      float: left; }
-    .rank-content .list .item .ic_menu {
-      background-position: 44.85294% 0%;
-      margin-top: 0.25rem;
-      margin-left: 0.25rem; }
-    .rank-content .list .item .ic_more {
-      background-position: 36.02941% 0%;
-      float: right;
-      margin-top: 0.25rem;
-      margin-right: 0.15rem; }
+        box-sizing: border-box;
+        background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
+        background-size: 5.76rem 5.76rem;
+        float: left; }
+      .rank-content .list .item .ic_menu {
+        background-position: 44.85294% 0%;
+        margin-top: 0.25rem;
+        margin-left: 0.25rem; }
+      .rank-content .list .item .ic_more {
+        background-position: 36.02941% 0%;
+        float: right;
+        margin-top: 0.25rem;
+        margin-right: 0.15rem; }
 
 /*# sourceMappingURL=rankContent.css.map */
