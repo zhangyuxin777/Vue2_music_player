@@ -33,6 +33,7 @@
           <span class="split-line"></span>
         </li>
       </ul>
+      <div class="position" :class="{hide : list.length <= 0}"></div>
     </div>
   </transition>
 </template>
@@ -80,6 +81,11 @@
         _this.topinfo = response.data.topinfo
       })
       document.body.scrollTop = 0
+    },
+    mounted () {
+      if (window.location.hash.indexOf('musicContent') < 0) {
+        this.$store.dispatch('switchMusicContent', false)
+      }
     }
   }
 

@@ -22,7 +22,7 @@
           <span class="split-line"></span>
         </li>
       </ul>
-      <div style="height: 1.4rem;background: transparent"></div>
+      <div class="position"></div>
     </div>
   </transition>
 </template>
@@ -55,9 +55,6 @@
       })
     },
     mounted () {
-      setTimeout(function () {
-        document.body.scrollTop = parseInt(sessionStorage.getItem('rankListScrollTop'))
-      }, 1000)
     }
   }
 

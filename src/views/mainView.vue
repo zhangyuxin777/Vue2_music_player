@@ -116,15 +116,39 @@
       }
     },
     mounted () {
+      if (window.location.hash.indexOf('musicContent') < 0) {
+        this.$store.dispatch('switchMusicContent', false)
+      }
       let _this = this
       window.onscroll = function () {
-        if (!_this.isLoading) {
+        if (!_this.isLoading && window.location.hash.indexOf('#/') >= 0) {
           if (Common.scroll.getScrollTop() + Common.scroll.getClientHeight() >= Common.scroll.getScrollHeight() - 10) {
             _this.isLoading = true
             _this.loadMore()
           }
         }
       }
+      setTimeout(function () {
+        switch (_this.$store.state.barStatus) {
+          case 0:
+            break
+          case 1:
+            document.body.scrollTop = parseInt(sessionStorage.getItem('singerListScrollTop'))
+            break
+          case 2:
+            document.body.scrollTop = parseInt(sessionStorage.getItem('rankListScrollTop'))
+            break
+          case 3:
+            document.body.scrollTop = parseInt(sessionStorage.getItem('albumListScrollTop'))
+            break
+          case 4:
+            document.body.scrollTop = parseInt(sessionStorage.getItem('dissListScrollTop'))
+            break
+          case 5:
+            document.body.scrollTop = parseInt(sessionStorage.getItem('mvListScrollTop'))
+            break
+        }
+      }, 700)
     }
   }
 </script>

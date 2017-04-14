@@ -113,6 +113,11 @@
       })
       document.body.scrollTop = 0
     },
+    mounted () {
+      if (window.location.hash.indexOf('musicContent') < 0) {
+        this.$store.dispatch('switchMusicContent', false)
+      }
+    },
     watch: {
       getId (id) {
         let _this = this

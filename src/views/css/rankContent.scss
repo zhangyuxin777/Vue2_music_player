@@ -3,6 +3,7 @@
 .rank-content {
   position: relative;
   z-index: 5;
+  background: $bgColor;
   .sprites {
     overflow: hidden;
     box-sizing: border-box;
@@ -16,6 +17,7 @@
     }
   }
   .list {
+    background: $bgColor;
     .item {
       $size: 0.9rem;
       height: $size;

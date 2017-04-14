@@ -2,66 +2,69 @@
   @import "css/musicContent.css";
 </style>
 <template>
-  <div class="music-content op-show">
-    <div class="bg-op">
-      <img :src="songImg" class="bg blur" alt="">
-      <div class="mask"></div>
-      <div class="gradient"></div>
+  <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
+              leave-active-class="animated fadeOut" mode="out-in">
+    <div class="music-content op-show">
+      <div class="bg-op">
+        <img :src="songImg" class="bg blur" alt="">
+        <div class="mask"></div>
+        <div class="gradient"></div>
 
-    </div>
-    <div class="header">
-      <div class="back" @click="back">
-        <div class="sprites ic_back"></div>
       </div>
-      <div class="title">
-        <div class="songname">{{current.data.songname}}</div>
-        <div class="singername">{{current.data.singer[0].name}}</div>
+      <div class="header">
+        <div class="back" @click="back">
+          <div class="sprites ic_back"></div>
+        </div>
+        <div class="title">
+          <div class="songname">{{current.data.songname}}</div>
+          <div class="singername">{{current.data.singer[0].name}}</div>
+        </div>
+        <div class="clear"></div>
       </div>
-      <div class="clear"></div>
-    </div>
-    <div class="voice-box" v-show="showLyric">
-      <span class="sprites ic_voice"></span>
-      <input id="volume" class="range" type="range" min="0" max="100" @input="volumeChange" v-model="value">
-    </div>
-    <div class="lyric-box" id="lyricBox" v-show="showLyric" @click="switchLyric">
-      <ul class="lyric-list" id="lyricList">
-        <li v-for="(item,index) in list" class="item lyricItem">
-          <div class="text" :id="item.id">
-            {{item.text}}
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="cd-box" v-show="!showLyric" @click="switchLyric">
-      <div class="cd" :class="{'ani':rotate}" id="record">
-        <div class="cd-side"></div>
-        <img :src="songImg" class="cd-img" alt="">
+      <div class="voice-box" v-show="showLyric">
+        <span class="sprites ic_voice"></span>
+        <input id="volume" class="range" type="range" min="0" max="100" @input="volumeChange" v-model="value">
       </div>
-      <div class="needle" :class="{'needle_play' : playing}"></div>
-      <div class="needle_2"></div>
-    </div>
-    <div class="click-box" v-show="!showLyric">
-      <div class="sprites like" :class="{'like-do' : isLike}" @click="switchLike"></div>
-      <div class="sprites download"></div>
-      <div class="sprites more" @click="toMore"></div>
-    </div>
-    <div class="progress-box">
-      <span class="current_time">{{currentTime.m}}:{{currentTime.s}}</span>
-      <div class="progress-bar">
-        <div class="progress" :style="{width:progress+'%'}"></div>
-        <div class="point" :style="{left:progress+'%'}"></div>
+      <div class="lyric-box" id="lyricBox" v-show="showLyric" @click="switchLyric">
+        <ul class="lyric-list" id="lyricList">
+          <li v-for="(item,index) in list" class="item lyricItem">
+            <div class="text" :id="item.id">
+              {{item.text}}
+            </div>
+          </li>
+        </ul>
       </div>
-      <div class="total_time">{{totalTime.m}}:{{totalTime.s}}</div>
+      <div class="cd-box" v-show="!showLyric" @click="switchLyric">
+        <div class="cd" :class="{'ani':rotate}" id="record">
+          <div class="cd-side"></div>
+          <img :src="songImg" class="cd-img" alt="">
+        </div>
+        <div class="needle" :class="{'needle_play' : playing}"></div>
+        <div class="needle_2"></div>
+      </div>
+      <div class="click-box" v-show="!showLyric">
+        <div class="sprites like" :class="{'like-do' : isLike}" @click="switchLike"></div>
+        <div class="sprites download"></div>
+        <div class="sprites more" @click="toMore"></div>
+      </div>
+      <div class="progress-box">
+        <span class="current_time">{{currentTime.m}}:{{currentTime.s}}</span>
+        <div class="progress-bar">
+          <div class="progress" :style="{width:progress+'%'}"></div>
+          <div class="point" :style="{left:progress+'%'}"></div>
+        </div>
+        <div class="total_time">{{totalTime.m}}:{{totalTime.s}}</div>
+      </div>
+      <div class="control-box">
+        <div class="sprites mode" @click="switchMode"
+             :class="{'m_0' : mode===0 ,'m_1' : mode===1 ,'m_2' : mode===2}"></div>
+        <div class="sprites last-song" @click="last"></div>
+        <div class="sprites play" @click="playClick" :class="{'pause' : playing ,'play' : !playing}"></div>
+        <div class="sprites next-song" @click="next"></div>
+        <div class="sprites menu" @click="toPop"></div>
+      </div>
     </div>
-    <div class="control-box">
-      <div class="sprites mode" @click="switchMode"
-           :class="{'m_0' : mode===0 ,'m_1' : mode===1 ,'m_2' : mode===2}"></div>
-      <div class="sprites last-song" @click="last"></div>
-      <div class="sprites play" @click="playClick" :class="{'pause' : playing ,'play' : !playing}"></div>
-      <div class="sprites next-song" @click="next"></div>
-      <div class="sprites menu" @click="toPop"></div>
-    </div>
-  </div>
+  </transition>
 </template>
 <script type="text/ecmascript-6">
   import API from '../js/api'
@@ -162,6 +165,9 @@
         })
         event.stopPropagation()
       }
+    },
+    mounted () {
+      this.$store.dispatch('switchMusicContent', true)
     },
     watch: {
       current (curr) {

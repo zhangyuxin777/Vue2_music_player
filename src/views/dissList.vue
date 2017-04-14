@@ -12,7 +12,7 @@
           <div class="singer">{{item.dissname}}</div>
         </li>
       </ul>
-      <div style="height: 1.4rem;background: transparent"></div>
+      <div class="position"></div>
     </div>
 
   </transition>
@@ -29,7 +29,7 @@
     },
     methods: {
       toContent (id) {
-        sessionStorage.setItem('rankListScrollTop', document.body.scrollTop)
+        sessionStorage.setItem('dissListScrollTop', document.body.scrollTop)
         this.$router.push({
           name: 'rankContent',
           query: {id: id}
@@ -48,9 +48,6 @@
 //      })
     },
     mounted () {
-      setTimeout(function () {
-        document.body.scrollTop = parseInt(sessionStorage.getItem('rankListScrollTop'))
-      }, 1000)
     }
   }
 

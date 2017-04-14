@@ -1,7 +1,7 @@
 ﻿@import "wl-common";
 
 html {
-  background: white;
+  background: $bgColor;
 }
 
 body {
@@ -159,6 +159,11 @@ input:focus {
       text-overflow: ellipsis;
     }
   }
+}
+
+.position {
+  height: 1.4rem;
+  background: $bgColor;
 }
 
 ol, ul:not(.mui-pciker-list) {

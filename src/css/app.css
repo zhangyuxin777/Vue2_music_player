@@ -1,5 +1,5 @@
 html {
-  background: white; }
+  background: #f0f4f3; }
 
 body {
   font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Helvetica, Arial, 'Lucida Grande', sans-serif;
@@ -145,6 +145,10 @@ input:focus {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis; }
+
+.position {
+  height: 1.4rem;
+  background: #f0f4f3; }
 
 ol, ul:not(.mui-pciker-list) {
   list-style: none;
