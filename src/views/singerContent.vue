@@ -43,7 +43,7 @@
         </li>
       </ul>
       <ul class="album-list" v-show="getBarStatus === 1">
-        <li v-for="(item,index) in getAlbumList" class="item" @click="" track-by="item.albumMID">
+        <li v-for="(item,index) in getAlbumList" class="item"  @click="toAlbum(item.albumMID)" track-by="item.albumMID">
           <div class="i-title">
             <img class="pic" :src="getAlbumImg(item.albumMID)" alt="">
           </div>
@@ -97,6 +97,12 @@
           data: item.musicData
         }
         this.$store.dispatch('playSong', currItem)
+      },
+      toAlbum (id) {
+        this.$router.push({
+          name: 'albumContent',
+          query: {id: id}
+        })
       },
       isCurrent (id) {
         return id === this.$store.state.play.current.data.songid

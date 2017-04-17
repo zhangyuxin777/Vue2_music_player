@@ -28,7 +28,25 @@
       height: 100%;
       background: -webkit-linear-gradient(top, rgba(200, 200, 200, 0.6), rgba(200, 200, 200, 0.6));
     }
-
+    .sprites {
+      width: 0.25rem;
+      height: 0.25rem;
+      overflow: hidden;
+      box-sizing: border-box;
+      @include getBackground('icon-list.png?v=201704171413');
+      background-size: $spriteRem/5*2.5 $spriteRem/5*2.5;
+    }
+    .ic_poster {
+      @include bgPosition($spriteSize, $spriteSize, 250, 25, 423, 0);
+      margin-top: 0.03rem;
+      margin-right: 0.05rem;
+      float: left;
+    }
+    .ic_music_count {
+      @include bgPosition($spriteSize, $spriteSize, 250, 25, 462, 0);
+      margin-right: 0.05rem;
+      float: left;
+    }
     .info {
       position: absolute;
       width: $pageWidth;

@@ -97,7 +97,6 @@
       if (window.location.hash.indexOf('musicContent') < 0) {
         this.$store.dispatch('switchMusicContent', false)
       }
-      console.log('test')
       document.onkeydown = function (event) {
         if (event && event.keyCode === 32) {
           _this.$store.dispatch('switchPlayerStatus')

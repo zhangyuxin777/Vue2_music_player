@@ -7,7 +7,7 @@
     <div class="album-list">
       <div class="title">全部专辑</div>
       <ul class="list">
-        <li v-for="(item,index) in list" class="item" @click="toContent(item.album_mid)">
+        <li v-for="(item,index) in list" class="item" @click="toContent(item.albumMID)">
           <img :src="picUrl(item)"/>
           <div class="album-name">{{item.album_name}}</div>
           <div class="singer">{{item.singer_name}}</div>
@@ -19,7 +19,7 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
-  import API from '../js/api'
+//  import API from '../js/api'
   import {mapState} from 'vuex'
   export default{
     data () {
@@ -47,13 +47,13 @@
       })
     },
     beforeMount () {
-      let _this = this
-      API.albumList(_this.page, function (response) {
-        _this.$store.dispatch('addMainList', {
-          name: 'album',
-          list: response.data.data.albumlist
-        })
-      })
+//      let _this = this
+//      API.albumList(_this.page, function (response) {
+//        _this.$store.dispatch('addMainList', {
+//          name: 'album',
+//          list: response.data.data.albumlist
+//        })
+//      })
     },
     mounted () {
     }

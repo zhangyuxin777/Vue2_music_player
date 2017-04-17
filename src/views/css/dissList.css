@@ -20,9 +20,62 @@
       display: inline-block;
       margin: 0 0.1rem 0.2rem 0.1rem;
       background: #f0f4f3; }
-      .diss-list .list .item img {
-        height: 2.9rem;
-        width: 2.9rem; }
+      .diss-list .list .item .pic {
+        position: relative;
+        width: 2.9rem;
+        height: 2.9rem; }
+        .diss-list .list .item .pic img {
+          position: absolute;
+          height: 2.9rem;
+          width: 2.9rem; }
+        .diss-list .list .item .pic .float-div {
+          position: absolute;
+          width: 2.9rem;
+          height: 2.9rem;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent, rgba(0, 0, 0, 0.6)); }
+        .diss-list .list .item .pic .listen_box {
+          position: absolute;
+          top: 0;
+          color: white;
+          width: 100%;
+          font-size: 0.17rem;
+          text-align: right;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          padding-right: 0.05rem; }
+          .diss-list .list .item .pic .listen_box .listen_count {
+            float: right;
+            margin-left: 0.03rem;
+            margin-right: 0.03rem; }
+        .diss-list .list .item .pic .singer_box {
+          position: absolute;
+          bottom: 0;
+          color: white;
+          width: 100%;
+          font-size: 0.17rem;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          padding-left: 0.1rem; }
+          .diss-list .list .item .pic .singer_box .poster {
+            display: inline-block;
+            height: 100%;
+            float: left;
+            margin-left: 0.02rem; }
+        .diss-list .list .item .pic .sprites {
+          width: 0.25rem;
+          height: 0.25rem;
+          overflow: hidden;
+          box-sizing: border-box;
+          background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=20170417") 0 0 no-repeat;
+          background-size: 3.6rem 3.6rem; }
+        .diss-list .list .item .pic .ic_listen {
+          background-position: 62.76596% 0%;
+          margin-top: 0.07rem;
+          float: right; }
+        .diss-list .list .item .pic .ic_poster {
+          background-position: 90% 0%;
+          margin-top: 0.05rem;
+          float: left; }
       .diss-list .list .item .singer {
         width: 2.9rem;
         height: 0.8rem;
