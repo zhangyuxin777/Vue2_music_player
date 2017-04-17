@@ -73,7 +73,7 @@ export default {
   /***
    * 专辑列表 所有
    */
-  albumList (page,callback, error) {
+  albumList (page, callback, error) {
     request('https://c.y.qq.com/v8/fcg-bin/album_library', {
       params: {
         g_tk: 5381,
@@ -247,7 +247,7 @@ export default {
   /***
    * mv 列表
    */
-  mvList (page,callback, error) {
+  mvList (page, callback, error) {
     request('https://c.y.qq.com/v8/fcg-bin/getmv_by_tag', {
       params: {
         g_tk: 5381,
@@ -317,6 +317,30 @@ export default {
         _: new Date().getTime()
       },
       jsonp: 'jsonpCallback'
+    }, callback, error);
+  },
+  /**
+   * mv 详情
+   */
+  mvInfo(vid, callback, error) {
+    request('https://h5vv.video.qq.com/getinfo', {
+      params: {
+        callback:'tvp_request_getinfo_callback_928847',
+        platform: 11001,
+        charge: 0,
+        otype: 'json',
+        ehost: 'https://y.qq.com',
+        sphls: 0,
+        sb: 1,
+        nocache: 0,
+        appVer: 'V2.0Build9363',
+        vids: vid,
+        defaultfmt: 'auto',
+        _qv_rmt: 'hTTGAUjyA19465Vb1=',
+        _qv_rmt2: '5asX3yB9142120zcQ=',
+        sdtfrom: 'v3010',
+        _rnd: new Date().getTime()
+      }
     }, callback, error);
   },
   /***

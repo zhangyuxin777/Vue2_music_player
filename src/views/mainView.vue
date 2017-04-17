@@ -32,7 +32,7 @@
   import singerList from './singerList'
   import dissList from './dissList'
   import albumList from './albumList'
-  import mvList from './MVList'
+  import mvList from './mvList'
   import {mapState} from 'vuex'
   export default{
     data () {

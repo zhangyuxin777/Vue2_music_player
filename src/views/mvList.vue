@@ -7,7 +7,7 @@
     <div class="mv-list">
       <div class="title">全部MV</div>
       <ul class="list">
-        <li v-for="(item,index) in list" class="item" @click="toContent(item.id)">
+        <li v-for="(item,index) in list" class="item" @click="toContent(item.vid)">
           <img :src="item.picurl"/>
           <div class="album-name">{{item.mvtitle.split('(')[0]}}</div>
           <div class="singer">{{item.singername}}</div>
@@ -33,12 +33,12 @@
       toContent (id) {
         sessionStorage.setItem('mvListScrollTop', document.body.scrollTop)
         this.$router.push({
-          name: 'rankContent',
+          name: 'mvContent',
           query: {id: id}
         })
       },
       picUrl (item) {
-        return '//y.gtimg.cn/music/photo_new/T002R300x300M000' + item.album_mid + '.jpg?max_age=2592000'
+//        return '//y.gtimg.cn/music/photo_new/T002R300x300M000' + item.album_mid + '.jpg?max_age=2592000'
       }
     },
     computed: {
