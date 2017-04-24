@@ -28,7 +28,6 @@
   import playList from './components/playList'
   import {mapState} from 'vuex'
   import $ from 'jquery'
-  import Common from './js/rock'
   import storage from './js/storage'
   let player = null
   let urlError = false
@@ -120,10 +119,6 @@
           event.preventDefault()
         }
       }
-      window.onresize = function () {
-        $('html').css('background', Common.isPC() ? 'aliceblue' : 'white')
-      }
-      window.onresize()
     },
     watch: {
       playing (val) {

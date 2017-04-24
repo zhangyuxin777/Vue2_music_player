@@ -1,11 +1,23 @@
 <style scoped>
-  @import "css/rankContent.css";
+  @import "css/mvContent.css";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
-    <div class="rank-content">
-      <video src=""></video>
+    <div class="mv-content">
+      <div class="video-box">
+        <video class="video" :src="getUrl" width="100%" height="100%" x-webkit-airplay="true" webkit-playsinline=""
+               playsinline="true" preload="none"
+               controls="controls"></video>
+      </div>
+      <div class="info">
+        <div class="mv-name">{{getInfo.mvname}}</div>
+        <div class="singer">歌手:{{getInfo.singer.name}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <span>|</span>
+        <div class="listenCount">&nbsp;&nbsp;&nbsp;&nbsp;播放:{{(getInfo.listennum/10000).toFixed(0)}}万</div>
+        <div class="pub-time">发行时间:{{getInfo.pubdate}}</div>
+        <div class="detail">{{getInfo.desc}}</div>
+      </div>
     </div>
   </transition>
 </template>
@@ -16,7 +28,8 @@
       return {
         topList: [],
         topid: this.$route.query.id,
-        topinfo: ''
+        vKey: '',
+        info: {}
       }
     },
     methods: {
@@ -31,18 +44,24 @@
       list () {
         return this.topList
       },
+      getUrl () {
+        return 'http://111.202.117.154/music.qqvideo.tc.qq.com/' + this.$route.query.id + '.mp4?vkey=' + this.vKey
+      },
       getBanner () {
-//        return this.topinfo.pic_h5
+        return 'https://shp.qpic.cn/qqvideo/0/' + this.$route.query.id + '/0'
+      },
+      getInfo () {
+        return this.info
       }
     },
     beforeMount () {
       let _this = this
       API.mvDetail(this.$route.query.id, function (response) {
-        _this.topList = response.data.songlist
-        _this.topinfo = response.data.topinfo
+        _this.info = response.data.data
+        console.log(_this.info)
       })
       API.mvInfo(this.$route.query.id, function (response) {
-        console.log(response.data)
+        _this.vKey = response.data.vl.vi[0].fvkey
       })
       document.body.scrollTop = 0
     },

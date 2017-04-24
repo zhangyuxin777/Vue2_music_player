@@ -1,0 +1,45 @@
+@import "../../css/wl-common";
+
+.mv-content {
+  background: $bgColor;
+  .video-box{
+    width: $pageWidth;
+    height: 3.61rem;
+    .video{
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+  }
+  .info{
+    padding: 0 0.2rem;
+    .mv-name{
+      color: $textLeftColor;
+      font-size: 0.3rem;
+      padding: 0.1rem 0;
+    }
+    .singer{
+      color: #aaa;
+      font-size: 0.22rem;
+      display: inline-block;
+      padding: 0.05rem 0;
+    }
+    .listenCount{
+      color: #aaa;
+      font-size: 0.22rem;
+      display: inline-block;
+      padding: 0.05rem 0;
+    }
+    .pub-time{
+      color: #aaa;
+      font-size: 0.22rem;
+      padding-top: 0.2rem;
+    }
+    .detail{
+      padding: 0.05rem 0;
+      color: #606060;
+      line-height: 0.4rem;
+    }
+  }
+
+}

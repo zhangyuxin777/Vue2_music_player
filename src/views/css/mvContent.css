@@ -1,0 +1,35 @@
+.mv-content {
+  background: #f0f4f3; }
+  .mv-content .video-box {
+    width: 6.4rem;
+    height: 3.61rem; }
+    .mv-content .video-box .video {
+      width: 100%;
+      height: 100%;
+      background: #000; }
+  .mv-content .info {
+    padding: 0 0.2rem; }
+    .mv-content .info .mv-name {
+      color: #404040;
+      font-size: 0.3rem;
+      padding: 0.1rem 0; }
+    .mv-content .info .singer {
+      color: #aaa;
+      font-size: 0.22rem;
+      display: inline-block;
+      padding: 0.05rem 0; }
+    .mv-content .info .listenCount {
+      color: #aaa;
+      font-size: 0.22rem;
+      display: inline-block;
+      padding: 0.05rem 0; }
+    .mv-content .info .pub-time {
+      color: #aaa;
+      font-size: 0.22rem;
+      padding-top: 0.2rem; }
+    .mv-content .info .detail {
+      padding: 0.05rem 0;
+      color: #606060;
+      line-height: 0.4rem; }
+
+/*# sourceMappingURL=mvContent.css.map */
