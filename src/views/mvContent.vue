@@ -5,6 +5,15 @@
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="mv-content">
+      <div class="header">
+        <div class="back" @click="back">
+          <div class="sprites ic_back"></div>
+        </div>
+        <div class="title">
+          <div class="singername">{{getInfo.mvname}}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
       <div class="video-box">
         <video class="video" :src="getUrl" width="100%" height="100%" x-webkit-airplay="true" webkit-playsinline=""
                playsinline="true" preload="none"
@@ -12,12 +21,13 @@
       </div>
       <div class="info">
         <div class="mv-name">{{getInfo.mvname}}</div>
-        <div class="singer">歌手:{{getInfo.singer.name}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
-        <span>|</span>
+        <div class="singer" @click="toSinger">歌手:{{getInfo.singer.name}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <span class="line">|</span>
         <div class="listenCount">&nbsp;&nbsp;&nbsp;&nbsp;播放:{{(getInfo.listennum/10000).toFixed(0)}}万</div>
         <div class="pub-time">发行时间:{{getInfo.pubdate}}</div>
         <div class="detail">{{getInfo.desc}}</div>
       </div>
+      <div class="position"></div>
     </div>
   </transition>
 </template>
@@ -29,7 +39,11 @@
         topList: [],
         topid: this.$route.query.id,
         vKey: '',
-        info: {}
+        info: {
+          singer: {
+            name: ''
+          }
+        }
       }
     },
     methods: {
@@ -38,6 +52,15 @@
       },
       isCurrent (id) {
         return id === this.$store.state.play.current.data.songid
+      },
+      toSinger () {
+        this.$router.push({
+          name: 'singerContent',
+          query: {id: this.info.singers[0].mid}
+        })
+      },
+      back () {
+        window.history.back()
       }
     },
     computed: {
@@ -58,7 +81,6 @@
       let _this = this
       API.mvDetail(this.$route.query.id, function (response) {
         _this.info = response.data.data
-        console.log(_this.info)
       })
       API.mvInfo(this.$route.query.id, function (response) {
         _this.vKey = response.data.vl.vi[0].fvkey

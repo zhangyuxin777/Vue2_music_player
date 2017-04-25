@@ -19,13 +19,13 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
-//  import API from '../js/api'
+  import API from '../js/api'
   import {mapState} from 'vuex'
   export default{
     data () {
       return {
         infoList: [],
-        page: 1,
+        page: 0,
         isLoading: false
       }
     },
@@ -47,13 +47,13 @@
       })
     },
     beforeMount () {
-//      let _this = this
-//      API.albumList(_this.page, function (response) {
-//        _this.$store.dispatch('addMainList', {
-//          name: 'album',
-//          list: response.data.data.albumlist
-//        })
-//      })
+      let _this = this
+      API.albumList(_this.page, function (response) {
+        _this.$store.dispatch('addMainList', {
+          name: 'album',
+          list: response.data.data.albumlist
+        })
+      })
     },
     mounted () {
     }

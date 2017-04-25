@@ -56,7 +56,7 @@
         </li>
       </ul>
       <ul class="mv-list" v-show="getBarStatus === 2">
-        <li v-for="(item,index) in getMVList" class="item" @click="" track-by="item.vid">
+        <li v-for="(item,index) in getMVList" class="item" @click="toMV(item.vid)" track-by="item.vid">
           <div class="i-title">
             <img class="pic" :src="item.pic" alt="">
           </div>
@@ -101,6 +101,12 @@
       toAlbum (id) {
         this.$router.push({
           name: 'albumContent',
+          query: {id: id}
+        })
+      },
+      toMV (id) {
+        this.$router.push({
+          name: 'mvContent',
           query: {id: id}
         })
       },

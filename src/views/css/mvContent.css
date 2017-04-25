@@ -14,10 +14,12 @@
       font-size: 0.3rem;
       padding: 0.1rem 0; }
     .mv-content .info .singer {
-      color: #aaa;
+      color: #519af2;
       font-size: 0.22rem;
       display: inline-block;
       padding: 0.05rem 0; }
+    .mv-content .info .line {
+      color: #aaa; }
     .mv-content .info .listenCount {
       color: #aaa;
       font-size: 0.22rem;

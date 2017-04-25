@@ -25,7 +25,7 @@
     data () {
       return {
         infoList: [],
-        page: 1,
+        page: 0,
         isLoading: false
       }
     },

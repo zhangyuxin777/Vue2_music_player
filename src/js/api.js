@@ -88,7 +88,7 @@ export default {
         cmd: 'get_album_info',
         page: page,
         pagesize: 20,
-        sort: 2,
+        sort: 1,
         language: -1,
         genre: 0,
         year: 1,
