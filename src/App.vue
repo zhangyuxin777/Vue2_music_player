@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import playBar from './components/playBar'
   import infoList from './components/infoList'
   import playList from './components/playList'

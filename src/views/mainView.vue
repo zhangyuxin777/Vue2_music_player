@@ -83,6 +83,7 @@
             })
             break
           case 2:
+            _this.isLoading = false
             break
           case 3:
             console.log('loading album')
@@ -98,6 +99,7 @@
             })
             break
           case 4:
+            _this.isLoading = false
             break
           case 5:
             console.log('loading mv')
