@@ -104,14 +104,14 @@
       }
     },
     beforeMount () {
-//      let _this = this
-//      API.dissDetail(this.$route.query.id, function (response) {
-//        _this.infoList = response.data.cdlist[0].songlist
-//        _this.dissName = response.data.cdlist[0].dissname
-//        _this.nickName = response.data.cdlist[0].nickname
-//        _this.pic = response.data.cdlist[0].logo
-//      })
-//      document.body.scrollTop = 0
+      let _this = this
+      API.dissDetail(this.$route.query.id, function (response) {
+        _this.infoList = response.data.cdlist[0].songlist
+        _this.dissName = response.data.cdlist[0].dissname
+        _this.nickName = response.data.cdlist[0].nickname
+        _this.pic = response.data.cdlist[0].logo
+      })
+      document.body.scrollTop = 0
     },
     mounted () {
       if (window.location.hash.indexOf('musicContent') < 0) {
