@@ -146,6 +146,12 @@ input:focus {
       white-space: nowrap;
       text-overflow: ellipsis; }
 
+.weixin-android .header .title {
+  display: none; }
+
+.weixin-ios .header {
+  display: none; }
+
 .position {
   height: 1.4rem;
   background: #f0f4f3; }

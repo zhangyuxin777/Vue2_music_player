@@ -118,6 +118,7 @@
       }
     },
     mounted () {
+      this.$store.dispatch('updateTitle', '首页')
       if (window.location.hash.indexOf('musicContent') < 0) {
         this.$store.dispatch('switchMusicContent', false)
       }

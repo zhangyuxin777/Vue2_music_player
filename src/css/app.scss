@@ -122,7 +122,7 @@ input:focus {
 }
 
 .header {
-  $hei:0.7rem;
+  $hei: 0.7rem;
   position: absolute;
   height: $hei;
   width: 100%;
@@ -158,6 +158,20 @@ input:focus {
       white-space: nowrap;
       text-overflow: ellipsis;
     }
+  }
+}
+
+.weixin-android {
+  .header {
+    .title {
+      display: none;
+    }
+  }
+}
+
+.weixin-ios {
+  .header {
+    display: none;
   }
 }
 

@@ -105,6 +105,7 @@
     },
     beforeMount () {
       let _this = this
+      _this.$store.dispatch('updateTitle', '专辑')
       API.albumDetail(this.$route.query.id, function (response) {
         _this.infoList = response.data.data.list
         _this.albumName = response.data.data.name
