@@ -79,6 +79,7 @@
       API.rankDetail(this.topid, function (response) {
         _this.topList = response.data.songlist
         _this.topinfo = response.data.topinfo
+        _this.$store.dispatch('updateTitle', _this.topinfo.ListName)
       })
       document.body.scrollTop = 0
     },

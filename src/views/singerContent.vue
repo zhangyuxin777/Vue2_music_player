@@ -165,6 +165,7 @@
         _this.infoList = response.data.data.list
         _this.detail = response.data.data.SingerDesc
         _this.singerName = response.data.data.singer_name
+        _this.$store.dispatch('updateTitle', _this.singerName)
       })
       API.albumListBySinger(this.$route.query.id, function (response) {
         _this.albumList = response.data.data.list

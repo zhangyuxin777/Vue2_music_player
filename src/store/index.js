@@ -6,9 +6,7 @@ import * as getters from './getters'
 Vue.use(Vuex)
 const state = {
   titleBar: {
-    title: '主页',
-    isShowBack: false,
-    icon: 'hide'
+    title: '主页'
   },
   spinner: false,
   play: {
@@ -233,10 +231,8 @@ const mutations = {
   SWITCH_ROTATE (state, isRotate) {
     state.play.status.rotate = isRotate
   },
-  UPDATE_TITLE (state, title, showBack, icon) {
+  UPDATE_TITLE (state, title) {
     state.titleBar.title = title
-    state.titleBar.isShowBack = showBack
-    state.titleBar.icon = icon
   },
   SWITCH_SONG (state, obj) {
     state.play.status.playing = true

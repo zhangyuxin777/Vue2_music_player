@@ -22,15 +22,13 @@ export const nextSong = ({commit}) => {
 }
 
 /**
- * 更新标题 和按钮
+ * 更新标题
  * @param commit
  * @param title 标题
- * @param showBack 是否显示返回按钮
- * @param icon 右侧按钮图标
  */
-export const updateTitle = ({commit}, title, showBack, icon) => {
+export const updateTitle = ({commit}, title) => {
   document.title = title
-  commit('UPDATE_TITLE', title, showBack, icon)
+  commit('UPDATE_TITLE', title)
 }
 /**
  * 设置字号

@@ -105,6 +105,7 @@
     },
     beforeMount () {
       let _this = this
+      _this.$store.dispatch('updateTitle', '歌单')
       API.dissDetail(this.$route.query.id, function (response) {
         _this.infoList = response.data.cdlist[0].songlist
         _this.dissName = response.data.cdlist[0].dissname

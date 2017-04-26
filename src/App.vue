@@ -29,6 +29,7 @@
   import {mapState} from 'vuex'
   import $ from 'jquery'
   import storage from './js/storage'
+  import Common from './js/rock'
   let player = null
   let urlError = false
   export default {
@@ -83,8 +84,18 @@
         console.log('error')
       }
     },
+    beforeMount () {
+      if (Common.system().weixin) {
+        if (Common.system().android) {
+          $('body').addClass('weixin-android')
+        } else if (Common.system().ios) {
+          $('body').addClass('weixin-ios')
+        }
+      }
+    },
     mounted () {
       let _this = this
+      _this.$store.dispatch('updateTitle', 'vue_music')
       player = document.getElementById('player')
       _this.$store.dispatch('setFontSize', $('html').css('font-size').split('px')[0])
       _this.$store.dispatch('init', {

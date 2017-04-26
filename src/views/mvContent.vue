@@ -81,6 +81,7 @@
       let _this = this
       API.mvDetail(this.$route.query.id, function (response) {
         _this.info = response.data.data
+        _this.$store.dispatch('updateTitle', _this.info.mvname)
       })
       API.mvInfo(this.$route.query.id, function (response) {
         _this.vKey = response.data.vl.vi[0].fvkey
