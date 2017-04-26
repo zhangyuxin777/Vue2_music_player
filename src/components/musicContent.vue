@@ -44,7 +44,7 @@
       </div>
       <div class="click-box" v-show="!showLyric">
         <div class="sprites like" :class="{'like-do' : isLike}" @click="switchLike"></div>
-        <div class="sprites download"></div>
+        <div class="sprites download" @click="toDown"></div>
         <div class="sprites more" @click="toMore"></div>
       </div>
       <div class="progress-box">
@@ -63,6 +63,7 @@
         <div class="sprites next-song" @click="next"></div>
         <div class="sprites menu" @click="toPop"></div>
       </div>
+      <a id="download" :href="url" download="music.mp3"></a>
     </div>
   </transition>
 </template>
@@ -73,6 +74,7 @@
   import $ from 'jquery'
   import storage from '../js/storage'
   import {mapState} from 'vuex'
+  import mui from '../js/mui.all'
   export default{
     data () {
       return {
@@ -123,6 +125,11 @@
         },
         list () {
           return this.lyricList
+        },
+        url: state => {
+          if (state.play.current.data && state.play.current.data.songid) {
+            return 'http://ws.stream.qqmusic.qq.com/' + state.play.current.data.songid + '.m4a?fromtag=46'
+          }
         }
       })
     },
@@ -164,14 +171,57 @@
           isMusicContent: true
         })
         event.stopPropagation()
+      },
+      toDown () {
+        if (Common.system().android) {
+          document.getElementById('download').click()
+        } else if (Common.system().ios) {
+          mui.alert('ios系统不支持下载')
+        }
+        event.stopPropagation()
       }
     },
     mounted () {
+      let _this = this
+      setTimeout(function () {
+        if (_this.$store.state.play.status.playing) {
+          console.log('ing')
+          document.getElementById('record').style.transition = 'none'
+          document.getElementById('record').style.webkitTransition = 'none'
+          document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          setTimeout(function () {
+            document.getElementById('record').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+            document.getElementById('record').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+            document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+          }, 300)
+        } else {
+          console.log('no')
+          document.getElementById('record').style.transition = 'none'
+          document.getElementById('record').style.webkitTransition = 'none'
+          document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+        }
+      }, 500)
       this.$store.dispatch('switchMusicContent', true)
       this.$store.dispatch('updateTitle', this.$store.state.play.current.data.songname + '-' + this.$store.state.play.current.data.singer[0].name)
     },
     watch: {
       current (curr) {
+        let _this = this
+        if (_this.$store.state.play.status.playing) {
+          document.getElementById('record').style.transition = 'none'
+          document.getElementById('record').style.webkitTransition = 'none'
+          document.getElementById('record').style.transform = 'rotate(0deg)'
+          document.getElementById('record').style.webkitTransition = 'rotate(0deg)'
+          setTimeout(function () {
+            document.getElementById('record').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+            document.getElementById('record').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+            document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+          }, 500)
+        }
         this.lyricList = {}
         if (!curr.data.songid) {
           return
