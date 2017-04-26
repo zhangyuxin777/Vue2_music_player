@@ -85,13 +85,12 @@
       }
     },
     beforeMount () {
-      if (Common.system().android) {
-        $('body').addClass('weixin-android')
-      } else if (Common.system().ios) {
-        $('body').addClass('weixin-ios')
-      }
       if (Common.system().weixin) {
-
+        if (Common.system().android) {
+          $('body').addClass('weixin-android')
+        } else if (Common.system().ios) {
+          $('body').addClass('weixin-ios')
+        }
       }
     },
     mounted () {

@@ -346,13 +346,13 @@
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5); } }
 
-.weixin-ios .music-content .header {
+.weixin-ios .music-content .header, .weixin-android .music-content .header {
   display: none; }
-.weixin-ios .music-content .cd-box .needle {
+.weixin-ios .music-content .cd-box .needle, .weixin-android .music-content .cd-box .needle {
   top: 0.15rem; }
-.weixin-ios .music-content .cd-box .needle_2 {
+.weixin-ios .music-content .cd-box .needle_2, .weixin-android .music-content .cd-box .needle_2 {
   top: 0; }
-.weixin-ios .music-content .cd-box .cd {
+.weixin-ios .music-content .cd-box .cd, .weixin-android .music-content .cd-box .cd {
   margin: 1.15rem auto 0 auto; }
 
 /*# sourceMappingURL=musicContent.css.map */
