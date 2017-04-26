@@ -7,7 +7,7 @@
     <div class="album-list">
       <div class="title">全部专辑</div>
       <ul class="list">
-        <li v-for="(item,index) in list" class="item" @click="toContent(item.album_mid)">
+        <li v-for="(item,index) in list" class="item" @click="toContent(item.albumMID)">
           <img :src="picUrl(item)"/>
           <div class="album-name">{{item.album_name}}</div>
           <div class="singer">{{item.singer_name}}</div>
@@ -25,7 +25,7 @@
     data () {
       return {
         infoList: [],
-        page: 1,
+        page: 0,
         isLoading: false
       }
     },

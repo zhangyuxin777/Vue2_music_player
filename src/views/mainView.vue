@@ -32,19 +32,19 @@
   import singerList from './singerList'
   import dissList from './dissList'
   import albumList from './albumList'
-  import mvList from './MVList'
+  import mvList from './mvList'
   import {mapState} from 'vuex'
   export default{
     data () {
       return {
         isLoading: false,
         page: {
-          0: 2,
+          0: 0,
           1: 2,
-          2: 2,
-          3: 2,
+          2: 0,
+          3: 1,
           4: 2,
-          5: 2
+          5: 1
         }
       }
     },
@@ -83,6 +83,7 @@
             })
             break
           case 2:
+            _this.isLoading = false
             break
           case 3:
             console.log('loading album')
@@ -98,6 +99,7 @@
             })
             break
           case 4:
+            _this.isLoading = false
             break
           case 5:
             console.log('loading mv')
@@ -121,7 +123,7 @@
       }
       let _this = this
       window.onscroll = function () {
-        if (!_this.isLoading && window.location.hash.indexOf('#/') >= 0) {
+        if (!_this.isLoading && window.location.hash.split('#/')[1].length === 0) {
           if (Common.scroll.getScrollTop() + Common.scroll.getClientHeight() >= Common.scroll.getScrollHeight() - 10) {
             _this.isLoading = true
             _this.loadMore()

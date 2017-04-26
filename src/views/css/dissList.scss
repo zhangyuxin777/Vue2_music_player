@@ -24,15 +24,76 @@
       display: inline-block;
       margin: 0 0.1rem 0.2rem 0.1rem;
       background: $bgColor;
-      img {
-        height: $wid;
+      .pic {
+        position: relative;
         width: $wid;
+        height: $wid;
+        img {
+          position: absolute;
+          height: $wid;
+          width: $wid;
+        }
+        .float-div {
+          position: absolute;
+          width: $wid;
+          height: $wid;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6))
+        }
+        .listen_box {
+          position: absolute;
+          top: 0;
+          color: white;
+          width: 100%;
+          font-size: 0.17rem;
+          text-align: right;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          padding-right: 0.05rem;
+          .listen_count {
+            float: right;
+            margin-left: 0.03rem;
+            margin-right: 0.03rem;
+          }
+        }
+        .singer_box {
+          position: absolute;
+          bottom: 0;
+          color: white;
+          width: 100%;
+          font-size: 0.17rem;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          padding-left: 0.1rem;
+          .poster {
+            display: inline-block;
+            height: 100%;
+            float: left;
+            margin-left: 0.02rem;
+          }
+        }
+        .sprites {
+          width: 0.25rem;
+          height: 0.25rem;
+          overflow: hidden;
+          box-sizing: border-box;
+          @include getBackground('icon-list.png?v=20170417');
+          background-size: $spriteRem/5*2.5 $spriteRem/5*2.5;
+        }
+        .ic_listen {
+          @include bgPosition($spriteSize, $spriteSize, 250, 25, 295, 0);
+          margin-top: 0.07rem;
+          float: right;
+        }
+        .ic_poster {
+          @include bgPosition($spriteSize, $spriteSize, 250, 25, 423, 0);
+          margin-top: 0.05rem;
+          float: left;
+        }
       }
+
       .singer {
         width: $wid;
         height: 0.8rem;
-        //white-space: nowrap;
-        //text-align: center;
         overflow: hidden;
         font-size: 0.2rem;
       }

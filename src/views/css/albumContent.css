@@ -23,6 +23,22 @@
       width: 100%;
       height: 100%;
       background: -webkit-linear-gradient(top, rgba(200, 200, 200, 0.6), rgba(200, 200, 200, 0.6)); }
+    .album-content .banner .sprites {
+      width: 0.25rem;
+      height: 0.25rem;
+      overflow: hidden;
+      box-sizing: border-box;
+      background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201704171413") 0 0 no-repeat;
+      background-size: 3.6rem 3.6rem; }
+    .album-content .banner .ic_poster {
+      background-position: 90% 0%;
+      margin-top: 0.03rem;
+      margin-right: 0.05rem;
+      float: left; }
+    .album-content .banner .ic_music_count {
+      background-position: 98.29787% 0%;
+      margin-right: 0.05rem;
+      float: left; }
     .album-content .banner .info {
       position: absolute;
       width: 6.4rem;

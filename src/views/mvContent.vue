@@ -1,28 +1,33 @@
 <style scoped>
-  @import "css/rankContent.css";
+  @import "css/mvContent.css";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
-    <div class="rank-content">
-      <div class="banner">
-        <img :src="getBanner" id="banImg" v-if="getBanner">
+    <div class="mv-content">
+      <div class="header">
+        <div class="back" @click="back">
+          <div class="sprites ic_back"></div>
+        </div>
+        <div class="title">
+          <div class="singername">{{getInfo.mvname}}</div>
+        </div>
+        <div class="clear"></div>
       </div>
-      <ul class="list">
-        <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.data.songid">
-          <div class="i-title" :class="{red : index<3}">
-            <span class="sprites ic_menu" :class="{hide : !isCurrent(item.data.songid)}"></span>
-            <span :class="{hide : isCurrent(item.data.songid)}">{{index+1}}</span>
-          </div>
-          <div class="i-content">
-            <div class="songname">{{item.data.songname}}</div>
-            <div class="singername">{{item.data.singer[0].name}} - {{item.data.albumname}}</div>
-          </div>
-          <div class="more sprites ic_more" @click="toMore(item)"></div>
-          <div class="clear"></div>
-          <span class="split-line"></span>
-        </li>
-      </ul>
+      <div class="video-box">
+        <video class="video" :src="getUrl" width="100%" height="100%" x-webkit-airplay="true" webkit-playsinline=""
+               playsinline="true" preload="none"
+               controls="controls"></video>
+      </div>
+      <div class="info">
+        <div class="mv-name">{{getInfo.mvname}}</div>
+        <div class="singer" @click="toSinger">歌手:{{getInfo.singer.name}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <span class="line">|</span>
+        <div class="listenCount">&nbsp;&nbsp;&nbsp;&nbsp;播放:{{(getInfo.listennum/10000).toFixed(0)}}万</div>
+        <div class="pub-time">发行时间:{{getInfo.pubdate}}</div>
+        <div class="detail">{{getInfo.desc}}</div>
+      </div>
+      <div class="position"></div>
     </div>
   </transition>
 </template>
@@ -33,7 +38,12 @@
       return {
         topList: [],
         topid: this.$route.query.id,
-        topinfo: ''
+        vKey: '',
+        info: {
+          singer: {
+            name: ''
+          }
+        }
       }
     },
     methods: {
@@ -43,32 +53,39 @@
       isCurrent (id) {
         return id === this.$store.state.play.current.data.songid
       },
-      toMore (item) {
-        this.$store.dispatch('switchInfo', {
-          current: item,
-          isMusicContent: false
+      toSinger () {
+        this.$router.push({
+          name: 'singerContent',
+          query: {id: this.info.singers[0].mid}
         })
-        event.stopPropagation()
+      },
+      back () {
+        window.history.back()
       }
     },
     computed: {
       list () {
         return this.topList
       },
+      getUrl () {
+        return 'http://111.202.117.154/music.qqvideo.tc.qq.com/' + this.$route.query.id + '.mp4?vkey=' + this.vKey
+      },
       getBanner () {
-        return this.topinfo.pic_h5
+        return 'https://shp.qpic.cn/qqvideo/0/' + this.$route.query.id + '/0'
+      },
+      getInfo () {
+        return this.info
       }
     },
     beforeMount () {
       let _this = this
-      API.rankDetail(this.topid, function (response) {
-        _this.topList = response.data.songlist
-        _this.topinfo = response.data.topinfo
+      API.mvDetail(this.$route.query.id, function (response) {
+        _this.info = response.data.data
+      })
+      API.mvInfo(this.$route.query.id, function (response) {
+        _this.vKey = response.data.vl.vi[0].fvkey
       })
       document.body.scrollTop = 0
-      API.mvList(function (response) {
-        console.log(response)
-      })
     },
     mounted () {
       if (window.location.hash.indexOf('musicContent') < 0) {

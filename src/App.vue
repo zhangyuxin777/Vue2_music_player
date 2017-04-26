@@ -22,13 +22,12 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import playBar from './components/playBar'
   import infoList from './components/infoList'
   import playList from './components/playList'
   import {mapState} from 'vuex'
   import $ from 'jquery'
-  import Common from './js/rock'
   import storage from './js/storage'
   let player = null
   let urlError = false
@@ -97,7 +96,6 @@
       if (window.location.hash.indexOf('musicContent') < 0) {
         this.$store.dispatch('switchMusicContent', false)
       }
-      console.log('test')
       document.onkeydown = function (event) {
         if (event && event.keyCode === 32) {
           _this.$store.dispatch('switchPlayerStatus')
@@ -121,10 +119,6 @@
           event.preventDefault()
         }
       }
-      window.onresize = function () {
-        $('html').css('background', Common.isPC() ? 'aliceblue' : 'white')
-      }
-      window.onresize()
     },
     watch: {
       playing (val) {
