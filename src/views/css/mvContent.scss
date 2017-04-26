@@ -2,47 +2,46 @@
 
 .mv-content {
   background: $bgColor;
-  .video-box{
+  .video-box {
     width: $pageWidth;
     height: 3.61rem;
-    .video{
+    .video {
       width: 100%;
       height: 100%;
       background: #000;
     }
   }
-  .info{
+  .info {
     padding: 0 0.2rem;
-    .mv-name{
+    .mv-name {
       color: $textLeftColor;
       font-size: 0.3rem;
       padding: 0.1rem 0;
     }
-    .singer{
+    .singer {
       color: #519af2;
       font-size: 0.22rem;
       display: inline-block;
       padding: 0.05rem 0;
     }
-    .line{
+    .line {
       color: #aaa;
     }
-    .listenCount{
+    .listenCount {
       color: #aaa;
       font-size: 0.22rem;
       display: inline-block;
       padding: 0.05rem 0;
     }
-    .pub-time{
+    .pub-time {
       color: #aaa;
       font-size: 0.22rem;
       padding-top: 0.2rem;
     }
-    .detail{
+    .detail {
       padding: 0.05rem 0;
       color: #606060;
       line-height: 0.4rem;
     }
   }
-
 }

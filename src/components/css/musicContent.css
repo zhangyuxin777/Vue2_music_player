@@ -270,20 +270,20 @@
     bottom: 0; }
     .music-content .control-box .play {
       position: absolute;
-      height: 1.05rem;
-      width: 1.05rem;
-      background-size: 15.696rem 15.696rem;
-      background-position: 0% 9.03226%;
+      height: 1.07rem;
+      width: 1.07rem;
+      background-size: 7.2rem 7.2rem;
+      background-position: -0.16129% 28.70968%;
       top: 0.75rem;
       left: 3.2rem;
       transform: translate(-50%, -50%);
       -webkit-transform: translate(-50%, -50%); }
     .music-content .control-box .pause {
       position: absolute;
-      height: 1.05rem;
-      width: 1.05rem;
-      background-size: 15.696rem 15.696rem;
-      background-position: 9.03226% 9.03226%;
+      height: 1.07rem;
+      width: 1.07rem;
+      background-size: 7.2rem 7.2rem;
+      background-position: 19.35484% 28.70968%;
       top: 0.75rem;
       left: 3.2rem;
       transform: translate(-50%, -50%);
@@ -336,7 +336,7 @@
   .music-content .sprites {
     overflow: hidden;
     box-sizing: border-box;
-    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03231037") 0 0 no-repeat; }
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201704261523") 0 0 no-repeat; }
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .music-content .header:after {
       -webkit-transform: scaleY(0.33);
@@ -345,5 +345,14 @@
     .music-content .header:after {
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5); } }
+
+.weixin-ios .music-content .header {
+  display: none; }
+.weixin-ios .music-content .cd-box .needle {
+  top: 0.15rem; }
+.weixin-ios .music-content .cd-box .needle_2 {
+  top: 0; }
+.weixin-ios .music-content .cd-box .cd {
+  margin: 1.15rem auto 0 auto; }
 
 /*# sourceMappingURL=musicContent.css.map */

@@ -12,7 +12,7 @@
   //-webkit-transition: opacity 0.5s, height 0.5s ease;
   z-index: 0;
   .header {
-    $hei:0.9rem;
+    $hei: 0.9rem;
     position: absolute;
     height: $hei;
     width: 100%;
@@ -323,10 +323,10 @@
     bottom: 0;
     .play {
       position: absolute;
-      height: 1.05rem;
-      width: 1.05rem;
-      background-size: $spriteRem/5.0*10.9 $spriteRem/5.0*10.9;
-      @include bgPosition($spriteSize, $spriteSize, 100, 100, 0, 56);
+      height: 1.07rem;
+      width: 1.07rem;
+      background-size: $spriteRem/5.0*5 $spriteRem/5.0*5;
+      @include bgPosition($spriteSize, $spriteSize, 100, 100, -1, 178);
       top: 0.75rem;
       left: 3.2rem;
       transform: translate(-50%, -50%);
@@ -334,10 +334,10 @@
     }
     .pause {
       position: absolute;
-      height: 1.05rem;
-      width: 1.05rem;
-      background-size: $spriteRem/5.0*10.9 $spriteRem/5.0*10.9;
-      @include bgPosition($spriteSize, $spriteSize, 100, 100, 56, 56);
+      height: 1.07rem;
+      width: 1.07rem;
+      background-size: $spriteRem/5.0*5 $spriteRem/5.0*5;
+      @include bgPosition($spriteSize, $spriteSize, 100, 100, 120, 178);
       top: 0.75rem;
       left: 3.2rem;
       transform: translate(-50%, -50%);
@@ -400,7 +400,7 @@
   .sprites {
     overflow: hidden;
     box-sizing: border-box;
-    @include getBackground('icon-list.png?v=03231037');
+    @include getBackground('icon-list.png?v=201704261523');
   }
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .header:after {
@@ -414,7 +414,27 @@
     }
   }
 }
+
 .op-show {
   //opacity: 1 !important;
   //z-index: 20 !important;
+}
+
+.weixin-ios {
+  .music-content {
+    .header {
+      display: none;
+    }
+    .cd-box {
+      .needle {
+        top: 0.15rem;
+      }
+      .needle_2 {
+        top: 0;
+      }
+      .cd {
+        margin: 1.15rem auto 0 auto;
+      }
+    }
+  }
 }

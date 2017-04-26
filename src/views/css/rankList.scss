@@ -3,70 +3,84 @@
 .rank-list {
   margin-top: $tabHei;
   background: $bgColor !important;
-  .item {
-    position: relative;
-    height: 1.9rem;
-    width: 100%;
-    padding-top: 0.15rem;
-    .picture {
+  width: 6.4rem;
+  .title {
+    margin: 0.3rem 0.2rem 0 0.2rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.27rem;
+    border-left: 0.05rem solid $mainColor;
+    padding-left: 0.1rem;
+  }
+  .list {
+    margin: 0.15rem 0 0 0;
+    background: $bgColor;
+    $wid: 2.9rem;
+    .item {
       position: relative;
-      height: 1.6rem;
-      width: 1.6rem;
-      margin-left: 0.2rem;
-      float: left;
-      img {
+      height: 1.9rem;
+      width: 100%;
+      padding-top: 0.15rem;
+      .picture {
+        position: relative;
         height: 1.6rem;
         width: 1.6rem;
+        margin-left: 0.2rem;
+        float: left;
+        img {
+          height: 1.6rem;
+          width: 1.6rem;
+        }
       }
-    }
-    .top-list {
-      width: 4.6rem;
-      padding-left: 0.2rem;
-      float: right;
-      height: 100%;
-      .top-item {
+      .top-list {
+        width: 4.6rem;
+        padding-left: 0.2rem;
+        float: right;
+        height: 100%;
+        .top-item {
+          width: 100%;
+          height: 0.53rem;
+          line-height: 0.53rem;
+          font-size: 0.2rem;
+          color: gray;
+          word-break: break-all;
+          overflow: hidden;
+        }
+      }
+      .split-line {
+        position: absolute;
+        bottom: 0;
+        width: 4.4rem;
+        right: 0;
+      }
+      .listen_box {
+        position: absolute;
+        bottom: 0;
+        color: white;
         width: 100%;
-        height: 0.53rem;
-        line-height: 0.53rem;
-        font-size: 0.2rem;
-        color: gray;
-        word-break: break-all;
-        overflow: hidden;
-      }
-    }
-    .split-line {
-      position: absolute;
-      bottom: 0;
-      width: 4.4rem;
-      right: 0;
-    }
-    .listen_box {
-      position: absolute;
-      bottom: 0;
-      color: white;
-      width: 100%;
-      font-size: 0.17rem;
-      text-align: right;
-      height: 0.4rem;
-      line-height: 0.4rem;
-      background: rgba(0,0,0,0.3);
-      .sprites {
-        width: 0.25rem;
-        height: 0.25rem;
-        overflow: hidden;
-        box-sizing: border-box;
-        @include getBackground('icon-list.png');
-        background-size: $spriteRem/5*2.5 $spriteRem/5*2.5;
-        float: right;
-      }
-      .ic_listen {
-        @include bgPosition($spriteSize, $spriteSize, 250, 25, 295, 0);
-        margin-top: 0.07rem;
-      }
-      .listen_count {
-        float: right;
-        margin-left: 0.03rem;
-        margin-right: 0.03rem;
+        font-size: 0.17rem;
+        text-align: right;
+        height: 0.4rem;
+        line-height: 0.4rem;
+        background: rgba(0, 0, 0, 0.3);
+        .sprites {
+          width: 0.25rem;
+          height: 0.25rem;
+          overflow: hidden;
+          box-sizing: border-box;
+          @include getBackground('icon-list.png');
+          background-size: $spriteRem/5*2.5 $spriteRem/5*2.5;
+          float: right;
+        }
+        .ic_listen {
+          @include bgPosition($spriteSize, $spriteSize, 250, 25, 295, 0);
+          margin-top: 0.07rem;
+        }
+        .listen_count {
+          float: right;
+          margin-left: 0.03rem;
+          margin-right: 0.03rem;
+        }
       }
     }
   }

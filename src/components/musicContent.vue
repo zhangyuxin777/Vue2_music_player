@@ -168,6 +168,7 @@
     },
     mounted () {
       this.$store.dispatch('switchMusicContent', true)
+      this.$store.dispatch('updateTitle', this.$store.state.play.current.data.songname + '-' + this.$store.state.play.current.data.singer[0].name)
     },
     watch: {
       current (curr) {

@@ -34,6 +34,8 @@
       width: 0.6rem;
       font-size: 0.22rem;
       text-align: right;
+      line-height: 0.21rem;
+      padding-top: 0.3rem;
       color: #999; }
     .play-pop-box .title-box .opacity0 {
       opacity: 0; }
@@ -42,7 +44,8 @@
     padding-left: 0.2rem;
     height: 5.7rem;
     width: 100%;
-    overflow: auto; }
+    overflow: auto;
+    padding-bottom: 0.15rem; }
 
 .play-pop {
   bottom: 0; }
