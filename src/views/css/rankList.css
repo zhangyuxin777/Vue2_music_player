@@ -1,62 +1,73 @@
 .rank-list {
   margin-top: 0.03rem;
-  background: #f0f4f3 !important; }
-  .rank-list .item {
-    position: relative;
-    height: 1.9rem;
-    width: 100%;
-    padding-top: 0.15rem; }
-    .rank-list .item .picture {
+  background: #f0f4f3 !important;
+  width: 6.4rem; }
+  .rank-list .title {
+    margin: 0.3rem 0.2rem 0 0.2rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.27rem;
+    border-left: 0.05rem solid #e61624;
+    padding-left: 0.1rem; }
+  .rank-list .list {
+    margin: 0.15rem 0 0 0;
+    background: #f0f4f3; }
+    .rank-list .list .item {
       position: relative;
-      height: 1.6rem;
-      width: 1.6rem;
-      margin-left: 0.2rem;
-      float: left; }
-      .rank-list .item .picture img {
-        height: 1.6rem;
-        width: 1.6rem; }
-    .rank-list .item .top-list {
-      width: 4.6rem;
-      padding-left: 0.2rem;
-      float: right;
-      height: 100%; }
-      .rank-list .item .top-list .top-item {
-        width: 100%;
-        height: 0.53rem;
-        line-height: 0.53rem;
-        font-size: 0.2rem;
-        color: gray;
-        word-break: break-all;
-        overflow: hidden; }
-    .rank-list .item .split-line {
-      position: absolute;
-      bottom: 0;
-      width: 4.4rem;
-      right: 0; }
-    .rank-list .item .listen_box {
-      position: absolute;
-      bottom: 0;
-      color: white;
+      height: 1.9rem;
       width: 100%;
-      font-size: 0.17rem;
-      text-align: right;
-      height: 0.4rem;
-      line-height: 0.4rem;
-      background: rgba(0, 0, 0, 0.3); }
-      .rank-list .item .listen_box .sprites {
-        width: 0.25rem;
-        height: 0.25rem;
-        overflow: hidden;
-        box-sizing: border-box;
-        background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
-        background-size: 3.6rem 3.6rem;
-        float: right; }
-      .rank-list .item .listen_box .ic_listen {
-        background-position: 62.76596% 0%;
-        margin-top: 0.07rem; }
-      .rank-list .item .listen_box .listen_count {
+      padding-top: 0.15rem; }
+      .rank-list .list .item .picture {
+        position: relative;
+        height: 1.6rem;
+        width: 1.6rem;
+        margin-left: 0.2rem;
+        float: left; }
+        .rank-list .list .item .picture img {
+          height: 1.6rem;
+          width: 1.6rem; }
+      .rank-list .list .item .top-list {
+        width: 4.6rem;
+        padding-left: 0.2rem;
         float: right;
-        margin-left: 0.03rem;
-        margin-right: 0.03rem; }
+        height: 100%; }
+        .rank-list .list .item .top-list .top-item {
+          width: 100%;
+          height: 0.53rem;
+          line-height: 0.53rem;
+          font-size: 0.2rem;
+          color: gray;
+          word-break: break-all;
+          overflow: hidden; }
+      .rank-list .list .item .split-line {
+        position: absolute;
+        bottom: 0;
+        width: 4.4rem;
+        right: 0; }
+      .rank-list .list .item .listen_box {
+        position: absolute;
+        bottom: 0;
+        color: white;
+        width: 100%;
+        font-size: 0.17rem;
+        text-align: right;
+        height: 0.4rem;
+        line-height: 0.4rem;
+        background: rgba(0, 0, 0, 0.3); }
+        .rank-list .list .item .listen_box .sprites {
+          width: 0.25rem;
+          height: 0.25rem;
+          overflow: hidden;
+          box-sizing: border-box;
+          background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
+          background-size: 3.6rem 3.6rem;
+          float: right; }
+        .rank-list .list .item .listen_box .ic_listen {
+          background-position: 62.76596% 0%;
+          margin-top: 0.07rem; }
+        .rank-list .list .item .listen_box .listen_count {
+          float: right;
+          margin-left: 0.03rem;
+          margin-right: 0.03rem; }
 
 /*# sourceMappingURL=rankList.css.map */

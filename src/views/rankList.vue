@@ -4,8 +4,9 @@
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
-    <div>
-      <ul class="rank-list">
+    <div class="rank-list">
+      <div class="title">全部榜单</div>
+      <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="toContent(item.id)">
           <div class="picture">
             <img :src="item.picUrl"/>
