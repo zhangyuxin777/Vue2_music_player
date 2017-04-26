@@ -5,7 +5,7 @@
 <template>
   <div class="play-bar" :class="{'play-bar-down':showMusicContent}">
     <div class="cycle">
-      <img :src="songImg" :class="{'ani':rotate}" @click="toContent" id="album">
+      <img :src="songImg" @click="toContent" id="album">
     </div>
     <div class="panel">
       <div class="box">
@@ -27,7 +27,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
   import {mapState} from 'vuex'
   export default {
     computed: {
@@ -71,9 +71,19 @@
     },
     watch: {
       playing (playing) {
-        if (document.getElementById('album')) {
-          document.getElementById('album').style.webkitAnimationPlayState = playing ? 'running' : 'paused'
-          document.getElementById('album').style.animationPlayState = playing ? 'running' : 'paused'
+        if (!document.getElementById('album')) {
+          return
+        }
+        if (playing) {
+          document.getElementById('album').style.transition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
+          document.getElementById('album').style.webkitTransition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
+          document.getElementById('album').style.transform = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransition = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
+        } else {
+          document.getElementById('album').style.transition = 'none'
+          document.getElementById('album').style.webkitTransition = 'none'
+          document.getElementById('album').style.transform = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransition = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
         }
       }
     }

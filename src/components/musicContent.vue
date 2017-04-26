@@ -35,7 +35,7 @@
         </ul>
       </div>
       <div class="cd-box" v-show="!showLyric" @click="switchLyric">
-        <div class="cd" :class="{'ani':rotate}" id="record">
+        <div class="cd" id="record">
           <div class="cd-side"></div>
           <img :src="songImg" class="cd-img" alt="">
         </div>
@@ -218,9 +218,19 @@
         this.value = parseInt(document.getElementById('volume').getAttribute('max')) * this.$store.state.play.status.volume
       },
       playing (playing) {
-        if (document.getElementById('record')) {
-          document.getElementById('record').style.webkitAnimationPlayState = playing ? 'running' : 'paused'
-          document.getElementById('record').style.animationPlayState = playing ? 'running' : 'paused'
+        if (!document.getElementById('record')) {
+          return
+        }
+        if (playing) {
+          document.getElementById('record').style.transition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
+          document.getElementById('record').style.webkitTransition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
+          document.getElementById('record').style.transform = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
+          document.getElementById('record').style.webkitTransition = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
+        } else {
+          document.getElementById('record').style.transition = 'none'
+          document.getElementById('record').style.webkitTransition = 'none'
+          document.getElementById('record').style.transform = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('record').style.webkitTransition = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
         }
       },
       progress (pro) {
