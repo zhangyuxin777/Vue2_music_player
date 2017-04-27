@@ -76,7 +76,8 @@
     position: absolute;
     top: 0.9rem;
     width: 6.4rem;
-    height: 0.45rem; }
+    height: 0.45rem;
+    z-index: 1; }
     .music-content .voice-box .ic_voice {
       width: 0.4rem;
       height: 0.4rem;
@@ -114,12 +115,12 @@
     top: 1.4rem;
     bottom: 2.3rem;
     width: 6.4rem;
-    overflow: auto; }
+    overflow: auto;
+    z-index: 1; }
     .music-content .lyric-box .lyric-list {
       background: transparent; }
       .music-content .lyric-box .lyric-list .item {
         background: transparent;
-        height: 0.5rem;
         line-height: 0.5rem;
         color: #bbb;
         text-align: center;
@@ -195,7 +196,8 @@
     position: absolute;
     bottom: 2.4rem;
     height: 1rem;
-    width: 6.4rem; }
+    width: 6.4rem;
+    z-index: 1; }
     .music-content .click-box .like {
       position: absolute;
       height: 0.5rem;
@@ -345,6 +347,9 @@
     .music-content .header:after {
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5); } }
+
+.op-hide {
+  opacity: 0; }
 
 .weixin-ios .music-content .header, .weixin-android .music-content .header {
   display: none; }

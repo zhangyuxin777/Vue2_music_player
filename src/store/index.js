@@ -17,6 +17,7 @@ const state = {
         songname: ''
       }
     },
+    currentLyricList: {},
     status: {
       total: 10000,
       position: 0,
@@ -198,6 +199,9 @@ const mutations = {
   },
   SWITCH_LYRIC (state) {
     state.play.status.showLyric = !state.play.status.showLyric
+  },
+  UPDATE_LYRIC_LIST (state, list) {
+    state.play.currentLyricList = list
   },
   SWITCH_INFO (state, obj) {
     if (obj) {

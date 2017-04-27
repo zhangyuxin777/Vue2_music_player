@@ -2,7 +2,8 @@
  * Created by bruce zhang on 2017/3/30.
  */
 import Vue from 'vue'
-
+import Common from './rock'
+import $ from 'jquery'
 let request = function (url, params, callback, error) {
   Vue.http.jsonp(url, params).then(function (response) {
     callback(response)
@@ -325,7 +326,7 @@ export default {
   mvInfo(vid, callback, error) {
     request('https://h5vv.video.qq.com/getinfo', {
       params: {
-        callback:'tvp_request_getinfo_callback_928847',
+        callback: 'tvp_request_getinfo_callback_928847',
         platform: 11001,
         charge: 0,
         otype: 'json',
@@ -394,21 +395,20 @@ export default {
    * 获取歌词
    */
   getLyric (musicid, callback, error) {
-    request('https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg', {
-      params: {
-        nobase64: 1,
-        musicid: musicid,
-        g_tk: 5381,
-        uin: 0,
-        format: 'jsonp',
-        inCharset: 'utf8',
-        outCharset: 'utf-8',
-        notice: 0,
-        platform: 'yqq',
-        needNewCode: 0
+    $.ajax({
+      async: true,
+      url: 'https://route.showapi.com/213-2?showapi_appid=' + Common.showApi.appId + '&showapi_timestamp=' + Common.dateFormat('yyyyMMddhhmmss') + '&showapi_sign=' + Common.showApi.appSecret + '&musicid=' + musicid,
+      type: 'GET',
+      success: function (backData) {
+        callback(backData);
       },
-      jsonp: 'jsonpCallback'
-    }, callback, error);
+      error: function (x, y, z) {
+        console.log("error!");
+        if (typeof error == 'function') {
+          error(x, y, z);
+        }
+      }
+    });
   },
 }
 
