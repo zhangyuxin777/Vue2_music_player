@@ -185,7 +185,6 @@
       let _this = this
       setTimeout(function () {
         if (_this.$store.state.play.status.playing) {
-          console.log('ing')
           document.getElementById('record').style.transition = 'none'
           document.getElementById('record').style.webkitTransition = 'none'
           document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
@@ -197,13 +196,12 @@
             document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
           }, 300)
         } else {
-          console.log('no')
           document.getElementById('record').style.transition = 'none'
           document.getElementById('record').style.webkitTransition = 'none'
           document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
           document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
         }
-      }, 500)
+      }, 300)
       this.$store.dispatch('switchMusicContent', true)
       this.$store.dispatch('updateTitle', this.$store.state.play.current.data.songname + '-' + this.$store.state.play.current.data.singer[0].name)
     },
