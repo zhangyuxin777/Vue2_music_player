@@ -5,7 +5,7 @@
 <template>
   <div class="play-bar" :class="{'play-bar-down':showMusicContent}">
     <div class="cycle">
-      <img :src="songImg" :class="{'ani':rotate}" @click="toContent" id="album">
+      <img :src="songImg" @click="toContent" id="album">
     </div>
     <div class="panel">
       <div class="box">
@@ -27,7 +27,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
   import {mapState} from 'vuex'
   export default {
     computed: {
@@ -65,15 +65,60 @@
       }
     },
     mounted () {
+      let _this = this
+      setTimeout(function () {
+        if (_this.$store.state.play.status.playing) {
+          document.getElementById('album').style.transition = 'none'
+          document.getElementById('album').style.webkitTransition = 'none'
+          document.getElementById('album').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          setTimeout(function () {
+            document.getElementById('album').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+            document.getElementById('album').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+            document.getElementById('album').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            document.getElementById('album').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+          }, 300)
+        } else {
+          document.getElementById('album').style.transition = 'none'
+          document.getElementById('album').style.webkitTransition = 'none'
+          document.getElementById('album').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+        }
+      }, 300)
       if (window.location.hash.indexOf('musicContent') >= 0) {
         this.$store.dispatch('switchMusicContent', true)
       }
     },
     watch: {
       playing (playing) {
-        if (document.getElementById('album')) {
-          document.getElementById('album').style.webkitAnimationPlayState = playing ? 'running' : 'paused'
-          document.getElementById('album').style.animationPlayState = playing ? 'running' : 'paused'
+        if (!document.getElementById('album')) {
+          return
+        }
+        if (playing) {
+          document.getElementById('album').style.transition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
+          document.getElementById('album').style.webkitTransition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
+          document.getElementById('album').style.transform = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransition = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
+        } else {
+          document.getElementById('album').style.transition = 'none'
+          document.getElementById('album').style.webkitTransition = 'none'
+          document.getElementById('album').style.transform = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransition = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
+        }
+      },
+      current () {
+        let _this = this
+        if (_this.$store.state.play.status.playing) {
+          document.getElementById('album').style.transition = 'none'
+          document.getElementById('album').style.webkitTransition = 'none'
+          document.getElementById('album').style.transform = 'rotate(0deg)'
+          document.getElementById('album').style.webkitTransition = 'rotate(0deg)'
+          setTimeout(function () {
+            document.getElementById('album').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+            document.getElementById('album').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+            document.getElementById('album').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            document.getElementById('album').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+          }, 500)
         }
       }
     }
