@@ -1,0 +1,41 @@
+﻿@import "../../css/wl-common";
+
+.touch-button {
+  .con {
+    width: 2rem;
+    height: 2rem;
+    background: black;
+    opacity: 0.5;
+    position: absolute;
+    top: -0.63rem;
+    left: -0.63rem;
+    border-radius: 0.1rem;
+  }
+  .sprites {
+    width: 0.5rem;
+    height: 0.5rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    @include getBackground('icon-list.png?v=20170427');
+    background-size: $spriteRem $spriteRem;
+  }
+
+  .ic_search {
+    @include bgPosition($spriteSize, $spriteSize, 50, 50, 0, 0);
+    float: left;
+    margin-top: 0.26rem;
+    margin-left: 0.2rem;
+  }
+  .ic_hide {
+    @include bgPosition($spriteSize, $spriteSize, 50, 50, 60, 0);
+    float: right;
+    margin-top: 0.26rem;
+    margin-right: 0.2rem;
+  }
+  .ic_close {
+    @include bgPosition($spriteSize, $spriteSize, 50, 50, 120, 0);
+    float: left;
+    margin-top: 0.31rem;
+    margin-left: 0.2rem;
+  }
+}

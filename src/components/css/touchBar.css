@@ -1,0 +1,33 @@
+.touch-button .con {
+  width: 2rem;
+  height: 2rem;
+  background: black;
+  opacity: 0.5;
+  position: absolute;
+  top: -0.63rem;
+  left: -0.63rem;
+  border-radius: 0.1rem; }
+.touch-button .sprites {
+  width: 0.5rem;
+  height: 0.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=20170427") 0 0 no-repeat;
+  background-size: 7.2rem 7.2rem; }
+.touch-button .ic_search {
+  background-position: 0% 0%;
+  float: left;
+  margin-top: 0.26rem;
+  margin-left: 0.2rem; }
+.touch-button .ic_hide {
+  background-position: 8.95522% 0%;
+  float: right;
+  margin-top: 0.26rem;
+  margin-right: 0.2rem; }
+.touch-button .ic_close {
+  background-position: 17.91045% 0%;
+  float: left;
+  margin-top: 0.31rem;
+  margin-left: 0.2rem; }
+
+/*# sourceMappingURL=touchBar.css.map */
