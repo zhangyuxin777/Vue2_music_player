@@ -25,7 +25,7 @@
         <span class="sprites ic_voice"></span>
         <input id="volume" class="range" type="range" min="0" max="100" @input="volumeChange" v-model="value">
       </div>
-      <div class="lyric-box" id="lyricBox" v-show="showLyric" @click="switchLyric">
+      <div class="lyric-box" id="lyricBox" :class="{'op-hide':!showLyric}" @click="switchLyric">
         <ul class="lyric-list" id="lyricList">
           <li v-for="(item,index) in list" class="item lyricItem">
             <div class="text" :id="item.id">
@@ -34,7 +34,7 @@
           </li>
         </ul>
       </div>
-      <div class="cd-box" v-show="!showLyric" @click="switchLyric">
+      <div class="cd-box" :class="{'op-hide':showLyric}" @click="switchLyric">
         <div class="cd" id="record">
           <div class="cd-side"></div>
           <img :src="songImg" class="cd-img" alt="">
@@ -69,7 +69,6 @@
 </template>
 <script type="text/ecmascript-6">
   import API from '../js/api'
-  import Base64 from '../js/base64'
   import Common from '../js/rock'
   import $ from 'jquery'
   import storage from '../js/storage'
@@ -94,6 +93,7 @@
         showLyric: state => state.play.status.showLyric,
         showMusicContent: state => state.play.showMusicContent,
         volume: state => state.play.status.volume,
+        list: state => state.play.currentLyricList,
         isLike: state => {
           let isExist = false
           for (let item of state.like.list) {
@@ -123,9 +123,6 @@
             return 'https://y.gtimg.cn/music/photo_new/T002R500x500M000' + state.play.current.data.albummid + '.jpg'
           }
         },
-        list () {
-          return this.lyricList
-        },
         url: state => {
           if (state.play.current.data && state.play.current.data.songid) {
             return 'http://ws.stream.qqmusic.qq.com/' + state.play.current.data.songid + '.m4a?fromtag=46'
@@ -150,7 +147,27 @@
         this.$store.dispatch('switchMode')
       },
       switchLyric () {
+        let _this = this
         this.$store.dispatch('switchLyric')
+        setTimeout(function () {
+          if (_this.$store.state.play.status.playing) {
+            document.getElementById('record').style.transition = 'none'
+            document.getElementById('record').style.webkitTransition = 'none'
+            document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+            document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+            setTimeout(function () {
+              document.getElementById('record').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+              document.getElementById('record').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
+              document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+              document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            }, 0)
+          } else {
+            document.getElementById('record').style.transition = 'none'
+            document.getElementById('record').style.webkitTransition = 'none'
+            document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+            document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          }
+        }, 0)
       },
       toPop () {
         this.$store.dispatch('togglePopList', true)
@@ -220,39 +237,44 @@
             document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
           }, 500)
         }
-        this.lyricList = {}
+        this.$store.dispatch('updateLyricList', {})
         if (!curr.data.songid) {
           return
         }
         try {
           let _this = this
           API.getLyric(curr.data.songid, function (response) {
-            let sss = Base64.decode(response.data.lyric)
+            let sss = response.showapi_res_body.lyric
+              .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
+              .replace(/&#10;/g, ' ').replace(/&#58;/g, ':').replace(/&#46;/g, '.')
+              .replace(/&#45;/g, '-').replace(/&#39;/g, '\'').replace(/&#13;/g, ' ')
             try {
               document.getElementById(this.currentLyric).classList.remove('current')
             } catch (e) {
             }
             _this.currentLyric = null
+            let lyricLi = {}
             sss.split('[').slice(5).map((item) => {
               let time = item.split(']')[0]
-              _this.lyricList[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
+              lyricLi[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
                 id: _this.current.data.songid.toString() + '_' + (parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1])),
                 time: time,
                 text: item.split(']')[1]
               }
             })
+            _this.$store.dispatch('updateLyricList', lyricLi)
           }, function (response) {
             console.log('获取歌词失败')
             let myArray = [0, 1, 2, 3, 4, 5, 6, 7]
             for (let item of myArray) {
               if (item === 7) {
-                _this.lyricList[item] = {
+                _this.$store.state.play.currentLyricList[item] = {
                   id: item,
                   time: item,
                   text: '暂无歌词'
                 }
               } else {
-                _this.lyricList[item] = {
+                _this.$store.state.play.currentLyricList[item] = {
                   id: item,
                   time: item,
                   text: ''
@@ -290,13 +312,13 @@
         } catch (e) {
 
         }
-        if (this.lyricList.hasOwnProperty(time) && id !== this.currentLyric) {
+        if (this.$store.state.play.currentLyricList.hasOwnProperty(time) && id !== this.currentLyric) {
           try {
             let ele = $('#lyricBox').find('.current')
             $('#lyricBox').animate({'scrollTop': $('#lyricBox').scrollTop() + ele.offset().top - $('#lyricBox').offset().top - this.$store.state.fontSize * 0.1 * 35 + 35}, 350)
           } catch (e) {
           }
-          if (Common.trim(this.lyricList[time].text).length !== 0) {
+          if (Common.trim(this.$store.state.play.currentLyricList[time].text).length !== 0) {
             try {
               document.getElementById(id).classList.add('current')
               document.getElementById(this.currentLyric).classList.remove('current')

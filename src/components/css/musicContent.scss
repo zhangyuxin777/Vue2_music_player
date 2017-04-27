@@ -91,6 +91,7 @@
     top: 0.9rem;
     width: 6.4rem;
     height: 0.45rem;
+    z-index: 1;
     .ic_voice {
       width: 0.4rem;
       height: 0.4rem;
@@ -138,11 +139,11 @@
     bottom: 2.3rem;
     width: $pageWidth;
     overflow: auto;
+    z-index: 1;
     .lyric-list {
       background: transparent;
       .item {
         background: transparent;
-        height: 0.5rem;
         line-height: 0.5rem;
         color: #bbb;
         text-align: center;
@@ -238,6 +239,7 @@
     bottom: 2.4rem;
     height: 1rem;
     width: $pageWidth;
+    z-index: 1;
     .like {
       position: absolute;
       height: 0.5rem;
@@ -418,6 +420,10 @@
 .op-show {
   //opacity: 1 !important;
   //z-index: 20 !important;
+}
+
+.op-hide {
+  opacity: 0;
 }
 
 .weixin-ios, .weixin-android {

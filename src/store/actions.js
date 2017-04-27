@@ -115,6 +115,14 @@ export const switchLyric = ({commit}) => {
   commit('SWITCH_LYRIC')
 }
 /**
+ * 切换是否显示歌词
+ * @param commit
+ * @param list
+ */
+export const updateLyricList = ({commit}, list) => {
+  commit('UPDATE_LYRIC_LIST', list)
+}
+/**
  * 切换显示歌曲信息
  * @param commit
  * @param obj
