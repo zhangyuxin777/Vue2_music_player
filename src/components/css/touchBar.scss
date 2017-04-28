@@ -4,38 +4,37 @@
   .con {
     width: 2rem;
     height: 2rem;
-    background: black;
-    opacity: 0.5;
+    background: rgba(0,0,0,0.6);
     position: absolute;
     top: -0.63rem;
     left: -0.63rem;
     border-radius: 0.1rem;
   }
   .sprites {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.6rem;
+    height: 0.6rem;
     overflow: hidden;
     box-sizing: border-box;
     @include getBackground('icon-list.png?v=20170427');
-    background-size: $spriteRem $spriteRem;
+    background-size: $spriteRem/5.0*6 $spriteRem/5.0*6;
   }
 
   .ic_search {
-    @include bgPosition($spriteSize, $spriteSize, 50, 50, 0, 0);
+    @include bgPosition($spriteSize, $spriteSize, 50, 50, 0, 300);
     float: left;
     margin-top: 0.26rem;
     margin-left: 0.2rem;
   }
   .ic_hide {
-    @include bgPosition($spriteSize, $spriteSize, 50, 50, 60, 0);
+    @include bgPosition($spriteSize, $spriteSize, 50, 50, 60, 300);
     float: right;
     margin-top: 0.26rem;
     margin-right: 0.2rem;
   }
   .ic_close {
-    @include bgPosition($spriteSize, $spriteSize, 50, 50, 120, 0);
+    @include bgPosition($spriteSize, $spriteSize, 50, 50, 120, 300);
     float: left;
-    margin-top: 0.31rem;
+    margin-top: 0.35rem;
     margin-left: 0.2rem;
   }
 }

@@ -9,7 +9,6 @@
     <play-bar></play-bar>
     <info-list></info-list>
     <play-list></play-list>
-    <touch-button></touch-button>
     <router-view></router-view>
     <audio id="player" autoplay="autoplay"
            :src="url"
@@ -27,7 +26,6 @@
   import playBar from './components/playBar'
   import infoList from './components/infoList'
   import playList from './components/playList'
-  import touchButton from './components/touchButton'
   import {mapState} from 'vuex'
   import $ from 'jquery'
   import storage from './js/storage'
@@ -39,8 +37,7 @@
     components: {
       playBar,
       playList,
-      infoList,
-      touchButton
+      infoList
     },
     computed: {
       ...mapState({

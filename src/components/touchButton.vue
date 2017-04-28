@@ -22,12 +22,28 @@
         lyricList: {},
         currentLyric: null,
         index: 0,
-        value: 0
+        value: 0,
+        count: 0,
+        handle: 0
       }
     },
     computed: {},
-    methods: {},
+    methods: {
+      startTimer () {
+        let _this = this
+        _this.handle = setInterval(function () {
+          _this.count += 1
+          console.log(_this.count)
+        }, 10)
+      },
+      stopTimer () {
+        clearInterval(this.handle)
+        this.count = 0
+      }
+
+    },
     mounted () {
+      let _this = this
       let posX
       let posY
       let screenWidth = document.documentElement.clientWidth
@@ -35,8 +51,8 @@
       let fdiv = document.getElementById('drager')
       fdiv.isMove = false
       fdiv.onmousedown = function (e) {
+        _this.startTimer()
         fdiv.isMove = true
-        console.log(fdiv.isMove)
         screenWidth = document.documentElement.clientWidth
         screenHeight = document.documentElement.clientHeight
         if (!e) {
@@ -70,6 +86,10 @@
           fdiv.isMove = false
           document.onmousemove = null
           fdiv.onmouseup = null
+          if (_this.count <= 10) {
+            console.log('click')
+          }
+          _this.stopTimer()
         }
         fdiv.addEventListener('mouseup', fdiv.onmouseup, false)
         window.onload = window.onresize = function () {
