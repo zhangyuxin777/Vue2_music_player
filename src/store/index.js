@@ -55,7 +55,14 @@ const state = {
   },
   search: {
     keyword: '',
-    page: 1
+    page: 1,
+    list: [],
+    zhida: {
+      pic: '',
+      singerName: '',
+      id: '',
+      mid: ''
+    }
   },
   count: 0,
   fontSize: 0,
@@ -260,8 +267,27 @@ const mutations = {
       state.list[obj.name].push(item)
     })
   },
+  SET_SEARCH_LIST (state, obj) {
+    state.search.list = obj.song.list
+    if (obj.zhida.hasOwnProperty('zhida_singer')) {
+      state.search.zhida.id = obj.zhida.zhida_singer.singerID
+      state.search.zhida.mid = obj.zhida.zhida_singer.singerMID
+      state.search.zhida.pic = '//y.gtimg.cn/music/photo_new/T001R150x150M000' + state.search.zhida.mid + '.jpg?max_age=2592000'
+      state.search.zhida.singerName = obj.zhida.zhida_singer.singerName
+    } else {
+      state.search.zhida.mid = ''
+    }
+  },
+  ADD_SEARCH_LIST (state, obj) {
+    obj.song.list.map(function (item) {
+      state.search.list.push(item)
+    })
+  },
   UPDATE_KEYWORD (state, keyword) {
     state.search.keyword = keyword
+  },
+  UPDATE_SEARCH_PAGE (state, page) {
+    state.search.page = page
   }
 }
 

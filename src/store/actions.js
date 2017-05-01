@@ -163,3 +163,19 @@ export const addMainList = ({commit}, obj) => {
   commit('ADD_MAIN_LIST', obj)
 }
 
+export const setSearchList = ({commit}, obj) => {
+  commit('SET_SEARCH_LIST', obj)
+}
+
+export const addSearchList = ({commit}, obj) => {
+  commit('ADD_SEARCH_LIST', obj)
+}
+
+export const updateKeyword = ({commit}, obj) => {
+  commit('UPDATE_KEYWORD', obj)
+}
+
+export const updateSearchPage = ({commit}, obj) => {
+  commit('UPDATE_SEARCH_PAGE', obj)
+}
+

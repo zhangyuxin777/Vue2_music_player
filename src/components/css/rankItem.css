@@ -66,8 +66,7 @@
     background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
     background-size: 5.76rem 5.76rem; }
   .rank-item .ic_more {
-    margin-top: 0.3rem;
-    margin-left: 0.1rem;
+    margin: 0.3rem 0.1rem;
     background-position: 35.73529% 0%; }
 
 .rank-item:active {

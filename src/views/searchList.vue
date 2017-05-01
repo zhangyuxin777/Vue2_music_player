@@ -28,24 +28,19 @@
           <span class="split-line"></span>
         </li>
       </ul>
-      <div class="position" :class="{hide : list.length <= 0}"></div>
+      <div style="clear: both"></div>
     </div>
   </transition>
 </template>
 <script type="text/ecmascript-6">
   import API from '../js/api'
+  import {mapState} from 'vuex'
+  import Common from '../js/rock'
   export default{
     data () {
       return {
-        infoList: [],
-        page: 1,
-        keyword: '',
-        zhida: {
-          pic: '',
-          singerName: '',
-          id: '',
-          mid: ''
-        }
+        isLoading: false,
+        keyword: ''
       }
     },
     methods: {
@@ -77,21 +72,12 @@
         if (_this.keyword.length === 0) {
           return
         }
-        _this.page = 1
-        API.search(_this.keyword, _this.page, function (response) {
-          console.log(response)
-          _this.infoList = response.data.data.song.list
-          if (response.data.data.zhida.hasOwnProperty('zhida_singer')) {
-            _this.zhida.id = response.data.data.zhida.zhida_singer.singerID
-            _this.zhida.mid = response.data.data.zhida.zhida_singer.singerMID
-            _this.zhida.pic = '//y.gtimg.cn/music/photo_new/T001R150x150M000' + _this.zhida.mid + '.jpg?max_age=2592000'
-            _this.zhida.singerName = response.data.data.zhida.zhida_singer.singerName
-          } else {
-            _this.zhida.mid = ''
-          }
-          _this.page += 1
+        this.$store.dispatch('updateKeyword', _this.keyword)
+        this.$store.dispatch('updateSearchPage', 1)
+        API.search(_this.keyword, _this.$store.state.search.page, function (response) {
+          _this.$store.dispatch('setSearchList', response.data.data)
+          _this.$store.dispatch('updateSearchPage', _this.$store.state.search.page + 1)
         })
-        console.log('search')
       },
       toSinger () {
         if (this.zhida.mid.length === 0) {
@@ -99,22 +85,44 @@
         }
         this.$router.push({
           name: 'singerContent',
-          query: {id: this.zhida.mid}
+          query: {id: this.$store.state.search.zhida.mid}
+        })
+      },
+      loadMore () {
+        let _this = this
+        console.log('loading search')
+        API.search(_this.$store.state.search.keyword, _this.$store.state.search.page, function (response) {
+          _this.$store.dispatch('addSearchList', response.data.data)
+          _this.$store.dispatch('updateSearchPage', _this.$store.state.search.page + 1)
+          _this.isLoading = false
         })
       }
     },
     computed: {
-      list () {
-        return this.infoList
-      }
+      ...mapState({
+        keyword: state => state.search.keyword,
+        page: state => state.search.page,
+        list: state => state.search.list,
+        zhida: state => state.search.zhida
+      })
     },
     beforeMount () {
       document.body.scrollTop = 0
     },
     mounted () {
+      this.keyword = this.$store.state.search.keyword
       this.$store.dispatch('updateTitle', '搜索')
       if (window.location.hash.indexOf('musicContent') < 0) {
         this.$store.dispatch('switchMusicContent', false)
+      }
+      let _this = this
+      window.onscroll = function () {
+        if (!_this.isLoading) {
+          if (Common.scroll.getScrollTop() + Common.scroll.getClientHeight() >= Common.scroll.getScrollHeight() - 10) {
+            _this.isLoading = true
+            _this.loadMore()
+          }
+        }
       }
     }
   }

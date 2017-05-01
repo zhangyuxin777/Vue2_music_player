@@ -130,8 +130,7 @@
       .ic_more {
         @include bgPosition($spriteSize, $spriteSize, 40, 40, 245, 0);
         float: right;
-        margin-top: 0.25rem;
-        margin-right: 0.15rem;
+        margin: 0.25rem 0.15rem;
       }
     }
   }

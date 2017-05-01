@@ -19,6 +19,7 @@
            @error="error"
            @stalled="stalled">
     </audio>
+    <div style="clear: both"></div>
   </div>
 </template>
 

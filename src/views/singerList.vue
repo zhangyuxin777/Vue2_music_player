@@ -52,9 +52,6 @@
           list: response.data.data.list
         })
       })
-      API.search('漂洋过海', function (response) {
-        console.log(response)
-      })
     },
     mounted () {
     }

@@ -81,8 +81,7 @@
     background-size: $spriteRem/5.0*4 $spriteRem/5.0*4;
   }
   .ic_more {
-    margin-top: 0.3rem;
-    margin-left: 0.1rem;
+    margin: 0.3rem 0.1rem;
     @include bgPosition($spriteSize, $spriteSize, 40, 40, 243, 0);
   }
 }
