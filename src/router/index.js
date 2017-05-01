@@ -8,6 +8,7 @@ import albumContent from '../views/albumContent'
 import dissContent from '../views/dissContent'
 import mvContent from '../views/mvContent'
 import musicContent from '../components/musicContent'
+import searchList from '../views/searchList'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +52,16 @@ export default new Router({
       path: '/musicContent',
       name: 'musicContent',
       component: musicContent
+    },
+    {
+      path: '/searchList',
+      name: 'search',
+      component: searchList
+    },
+    {
+      path: '/infoContent',
+      name: 'infoContent',
+      component: searchList
     }
   ]
 })

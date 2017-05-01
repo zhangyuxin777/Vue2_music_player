@@ -2,11 +2,47 @@
 
 .main {
   $hei: 0.8rem;
+  .title-bar {
+    height: $hei;
+    background: $mainColor;
+    position: fixed;
+    z-index: 18;
+    width: $pageWidth;
+    text-align: center;
+    .sprites {
+      width: 0.5rem;
+      height: 0.5rem;
+      overflow: hidden;
+      box-sizing: border-box;
+      @include getBackground('icon-list.png');
+      background-size: $spriteRem $spriteRem;
+      float: left;
+      margin-top: 0.15rem;
+      margin-left: 0.2rem;
+    }
+
+    .menu {
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 240, 59);
+    }
+    .search {
+      float: right;
+      margin-left: 0;
+      margin-right: 0.2rem;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 240, 59);
+    }
+    .title {
+      display: inline-block;
+      color: white;
+      height: 100%;
+      line-height: $hei;
+    }
+  }
   .tab {
     width: $pageWidth;
     height: $hei;
     position: fixed;
     background: white;
+    top: $hei;
     z-index: 18;
     .bar {
       height: 100%;
@@ -50,7 +86,7 @@
   }
   .content {
     position: absolute;
-    margin-top: $hei;
+    margin-top: 2*$hei;
     z-index: 5;
   }
 }

@@ -116,7 +116,7 @@ input:focus {
 .header {
   position: absolute;
   height: 0.7rem;
-  width: 100%;
+  width: 6.4rem;
   z-index: 5; }
   .header .back {
     width: 0.7rem;

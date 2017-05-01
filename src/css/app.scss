@@ -125,7 +125,7 @@ input:focus {
   $hei: 0.7rem;
   position: absolute;
   height: $hei;
-  width: 100%;
+  width: $pageWidth;
   z-index: 5;
   .back {
     width: $hei;

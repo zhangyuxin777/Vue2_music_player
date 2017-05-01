@@ -1,0 +1,138 @@
+@import "../../css/wl-common";
+
+.search-list {
+  $hei: 0.8rem;
+  position: relative;
+  z-index: 5;
+  background: $bgColor;
+  .title-bar {
+    height: $hei;
+    background: $mainColor;
+    position: fixed;
+    z-index: 18;
+    width: $pageWidth;
+    .back {
+      padding: 0;
+      height: 100%;
+      margin-right: 0.2rem;
+    }
+    .ic_back {
+      display: inline-block;
+      margin: 0.15rem 0.2rem;
+    }
+    .search-form {
+      display: inline-block;
+      height: 100%;
+      width: 5.3rem;
+      .search-input {
+        width: 100%;
+        margin-top: 0.13rem;
+        background: transparent;
+        font-size: 0.24rem;
+        color: rgba(255, 255, 255, 0.9);
+        height: 0.55rem;
+        border-bottom: 1px solid white;
+      }
+      input::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      input:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      input::-moz-placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      input:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+  .zhida {
+    $size: 0.8rem;
+    height: $size;
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    .pic {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+    .singer {
+      display: inline-block;
+      height: $size;
+      line-height: $size;
+      font-size: 0.26rem;
+      color: #909090;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-left: 0.2rem;
+      .name {
+        color: #519af2;
+        display: inline-block;
+      }
+    }
+  }
+  .list {
+    position: absolute;
+    background: $bgColor;
+    margin-top: $hei;
+    padding-bottom: 1.4rem;
+    .item {
+      $size: 0.9rem;
+      height: $size;
+      .split-line {
+        width: 5.5rem;
+        margin-left: $size;
+      }
+      .i-content {
+        height: $size;
+        width: 4.8rem;
+        float: left;
+        padding-right: 0.1rem;
+        margin-left: 0.2rem;
+        .songname {
+          height: 0.5rem;
+          line-height: 0.65rem;
+          color: black;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+
+        }
+        .singername {
+          height: 0.4rem;
+          line-height: 0.3rem;
+          font-size: 0.2rem;
+          color: #909090;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+      .red {
+        color: red;
+      }
+      .sprites {
+        width: 0.4rem;
+        height: 0.4rem;
+        overflow: hidden;
+        box-sizing: border-box;
+        @include getBackground('icon-list.png');
+        background-size: $spriteRem/5*4 $spriteRem/5*4;
+        float: left;
+      }
+      .ic_menu {
+        @include bgPosition($spriteSize, $spriteSize, 40, 40, 305, 0);
+        margin-top: 0.25rem;
+        margin-left: 0.25rem;
+      }
+      .ic_more {
+        @include bgPosition($spriteSize, $spriteSize, 40, 40, 245, 0);
+        float: right;
+        margin-top: 0.25rem;
+        margin-right: 0.15rem;
+      }
+    }
+  }
+}

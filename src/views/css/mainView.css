@@ -1,8 +1,38 @@
+.main .title-bar {
+  height: 0.8rem;
+  background: #e61624;
+  position: fixed;
+  z-index: 18;
+  width: 6.4rem;
+  text-align: center; }
+  .main .title-bar .sprites {
+    width: 0.5rem;
+    height: 0.5rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
+    background-size: 7.2rem 7.2rem;
+    float: left;
+    margin-top: 0.15rem;
+    margin-left: 0.2rem; }
+  .main .title-bar .menu {
+    background-position: 35.8209% 8.80597%; }
+  .main .title-bar .search {
+    float: right;
+    margin-left: 0;
+    margin-right: 0.2rem;
+    background-position: 35.8209% 8.80597%; }
+  .main .title-bar .title {
+    display: inline-block;
+    color: white;
+    height: 100%;
+    line-height: 0.8rem; }
 .main .tab {
   width: 6.4rem;
   height: 0.8rem;
   position: fixed;
   background: white;
+  top: 0.8rem;
   z-index: 18; }
   .main .tab .bar {
     height: 100%;
@@ -39,7 +69,7 @@
     transform-origin: 50% 100%; }
 .main .content {
   position: absolute;
-  margin-top: 0.8rem;
+  margin-top: 1.6rem;
   z-index: 5; }
 
 /*# sourceMappingURL=mainView.css.map */

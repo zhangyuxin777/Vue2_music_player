@@ -80,7 +80,8 @@
         lyricList: {},
         currentLyric: null,
         index: 0,
-        value: 0
+        value: 0,
+        lastLyricId: ''
       }
     },
     computed: {
@@ -221,6 +222,49 @@
       }, 300)
       this.$store.dispatch('switchMusicContent', true)
       this.$store.dispatch('updateTitle', this.$store.state.play.current.data.songname + '-' + this.$store.state.play.current.data.singer[0].name)
+      if (_this.lastLyricId === this.$store.state.play.current.data.songid) {
+        return
+      }
+      console.log('获取歌词')
+      API.getLyric(this.$store.state.play.current.data.songid, function (response) {
+        let sss = response.showapi_res_body.lyric
+          .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
+          .replace(/&#10;/g, ' ').replace(/&#58;/g, ':').replace(/&#46;/g, '.')
+          .replace(/&#45;/g, '-').replace(/&#39;/g, '\'').replace(/&#13;/g, ' ')
+        try {
+          document.getElementById(this.currentLyric).classList.remove('current')
+        } catch (e) {
+        }
+        _this.currentLyric = null
+        let lyricLi = {}
+        sss.split('[').slice(5).map((item) => {
+          let time = item.split(']')[0]
+          lyricLi[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
+            id: _this.current.data.songid.toString() + '_' + (parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1])),
+            time: time,
+            text: item.split(']')[1]
+          }
+        })
+        _this.$store.dispatch('updateLyricList', lyricLi)
+      }, function (response) {
+        console.log('获取歌词失败')
+        let myArray = [0, 1, 2, 3, 4, 5, 6, 7]
+        for (let item of myArray) {
+          if (item === 7) {
+            _this.$store.state.play.currentLyricList[item] = {
+              id: item,
+              time: item,
+              text: '暂无歌词'
+            }
+          } else {
+            _this.$store.state.play.currentLyricList[item] = {
+              id: item,
+              time: item,
+              text: ''
+            }
+          }
+        }
+      })
     },
     watch: {
       current (curr) {
@@ -238,11 +282,13 @@
           }, 500)
         }
         this.$store.dispatch('updateLyricList', {})
+
         if (!curr.data.songid) {
           return
         }
         try {
           let _this = this
+          _this.lastLyricId = curr.data.songid
           API.getLyric(curr.data.songid, function (response) {
             let sss = response.showapi_res_body.lyric
               .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')

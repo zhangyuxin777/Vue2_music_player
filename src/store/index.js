@@ -54,7 +54,8 @@ const state = {
     mv: []
   },
   search: {
-    keyword: ''
+    keyword: '',
+    page: 1
   },
   count: 0,
   fontSize: 0,

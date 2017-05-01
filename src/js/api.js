@@ -411,7 +411,7 @@ export default {
     });
   },
 
-  search (word, callback, error) {
+  search (word, page, callback, error) {
     request('https://c.y.qq.com/soso/fcgi-bin/client_search_cp', {
       params: {
         ct: 24,
@@ -422,7 +422,7 @@ export default {
         catZhida: 1,
         lossless: 0,
         flag_qc: 0,
-        p: 1,
+        p: page,
         n: 20,
         w: word,
         g_tk: 5381,
@@ -437,6 +437,6 @@ export default {
       },
       jsonp: 'jsonpCallback'
     }, callback, error);
-  },
+  }
 }
 

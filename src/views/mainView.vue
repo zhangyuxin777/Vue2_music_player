@@ -5,6 +5,11 @@
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="main">
+      <div class="title-bar">
+        <span class="sprites menu"></span>
+        <span class="title">musicPlayer</span>
+        <span class="sprites search" @click="toSearch"></span>
+      </div>
       <div class="tab">
         <div class="bar" :class="{'active-bar':barStatus === 0}" @click="switchBar(0)">推荐</div>
         <div class="bar" :class="{'active-bar':barStatus === 1}" @click="switchBar(1)">歌手</div>
@@ -44,7 +49,8 @@
           2: 0,
           3: 1,
           4: 2,
-          5: 1
+          5: 1,
+          6: 1
         }
       }
     },
@@ -63,6 +69,11 @@
     methods: {
       switchBar (barStatus) {
         this.$store.dispatch('switchBar', barStatus)
+      },
+      toSearch () {
+        this.$router.push({
+          name: 'search'
+        })
       },
       loadMore () {
         let _this = this

@@ -1,0 +1,110 @@
+.search-list {
+  position: relative;
+  z-index: 5;
+  background: #f0f4f3; }
+  .search-list .title-bar {
+    height: 0.8rem;
+    background: #e61624;
+    position: fixed;
+    z-index: 18;
+    width: 6.4rem; }
+    .search-list .title-bar .back {
+      padding: 0;
+      height: 100%;
+      margin-right: 0.2rem; }
+    .search-list .title-bar .ic_back {
+      display: inline-block;
+      margin: 0.15rem 0.2rem; }
+    .search-list .title-bar .search-form {
+      display: inline-block;
+      height: 100%;
+      width: 5.3rem; }
+      .search-list .title-bar .search-form .search-input {
+        width: 100%;
+        margin-top: 0.13rem;
+        background: transparent;
+        font-size: 0.24rem;
+        color: rgba(255, 255, 255, 0.9);
+        height: 0.55rem;
+        border-bottom: 1px solid white; }
+      .search-list .title-bar .search-form input::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.6); }
+      .search-list .title-bar .search-form input:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.6); }
+      .search-list .title-bar .search-form input::-moz-placeholder {
+        color: rgba(255, 255, 255, 0.6); }
+      .search-list .title-bar .search-form input:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.6); }
+  .search-list .zhida {
+    height: 0.8rem;
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem; }
+    .search-list .zhida .pic {
+      width: 0.8rem;
+      height: 0.8rem; }
+    .search-list .zhida .singer {
+      display: inline-block;
+      height: 0.8rem;
+      line-height: 0.8rem;
+      font-size: 0.26rem;
+      color: #909090;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-left: 0.2rem; }
+      .search-list .zhida .singer .name {
+        color: #519af2;
+        display: inline-block; }
+  .search-list .list {
+    position: absolute;
+    background: #f0f4f3;
+    margin-top: 0.8rem;
+    padding-bottom: 1.4rem; }
+    .search-list .list .item {
+      height: 0.9rem; }
+      .search-list .list .item .split-line {
+        width: 5.5rem;
+        margin-left: 0.9rem; }
+      .search-list .list .item .i-content {
+        height: 0.9rem;
+        width: 4.8rem;
+        float: left;
+        padding-right: 0.1rem;
+        margin-left: 0.2rem; }
+        .search-list .list .item .i-content .songname {
+          height: 0.5rem;
+          line-height: 0.65rem;
+          color: black;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+        .search-list .list .item .i-content .singername {
+          height: 0.4rem;
+          line-height: 0.3rem;
+          font-size: 0.2rem;
+          color: #909090;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+      .search-list .list .item .red {
+        color: red; }
+      .search-list .list .item .sprites {
+        width: 0.4rem;
+        height: 0.4rem;
+        overflow: hidden;
+        box-sizing: border-box;
+        background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
+        background-size: 5.76rem 5.76rem;
+        float: left; }
+      .search-list .list .item .ic_menu {
+        background-position: 44.85294% 0%;
+        margin-top: 0.25rem;
+        margin-left: 0.25rem; }
+      .search-list .list .item .ic_more {
+        background-position: 36.02941% 0%;
+        float: right;
+        margin-top: 0.25rem;
+        margin-right: 0.15rem; }
+
+/*# sourceMappingURL=searchList.css.map */
