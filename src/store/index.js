@@ -278,6 +278,43 @@ const mutations = {
       state.search.zhida.mid = ''
     }
   },
+  ADD_NEXT (state, song) {
+    let list = state.play.list
+    let index = 0
+    let isExist = false
+    let isExistPlay = false
+    // 循环是否存在改歌曲
+    for (let item of list) {
+      if (item.data.songid === song.data.songid) {
+        isExist = true
+        break
+      }
+      index += 1
+    }
+    // 存在就删除
+    if (isExist) {
+      list.splice(index, 1)
+    }
+    index = 0
+    // 循环当前播放位置
+    for (let item of list) {
+      if (item.data.songid === state.play.current.data.songid) {
+        isExistPlay = true
+        break
+      }
+      index += 1
+    }
+    // 插入到当前歌曲的下一首
+    if (isExistPlay) {
+      list.splice(index + 1, 0, song)
+    } else {
+      // 列表为空 则直接播放
+      state.play.status.rotate = false
+      state.play.list.push(song)
+      state.play.current = song
+      state.play.status.playing = true
+    }
+  },
   ADD_SEARCH_LIST (state, obj) {
     obj.song.list.map(function (item) {
       state.search.list.push(item)
@@ -288,6 +325,16 @@ const mutations = {
   },
   UPDATE_SEARCH_PAGE (state, page) {
     state.search.page = page
+  },
+  CLEAN_SEARCH (state) {
+    state.search.list = []
+    state.search.page = 1
+    state.search.zhida = {
+      pic: '',
+      singerName: '',
+      id: '',
+      mid: ''
+    }
   }
 }
 

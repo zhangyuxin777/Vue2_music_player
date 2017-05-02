@@ -150,6 +150,7 @@
       switchLyric () {
         let _this = this
         this.$store.dispatch('switchLyric')
+        // 隐藏歌词 显示动画时的动画状态同步
         setTimeout(function () {
           if (_this.$store.state.play.status.playing) {
             document.getElementById('record').style.transition = 'none'
@@ -201,7 +202,11 @@
     },
     mounted () {
       let _this = this
+      _this.$store.dispatch('switchMusicContent', true)
+      _this.$store.dispatch('updateTitle', _this.$store.state.play.current.data.songname + '-' + _this.$store.state.play.current.data.singer[0].name)
+      // 动画的延迟生效
       setTimeout(function () {
+        // 播放状态下
         if (_this.$store.state.play.status.playing) {
           document.getElementById('record').style.transition = 'none'
           document.getElementById('record').style.webkitTransition = 'none'
@@ -220,11 +225,13 @@
           document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
         }
       }, 300)
-      this.$store.dispatch('switchMusicContent', true)
-      this.$store.dispatch('updateTitle', this.$store.state.play.current.data.songname + '-' + this.$store.state.play.current.data.singer[0].name)
-      if (_this.lastLyricId === this.$store.state.play.current.data.songid) {
+      _this.lastLyricId = sessionStorage.getItem('lastLyricId')
+      // 不是同一首歌不是同一首歌才加载歌词
+      if (parseInt(_this.lastLyricId) === parseInt(_this.$store.state.play.current.data.songid)) {
         return
       }
+      _this.lastLyricId = _this.$store.state.play.current.data.songid
+      sessionStorage.setItem('lastLyricId', _this.lastLyricId)
       console.log('获取歌词')
       API.getLyric(this.$store.state.play.current.data.songid, function (response) {
         let sss = response.showapi_res_body.lyric
@@ -269,6 +276,7 @@
     watch: {
       current (curr) {
         let _this = this
+        // 切换歌曲 动画的延迟生效
         if (_this.$store.state.play.status.playing) {
           document.getElementById('record').style.transition = 'none'
           document.getElementById('record').style.webkitTransition = 'none'
@@ -289,6 +297,7 @@
         try {
           let _this = this
           _this.lastLyricId = curr.data.songid
+          sessionStorage.setItem('lastLyricId', _this.lastLyricId)
           API.getLyric(curr.data.songid, function (response) {
             let sss = response.showapi_res_body.lyric
               .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
@@ -337,6 +346,7 @@
         if (!document.getElementById('record')) {
           return
         }
+        // 状态改变时  更改动画状态
         if (playing) {
           document.getElementById('record').style.transition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
           document.getElementById('record').style.webkitTransition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'

@@ -5,13 +5,13 @@
 <template>
   <div>
     <div class="box-bg" :class="{'bg-pop':pop}" @click="toDown"></div>
-    <div class="info-pop-box" :class="{'play-pop':pop,'info-min-size':isMusicContent}">
+    <div class="info-pop-box" :class="{'play-pop':pop,'info-min-size':isMusicContent,'info-sec-size':isCurrent}">
       <div class="title-box">
         <div class="title left">歌曲：</div>
         <div class="songname">{{current.data.songname}}</div>
       </div>
       <ul class="list">
-        <li class="info-item" v-show="!isMusicContent">
+        <li class="info-item" v-show="!isMusicContent&&!isCurrent" @click="toAddNext">
           <div class="sprites ic_next"></div>
           <div class="con">下一首播放</div>
         </li>
@@ -52,6 +52,10 @@
     methods: {
       toDown () {
         this.$store.dispatch('switchInfo', null)
+      },
+      toAddNext () {
+        this.$store.dispatch('switchInfo', null)
+        this.$store.dispatch('addNext', this.$store.state.play.info.current)
       },
       toSinger (id) {
         if (window.location.hash.indexOf('singerContent') >= 0) {

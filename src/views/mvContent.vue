@@ -2,7 +2,7 @@
   @import "css/mvContent.css";
 </style>
 <template>
-  <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
+  <transition name="custom-classes-transition" enter-active-class="animated fadeInRight"
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="mv-content">
       <div class="header">

@@ -68,6 +68,17 @@
     },
     methods: {
       switchBar (barStatus) {
+//        switch (this.$store.state.barStatus) {
+//          case 1:
+//            sessionStorage.setItem('singerListScrollTop', document.body.scrollTop)
+//            break
+//          case 3:
+//            sessionStorage.setItem('albumListScrollTop', document.body.scrollTop)
+//            break
+//          case 5:
+//            sessionStorage.setItem('mvListScrollTop', document.body.scrollTop)
+//            break
+//        }
         this.$store.dispatch('switchBar', barStatus)
       },
       toSearch () {

@@ -131,6 +131,14 @@ export const switchInfo = ({commit}, obj) => {
   commit('SWITCH_INFO', obj)
 }
 /**
+ * 下一首播放
+ * @param commit
+ * @param obj
+ */
+export const addNext = ({commit}, obj) => {
+  commit('ADD_NEXT', obj)
+}
+/**
  * 重新开始或停止动画
  * @param commit
  * @param isRotate
@@ -173,6 +181,10 @@ export const addSearchList = ({commit}, obj) => {
 
 export const updateKeyword = ({commit}, obj) => {
   commit('UPDATE_KEYWORD', obj)
+}
+
+export const cleanSearch = ({commit}) => {
+  commit('CLEAN_SEARCH')
 }
 
 export const updateSearchPage = ({commit}, obj) => {

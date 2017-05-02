@@ -24,14 +24,17 @@
       display: inline-block;
       height: 100%;
       width: 5.3rem;
+      .split-line {
+        background: white;
+        height: 0.02rem;
+      }
       .search-input {
-        width: 100%;
+        width: 4.8rem;
         margin-top: 0.13rem;
         background: transparent;
         font-size: 0.24rem;
         color: rgba(255, 255, 255, 0.9);
         height: 0.55rem;
-        border-bottom: 1px solid white;
       }
       input::-webkit-input-placeholder {
         color: rgba(255, 255, 255, 0.6);
@@ -113,25 +116,32 @@
       .red {
         color: red;
       }
-      .sprites {
-        width: 0.4rem;
-        height: 0.4rem;
-        overflow: hidden;
-        box-sizing: border-box;
-        @include getBackground('icon-list.png');
-        background-size: $spriteRem/5*4 $spriteRem/5*4;
-        float: left;
-      }
-      .ic_menu {
-        @include bgPosition($spriteSize, $spriteSize, 40, 40, 305, 0);
-        margin-top: 0.25rem;
-        margin-left: 0.25rem;
-      }
-      .ic_more {
-        @include bgPosition($spriteSize, $spriteSize, 40, 40, 245, 0);
-        float: right;
-        margin: 0.25rem 0.15rem;
-      }
     }
+  }
+  .sprites {
+    width: 0.4rem;
+    height: 0.4rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    @include getBackground('icon-list.png?v=201705021127');
+    background-size: $spriteRem/5*4 $spriteRem/5*4;
+    float: left;
+  }
+  .ic_menu {
+    @include bgPosition($spriteSize, $spriteSize, 40, 40, 305, 0);
+    margin-top: 0.25rem;
+    margin-left: 0.25rem;
+  }
+  .ic_more {
+    @include bgPosition($spriteSize, $spriteSize, 40, 40, 245, 0);
+    float: right;
+    margin: 0.25rem 0.15rem;
+  }
+  .ic_close {
+    display: inline-block;
+    float: right;
+    margin-top: 0.17rem;
+    margin-bottom: 0.13rem;
+    @include bgPosition($spriteSize, $spriteSize, 50, 50, 0, 300);
   }
 }

@@ -54,6 +54,9 @@
   background: rgba(0, 0, 0, 0.2);
   height: 100%; }
 
+.info-sec-size {
+  height: 4.01rem; }
+
 .info-min-size {
   height: 3.21rem; }
 

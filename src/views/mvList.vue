@@ -36,9 +36,6 @@
           name: 'mvContent',
           query: {id: id}
         })
-      },
-      picUrl (item) {
-//        return '//y.gtimg.cn/music/photo_new/T002R300x300M000' + item.album_mid + '.jpg?max_age=2592000'
       }
     },
     computed: {

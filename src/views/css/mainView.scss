@@ -9,12 +9,13 @@
     z-index: 18;
     width: $pageWidth;
     text-align: center;
+    top:0;
     .sprites {
       width: 0.5rem;
       height: 0.5rem;
       overflow: hidden;
       box-sizing: border-box;
-      @include getBackground('icon-list.png');
+      @include getBackground('icon-list.png?v=201705021112');
       background-size: $spriteRem $spriteRem;
       float: left;
       margin-top: 0.15rem;
@@ -22,13 +23,13 @@
     }
 
     .menu {
-      @include bgPosition($spriteSize, $spriteSize, 50, 50, 240, 59);
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 182, 300);
     }
     .search {
       float: right;
       margin-left: 0;
       margin-right: 0.2rem;
-      @include bgPosition($spriteSize, $spriteSize, 50, 50, 240, 59);
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 60, 300);
     }
     .title {
       display: inline-block;

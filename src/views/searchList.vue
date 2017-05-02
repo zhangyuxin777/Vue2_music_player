@@ -2,7 +2,7 @@
   @import "css/searchList.css";
 </style>
 <template>
-  <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
+  <transition name="custom-classes-transition" enter-active-class="animated fadeInRight"
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="search-list">
       <div class="header title-bar">
@@ -11,6 +11,8 @@
         </div>
         <form action="javascrpit:void(0)" @submit.prevent="search" class="search-form">
           <input class="search-input" v-model="keyword" type="text" placeholder="搜索音乐/歌手" autocomplete="off">
+          <span class="sprites ic_close" @click="toClean"></span>
+          <span class="split-line"></span>
         </form>
       </div>
       <ul class="list">
@@ -40,7 +42,8 @@
     data () {
       return {
         isLoading: false,
-        keyword: ''
+        keyword: '',
+        isCleaning: false
       }
     },
     methods: {
@@ -96,6 +99,15 @@
           _this.$store.dispatch('updateSearchPage', _this.$store.state.search.page + 1)
           _this.isLoading = false
         })
+      },
+      toClean () {
+        let _this = this
+        _this.keyword = ''
+        _this.$store.dispatch('cleanSearch')
+        _this.isCleaning = true
+        setTimeout(function () {
+          _this.isCleaning = false
+        }, 1000)
       }
     },
     computed: {
@@ -117,7 +129,7 @@
       }
       let _this = this
       window.onscroll = function () {
-        if (!_this.isLoading) {
+        if (!_this.isLoading && !_this.isCleaning) {
           if (Common.scroll.getScrollTop() + Common.scroll.getClientHeight() >= Common.scroll.getScrollHeight() - 10) {
             _this.isLoading = true
             _this.loadMore()

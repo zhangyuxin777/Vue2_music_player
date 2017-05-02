@@ -19,14 +19,16 @@
       display: inline-block;
       height: 100%;
       width: 5.3rem; }
+      .search-list .title-bar .search-form .split-line {
+        background: white;
+        height: 0.02rem; }
       .search-list .title-bar .search-form .search-input {
-        width: 100%;
+        width: 4.8rem;
         margin-top: 0.13rem;
         background: transparent;
         font-size: 0.24rem;
         color: rgba(255, 255, 255, 0.9);
-        height: 0.55rem;
-        border-bottom: 1px solid white; }
+        height: 0.55rem; }
       .search-list .title-bar .search-form input::-webkit-input-placeholder {
         color: rgba(255, 255, 255, 0.6); }
       .search-list .title-bar .search-form input:-moz-placeholder {
@@ -89,21 +91,27 @@
           text-overflow: ellipsis; }
       .search-list .list .item .red {
         color: red; }
-      .search-list .list .item .sprites {
-        width: 0.4rem;
-        height: 0.4rem;
-        overflow: hidden;
-        box-sizing: border-box;
-        background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png") 0 0 no-repeat;
-        background-size: 5.76rem 5.76rem;
-        float: left; }
-      .search-list .list .item .ic_menu {
-        background-position: 44.85294% 0%;
-        margin-top: 0.25rem;
-        margin-left: 0.25rem; }
-      .search-list .list .item .ic_more {
-        background-position: 36.02941% 0%;
-        float: right;
-        margin: 0.25rem 0.15rem; }
+  .search-list .sprites {
+    width: 0.4rem;
+    height: 0.4rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201705021127") 0 0 no-repeat;
+    background-size: 5.76rem 5.76rem;
+    float: left; }
+  .search-list .ic_menu {
+    background-position: 44.85294% 0%;
+    margin-top: 0.25rem;
+    margin-left: 0.25rem; }
+  .search-list .ic_more {
+    background-position: 36.02941% 0%;
+    float: right;
+    margin: 0.25rem 0.15rem; }
+  .search-list .ic_close {
+    display: inline-block;
+    float: right;
+    margin-top: 0.17rem;
+    margin-bottom: 0.13rem;
+    background-position: 0% 44.77612%; }
 
 /*# sourceMappingURL=searchList.css.map */
