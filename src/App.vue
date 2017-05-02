@@ -103,7 +103,8 @@
         playList: storage.getL('playList'),
         playCurrent: storage.getL('playCurrent'),
         playStatus: storage.getL('playStatus'),
-        likeList: storage.getL('likeList')
+        likeList: storage.getL('likeList'),
+        myDissList: storage.getL('myDissList')
       })
       if (window.location.hash.indexOf('musicContent') < 0) {
         this.$store.dispatch('switchMusicContent', false)

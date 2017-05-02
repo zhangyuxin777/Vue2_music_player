@@ -233,6 +233,9 @@
       _this.lastLyricId = _this.$store.state.play.current.data.songid
       sessionStorage.setItem('lastLyricId', _this.lastLyricId)
       console.log('获取歌词')
+      if (!this.$store.state.play.current.data.songid) {
+        return
+      }
       API.getLyric(this.$store.state.play.current.data.songid, function (response) {
         let sss = response.showapi_res_body.lyric
           .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')

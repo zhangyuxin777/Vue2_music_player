@@ -5,8 +5,11 @@
   position: absolute;
   width: 6.4rem;
   margin-top: $tabHei;
+  .place {
+    margin-top: 0.3rem;
+  }
   .title {
-    margin: 0.3rem 0.2rem 0 0.2rem;
+    margin: 0 0.2rem 0 0.2rem;
     height: 0.3rem;
     line-height: 0.3rem;
     font-size: 0.27rem;
@@ -96,6 +99,13 @@
         height: 0.8rem;
         overflow: hidden;
         font-size: 0.2rem;
+      }
+    }
+    .other {
+      height: 3.4rem;
+      margin: 0 0.03rem 0.1rem 0.1rem;
+      .singer {
+        height: 0.3rem;
       }
     }
   }

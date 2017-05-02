@@ -48,6 +48,9 @@ const state = {
   like: {
     list: []
   },
+  myDiss: {
+    list: []
+  },
   list: {
     singer: [],
     album: [],
@@ -74,7 +77,8 @@ const mutations = {
     obj.playList ? state.play.list = obj.playList : ''
     obj.playCurrent ? state.play.current = obj.playCurrent : ''
     obj.playStatus ? state.play.status = obj.playStatus : ''
-    obj.likeList ? state.like.list = obj.likeList : ''
+    obj.likeList ? state.like.list = obj.likeList : []
+    obj.myDissList ? state.myDiss.list = obj.myDissList : []
     if (obj.playStatus) {
       state.play.status.autoPlay = false
       state.play.status.playing = false
@@ -313,6 +317,18 @@ const mutations = {
       state.play.list.push(song)
       state.play.current = song
       state.play.status.playing = true
+    }
+  },
+  ADD_MYDISS (state, song) {
+    let isExist = false
+    for (let item of state.myDiss.list) {
+      if (item.data.songid === song.data.songid) {
+        isExist = true
+        break
+      }
+    }
+    if (!isExist) {
+      state.myDiss.list.push(song)
     }
   },
   ADD_SEARCH_LIST (state, obj) {

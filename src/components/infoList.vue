@@ -15,7 +15,7 @@
           <div class="sprites ic_next"></div>
           <div class="con">下一首播放</div>
         </li>
-        <li class="info-item">
+        <li class="info-item" @click="toAddMyDiss">
           <div class="sprites ic_add"></div>
           <div class="con">收藏到歌单</div>
         </li>
@@ -37,6 +37,7 @@
 </template>
 <script>
   import {mapState} from 'vuex'
+  import storage from '../js/storage'
   export default{
     computed: {
       ...mapState({
@@ -47,6 +48,14 @@
       }),
       isCurrent () {
         return this.$store.state.play.info.current.data.songid === this.$store.state.play.current.data.songid
+      },
+      inMyDiss () {
+        for (let item of this.$store.state.myDiss.list) {
+          if (item.data.songid === this.$store.play.info.current.data.songid) {
+            return true
+          }
+        }
+        return false
       }
     },
     methods: {
@@ -56,6 +65,11 @@
       toAddNext () {
         this.$store.dispatch('switchInfo', null)
         this.$store.dispatch('addNext', this.$store.state.play.info.current)
+      },
+      toAddMyDiss () {
+        this.$store.dispatch('switchInfo', null)
+        this.$store.dispatch('addMyDiss', this.$store.state.play.info.current)
+        storage.setL('myDissList', this.$store.state.myDiss.list)
       },
       toSinger (id) {
         if (window.location.hash.indexOf('singerContent') >= 0) {

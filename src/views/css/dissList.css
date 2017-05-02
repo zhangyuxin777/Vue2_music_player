@@ -3,8 +3,10 @@
   position: absolute;
   width: 6.4rem;
   margin-top: 0.03rem; }
+  .diss-list .place {
+    margin-top: 0.3rem; }
   .diss-list .title {
-    margin: 0.3rem 0.2rem 0 0.2rem;
+    margin: 0 0.2rem 0 0.2rem;
     height: 0.3rem;
     line-height: 0.3rem;
     font-size: 0.27rem;
@@ -81,5 +83,10 @@
         height: 0.8rem;
         overflow: hidden;
         font-size: 0.2rem; }
+    .diss-list .list .other {
+      height: 3.4rem;
+      margin: 0 0.03rem 0.1rem 0.1rem; }
+      .diss-list .list .other .singer {
+        height: 0.3rem; }
 
 /*# sourceMappingURL=dissList.css.map */

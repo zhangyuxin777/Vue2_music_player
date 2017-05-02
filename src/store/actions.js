@@ -139,6 +139,14 @@ export const addNext = ({commit}, obj) => {
   commit('ADD_NEXT', obj)
 }
 /**
+ * 添加到我的歌单
+ * @param commit
+ * @param obj
+ */
+export const addMyDiss = ({commit}, obj) => {
+  commit('ADD_MYDISS', obj)
+}
+/**
  * 重新开始或停止动画
  * @param commit
  * @param isRotate
