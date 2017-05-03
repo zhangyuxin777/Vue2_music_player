@@ -9,7 +9,7 @@
       <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="toContent(item.id)">
           <div class="picture">
-            <img :src="item.picUrl"/>
+            <img :src="item.picUrl.replace(/http/g, 'https')"/>
             <div class="listen_box">
               <span class="listen_count">{{(item.listenCount/10000).toFixed(0)}}万</span>
               <span class="sprites ic_listen"></span>
