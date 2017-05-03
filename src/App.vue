@@ -56,7 +56,7 @@
         volume: state => state.play.status.volume,
         url: state => {
           if (state.play.current.data && state.play.current.data.songid) {
-            return 'https://ws.stream.qqmusic.qq.com/' + state.play.current.data.songid + '.m4a?fromtag=46'
+            return 'http://ws.stream.qqmusic.qq.com/' + state.play.current.data.songid + '.m4a?fromtag=46'
           }
         }
       })
