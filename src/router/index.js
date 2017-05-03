@@ -6,6 +6,7 @@ import rankContent from '../views/rankContent'
 import singerContent from '../views/singerContent'
 import albumContent from '../views/albumContent'
 import dissContent from '../views/dissContent'
+import myDissContent from '../views/myDissContent'
 import mvContent from '../views/mvContent'
 import musicContent from '../components/musicContent'
 import searchList from '../views/searchList'
@@ -42,6 +43,11 @@ export default new Router({
       path: '/dissContent',
       name: 'dissContent',
       component: dissContent
+    },
+    {
+      path: '/myDissContent',
+      name: 'myDissContent',
+      component: myDissContent
     },
     {
       path: '/mvContent',

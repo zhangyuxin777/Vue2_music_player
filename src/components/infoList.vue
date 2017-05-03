@@ -4,8 +4,8 @@
 
 <template>
   <div>
-    <div class="box-bg" :class="{'bg-pop':pop}" @click="toDown"></div>
-    <div class="info-pop-box" :class="{'play-pop':pop,'info-min-size':isMusicContent,'info-sec-size':isCurrent}">
+    <div class="box-bg" :class="{'bg-pop':pop}" @click="toHide"></div>
+    <div class="info-pop-box" :class="{'play-pop':pop}">
       <div class="title-box">
         <div class="title left">歌曲：</div>
         <div class="songname">{{current.data.songname}}</div>
@@ -19,7 +19,7 @@
           <div class="sprites ic_add"></div>
           <div class="con">收藏到歌单</div>
         </li>
-        <li class="info-item" v-show="!isMusicContent">
+        <li class="info-item" v-show="!isMusicContent" @click="toDownload">
           <div class="sprites ic_download"></div>
           <div class="con">下载</div>
         </li>
@@ -32,35 +32,46 @@
           <div class="con">专辑：{{current.data.albumname}}</div>
         </li>
       </ul>
+      <a id="download" :href="url" download="music.mp3"></a>
     </div>
   </div>
 </template>
 <script>
   import {mapState} from 'vuex'
   import storage from '../js/storage'
+  import Common from '../js/rock'
+  import mui from '../js/mui.all'
   export default{
     computed: {
       ...mapState({
         list: state => state.play.list,
         pop: state => state.play.info.show,
         current: state => state.play.info.current,
-        isMusicContent: state => state.play.info.isMusicContent
+        isMusicContent: state => state.play.info.isMusicContent,
+        url: state => {
+          if (state.play.info.current.data.songid) {
+            return 'http://ws.stream.qqmusic.qq.com/' + state.play.info.current.data.songid + '.m4a?fromtag=46'
+          }
+        }
       }),
       isCurrent () {
         return this.$store.state.play.info.current.data.songid === this.$store.state.play.current.data.songid
-      },
-      inMyDiss () {
-        for (let item of this.$store.state.myDiss.list) {
-          if (item.data.songid === this.$store.play.info.current.data.songid) {
-            return true
-          }
-        }
-        return false
       }
     },
     methods: {
-      toDown () {
+      toHide () {
         this.$store.dispatch('switchInfo', null)
+      },
+      toDownload () {
+        let _this = this
+        if (Common.system().android) {
+          document.getElementById('download').click()
+        } else if (Common.system().ios) {
+          mui.alert('ios系统不支持下载', function () {
+            _this.$store.dispatch('switchInfo', null)
+          })
+        }
+        event.stopPropagation()
       },
       toAddNext () {
         this.$store.dispatch('switchInfo', null)

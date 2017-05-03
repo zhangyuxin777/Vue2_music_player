@@ -8,14 +8,14 @@
       <div class="place"></div>
       <div class="title"  v-show="likeList.length > 0 || myDissList.length > 0">我的歌单</div>
       <ul class="list">
-        <li class="item other" v-show="likeList.length>0">
+        <li class="item other" v-show="likeList.length>0" @click="toMyDiss(0)">
           <div class="pic">
             <img :src="likePic"/>
             <div class="float-div"></div>
           </div>
           <div class="singer">我喜欢的音乐</div>
         </li>
-        <li class="item other" v-show="myDissList.length>0">
+        <li class="item other" v-show="myDissList.length>0" @click="toMyDiss(1)">
           <div class="pic">
             <img :src="myDissPic"/>
             <div class="float-div"></div>
@@ -62,6 +62,13 @@
         sessionStorage.setItem('dissListScrollTop', document.body.scrollTop)
         this.$router.push({
           name: 'dissContent',
+          query: {id: id}
+        })
+      },
+      toMyDiss (id) {
+        sessionStorage.setItem('dissListScrollTop', document.body.scrollTop)
+        this.$router.push({
+          name: 'myDissContent',
           query: {id: id}
         })
       }
