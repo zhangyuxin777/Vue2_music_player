@@ -86,7 +86,7 @@ $btnRadius: 0.08rem;
 }
 
 //path
-$imgPath: 'https://on7hxaasw.bkt.clouddn.com/';
+$imgPath: 'https//on7hxaasw.bkt.clouddn.com/';
 
 @mixin getBackground($src) {
   $src: $imgPath+$src;
