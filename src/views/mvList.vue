@@ -8,7 +8,7 @@
       <div class="title">全部MV</div>
       <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="toContent(item.vid)">
-          <img :src="item.picurl"/>
+          <img :src="item.picurl.replace(/http/g, 'https')"/>
           <div class="album-name">{{item.mvtitle.split('(')[0]}}</div>
           <div class="singer">{{item.singername}}</div>
         </li>

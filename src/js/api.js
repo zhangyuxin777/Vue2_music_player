@@ -39,7 +39,7 @@ export default {
    * 排行榜列表
    */
   rankList (callback, error) {
-    request('http://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg', {
+    request('https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg', {
       params: {
         g_tk: 5381,
         uin: 0,
