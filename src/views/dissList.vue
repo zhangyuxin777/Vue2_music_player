@@ -27,7 +27,7 @@
       <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="toContent(item.dissid)">
           <div class="pic">
-            <img :src="item.imgurl"/>
+            <img :src="item.imgurl.replace(/http/g, 'https')"/>
             <div class="float-div"></div>
             <div class="listen_box">
               <span class="listen_count">{{item.listennum}}</span>

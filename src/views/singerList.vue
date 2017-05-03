@@ -36,7 +36,7 @@
         })
       },
       picUrl (item) {
-        return '//y.gtimg.cn/music/photo_new/T001R150x150M000' + item.Fsinger_mid + '.jpg?max_age=2592000'
+        return 'https://y.gtimg.cn/music/photo_new/T001R150x150M000' + item.Fsinger_mid + '.jpg?max_age=2592000'
       }
     },
     computed: {
