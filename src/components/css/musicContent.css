@@ -147,14 +147,14 @@
       position: absolute;
       width: 4.96rem;
       height: 4.96rem;
-      background: transparent url("https://on7hxaasw.bkt.clouddn.com/disc.png") 0 0 no-repeat;
+      background: transparent url("http://on7hxaasw.bkt.clouddn.com/disc.png") 0 0 no-repeat;
       background-size: 4.96rem 4.96rem;
       z-index: 1; }
   .music-content .cd-box .needle {
     position: absolute;
     width: 1.42rem;
     height: 2.24rem;
-    background: transparent url("https://on7hxaasw.bkt.clouddn.com/needle_1.png") 0 0 no-repeat;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/needle_1.png") 0 0 no-repeat;
     background-size: 1.42rem 2.24rem;
     z-index: 4;
     top: 1.08rem;
@@ -171,7 +171,7 @@
     left: 3.03rem;
     width: 0.48rem;
     height: 0.22rem;
-    background: transparent url("https://on7hxaasw.bkt.clouddn.com/needle_2.png") 0 0 no-repeat;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/needle_2.png") 0 0 no-repeat;
     background-size: 0.48rem 0.22rem;
     z-index: 5; }
   .music-content .cd-box .needle_play {
@@ -338,7 +338,7 @@
   .music-content .sprites {
     overflow: hidden;
     box-sizing: border-box;
-    background: transparent url("https://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201704261523") 0 0 no-repeat; }
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201704261523") 0 0 no-repeat; }
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .music-content .header:after {
       -webkit-transform: scaleY(0.33);
