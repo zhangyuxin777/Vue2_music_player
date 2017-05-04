@@ -22,13 +22,14 @@
     $wid: 2.9rem;
     .item {
       position: relative;
-      height: 3.5rem;
+      height: 3.7rem;
       width: $wid;
       display: inline-block;
-      margin: 0 0.1rem 0.2rem 0.1rem;
+      margin: 0 0.1rem 0 0.1rem;
       background: $bgColor;
       .pic {
-        position: relative;
+        position: absolute;
+        top: 0;
         width: $wid;
         height: $wid;
         img {
@@ -94,7 +95,9 @@
         }
       }
 
-      .singer {
+      .dissname {
+        position: absolute;
+        top: $wid;
         width: $wid;
         height: 0.8rem;
         overflow: hidden;

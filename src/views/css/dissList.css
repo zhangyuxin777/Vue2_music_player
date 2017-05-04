@@ -17,13 +17,14 @@
     background: #f0f4f3; }
     .diss-list .list .item {
       position: relative;
-      height: 3.5rem;
+      height: 3.7rem;
       width: 2.9rem;
       display: inline-block;
-      margin: 0 0.1rem 0.2rem 0.1rem;
+      margin: 0 0.1rem 0 0.1rem;
       background: #f0f4f3; }
       .diss-list .list .item .pic {
-        position: relative;
+        position: absolute;
+        top: 0;
         width: 2.9rem;
         height: 2.9rem; }
         .diss-list .list .item .pic img {
@@ -78,7 +79,9 @@
           background-position: 90% 0%;
           margin-top: 0.05rem;
           float: left; }
-      .diss-list .list .item .singer {
+      .diss-list .list .item .dissname {
+        position: absolute;
+        top: 2.9rem;
         width: 2.9rem;
         height: 0.8rem;
         overflow: hidden;

@@ -23,18 +23,23 @@
       width: 2.9rem;
       background: #f0f4f3; }
       .album-list .list .item img {
+        position: absolute;
         height: 2.9rem;
         width: 2.9rem; }
-      .album-list .list .item .album-name {
-        width: 2.9rem;
-        max-height: 0.62rem;
-        text-align: center;
-        font-size: 0.24rem;
-        overflow: hidden; }
-      .album-list .list .item .singer {
-        width: 2.9rem;
-        text-align: center;
-        font-size: 0.2rem;
-        color: #aaa; }
+      .album-list .list .item .info {
+        position: absolute;
+        top: 2.9rem; }
+        .album-list .list .item .info .album-name {
+          width: 2.9rem;
+          max-height: 0.62rem;
+          text-align: center;
+          font-size: 0.24rem;
+          overflow: hidden; }
+        .album-list .list .item .info .singer {
+          width: 2.9rem;
+          text-align: center;
+          font-size: 0.2rem;
+          color: #aaa;
+          overflow: hidden; }
 
 /*# sourceMappingURL=albumList.css.map */

@@ -227,15 +227,15 @@
       }, 300)
       _this.lastLyricId = sessionStorage.getItem('lastLyricId')
       // 不是同一首歌不是同一首歌才加载歌词
-      if (parseInt(_this.lastLyricId) === parseInt(_this.$store.state.play.current.data.songid)) {
+      if (parseInt(_this.lastLyricId) === parseInt(_this.$store.state.play.current.data.songid) && document.getElementById('lyricList').children.length > 0) {
         return
       }
       _this.lastLyricId = _this.$store.state.play.current.data.songid
       sessionStorage.setItem('lastLyricId', _this.lastLyricId)
-      console.log('获取歌词')
       if (!this.$store.state.play.current.data.songid) {
         return
       }
+      console.log('获取歌词 mounted')
       API.getLyric(this.$store.state.play.current.data.songid, function (response) {
         let sss = response.showapi_res_body.lyric
           .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
@@ -293,7 +293,6 @@
           }, 500)
         }
         this.$store.dispatch('updateLyricList', {})
-
         if (!curr.data.songid) {
           return
         }
@@ -301,6 +300,7 @@
           let _this = this
           _this.lastLyricId = curr.data.songid
           sessionStorage.setItem('lastLyricId', _this.lastLyricId)
+          console.log('获取歌词 watch')
           API.getLyric(curr.data.songid, function (response) {
             let sss = response.showapi_res_body.lyric
               .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
