@@ -43,7 +43,7 @@
         </li>
       </ul>
       <ul class="album-list" v-show="getBarStatus === 1">
-        <li v-for="(item,index) in getAlbumList" class="item"  @click="toAlbum(item.albumMID)" track-by="item.albumMID">
+        <li v-for="(item,index) in getAlbumList" class="item" @click="toAlbum(item.albumMID)" track-by="item.albumMID">
           <div class="i-title">
             <img class="pic" :src="getAlbumImg(item.albumMID)" alt="">
           </div>
@@ -173,12 +173,14 @@
       API.mvListBySinger(this.$route.query.id, function (response) {
         _this.mvList = response.data.data.list
       })
-      document.body.scrollTop = 0
     },
     mounted () {
       if (window.location.hash.indexOf('musicContent') < 0) {
         this.$store.dispatch('switchMusicContent', false)
       }
+      setTimeout(function () {
+        document.body.scrollTop = 0
+      }, 500)
     },
     watch: {
       getId (id) {

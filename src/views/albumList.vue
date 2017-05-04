@@ -9,8 +9,10 @@
       <ul class="list">
         <li v-for="(item,index) in list" class="item" @click="toContent(item.album_mid)">
           <img :src="picUrl(item)"/>
-          <div class="album-name">{{item.album_name}}</div>
-          <div class="singer">{{item.singer_name}}</div>
+          <div class="info">
+            <div class="album-name">{{item.album_name}}</div>
+            <div class="singer">{{item.singer_name}}</div>
+          </div>
         </li>
       </ul>
       <div class="position"></div>
@@ -19,7 +21,6 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
-  import API from '../js/api'
   import {mapState} from 'vuex'
   export default{
     data () {
@@ -44,15 +45,6 @@
     computed: {
       ...mapState({
         list: state => state.list.album
-      })
-    },
-    beforeMount () {
-      let _this = this
-      API.albumList(_this.page, function (response) {
-        _this.$store.dispatch('addMainList', {
-          name: 'album',
-          list: response.data.data.albumlist
-        })
       })
     },
     mounted () {

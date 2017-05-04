@@ -19,7 +19,6 @@
   </transition>
 </template>
 <script type="text/ecmascript-6">
-  import API from '../js/api'
   import {mapState} from 'vuex'
   export default{
     data () {
@@ -41,15 +40,6 @@
     computed: {
       ...mapState({
         list: state => state.list.mv
-      })
-    },
-    beforeMount () {
-      let _this = this
-      API.mvList(_this.page, function (response) {
-        _this.$store.dispatch('addMainList', {
-          name: 'mv',
-          list: response.data.data.mvlist
-        })
       })
     },
     mounted () {

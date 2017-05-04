@@ -38,13 +38,13 @@
   .main .tab .bar {
     height: 100%;
     line-height: 0.8rem;
-    width: 1.06rem;
+    width: 1.27rem;
     text-align: center;
     font-size: 0.24rem;
     float: left;
     color: #606060; }
   .main .tab .bar:first-child, .main .tab .bar:last-child {
-    width: 1.08rem; }
+    width: 1.28rem; }
   .main .tab .bar:after {
     content: '';
     height: 0.03rem;

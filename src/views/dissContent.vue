@@ -19,7 +19,7 @@
         <div class="float-div"></div>
         <div class="info">
           <img :src="getBanner" class="album-pic" alt="">
-          <img src="https://on7hxaasw.bkt.clouddn.com/album_cover.png" class="album-back" alt="">
+          <img src="http://on7hxaasw.bkt.clouddn.com/album_cover.png" class="album-back" alt="">
           <div class="detail">
             <div class="album-name">{{getDissName}}</div>
             <div class="singer"><span class="sprites ic_poster"></span> {{getPosterName}}</div>

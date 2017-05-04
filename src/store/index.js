@@ -69,7 +69,7 @@ const state = {
   },
   count: 0,
   fontSize: 0,
-  barStatus: 0
+  barStatus: 2
 }
 
 const mutations = {

@@ -27,21 +27,27 @@
       width: $wid;
       background: $bgColor;
       img {
+        position: absolute;
         height: $wid;
         width: $wid;
       }
-      .album-name{
-        width: $wid;
-        max-height: 0.62rem;
-        text-align: center;
-        font-size: 0.24rem;
-        overflow: hidden;
-      }
-      .singer {
-        width: $wid;
-        text-align: center;
-        font-size: 0.2rem;
-        color: #aaa;
+      .info {
+        position: absolute;
+        top: $wid;
+        .album-name {
+          width: $wid;
+          max-height: 0.62rem;
+          text-align: center;
+          font-size: 0.24rem;
+          overflow: hidden;
+        }
+        .singer {
+          width: $wid;
+          text-align: center;
+          font-size: 0.2rem;
+          color: #aaa;
+          overflow: hidden;
+        }
       }
     }
   }

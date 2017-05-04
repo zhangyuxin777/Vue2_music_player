@@ -13,14 +13,14 @@
             <img :src="likePic"/>
             <div class="float-div"></div>
           </div>
-          <div class="singer">我喜欢的音乐</div>
+          <div class="dissname">我喜欢的音乐</div>
         </li>
         <li class="item other" v-show="myDissList.length>0" @click="toMyDiss(1)">
           <div class="pic">
             <img :src="myDissPic"/>
             <div class="float-div"></div>
           </div>
-          <div class="singer">新建歌单</div>
+          <div class="dissname">新建歌单</div>
         </li>
       </ul>
       <div class="title">热门歌单</div>
@@ -38,7 +38,7 @@
               <span class="poster">{{item.author}}</span>
             </div>
           </div>
-          <div class="singer">{{item.dissname}}</div>
+          <div class="dissname">{{item.dissname}}</div>
         </li>
       </ul>
       <div class="position"></div>
