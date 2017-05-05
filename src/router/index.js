@@ -10,6 +10,7 @@ import myDissContent from '../views/myDissContent'
 import mvContent from '../views/mvContent'
 import musicContent from '../components/musicContent'
 import searchList from '../views/searchList'
+import myInfo from '../views/myInfo.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -65,9 +66,9 @@ export default new Router({
       component: searchList
     },
     {
-      path: '/infoContent',
-      name: 'infoContent',
-      component: searchList
+      path: '/myInfo',
+      name: 'myInfo',
+      component: myInfo
     }
   ]
 })

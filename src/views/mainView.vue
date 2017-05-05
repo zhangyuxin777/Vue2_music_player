@@ -6,7 +6,7 @@
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="main">
       <div class="title-bar">
-        <span class="sprites menu"></span>
+        <span class="sprites menu" @click="toInfo"></span>
         <span class="title">musicPlayer</span>
         <span class="sprites search" @click="toSearch"></span>
       </div>
@@ -74,7 +74,6 @@
     methods: {
       switchBar (barStatus) {
         let _this = this
-        console.log('from: ' + this.$store.state.barStatus)
         switch (_this.$store.state.barStatus) {
           case 1:
             sessionStorage.setItem('singerListScrollTop', document.body.scrollTop)
@@ -128,6 +127,11 @@
       toSearch () {
         this.$router.push({
           name: 'search'
+        })
+      },
+      toInfo () {
+        this.$router.push({
+          name: 'myInfo'
         })
       },
       loadMore () {

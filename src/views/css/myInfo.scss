@@ -1,0 +1,73 @@
+@import "../../css/wl-common";
+
+.my-info {
+  position: absolute;
+  top: 0;
+  width: $pageWidth;
+  .header-box {
+    width: $pageWidth;
+    display: inline-block;
+    .header {
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      margin-top: 0.5rem;
+      margin-left: 0.2rem;
+      display: inline-block;
+    }
+    .ul {
+      display: inline-block;
+      width: 4.5rem;
+      margin-left: 1.9rem;
+      .info-item:first-child :after {
+        @include split-line();
+        color: $bgColor;
+        background: $pageWidth;
+        clear: both;
+      }
+    }
+  }
+  .list {
+    position: relative;
+    padding-left: 0.2rem;
+    padding-bottom: 0.02rem;
+    width: $pageWidth;
+    overflow: auto;
+    background: transparent;
+    .info-item {
+      height: 0.8rem;
+      width: 100%;
+      .i-title {
+        display: inline-block;
+        width: 1rem;
+        height: 100%;
+        line-height: 0.8rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
+      }
+      .i-con {
+        display: inline-block;
+        width: 3rem;
+        height: 100%;
+        font-size: 0.24rem;
+        line-height: 0.8rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
+      }
+    }
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    .info-item:after {
+      @include split-line-rate($line-R3);
+    }
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .info-item:after {
+      @include split-line-rate($line-R2);
+    }
+  }
+}

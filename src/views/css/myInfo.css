@@ -1,0 +1,66 @@
+.my-info {
+  position: absolute;
+  top: 0;
+  width: 6.4rem; }
+  .my-info .header-box {
+    width: 6.4rem;
+    display: inline-block; }
+    .my-info .header-box .header {
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      margin-top: 0.5rem;
+      margin-left: 0.2rem;
+      display: inline-block; }
+    .my-info .header-box .ul {
+      display: inline-block;
+      width: 4.5rem;
+      margin-left: 1.9rem; }
+      .my-info .header-box .ul .info-item:first-child :after {
+        content: '';
+        height: 1px;
+        width: 100%;
+        background-color: #d7d7d7;
+        display: block;
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+        color: #f0f4f3;
+        background: 6.4rem;
+        clear: both; }
+  .my-info .list {
+    position: relative;
+    padding-left: 0.2rem;
+    padding-bottom: 0.02rem;
+    width: 6.4rem;
+    overflow: auto;
+    background: transparent; }
+    .my-info .list .info-item {
+      height: 0.8rem;
+      width: 100%; }
+      .my-info .list .info-item .i-title {
+        display: inline-block;
+        width: 1rem;
+        height: 100%;
+        line-height: 0.8rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left; }
+      .my-info .list .info-item .i-con {
+        display: inline-block;
+        width: 3rem;
+        height: 100%;
+        font-size: 0.24rem;
+        line-height: 0.8rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    .my-info .info-item:after {
+      -webkit-transform: scaleY(0.33);
+      transform: scaleY(0.33); } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .my-info .info-item:after {
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5); } }
+
+/*# sourceMappingURL=myInfo.css.map */

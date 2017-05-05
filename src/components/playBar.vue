@@ -71,18 +71,18 @@
           document.getElementById('album').style.transition = 'none'
           document.getElementById('album').style.webkitTransition = 'none'
           document.getElementById('album').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
-          document.getElementById('album').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
           setTimeout(function () {
             document.getElementById('album').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
             document.getElementById('album').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
             document.getElementById('album').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
-            document.getElementById('album').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            document.getElementById('album').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
           }, 300)
         } else {
           document.getElementById('album').style.transition = 'none'
           document.getElementById('album').style.webkitTransition = 'none'
           document.getElementById('album').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
-          document.getElementById('album').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
         }
       }, 300)
       if (window.location.hash.indexOf('musicContent') >= 0) {
@@ -98,12 +98,12 @@
           document.getElementById('album').style.transition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
           document.getElementById('album').style.webkitTransition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
           document.getElementById('album').style.transform = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
-          document.getElementById('album').style.webkitTransition = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransform = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
         } else {
           document.getElementById('album').style.transition = 'none'
           document.getElementById('album').style.webkitTransition = 'none'
           document.getElementById('album').style.transform = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
-          document.getElementById('album').style.webkitTransition = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('album').style.webkitTransform = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
         }
       },
       current () {
@@ -112,12 +112,12 @@
           document.getElementById('album').style.transition = 'none'
           document.getElementById('album').style.webkitTransition = 'none'
           document.getElementById('album').style.transform = 'rotate(0deg)'
-          document.getElementById('album').style.webkitTransition = 'rotate(0deg)'
+          document.getElementById('album').style.webkitTransform = 'rotate(0deg)'
           setTimeout(function () {
             document.getElementById('album').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
             document.getElementById('album').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
             document.getElementById('album').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
-            document.getElementById('album').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            document.getElementById('album').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
           }, 500)
         }
       }

@@ -156,18 +156,18 @@
             document.getElementById('record').style.transition = 'none'
             document.getElementById('record').style.webkitTransition = 'none'
             document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
-            document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+            document.getElementById('record').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
             setTimeout(function () {
               document.getElementById('record').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
               document.getElementById('record').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
               document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
-              document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+              document.getElementById('record').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
             }, 0)
           } else {
             document.getElementById('record').style.transition = 'none'
             document.getElementById('record').style.webkitTransition = 'none'
             document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
-            document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+            document.getElementById('record').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
           }
         }, 0)
       },
@@ -211,18 +211,18 @@
           document.getElementById('record').style.transition = 'none'
           document.getElementById('record').style.webkitTransition = 'none'
           document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
-          document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('record').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
           setTimeout(function () {
             document.getElementById('record').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
             document.getElementById('record').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
             document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
-            document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            document.getElementById('record').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
           }, 300)
         } else {
           document.getElementById('record').style.transition = 'none'
           document.getElementById('record').style.webkitTransition = 'none'
           document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
-          document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('record').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.position * 5 + 'deg)'
         }
       }, 300)
       _this.lastLyricId = sessionStorage.getItem('lastLyricId')
@@ -284,12 +284,12 @@
           document.getElementById('record').style.transition = 'none'
           document.getElementById('record').style.webkitTransition = 'none'
           document.getElementById('record').style.transform = 'rotate(0deg)'
-          document.getElementById('record').style.webkitTransition = 'rotate(0deg)'
+          document.getElementById('record').style.webkitTransform = 'rotate(0deg)'
           setTimeout(function () {
             document.getElementById('record').style.transition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
             document.getElementById('record').style.webkitTransition = 'all ' + (_this.$store.state.play.status.total - _this.$store.state.play.status.position) + 's linear'
             document.getElementById('record').style.transform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
-            document.getElementById('record').style.webkitTransition = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
+            document.getElementById('record').style.webkitTransform = 'rotate(' + _this.$store.state.play.status.total * 5 + 'deg)'
           }, 500)
         }
         this.$store.dispatch('updateLyricList', {})
@@ -354,12 +354,12 @@
           document.getElementById('record').style.transition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
           document.getElementById('record').style.webkitTransition = 'all ' + (this.$store.state.play.status.total - this.$store.state.play.status.position) + 's linear'
           document.getElementById('record').style.transform = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
-          document.getElementById('record').style.webkitTransition = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
+          document.getElementById('record').style.webkitTransform = 'rotate(' + this.$store.state.play.status.total * 5 + 'deg)'
         } else {
           document.getElementById('record').style.transition = 'none'
           document.getElementById('record').style.webkitTransition = 'none'
           document.getElementById('record').style.transform = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
-          document.getElementById('record').style.webkitTransition = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
+          document.getElementById('record').style.webkitTransform = 'rotate(' + this.$store.state.play.status.position * 5 + 'deg)'
         }
       },
       progress (pro) {
