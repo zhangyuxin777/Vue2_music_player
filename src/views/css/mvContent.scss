@@ -1,6 +1,8 @@
 @import "../../css/wl-common";
 
 .mv-content {
+  position: absolute;
+  top: 0;
   background: $bgColor;
   .video-box {
     width: $pageWidth;

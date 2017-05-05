@@ -1,4 +1,6 @@
 .mv-content {
+  position: absolute;
+  top: 0;
   background: #f0f4f3; }
   .mv-content .video-box {
     width: 6.4rem;

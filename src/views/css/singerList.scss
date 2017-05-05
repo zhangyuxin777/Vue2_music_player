@@ -2,11 +2,11 @@
 
 .singer-list {
   background: $bgColor;
-  position: absolute;
+  position: relative;
   width: 6.4rem;
-  margin-top: $tabHei;
+  padding-top: 0.3rem;
   .title {
-    margin: 0.3rem 0.2rem 0 0.2rem;
+    margin: 0 0.2rem 0 0.2rem;
     height: 0.3rem;
     line-height: 0.3rem;
     font-size: 0.27rem;

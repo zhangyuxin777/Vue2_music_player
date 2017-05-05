@@ -1,10 +1,10 @@
 .singer-list {
   background: #f0f4f3;
-  position: absolute;
+  position: relative;
   width: 6.4rem;
-  margin-top: 0.03rem; }
+  padding-top: 0.3rem; }
   .singer-list .title {
-    margin: 0.3rem 0.2rem 0 0.2rem;
+    margin: 0 0.2rem 0 0.2rem;
     height: 0.3rem;
     line-height: 0.3rem;
     font-size: 0.27rem;

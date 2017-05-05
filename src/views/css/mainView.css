@@ -69,8 +69,8 @@
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%; }
 .main .content {
-  position: absolute;
-  margin-top: 1.6rem;
+  position: relative;
+  padding-top: 1.6rem;
   z-index: 5; }
 
 /*# sourceMappingURL=mainView.css.map */
