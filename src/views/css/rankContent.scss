@@ -1,7 +1,8 @@
 @import "../../css/wl-common";
 
 .rank-content {
-  position: relative;
+  position: absolute;
+  top: 0;
   z-index: 5;
   background: $bgColor;
   .sprites {

@@ -18,7 +18,7 @@
         <div class="bar" :class="{'active-bar':barStatus === 5}" @click="switchBar(5)">MV</div>
         <span style="clear: both"></span>
       </div>
-      <div class="content">
+      <div class="content" id="mainContent">
         <singerList :class="{'hide':barStatus !== 1}"></singerList>
         <rankList :class="{'hide':barStatus !== 2}"></rankList>
         <albumList :class="{'hide':barStatus !== 3}"></albumList>
@@ -115,7 +115,10 @@
         if (scrollTopBefore > scrollTopAfter) {
           document.body.scrollTop = scrollTopAfter
         } else {
-          $('body').animate({scrollTop: scrollTopAfter + 'px'}, 500)
+          document.getElementById('mainContent').style.opacity = 0
+          $('body').animate({scrollTop: scrollTopAfter + 'px'}, 100, 'linear', function () {
+            document.getElementById('mainContent').style.opacity = 1
+          })
         }
         _this.isSwitching = true
         setTimeout(function () {

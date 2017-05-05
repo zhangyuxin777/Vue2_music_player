@@ -1,5 +1,6 @@
 .rank-content {
-  position: relative;
+  position: absolute;
+  top: 0;
   z-index: 5;
   background: #f0f4f3; }
   .rank-content .sprites {

@@ -9,7 +9,7 @@
     z-index: 18;
     width: $pageWidth;
     text-align: center;
-    top:0;
+    top: 0;
     .sprites {
       width: 0.5rem;
       height: 0.5rem;
@@ -86,8 +86,8 @@
     }
   }
   .content {
-    position: absolute;
-    margin-top: 2*$hei;
+    position: relative;
+    padding-top: 2*$hei;
     z-index: 5;
   }
 }
