@@ -93,7 +93,7 @@
       },
       loadMore () {
         let _this = this
-        console.log('loading search')
+        console.log('loading search page:' + _this.$store.state.search.page)
         API.search(_this.$store.state.search.keyword, _this.$store.state.search.page, function (response) {
           _this.$store.dispatch('addSearchList', response.data.data)
           _this.$store.dispatch('updateSearchPage', _this.$store.state.search.page + 1)
