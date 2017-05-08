@@ -6,7 +6,7 @@
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="my-info">
       <div class="title-bar">
-        <span class="sprites ic_back"></span>
+        <span class="sprites ic_back" @click="back"></span>
         <span class="title">我</span>
         <span class="sprites search"></span>
       </div>
@@ -16,7 +16,6 @@
       <!--alt="" class="header">-->
       <!--<ul class="list ul"></ul>-->
       <!--</div>-->
-      <span class="split-line"></span>
       <ul class="list">
         <li class="info-item">
           <div class="i-title">作者</div>
@@ -29,16 +28,16 @@
           <span class="split-line"></span>
         </li>
         <li class="info-item">
-          <div class="i-title">qq</div>
+          <div class="i-title">QQ</div>
           <div class="i-con">976490170</div>
           <span class="split-line"></span>
         </li>
         <li class="info-item">
-          <div class="i-title">我的博客</div>
+          <div class="i-title">博客</div>
           <span class="split-line"></span>
         </li>
         <li class="info-item">
-          <div class="i-title">我的简历</div>
+          <div class="i-title">简历</div>
           <span class="split-line"></span>
         </li>
       </ul>

@@ -15,12 +15,14 @@
       height: 0.5rem;
       overflow: hidden;
       box-sizing: border-box;
-      background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201705021113") 0 0 no-repeat;
+      background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201705021112") 0 0 no-repeat;
       background-size: 7.2rem 7.2rem;
       float: left;
       margin-top: 0.15rem;
       margin-left: 0.2rem; }
     .my-info .title-bar .ic_back {
+      background-size: 6.48rem 6.48rem;
+      background-position: 72.08955% -0.74627%;
       display: inline-block;
       margin: 0.15rem 0.2rem; }
     .my-info .title-bar .search {
@@ -63,7 +65,8 @@
     padding-bottom: 0.02rem;
     width: 6.4rem;
     overflow: auto;
-    background: transparent; }
+    background: transparent;
+    margin-top: 0.8rem; }
     .my-info .list .info-item {
       height: 0.8rem;
       width: 100%; }

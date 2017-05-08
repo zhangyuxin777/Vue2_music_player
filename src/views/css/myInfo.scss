@@ -18,14 +18,15 @@
       height: 0.5rem;
       overflow: hidden;
       box-sizing: border-box;
-      @include getBackground('icon-list.png?v=201705021113');
+      @include getBackground('icon-list.png?v=201705021112');
       background-size: $spriteRem $spriteRem;
       float: left;
       margin-top: 0.15rem;
       margin-left: 0.2rem;
     }
-
     .ic_back {
+      background-size: $spriteRem/5*4.5 $spriteRem/5*4.5;
+      @include bgPosition($spriteSize, $spriteSize, 50, 50, 483, -5);
       display: inline-block;
       margin: 0.15rem 0.2rem;
     }
@@ -71,6 +72,7 @@
     width: $pageWidth;
     overflow: auto;
     background: transparent;
+    margin-top: $hei;
     .info-item {
       height: 0.8rem;
       width: 100%;
