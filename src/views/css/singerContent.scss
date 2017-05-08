@@ -7,6 +7,7 @@
   z-index: 20;
   background: $bgColor;
   width: $pageWidth;
+  box-shadow: 0 0 0.15rem #888;
   .sprites {
     overflow: hidden;
     box-sizing: border-box;
@@ -15,7 +16,7 @@
   .banner {
     position: relative;
     height: 4rem;
-    .float-div{
+    .float-div {
       position: absolute;
       width: 100%;
       height: 100%;

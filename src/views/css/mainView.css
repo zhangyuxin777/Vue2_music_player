@@ -1,76 +1,78 @@
-.main .title-bar {
-  height: 0.8rem;
-  background: #e61624;
-  position: fixed;
-  z-index: 18;
-  width: 6.4rem;
-  text-align: center;
-  top: 0; }
-  .main .title-bar .sprites {
-    width: 0.5rem;
-    height: 0.5rem;
-    overflow: hidden;
-    box-sizing: border-box;
-    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201705021112") 0 0 no-repeat;
-    background-size: 7.2rem 7.2rem;
-    float: left;
-    margin-top: 0.15rem;
-    margin-left: 0.2rem; }
-  .main .title-bar .menu {
-    background-position: 27.16418% 44.77612%; }
-  .main .title-bar .search {
-    float: right;
-    margin-left: 0;
-    margin-right: 0.2rem;
-    background-position: 8.95522% 44.77612%; }
-  .main .title-bar .title {
-    display: inline-block;
-    color: white;
-    height: 100%;
-    line-height: 0.8rem; }
-.main .tab {
-  width: 6.4rem;
-  height: 0.8rem;
-  position: fixed;
-  background: white;
-  top: 0.8rem;
-  z-index: 18; }
-  .main .tab .bar {
-    height: 100%;
-    line-height: 0.8rem;
-    width: 1.27rem;
+.main {
+  box-shadow: 0 0 0.15rem #888; }
+  .main .title-bar {
+    height: 0.8rem;
+    background: #e61624;
+    position: fixed;
+    z-index: 18;
+    width: 6.4rem;
     text-align: center;
-    font-size: 0.24rem;
-    float: left;
-    color: #606060; }
-  .main .tab .bar:first-child, .main .tab .bar:last-child {
-    width: 1.28rem; }
-  .main .tab .bar:after {
-    content: '';
-    height: 0.03rem;
-    width: 100%;
-    background-color: #d7d7d7;
-    display: block;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-    background: -webkit-linear-gradient(white, white);
-    background: -moz-linear-gradient(white, white);
-    background: linear-gradient(white, white); }
-  .main .tab .active-bar {
-    color: #e61624; }
-  .main .tab .active-bar:after {
-    content: '';
-    height: 0.03rem;
-    width: 100%;
-    background: -webkit-linear-gradient(#e61624, #e61624);
-    background: -moz-linear-gradient(#e61624, #e61624);
-    background: linear-gradient(#e61624, #e61624);
-    display: block;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%; }
-.main .content {
-  position: relative;
-  padding-top: 1.6rem;
-  z-index: 5; }
+    top: 0; }
+    .main .title-bar .sprites {
+      width: 0.5rem;
+      height: 0.5rem;
+      overflow: hidden;
+      box-sizing: border-box;
+      background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=201705021112") 0 0 no-repeat;
+      background-size: 7.2rem 7.2rem;
+      float: left;
+      margin-top: 0.15rem;
+      margin-left: 0.2rem; }
+    .main .title-bar .menu {
+      background-position: 27.16418% 44.77612%; }
+    .main .title-bar .search {
+      float: right;
+      margin-left: 0;
+      margin-right: 0.2rem;
+      background-position: 8.95522% 44.77612%; }
+    .main .title-bar .title {
+      display: inline-block;
+      color: white;
+      height: 100%;
+      line-height: 0.8rem; }
+  .main .tab {
+    width: 6.4rem;
+    height: 0.8rem;
+    position: fixed;
+    background: white;
+    top: 0.8rem;
+    z-index: 18; }
+    .main .tab .bar {
+      height: 100%;
+      line-height: 0.8rem;
+      width: 1.27rem;
+      text-align: center;
+      font-size: 0.24rem;
+      float: left;
+      color: #606060; }
+    .main .tab .bar:first-child, .main .tab .bar:last-child {
+      width: 1.28rem; }
+    .main .tab .bar:after {
+      content: '';
+      height: 0.03rem;
+      width: 100%;
+      background-color: #d7d7d7;
+      display: block;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+      background: -webkit-linear-gradient(white, white);
+      background: -moz-linear-gradient(white, white);
+      background: linear-gradient(white, white); }
+    .main .tab .active-bar {
+      color: #e61624; }
+    .main .tab .active-bar:after {
+      content: '';
+      height: 0.03rem;
+      width: 100%;
+      background: -webkit-linear-gradient(#e61624, #e61624);
+      background: -moz-linear-gradient(#e61624, #e61624);
+      background: linear-gradient(#e61624, #e61624);
+      display: block;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%; }
+  .main .content {
+    position: relative;
+    padding-top: 1.6rem;
+    z-index: 5; }
 
 /*# sourceMappingURL=mainView.css.map */

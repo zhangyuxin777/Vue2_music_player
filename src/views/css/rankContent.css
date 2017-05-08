@@ -2,7 +2,8 @@
   position: absolute;
   top: 0;
   z-index: 5;
-  background: #f0f4f3; }
+  background: #f0f4f3;
+  box-shadow: 0 0 0.15rem #888; }
   .rank-content .sprites {
     overflow: hidden;
     box-sizing: border-box;

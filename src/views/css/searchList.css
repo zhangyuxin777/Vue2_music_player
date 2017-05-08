@@ -4,7 +4,7 @@
   z-index: 5;
   background: #f0f4f3; }
   .search-list .title-bar {
-    height: 0.9rem;
+    height: 0.8rem;
     background: #e61624;
     position: fixed;
     z-index: 18;
@@ -39,17 +39,17 @@
       .search-list .title-bar .search-form input:-ms-input-placeholder {
         color: rgba(255, 255, 255, 0.6); }
   .search-list .zhida {
-    height: 0.9rem;
+    height: 0.8rem;
     margin-left: 0.2rem;
     margin-top: 0.2rem;
     margin-bottom: 0.2rem; }
     .search-list .zhida .pic {
-      width: 0.9rem;
-      height: 0.9rem; }
+      width: 0.8rem;
+      height: 0.8rem; }
     .search-list .zhida .singer {
       display: inline-block;
-      height: 0.9rem;
-      line-height: 0.9rem;
+      height: 0.8rem;
+      line-height: 0.8rem;
       font-size: 0.26rem;
       color: #909090;
       overflow: hidden;
@@ -62,7 +62,7 @@
   .search-list .list {
     position: absolute;
     background: #f0f4f3;
-    margin-top: 0.9rem;
+    margin-top: 0.8rem;
     padding-bottom: 1.4rem; }
     .search-list .list .item {
       height: 0.9rem; }
