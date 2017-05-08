@@ -1,7 +1,7 @@
 # vue2_test
 
 >采用vue2.0制作的音乐播放器 vue2.0 + vuex + vue-router
-数据是从接口获取的,不是死数据
+>数据是从接口获取的,不是死数据
 
 
 ## Build Setup
