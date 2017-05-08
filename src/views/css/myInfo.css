@@ -1,7 +1,9 @@
 .my-info {
   position: absolute;
   top: 0;
-  width: 6.4rem; }
+  bottom: 0;
+  width: 6.4rem;
+  box-shadow: 0 0 0.15rem #888; }
   .my-info .title-bar {
     height: 0.8rem;
     background: #e61624;
