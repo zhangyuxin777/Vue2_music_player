@@ -12,11 +12,16 @@
 
 ![qrCode.png](./src/image/qrCode.png)
 
-<table><tr><td bgcolor=#7FFFD4>
-背景颜色
-</td></tr></table>
-
-![music.png](./src/image/music.png)           ![music-lyric.png](./src/image/music-lyric.png)
+<table>
+  <tr>
+    <td bgcolor=#7FFFD4>
+    ![music.png](./src/image/music.png)
+    </td>
+     <td bgcolor=#7FFFD4>
+     ![music-lyric.png](./src/image/music-lyric.png)
+    </td>
+  </tr>
+</table>
 
 
 
