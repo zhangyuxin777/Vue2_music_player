@@ -9,7 +9,7 @@
 [在线预览](https://zhangyuxin777.github.io/Vue2_music_player/dist/index.html#/)
 
 
-![music.png](./src/image/music.png)![music-lyric.png](./src/image/music-lyric.png)
+![music.png](./src/image/music.png =300)![music-lyric.png](./src/image/music-lyric.png)
 ![list-singer.png](./src/image/list-singer.png)![singer.png](./src/image/singer.png)
 
 
