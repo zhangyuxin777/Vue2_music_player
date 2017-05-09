@@ -12,23 +12,26 @@
 
 ![qrCode.png](./src/image/qrCode.png)
 
-<table>
-  <tr>
-    <td bgcolor=#7FFFD4>
-    ![music.png](./src/image/music.png)
-    </td>
-     <td bgcolor=#7FFFD4>
-     ![music-lyric.png](./src/image/music-lyric.png)
-    </td>
-  </tr>
-</table>
 
+![music.png](./src/image/music.png)           ![music-lyric.png](./src/image/music-lyric.png)
 
 
 ![list-singer.png](./src/image/list-singer.png)           ![singer.png](./src/image/singer.png)
+
+
+
 ![list-album.png](./src/image/list-album.png)           ![album.png](./src/image/album.png)
+
+
+
 ![list-mv.png](./src/image/list-mv.png)           ![mv.png](./src/image/mv.png)
+
+
+
 ![list-play.png](./src/image/list-play.png)           ![list-info.png](./src/image/list-info.png)
+
+
+
 ![list-rank.png](./src/image/list-rank.png)           ![list-disc.png](./src/image/list-disc.png)
 
 
