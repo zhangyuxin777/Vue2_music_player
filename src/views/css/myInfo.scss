@@ -4,7 +4,9 @@
   $hei: 0.8rem;
   position: absolute;
   top: 0;
+  bottom: 0;
   width: $pageWidth;
+  box-shadow: 0 0 0.15rem #888;
   .title-bar {
     height: $hei;
     background: $mainColor;

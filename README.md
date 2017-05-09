@@ -1,6 +1,39 @@
 # vue2_test
 
-> A Vue.js project
+>采用vue2.0制作的音乐播放器 vue2.0 + vuex + vue-router
+
+>数据是从接口获取的,不是死数据
+
+#预览
+
+[在线预览](https://zhangyuxin777.github.io/Vue2_music_player/dist/index.html#/)
+
+扫码在手机预览
+
+![qrCode.png](./src/image/qrCode.png)
+
+
+![music.png](./src/image/music.png)           ![music-lyric.png](./src/image/music-lyric.png)
+
+
+![list-singer.png](./src/image/list-singer.png)           ![singer.png](./src/image/singer.png)
+
+
+
+![list-album.png](./src/image/list-album.png)           ![album.png](./src/image/album.png)
+
+
+
+![list-mv.png](./src/image/list-mv.png)           ![mv.png](./src/image/mv.png)
+
+
+
+![list-play.png](./src/image/list-play.png)           ![list-info.png](./src/image/list-info.png)
+
+
+
+![list-rank.png](./src/image/list-rank.png)           ![list-disc.png](./src/image/list-disc.png)
+
 
 ## Build Setup
 

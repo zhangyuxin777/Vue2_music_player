@@ -1,8 +1,11 @@
 .search-list {
   position: absolute;
   top: 0;
+  bottom: 0;
+  width: 6.4rem;
   z-index: 5;
-  background: #f0f4f3; }
+  background: #f0f4f3;
+  box-shadow: 0 0 0.15rem #888; }
   .search-list .title-bar {
     height: 0.8rem;
     background: #e61624;

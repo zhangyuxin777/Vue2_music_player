@@ -136,32 +136,14 @@
   bottom: -1.4rem;
 }
 
-.split-line {
-  @include split-line();
-}
-
-.split-line-v {
-  @include split-line-v();
-  color: white;
-  float: left;
-}
-
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {
   .rank-item:after {
-    @include split-line-rate($line-R3);
-  }
-
-  .split-line {
     @include split-line-rate($line-R3);
   }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   .rank-item:after {
-    @include split-line-rate($line-R2);
-  }
-
-  .split-line {
     @include split-line-rate($line-R2);
   }
 }

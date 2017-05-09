@@ -132,6 +132,7 @@
 
 .playing-item:after {
   @include split-line();
+  background-color: $lineColor2;
   clear: both;
 }
 
