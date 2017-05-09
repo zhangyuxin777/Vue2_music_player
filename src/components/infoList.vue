@@ -10,22 +10,27 @@
         <div class="title left">歌曲：</div>
         <div class="songname">{{current.data.songname}}</div>
       </div>
+      <span class="split-line"></span>
       <ul class="list">
         <li class="info-item" v-show="!isMusicContent&&!isCurrent" @click="toAddNext">
           <div class="sprites ic_next"></div>
           <div class="con">下一首播放</div>
+          <span class="split-line"></span>
         </li>
         <li class="info-item" @click="toAddMyDiss">
           <div class="sprites ic_add"></div>
           <div class="con">收藏到歌单</div>
+          <span class="split-line"></span>
         </li>
         <li class="info-item" v-show="!isMusicContent" @click="toDownload">
           <div class="sprites ic_download"></div>
           <div class="con">下载</div>
+          <span class="split-line"></span>
         </li>
         <li class="info-item" @click="toSinger(current.data.singer[0].mid)">
           <div class="sprites ic_singer"></div>
           <div class="con">歌手：{{current.data.singer[0].name}}</div>
+          <span class="split-line"></span>
         </li>
         <li class="info-item" @click="toAlbum(current.data.albummid)">
           <div class="sprites ic_cd"></div>

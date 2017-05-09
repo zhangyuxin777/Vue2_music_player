@@ -114,6 +114,7 @@
   display: block;
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
+  background-color: #e7e7e7;
   clear: both; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {

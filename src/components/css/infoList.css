@@ -39,12 +39,53 @@
       text-align: left; }
     .info-pop-box .title-box .opacity0 {
       opacity: 0; }
+  .info-pop-box .split-line {
+    background-color: #e7e7e7; }
   .info-pop-box .list {
     position: relative;
     padding-left: 0.2rem;
     padding-bottom: 0.02rem;
     width: 100%;
     overflow: auto; }
+    .info-pop-box .list .info-item {
+      height: 0.8rem;
+      width: 100%; }
+      .info-pop-box .list .info-item .hide {
+        display: none; }
+      .info-pop-box .list .info-item .sprites {
+        width: 0.4rem;
+        height: 0.4rem;
+        overflow: hidden;
+        box-sizing: border-box;
+        background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03291620") 0 0 no-repeat;
+        background-size: 5.76rem 5.76rem;
+        float: left;
+        margin-top: 0.2rem; }
+      .info-pop-box .list .info-item .ic_next {
+        background-position: 0% 17.97101%; }
+      .info-pop-box .list .info-item .ic_add {
+        background-position: 8.69565% 17.97101%; }
+      .info-pop-box .list .info-item .ic_download {
+        background-size: 5.904rem 5.904rem;
+        background-position: 35.7971% 17.97101%; }
+      .info-pop-box .list .info-item .ic_singer {
+        background-position: 17.97101% 17.97101%; }
+      .info-pop-box .list .info-item .ic_cd {
+        background-size: 5.616rem 5.616rem;
+        background-position: 26.95652% 17.97101%; }
+      .info-pop-box .list .info-item .con {
+        font-size: 0.24rem;
+        line-height: 0.8rem;
+        margin-left: 0.5rem;
+        height: 0.79rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left; }
+      .info-pop-box .list .info-item .split-line {
+        margin-left: 0.5rem;
+        width: 5.7rem;
+        background-color: #e7e7e7; }
 
 .play-pop {
   bottom: 0; }
@@ -52,62 +93,6 @@
 .bg-pop {
   background: rgba(0, 0, 0, 0.2);
   height: 100%; }
-
-.info-item {
-  height: 0.8rem;
-  width: 100%; }
-  .info-item .hide {
-    display: none; }
-  .info-item .sprites {
-    width: 0.4rem;
-    height: 0.4rem;
-    overflow: hidden;
-    box-sizing: border-box;
-    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03291620") 0 0 no-repeat;
-    background-size: 5.76rem 5.76rem;
-    float: left;
-    margin-top: 0.2rem; }
-  .info-item .ic_next {
-    background-position: 0% 17.97101%; }
-  .info-item .ic_add {
-    background-position: 8.69565% 17.97101%; }
-  .info-item .ic_download {
-    background-size: 5.904rem 5.904rem;
-    background-position: 35.7971% 17.97101%; }
-  .info-item .ic_singer {
-    background-position: 17.97101% 17.97101%; }
-  .info-item .ic_cd {
-    background-size: 5.616rem 5.616rem;
-    background-position: 26.95652% 17.97101%; }
-  .info-item .con {
-    font-size: 0.24rem;
-    line-height: 0.8rem;
-    margin-left: 0.5rem;
-    height: 0.79rem;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: left; }
-  .info-item .con:after {
-    content: '';
-    height: 1px;
-    width: 100%;
-    background-color: #d7d7d7;
-    display: block;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-    background: #e0e0e0;
-    clear: both; }
-
-.playing-item:after {
-  content: '';
-  height: 1px;
-  width: 100%;
-  background-color: #d7d7d7;
-  display: block;
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  clear: both; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {
   .item:after {
