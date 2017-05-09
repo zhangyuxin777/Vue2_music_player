@@ -5,7 +5,6 @@
   bottom: 0;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 0.15rem #888;
   z-index: 0; }
   .music-content .header {
     position: absolute;

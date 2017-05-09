@@ -1,6 +1,6 @@
 @charset "UTF-8";
 html {
-  background: #f0f4f3; }
+  background: #add8e6; }
 
 body {
   font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Helvetica, Arial, 'Lucida Grande', sans-serif;
@@ -8,7 +8,8 @@ body {
   width: 6.4rem;
   margin: 0 auto;
   background: #f0f4f3;
-  font-size: 0.24rem; }
+  font-size: 0.24rem;
+  overflow-x: hidden; }
 
 * {
   box-sizing: border-box; }

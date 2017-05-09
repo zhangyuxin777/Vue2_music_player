@@ -1,8 +1,8 @@
 .main {
-  box-shadow: 0 0 0.15rem #888;
   position: absolute;
   top: 0;
-  bottom: 0; }
+  bottom: 0;
+  background-color: #f0f4f3; }
   .main .title-bar {
     height: 0.8rem;
     background: #e61624;

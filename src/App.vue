@@ -93,6 +93,7 @@
           $('body').addClass('weixin-ios')
         }
       }
+      $('html').css('background-color', (Common.system().android || Common.system().ios) ? '#f0f4f3' : '#add8e6')
     },
     mounted () {
       let _this = this
