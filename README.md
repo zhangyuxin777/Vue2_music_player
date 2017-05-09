@@ -8,14 +8,32 @@
 
 [在线预览](https://zhangyuxin777.github.io/Vue2_music_player/dist/index.html#/)
 
-```img
+扫码在手机预览
+![qrCode.png](./src/image/qrCode.png)
 
-![music.png](./src/image/music.png)         ![music-lyric.png](./src/image/music-lyric.png)
 
 
-![list-singer.png](./src/image/list-singer.png)        ![singer.png](./src/image/singer.png)
-```
+![music.png](./src/image/music.png)           ![music-lyric.png](./src/image/music-lyric.png)
 
+
+
+![list-singer.png](./src/image/list-singer.png)           ![singer.png](./src/image/singer.png)
+
+
+
+![list-album.png](./src/image/list-album.png)           ![album.png](./src/image/album.png)
+
+
+
+![list-mv.png](./src/image/list-mv.png)           ![mv.png](./src/image/mv.png)
+
+
+
+![list-rank.png](./src/image/list-rank.png)           ![list-disc.png](./src/image/list-disc.png)
+
+
+
+![list-play.png](./src/image/list-play.png)           ![list-info.png](./src/image/list-info.png)
 
 
 ## Build Setup
