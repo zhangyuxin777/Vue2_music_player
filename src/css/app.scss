@@ -1,7 +1,7 @@
 ﻿@import "wl-common";
 
 html {
-  background: $bgColor;
+  background: #add8e6;
 }
 
 body {
@@ -11,6 +11,7 @@ body {
   margin: 0 auto;
   background: $bgColor;
   font-size: 0.24rem;
+  overflow-x: hidden;
 }
 
 * {

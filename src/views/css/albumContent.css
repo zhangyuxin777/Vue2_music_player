@@ -4,8 +4,7 @@
   bottom: 0;
   z-index: 20;
   background: #f0f4f3;
-  width: 6.4rem;
-  box-shadow: 0 0 0.15rem #888; }
+  width: 6.4rem; }
   .album-content .banner {
     position: relative;
     height: 4rem; }

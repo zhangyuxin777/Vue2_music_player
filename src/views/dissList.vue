@@ -6,8 +6,8 @@
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="diss-list">
       <div class="place"></div>
-      <div class="title"  v-show="likeList.length > 0 || myDissList.length > 0">我的歌单</div>
-      <ul class="list">
+      <div class="title" v-show="likeList.length > 0 || myDissList.length > 0">我的歌单</div>
+      <ul class="list" v-show="likeList.length > 0 || myDissList.length > 0">
         <li class="item other" v-show="likeList.length>0" @click="toMyDiss(0)">
           <div class="pic">
             <img :src="likePic"/>
