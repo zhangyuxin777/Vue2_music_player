@@ -69,7 +69,16 @@ const state = {
   },
   count: 0,
   fontSize: 0,
-  barStatus: 2
+  barStatus: 2,
+  page: {
+    0: 0,
+    1: 1,
+    2: 0,
+    3: 0,
+    4: 2,
+    5: 0,
+    6: 1
+  }
 }
 
 const mutations = {
@@ -105,6 +114,9 @@ const mutations = {
       state.play.current = song
       state.play.status.playing = true
     }
+  },
+  UPDATE_PAGES (state, page) {
+    state.page[page.i] = page.s
   },
   SWITCH_MUSIC_CONTENT  (state, showContent) {
     state.play.showMusicContent = showContent

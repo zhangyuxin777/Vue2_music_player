@@ -43,17 +43,7 @@
     data () {
       return {
         isLoading: false,
-        isSwitching: false,
-        page: {
-          0: 0,
-          1: 1,
-          2: 0,
-          3: 0,
-          4: 2,
-          5: 0,
-          6: 1
-        }
-
+        isSwitching: false
       }
     },
     components: {
@@ -68,7 +58,8 @@
         barStatus: state => state.barStatus,
         singerList: state => state.list.singer,
         albumList: state => state.list.album,
-        mvList: state => state.list.mv
+        mvList: state => state.list.mv,
+        page: state => state.page
       })
     },
     methods: {
@@ -146,7 +137,10 @@
                 list: response.data.data.list
               })
               if (response.data.data.list.length !== 0) {
-                _this.page[1] += 1
+                _this.$store.dispatch('updatePages', {
+                  i: 1,
+                  s: _this.page[1] + 1
+                })
               }
               _this.isLoading = false
             })
@@ -160,7 +154,10 @@
                 list: response.data.data.albumlist
               })
               if (response.data.data.albumlist.length !== 0) {
-                _this.page[3] += 1
+                _this.$store.dispatch('updatePages', {
+                  i: 3,
+                  s: _this.page[3] + 1
+                })
               }
               _this.isLoading = false
             })
@@ -174,7 +171,10 @@
                 list: response.data.data.mvlist
               })
               if (response.data.data.mvlist.length !== 0) {
-                _this.page[5] += 1
+                _this.$store.dispatch('updatePages', {
+                  i: 5,
+                  s: _this.page[5] + 1
+                })
               }
               _this.isLoading = false
             })
@@ -193,7 +193,10 @@
             list: response.data.data.list
           })
           if (response.data.data.list.length !== 0) {
-            _this.page[1] += 1
+            _this.$store.dispatch('updatePages', {
+              i: 1,
+              s: _this.page[1] + 1
+            })
           }
           _this.isLoading = false
         })
@@ -207,7 +210,10 @@
             list: response.data.data.albumlist
           })
           if (response.data.data.albumlist.length !== 0) {
-            _this.page[3] += 1
+            _this.$store.dispatch('updatePages', {
+              i: 3,
+              s: _this.page[3] + 1
+            })
           }
           _this.isLoading = false
         })
@@ -221,7 +227,10 @@
             list: response.data.data.mvlist
           })
           if (response.data.data.mvlist.length !== 0) {
-            _this.page[5] += 1
+            _this.$store.dispatch('updatePages', {
+              i: 5,
+              s: _this.page[5] + 1
+            })
           }
           _this.isLoading = false
         })

@@ -198,4 +198,7 @@ export const cleanSearch = ({commit}) => {
 export const updateSearchPage = ({commit}, obj) => {
   commit('UPDATE_SEARCH_PAGE', obj)
 }
+export const updatePages = ({commit}, obj) => {
+  commit('UPDATE_PAGES', obj)
+}
 
