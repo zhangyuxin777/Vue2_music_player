@@ -1,5 +1,5 @@
-<style scoped>
-  @import "css/singerList.css";
+<style scoped lang="scss" type="text/css">
+    @import "css/singerList.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"

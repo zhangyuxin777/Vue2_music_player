@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <ul class="list">
+      <ul class="list con">
         <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.songid">
           <div class="i-title">
             <span class="sprites ic_menu" :class="{hide : !isCurrent(item.songid)}"></span>

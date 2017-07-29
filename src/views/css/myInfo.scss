@@ -101,6 +101,19 @@
     }
   }
 
+  a:link {
+    color: $textLeftColor;
+    text-decoration: none;
+  }
+  a:visited {
+    color: $textLeftColor;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $textLeftColor;
+    text-decoration: underline;
+  }
+
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .info-item:after {
       @include split-line-rate($line-R3);

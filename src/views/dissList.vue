@@ -1,5 +1,5 @@
-<style scoped>
-  @import "css/dissList.css";
+<style scoped lang="scss" type="text/css">
+  @import "css/dissList.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"

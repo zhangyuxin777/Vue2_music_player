@@ -1,6 +1,5 @@
-<style scoped>
-  @import "css/rankContent.css";
-  @import "css/singerContent.css";
+<style scoped lang="scss" type="text/css">
+    @import "css/singerContent.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInRight"
@@ -27,7 +26,7 @@
         <div class="bar" :class="{'active-bar':getBarStatus === 3}" @click="switchBar(3)">歌手信息</div>
         <span style="clear: both"></span>
       </div>
-      <ul class="list" v-show="getBarStatus === 0">
+      <ul class="list con" v-show="getBarStatus === 0">
         <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.musicData.songid">
           <div class="i-title">
             <span class="sprites ic_menu" :class="{hide : !isCurrent(item.musicData.songid)}"></span>
@@ -42,7 +41,7 @@
           <span class="split-line"></span>
         </li>
       </ul>
-      <ul class="album-list" v-show="getBarStatus === 1">
+      <ul class="album-list con" v-show="getBarStatus === 1">
         <li v-for="(item,index) in getAlbumList" class="item" @click="toAlbum(item.albumMID)" track-by="item.albumMID">
           <div class="i-title">
             <img class="pic" :src="getAlbumImg(item.albumMID)" alt="">
@@ -55,7 +54,7 @@
           <span class="split-line"></span>
         </li>
       </ul>
-      <ul class="mv-list" v-show="getBarStatus === 2">
+      <ul class="mv-list con" v-show="getBarStatus === 2">
         <li v-for="(item,index) in getMVList" class="item" @click="toMV(item.vid)" track-by="item.vid">
           <div class="i-title">
             <img class="pic" :src="item.pic" alt="">

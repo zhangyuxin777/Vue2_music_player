@@ -1,5 +1,5 @@
-<style scoped>
-  @import "css/searchList.css";
+<style scoped lang="scss" type="text/css">
+    @import "css/searchList.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInRight"
@@ -15,7 +15,7 @@
           <span class="split-line"></span>
         </form>
       </div>
-      <ul class="list">
+      <ul class="list con">
         <div class="zhida" @click="toSinger" :class="{'hide':zhida.mid.length===0}">
           <img class="pic" :src="zhida.pic" alt="">
           <span class="singer">歌手: <span class="name">{{zhida.singerName}}</span></span>

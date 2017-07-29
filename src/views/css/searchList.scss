@@ -127,7 +127,6 @@
     height: 0.4rem;
     overflow: hidden;
     box-sizing: border-box;
-    @include getBackground('icon-list.png?v=201705021127');
     background-size: $spriteRem/5*4 $spriteRem/5*4;
     float: left;
   }

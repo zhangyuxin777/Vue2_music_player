@@ -1,12 +1,12 @@
-<style scoped>
-  @import "css/albumList.css";
+<style scoped lang="scss" type="text/css">
+    @import "css/albumList.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
     <div class="album-list">
       <div class="title">全部专辑</div>
-      <ul class="list">
+      <ul class="list con">
         <li v-for="(item,index) in list" class="item" @click="toContent(item.album_mid)">
           <img :src="picUrl(item)"/>
           <div class="info">

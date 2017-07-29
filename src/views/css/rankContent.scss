@@ -7,11 +7,6 @@
   z-index: 5;
   background: $bgColor;
   //box-shadow: 0 0 0.15rem #888;
-  .sprites {
-    overflow: hidden;
-    box-sizing: border-box;
-    @include getBackground('icon-list.png?v=03231037');
-  }
   .banner {
     width: 6.4rem;
     overflow: hidden;
@@ -69,7 +64,6 @@
         height: 0.4rem;
         overflow: hidden;
         box-sizing: border-box;
-        @include getBackground('icon-list.png');
         background-size: $spriteRem/5*4 $spriteRem/5*4;
         float: left;
       }

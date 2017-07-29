@@ -1,5 +1,5 @@
-<style scoped>
-  @import "css/musicContent.css";
+<style scoped lang="scss" type="text/css">
+  @import "css/musicContent.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
@@ -21,11 +21,11 @@
         </div>
         <div class="clear"></div>
       </div>
-      <div class="voice-box" v-show="showLyric">
+      <div class="voice-box con" v-show="showLyric">
         <span class="sprites ic_voice"></span>
         <input id="volume" class="range" type="range" min="0" max="100" @input="volumeChange" v-model="value">
       </div>
-      <div class="lyric-box" id="lyricBox" :class="{'op-hide':!showLyric}" @click="switchLyric">
+      <div class="lyric-box con" id="lyricBox" :class="{'op-hide':!showLyric}" @click="switchLyric">
         <ul class="lyric-list" id="lyricList">
           <li v-for="(item,index) in list" class="item lyricItem">
             <div class="text" :id="item.id">
@@ -34,7 +34,7 @@
           </li>
         </ul>
       </div>
-      <div class="cd-box" :class="{'op-hide':showLyric}" @click="switchLyric">
+      <div class="cd-box con" :class="{'op-hide':showLyric}" @click="switchLyric">
         <div class="cd" id="record">
           <div class="cd-side"></div>
           <img :src="songImg" class="cd-img" alt="">
@@ -42,12 +42,12 @@
         <div class="needle" :class="{'needle_play' : playing}"></div>
         <div class="needle_2"></div>
       </div>
-      <div class="click-box" v-show="!showLyric">
+      <div class="click-box con" v-show="!showLyric">
         <div class="sprites like" :class="{'like-do' : isLike}" @click="switchLike"></div>
         <div class="sprites download" @click="toDown"></div>
         <div class="sprites more" @click="toMore"></div>
       </div>
-      <div class="progress-box">
+      <div class="progress-box con">
         <span class="current_time">{{currentTime.m}}:{{currentTime.s}}</span>
         <div class="progress-bar">
           <div class="progress" :style="{width:progress+'%'}"></div>
@@ -55,7 +55,7 @@
         </div>
         <div class="total_time">{{totalTime.m}}:{{totalTime.s}}</div>
       </div>
-      <div class="control-box">
+      <div class="control-box con">
         <div class="sprites mode" @click="switchMode"
              :class="{'m_0' : mode===0 ,'m_1' : mode===1 ,'m_2' : mode===2}"></div>
         <div class="sprites last-song" @click="last"></div>

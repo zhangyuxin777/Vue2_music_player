@@ -119,9 +119,16 @@ input:focus {
 .bg-color {
   background: $bgColor;
 }
-
 .bg-white {
   background: #fff;
+}
+
+.con {
+  .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    @include getBackground('icon-list.png?v=0323122');
+  }
 }
 
 .header {

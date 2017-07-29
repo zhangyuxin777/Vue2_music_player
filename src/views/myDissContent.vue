@@ -1,5 +1,5 @@
-<style scoped>
-  @import "css/albumContent.css";
+<style scoped lang="scss" type="text/css">
+  @import "css/albumContent.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInRight"
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <ul class="list">
+      <ul class="list con">
         <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.data.songid">
           <div class="i-title">
             <span class="sprites ic_menu" :class="{hide : !isCurrent(item.data.songid)}"></span>

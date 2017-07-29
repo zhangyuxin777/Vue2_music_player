@@ -1,5 +1,5 @@
-<style scoped>
-  @import "css/rankContent.css";
+<style lang="scss" type="text/css">
+    @import "css/rankContent.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInRight"
@@ -18,7 +18,7 @@
       <div class="banner">
         <img :src="getBanner" id="banImg" class="banner-img" v-if="getBanner">
       </div>
-      <ul class="list">
+      <ul class="list con">
         <li v-for="(item,index) in list" class="item" @click="playSong(item)" track-by="item.data.songid">
           <div class="i-title" :class="{red : index<3}">
             <span class="sprites ic_menu" :class="{hide : !isCurrent(item.data.songid)}"></span>

@@ -1,5 +1,5 @@
-<style scoped>
-  @import "css/playBar.css";
+<style scoped lang="scss" type="text/css">
+  @import "css/playBar.scss";
 </style>
 
 <template>

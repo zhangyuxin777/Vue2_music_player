@@ -1,5 +1,5 @@
-<style scoped>
-  @import "css/myInfo.css";
+<style lang="scss" type="text/css">
+    @import "css/myInfo.scss";
 </style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInRight"
@@ -33,7 +33,10 @@
           <span class="split-line"></span>
         </li>
         <li class="info-item">
-          <div class="i-title">博客</div>
+            <a  href="https://zhangyuxin777.github.io/dist/index.html#/">
+                <div class="i-title">我的博客</div>
+                <div class="i-con">-></div>
+            </a>
           <span class="split-line"></span>
         </li>
         <li class="info-item">

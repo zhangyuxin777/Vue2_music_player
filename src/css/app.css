@@ -117,6 +117,12 @@ input:focus {
 .bg-white {
   background: #fff; }
 
+.con .sprites {
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent url("http://on7hxaasw.bkt.clouddn.com/icon-list.png?v=03231037") 0 0 no-repeat;
+}
+
 .header {
   position: absolute;
   height: 0.7rem;

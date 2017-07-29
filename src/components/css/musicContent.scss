@@ -400,11 +400,6 @@
     }
   }
 
-  .sprites {
-    overflow: hidden;
-    box-sizing: border-box;
-    @include getBackground('icon-list.png?v=201704261523');
-  }
   @media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .header:after {
       @include split-line-rate($line-R3);
