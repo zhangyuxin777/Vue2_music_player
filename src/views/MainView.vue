@@ -1,6 +1,3 @@
-<style scoped lang="scss" type="text/css">
-  @import "css/mainView.scss";
-</style>
 <template>
   <transition name="custom-classes-transition" enter-active-class="animated fadeInLeft"
               leave-active-class="animated fadeOut" mode="out-in">
@@ -33,11 +30,11 @@
   import API from '../js/api'
   import Common from '../js/rock'
   import $ from 'jquery'
-  import rankList from './rankList'
-  import singerList from './singerList'
-  import dissList from './dissList'
-  import albumList from './albumList'
-  import mvList from './mvList'
+  import rankList from './RankList'
+  import singerList from './SingerList'
+  import dissList from './DissList'
+  import albumList from './AlbumList'
+  import mvList from './MvList'
   import {mapState} from 'vuex'
   export default{
     data () {
@@ -65,23 +62,26 @@
     methods: {
       switchBar (barStatus) {
         let _this = this
+        let scrollTopSign = ''
         switch (_this.$store.state.barStatus) {
           case 1:
-            sessionStorage.setItem('singerListScrollTop', document.body.scrollTop)
+            scrollTopSign = 'singerListScrollTop'
             break
           case 2:
-            sessionStorage.setItem('rankListScrollTop', document.body.scrollTop)
+            scrollTopSign = 'rankListScrollTop'
             break
           case 3:
-            sessionStorage.setItem('albumListScrollTop', document.body.scrollTop)
+            scrollTopSign = 'albumListScrollTop'
             break
           case 4:
-            sessionStorage.setItem('dissListScrollTop', document.body.scrollTop)
+            scrollTopSign = 'dissListScrollTop'
             break
           case 5:
-            sessionStorage.setItem('mvListScrollTop', document.body.scrollTop)
+            scrollTopSign = 'mvListScrollTop'
             break
         }
+        scrollTopSign.length !== 0 ? sessionStorage.setItem(scrollTopSign, document.body.scrollTop) : ''
+
         let scrollTopBefore = document.body.scrollTop
         let scrollTopAfter = 0
         _this.$store.dispatch('switchBar', barStatus)
@@ -265,3 +265,7 @@
     }
   }
 </script>
+
+<style scoped lang="scss" type="text/css">
+  @import "css/mainView.scss";
+</style>

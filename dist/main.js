@@ -42435,7 +42435,7 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.hide {\n    display: none;\n}\n\n.play {\n    position: fixed;\n    bottom: 0;\n}\n", "", {"version":3,"sources":["/./src/views/App.vue?3e43023b"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA+HA;IACA,cAAA;CACA;;AAEA;IACA,gBAAA;IACA,UAAA;CACA","file":"App.vue","sourcesContent":["<style scoped>\r\n    @import \"css/app.css\";\r\n</style>\r\n<template>\r\n    <div>\r\n        <title-bar></title-bar>\r\n        <router-view></router-view>\r\n        <spinner id='spinner' :style=\"{ display: spinner }\"></spinner>\r\n        <audio id=\"player\" autoplay=\"autoplay\" rel=\"{{playing}}\" val=\"{{mode}}\"\r\n               :src=\"current.url\"\r\n               @timeupdate=\"updateProgress\"\r\n               @ended=\"complete\"\r\n               @play=\"playEvent\"\r\n               @pause=\"pauseEvent\"\r\n               @error=\"error\"\r\n               @stalled=\"stalled\"></audio>\r\n        <div class=\"play\" :class=\"{'hide':!isShow}\">\r\n            <play-bar></play-bar>\r\n        </div>\r\n        <pop-list></pop-list>\r\n    </div>\r\n</template>\r\n\r\n<script type=\"text/ecmascript-6\">\r\n    import titleBar from '../components/titleBar.vue'\r\n    import spinner from '../components/spinner.vue'\r\n    import playBar from '../components/playBar.vue'\r\n    import popList from '../views/playList.vue'\r\n    import Common from '../js/rock';\r\n    import {updateTitle,\r\n            progress,\r\n            nextSong,\r\n            switchRotate} from '../vuex/actions'\r\n    import store from '../vuex/store';\r\n    var player;\r\n    var urlError = false;\r\n    export default{\r\n        store,\r\n        vuex: {\r\n            actions: {\r\n                updateTitle,\r\n                progress,\r\n                nextSong,\r\n                switchRotate\r\n            }\r\n        },\r\n        components: {\r\n            titleBar,\r\n            spinner,\r\n            playBar,\r\n            popList\r\n        },\r\n        computed: {\r\n            spinner () {\r\n                if (store.state.spinner) {\r\n                    return 'block'\r\n                } else {\r\n                    return 'none'\r\n                }\r\n            },\r\n            mode(){\r\n                if (player && player.currentSrc.length != 0) {\r\n                    if (store.state.play.status.mode == 0) {\r\n                        player.loop = true;\r\n                    } else {\r\n                        player.loop = false;\r\n                    }\r\n                }\r\n                return store.state.play.status.mode;\r\n            },\r\n            current(){\r\n                if (!store.state.play.current.url) {\r\n                    store.state.play.current.url = store.state.play.current.m4a;\r\n                }\r\n                console.log(store.state.play.current);\r\n                return store.state.play.current;\r\n            },\r\n            playing(){\r\n                if (player && player.currentSrc.length != 0) {\r\n                    if (!urlError) {\r\n                        if (store.state.play.status.playing) {\r\n                            player.play();\r\n                        } else {\r\n                            player.pause();\r\n                        }\r\n                    }\r\n\r\n                }\r\n                return store.state.play.status.playing;\r\n            },\r\n            isShow(){\r\n                return store.state.play.isShow;\r\n            }\r\n        },\r\n        methods: {\r\n            updateProgress: function () {\r\n                this.progress(player.duration, player.currentTime);\r\n            },\r\n            complete: function () {\r\n                console.log('complete');\r\n                this.nextSong();\r\n                this.switchRotate(false);\r\n            },\r\n            playEvent: function () {\r\n                urlError = false;\r\n                this.switchRotate(true);\r\n            },\r\n            pauseEvent: function () {\r\n                urlError = false;\r\n            },\r\n            stalled: function () {\r\n                console.log('stalled');\r\n            },\r\n            error: function () {\r\n                urlError = true;\r\n                console.log('error');\r\n            }\r\n        },\r\n        ready: function () {\r\n            player = document.getElementById('player');\r\n            Common.init(this);\r\n            this.updateTitle('主页面', false, 'hide');\r\n        }\r\n    }\r\n</script>\r\n\r\n<style>\r\n    .hide {\r\n        display: none;\r\n    }\r\n\r\n    .play {\r\n        position: fixed;\r\n        bottom: 0;\r\n    }\r\n</style>"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.hide {\n    display: none;\n}\n\n.play {\n    position: fixed;\n    bottom: 0;\n}\n", "", {"version":3,"sources":["/./src/views/App.vue?3e43023b"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA+HA;IACA,cAAA;CACA;;AAEA;IACA,gBAAA;IACA,UAAA;CACA","file":"App.vue","sourcesContent":["<style scoped>\r\n    @import \"css/app.css\";\r\n</style>\r\n<template>\r\n    <div>\r\n        <title-bar></title-bar>\r\n        <router-view></router-view>\r\n        <spinner id='spinner' :style=\"{ display: spinner }\"></spinner>\r\n        <audio id=\"player\" autoplay=\"autoplay\" rel=\"{{playing}}\" val=\"{{mode}}\"\r\n               :src=\"current.url\"\r\n               @timeupdate=\"updateProgress\"\r\n               @ended=\"complete\"\r\n               @play=\"playEvent\"\r\n               @pause=\"pauseEvent\"\r\n               @error=\"error\"\r\n               @stalled=\"stalled\"></audio>\r\n        <div class=\"play\" :class=\"{'hide':!isShow}\">\r\n            <play-bar></play-bar>\r\n        </div>\r\n        <pop-list></pop-list>\r\n    </div>\r\n</template>\r\n\r\n<script type=\"text/ecmascript-6\">\r\n    import titleBar from '../components/titleBar.vue'\r\n    import spinner from '../components/spinner.vue'\r\n    import playBar from '../components/PlayBar.vue'\r\n    import popList from '../views/PlayList.vue'\r\n    import Common from '../js/rock';\r\n    import {updateTitle,\r\n            progress,\r\n            nextSong,\r\n            switchRotate} from '../vuex/actions'\r\n    import store from '../vuex/store';\r\n    var player;\r\n    var urlError = false;\r\n    export default{\r\n        store,\r\n        vuex: {\r\n            actions: {\r\n                updateTitle,\r\n                progress,\r\n                nextSong,\r\n                switchRotate\r\n            }\r\n        },\r\n        components: {\r\n            titleBar,\r\n            spinner,\r\n            playBar,\r\n            popList\r\n        },\r\n        computed: {\r\n            spinner () {\r\n                if (store.state.spinner) {\r\n                    return 'block'\r\n                } else {\r\n                    return 'none'\r\n                }\r\n            },\r\n            mode(){\r\n                if (player && player.currentSrc.length != 0) {\r\n                    if (store.state.play.status.mode == 0) {\r\n                        player.loop = true;\r\n                    } else {\r\n                        player.loop = false;\r\n                    }\r\n                }\r\n                return store.state.play.status.mode;\r\n            },\r\n            current(){\r\n                if (!store.state.play.current.url) {\r\n                    store.state.play.current.url = store.state.play.current.m4a;\r\n                }\r\n                console.log(store.state.play.current);\r\n                return store.state.play.current;\r\n            },\r\n            playing(){\r\n                if (player && player.currentSrc.length != 0) {\r\n                    if (!urlError) {\r\n                        if (store.state.play.status.playing) {\r\n                            player.play();\r\n                        } else {\r\n                            player.pause();\r\n                        }\r\n                    }\r\n\r\n                }\r\n                return store.state.play.status.playing;\r\n            },\r\n            isShow(){\r\n                return store.state.play.isShow;\r\n            }\r\n        },\r\n        methods: {\r\n            updateProgress: function () {\r\n                this.progress(player.duration, player.currentTime);\r\n            },\r\n            complete: function () {\r\n                console.log('complete');\r\n                this.nextSong();\r\n                this.switchRotate(false);\r\n            },\r\n            playEvent: function () {\r\n                urlError = false;\r\n                this.switchRotate(true);\r\n            },\r\n            pauseEvent: function () {\r\n                urlError = false;\r\n            },\r\n            stalled: function () {\r\n                console.log('stalled');\r\n            },\r\n            error: function () {\r\n                urlError = true;\r\n                console.log('error');\r\n            }\r\n        },\r\n        ready: function () {\r\n            player = document.getElementById('player');\r\n            Common.init(this);\r\n            this.updateTitle('主页面', false, 'hide');\r\n        }\r\n    }\r\n</script>\r\n\r\n<style>\r\n    .hide {\r\n        display: none;\r\n    }\r\n\r\n    .play {\r\n        position: fixed;\r\n        bottom: 0;\r\n    }\r\n</style>"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -42461,11 +42461,11 @@ webpackJsonp([0,1],[
 	
 	var _spinner2 = _interopRequireDefault(_spinner);
 	
-	var _playBar = __webpack_require__(/*! ../components/playBar.vue */ 156);
+	var _playBar = __webpack_require__(/*! ../components/PlayBar.vue */ 156);
 	
 	var _playBar2 = _interopRequireDefault(_playBar);
 	
-	var _playList = __webpack_require__(/*! ../views/playList.vue */ 163);
+	var _playList = __webpack_require__(/*! ../views/PlayList.vue */ 163);
 	
 	var _playList2 = _interopRequireDefault(_playList);
 	
@@ -43926,18 +43926,18 @@ webpackJsonp([0,1],[
 /***/ },
 /* 156 */
 /*!************************************!*\
-  !*** ./src/components/playBar.vue ***!
+  !*** ./src/components/PlayBar.vue ***!
   \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./playBar.vue */ 157)
-	__vue_script__ = __webpack_require__(/*! !babel-loader!./../../~/vue-loader/lib/selector.js?type=script&index=0!./playBar.vue */ 161)
+	__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./PlayBar.vue */ 157)
+	__vue_script__ = __webpack_require__(/*! !babel-loader!./../../~/vue-loader/lib/selector.js?type=script&index=0!./PlayBar.vue */ 161)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\components\\playBar.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/template-rewriter.js?id=_v-105a64ce!./../../~/vue-loader/lib/selector.js?type=template&index=0!./playBar.vue */ 162)
+	  console.warn("[vue-loader] src\\components\\PlayBar.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/template-rewriter.js?id=_v-105a64ce!./../../~/vue-loader/lib/selector.js?type=template&index=0!./PlayBar.vue */ 162)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -43947,7 +43947,7 @@ webpackJsonp([0,1],[
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "./playBar.vue"
+	  var id = "./PlayBar.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -43958,14 +43958,14 @@ webpackJsonp([0,1],[
 /***/ },
 /* 157 */
 /*!****************************************************************************************************************************************************************************************************!*\
-  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/components/playBar.vue ***!
+  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/components/PlayBar.vue ***!
   \****************************************************************************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./playBar.vue */ 158);
+	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./PlayBar.vue */ 158);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../~/vue-style-loader/addStyles.js */ 139)(content, {});
@@ -43974,8 +43974,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./playBar.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./playBar.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./PlayBar.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./PlayBar.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -43987,7 +43987,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 158 */
 /*!*******************************************************************************************************************************************************************************!*\
-  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/components/playBar.vue ***!
+  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-105a64ce&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/components/PlayBar.vue ***!
   \*******************************************************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44030,7 +44030,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 161 */
 /*!********************************************************************************************************!*\
-  !*** ./~/babel-loader!./~/vue-loader/lib/selector.js?type=script&index=0!./src/components/playBar.vue ***!
+  !*** ./~/babel-loader!./~/vue-loader/lib/selector.js?type=script&index=0!./src/components/PlayBar.vue ***!
   \********************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44124,7 +44124,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 162 */
 /*!********************************************************************************************************************************************************************!*\
-  !*** ./~/vue-html-loader!./~/vue-loader/lib/template-rewriter.js?id=_v-105a64ce!./~/vue-loader/lib/selector.js?type=template&index=0!./src/components/playBar.vue ***!
+  !*** ./~/vue-html-loader!./~/vue-loader/lib/template-rewriter.js?id=_v-105a64ce!./~/vue-loader/lib/selector.js?type=template&index=0!./src/components/PlayBar.vue ***!
   \********************************************************************************************************************************************************************/
 /***/ function(module, exports) {
 
@@ -44133,18 +44133,18 @@ webpackJsonp([0,1],[
 /***/ },
 /* 163 */
 /*!********************************!*\
-  !*** ./src/views/playList.vue ***!
+  !*** ./src/views/PlayList.vue ***!
   \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./playList.vue */ 164)
-	__vue_script__ = __webpack_require__(/*! !babel-loader!./../../~/vue-loader/lib/selector.js?type=script&index=0!./playList.vue */ 167)
+	__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./PlayList.vue */ 164)
+	__vue_script__ = __webpack_require__(/*! !babel-loader!./../../~/vue-loader/lib/selector.js?type=script&index=0!./PlayList.vue */ 167)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\views\\playList.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/template-rewriter.js?id=_v-4743d840!./../../~/vue-loader/lib/selector.js?type=template&index=0!./playList.vue */ 174)
+	  console.warn("[vue-loader] src\\views\\PlayList.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/template-rewriter.js?id=_v-4743d840!./../../~/vue-loader/lib/selector.js?type=template&index=0!./PlayList.vue */ 174)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -44165,14 +44165,14 @@ webpackJsonp([0,1],[
 /***/ },
 /* 164 */
 /*!************************************************************************************************************************************************************************************************!*\
-  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/playList.vue ***!
+  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/PlayList.vue ***!
   \************************************************************************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./playList.vue */ 165);
+	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./PlayList.vue */ 165);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../~/vue-style-loader/addStyles.js */ 139)(content, {});
@@ -44182,7 +44182,7 @@ webpackJsonp([0,1],[
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
 			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./playList.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./playList.vue");
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./PlayList.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -44194,7 +44194,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 165 */
 /*!***************************************************************************************************************************************************************************!*\
-  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/playList.vue ***!
+  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-4743d840&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/PlayList.vue ***!
   \***************************************************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44228,7 +44228,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 167 */
 /*!****************************************************************************************************!*\
-  !*** ./~/babel-loader!./~/vue-loader/lib/selector.js?type=script&index=0!./src/views/playList.vue ***!
+  !*** ./~/babel-loader!./~/vue-loader/lib/selector.js?type=script&index=0!./src/views/PlayList.vue ***!
   \****************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44497,7 +44497,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 174 */
 /*!****************************************************************************************************************************************************************!*\
-  !*** ./~/vue-html-loader!./~/vue-loader/lib/template-rewriter.js?id=_v-4743d840!./~/vue-loader/lib/selector.js?type=template&index=0!./src/views/playList.vue ***!
+  !*** ./~/vue-html-loader!./~/vue-loader/lib/template-rewriter.js?id=_v-4743d840!./~/vue-loader/lib/selector.js?type=template&index=0!./src/views/PlayList.vue ***!
   \****************************************************************************************************************************************************************/
 /***/ function(module, exports) {
 
@@ -44523,9 +44523,9 @@ webpackJsonp([0,1],[
 	
 	module.exports = function (router) {
 	    var main = __webpack_require__(/*! ./views/musicMain.vue */ 177);
-	    var mainView = __webpack_require__(/*! ./views/mainView.vue */ 183);
-	    var rankList = __webpack_require__(/*! ./views/rankList.vue */ 185);
-	    var searchList = __webpack_require__(/*! ./views/searchList.vue */ 198);
+	    var mainView = __webpack_require__(/*! ./views/MainView.vue */ 183);
+	    var rankList = __webpack_require__(/*! ./views/RankList.vue */ 185);
+	    var searchList = __webpack_require__(/*! ./views/SearchList.vue */ 198);
 	    var likeList = __webpack_require__(/*! ./views/likeList.vue */ 203);
 	    var playList = __webpack_require__(/*! ./views/likeList.vue */ 203);
 	    var downList = __webpack_require__(/*! ./views/likeList.vue */ 203);
@@ -44677,7 +44677,7 @@ webpackJsonp([0,1],[
 	
 	var _mui2 = _interopRequireDefault(_mui);
 	
-	var _playBar = __webpack_require__(/*! ../components/playBar.vue */ 156);
+	var _playBar = __webpack_require__(/*! ../components/PlayBar.vue */ 156);
 	
 	var _playBar2 = _interopRequireDefault(_playBar);
 	
@@ -44785,12 +44785,12 @@ webpackJsonp([0,1],[
 /***/ },
 /* 183 */
 /*!********************************!*\
-  !*** ./src/views/mainView.vue ***!
+  !*** ./src/views/MainView.vue ***!
   \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/selector.js?type=template&index=0!./mainView.vue */ 184)
+	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/selector.js?type=template&index=0!./MainView.vue */ 184)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -44800,7 +44800,7 @@ webpackJsonp([0,1],[
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "./mainView.vue"
+	  var id = "./MainView.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -44811,7 +44811,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 184 */
 /*!*********************************************************************************************************!*\
-  !*** ./~/vue-html-loader!./~/vue-loader/lib/selector.js?type=template&index=0!./src/views/mainView.vue ***!
+  !*** ./~/vue-html-loader!./~/vue-loader/lib/selector.js?type=template&index=0!./src/views/MainView.vue ***!
   \*********************************************************************************************************/
 /***/ function(module, exports) {
 
@@ -44820,18 +44820,18 @@ webpackJsonp([0,1],[
 /***/ },
 /* 185 */
 /*!********************************!*\
-  !*** ./src/views/rankList.vue ***!
+  !*** ./src/views/RankList.vue ***!
   \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./rankList.vue */ 186)
-	__vue_script__ = __webpack_require__(/*! !babel-loader!./../../~/vue-loader/lib/selector.js?type=script&index=0!./rankList.vue */ 189)
+	__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./RankList.vue */ 186)
+	__vue_script__ = __webpack_require__(/*! !babel-loader!./../../~/vue-loader/lib/selector.js?type=script&index=0!./RankList.vue */ 189)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\views\\rankList.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/template-rewriter.js?id=_v-3cd02138!./../../~/vue-loader/lib/selector.js?type=template&index=0!./rankList.vue */ 197)
+	  console.warn("[vue-loader] src\\views\\RankList.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/template-rewriter.js?id=_v-3cd02138!./../../~/vue-loader/lib/selector.js?type=template&index=0!./RankList.vue */ 197)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -44852,14 +44852,14 @@ webpackJsonp([0,1],[
 /***/ },
 /* 186 */
 /*!************************************************************************************************************************************************************************************************!*\
-  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/rankList.vue ***!
+  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/RankList.vue ***!
   \************************************************************************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./rankList.vue */ 187);
+	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./RankList.vue */ 187);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../~/vue-style-loader/addStyles.js */ 139)(content, {});
@@ -44869,7 +44869,7 @@ webpackJsonp([0,1],[
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
 			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./rankList.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./rankList.vue");
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./RankList.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -44881,7 +44881,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 187 */
 /*!***************************************************************************************************************************************************************************!*\
-  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/rankList.vue ***!
+  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-3cd02138&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/RankList.vue ***!
   \***************************************************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44915,7 +44915,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 189 */
 /*!****************************************************************************************************!*\
-  !*** ./~/babel-loader!./~/vue-loader/lib/selector.js?type=script&index=0!./src/views/rankList.vue ***!
+  !*** ./~/babel-loader!./~/vue-loader/lib/selector.js?type=script&index=0!./src/views/RankList.vue ***!
   \****************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44929,7 +44929,7 @@ webpackJsonp([0,1],[
 	
 	var _rankItem2 = _interopRequireDefault(_rankItem);
 	
-	var _playBar = __webpack_require__(/*! ../components/playBar.vue */ 156);
+	var _playBar = __webpack_require__(/*! ../components/PlayBar.vue */ 156);
 	
 	var _playBar2 = _interopRequireDefault(_playBar);
 	
@@ -45189,7 +45189,7 @@ webpackJsonp([0,1],[
 /* 196 */,
 /* 197 */
 /*!****************************************************************************************************************************************************************!*\
-  !*** ./~/vue-html-loader!./~/vue-loader/lib/template-rewriter.js?id=_v-3cd02138!./~/vue-loader/lib/selector.js?type=template&index=0!./src/views/rankList.vue ***!
+  !*** ./~/vue-html-loader!./~/vue-loader/lib/template-rewriter.js?id=_v-3cd02138!./~/vue-loader/lib/selector.js?type=template&index=0!./src/views/RankList.vue ***!
   \****************************************************************************************************************************************************************/
 /***/ function(module, exports) {
 
@@ -45198,18 +45198,18 @@ webpackJsonp([0,1],[
 /***/ },
 /* 198 */
 /*!**********************************!*\
-  !*** ./src/views/searchList.vue ***!
+  !*** ./src/views/SearchList.vue ***!
   \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./searchList.vue */ 199)
-	__vue_script__ = __webpack_require__(/*! !babel-loader!./../../~/vue-loader/lib/selector.js?type=script&index=0!./searchList.vue */ 201)
+	__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./SearchList.vue */ 199)
+	__vue_script__ = __webpack_require__(/*! !babel-loader!./../../~/vue-loader/lib/selector.js?type=script&index=0!./SearchList.vue */ 201)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\views\\searchList.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/template-rewriter.js?id=_v-4e16a934!./../../~/vue-loader/lib/selector.js?type=template&index=0!./searchList.vue */ 202)
+	  console.warn("[vue-loader] src\\views\\SearchList.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(/*! !vue-html-loader!./../../~/vue-loader/lib/template-rewriter.js?id=_v-4e16a934!./../../~/vue-loader/lib/selector.js?type=template&index=0!./SearchList.vue */ 202)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -45230,14 +45230,14 @@ webpackJsonp([0,1],[
 /***/ },
 /* 199 */
 /*!**************************************************************************************************************************************************************************************************!*\
-  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/searchList.vue ***!
+  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/SearchList.vue ***!
   \**************************************************************************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./searchList.vue */ 200);
+	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./../../~/vue-loader/lib/selector.js?type=style&index=0!./SearchList.vue */ 200);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../~/vue-style-loader/addStyles.js */ 139)(content, {});
@@ -45247,7 +45247,7 @@ webpackJsonp([0,1],[
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
 			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./searchList.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./searchList.vue");
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./SearchList.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -45259,7 +45259,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 200 */
 /*!*****************************************************************************************************************************************************************************!*\
-  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/searchList.vue ***!
+  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-rewriter.js?id=_v-4e16a934&scoped=true!./~/vue-loader/lib/selector.js?type=style&index=0!./src/views/SearchList.vue ***!
   \*****************************************************************************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -45268,7 +45268,7 @@ webpackJsonp([0,1],[
 	exports.i(__webpack_require__(/*! -!./../../~/css-loader?sourceMap!./css/list.css */ 188), "");
 	
 	// module
-	exports.push([module.id, "\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"searchList.vue","sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"SearchList.vue","sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -45276,7 +45276,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 201 */
 /*!******************************************************************************************************!*\
-  !*** ./~/babel-loader!./~/vue-loader/lib/selector.js?type=script&index=0!./src/views/searchList.vue ***!
+  !*** ./~/babel-loader!./~/vue-loader/lib/selector.js?type=script&index=0!./src/views/SearchList.vue ***!
   \******************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -45290,7 +45290,7 @@ webpackJsonp([0,1],[
 	
 	var _rankItem2 = _interopRequireDefault(_rankItem);
 	
-	var _playBar = __webpack_require__(/*! ../components/playBar.vue */ 156);
+	var _playBar = __webpack_require__(/*! ../components/PlayBar.vue */ 156);
 	
 	var _playBar2 = _interopRequireDefault(_playBar);
 	
@@ -45375,7 +45375,7 @@ webpackJsonp([0,1],[
 /***/ },
 /* 202 */
 /*!******************************************************************************************************************************************************************!*\
-  !*** ./~/vue-html-loader!./~/vue-loader/lib/template-rewriter.js?id=_v-4e16a934!./~/vue-loader/lib/selector.js?type=template&index=0!./src/views/searchList.vue ***!
+  !*** ./~/vue-html-loader!./~/vue-loader/lib/template-rewriter.js?id=_v-4e16a934!./~/vue-loader/lib/selector.js?type=template&index=0!./src/views/SearchList.vue ***!
   \******************************************************************************************************************************************************************/
 /***/ function(module, exports) {
 
@@ -45476,7 +45476,7 @@ webpackJsonp([0,1],[
 	
 	var _rankItem2 = _interopRequireDefault(_rankItem);
 	
-	var _playBar = __webpack_require__(/*! ../components/playBar.vue */ 156);
+	var _playBar = __webpack_require__(/*! ../components/PlayBar.vue */ 156);
 	
 	var _playBar2 = _interopRequireDefault(_playBar);
 	
