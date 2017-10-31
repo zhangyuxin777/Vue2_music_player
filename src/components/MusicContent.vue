@@ -90,7 +90,6 @@
                 mode: state => state.play.status.mode,
                 current: state => state.play.current,
                 playing: state => state.play.status.playing,
-                rotate: state => state.play.status.rotate,
                 showLyric: state => state.play.status.showLyric,
                 showMusicContent: state => state.play.showMusicContent,
                 volume: state => state.play.status.volume,
@@ -131,60 +130,52 @@
                 }
             })
         },
+
         methods: {
+
             playClick () {
                 this.$store.dispatch('switchPlayerStatus')
             },
+
             switchLike () {
                 this.$store.dispatch('switchLike', this.$store.state.play.current)
             },
+
             next () {
                 this.$store.dispatch('nextSong')
             },
+
             last () {
                 this.$store.dispatch('lastSong')
             },
+
             switchMode () {
                 this.$store.dispatch('switchMode')
             },
+
             switchLyric () {
                 this.$store.dispatch('switchLyric')
-                let recordStyle = document.getElementById('record').style
-                let playStatus = this.$store.state.play.status
                 // 隐藏歌词 显示动画时的动画状态同步
-                setTimeout(function () {
-                    if (playStatus.playing) {
-                        recordStyle.transition = 'none'
-                        recordStyle.webkitTransition = 'none'
-                        recordStyle.transform = 'rotate(' + playStatus.position * 5 + 'deg)'
-                        recordStyle.webkitTransform = 'rotate(' + playStatus.position * 5 + 'deg)'
-                        setTimeout(function () {
-                            recordStyle.transition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
-                            recordStyle.webkitTransition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
-                            recordStyle.transform = 'rotate(' + playStatus.total * 5 + 'deg)'
-                            recordStyle.webkitTransform = 'rotate(' + playStatus.total * 5 + 'deg)'
-                        }, 0)
-                    } else {
-                        recordStyle.transition = 'none'
-                        recordStyle.webkitTransition = 'none'
-                        recordStyle.transform = 'rotate(' + playStatus.position * 5 + 'deg)'
-                        recordStyle.webkitTransform = 'rotate(' + playStatus.position * 5 + 'deg)'
-                    }
-                }, 0)
+                this.animationCD(0)
+
             },
             toPop () {
                 this.$store.dispatch('togglePopList', true)
             },
+
             isCurrent (id) {
                 return id === this.$store.state.play.current.data.songid
             },
+
             back () {
                 window.history.back()
                 this.$store.dispatch('switchMusicContent', false)
             },
+
             volumeChange () {
                 this.$store.dispatch('setVolume', event.target.value / parseFloat(event.target.getAttribute('max')))
             },
+
             toMore () {
                 this.$store.dispatch('switchInfo', {
                     current: this.$store.state.play.current,
@@ -192,6 +183,7 @@
                 })
                 event.stopPropagation()
             },
+
             toDown () {
                 if (Common.system().android) {
                     document.getElementById('download').click()
@@ -199,97 +191,154 @@
                     mui.alert('ios系统不支持下载')
                 }
                 event.stopPropagation()
+            },
+
+            // 获取歌词数据
+            getLyric () {
+                let _this = this
+                let store = _this.$store
+                API.getLyric(store.state.play.current.data.songid, function (response) {
+
+                    let lyric = _this.formatLyric(response.showapi_res_body.lyric)
+
+                    try {
+                        document.getElementById(this.currentLyric).classList.remove('current')
+                    } catch (e) {
+                    }
+
+                    _this.currentLyric = null
+
+                    let lyricLi = {}
+
+                    // 生成时间歌词对应的对象
+                    lyric.split('[').slice(5).map((item) => {
+                        let time = item.split(']')[0]
+                        lyricLi[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
+                            id: _this.current.data.songid.toString() + '_' + (parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1])),
+                            time: time,
+                            text: item.split(']')[1]
+                        }
+                    })
+
+                    store.dispatch('updateLyricList', lyricLi)
+
+                }, function (response) {
+                    console.log('获取歌词失败')
+                    let myArray = [0, 1, 2, 3, 4, 5, 6, 7]
+                    for (let item of myArray) {
+                        if (item === 7) {
+                            store.state.play.currentLyricList[item] = {
+                                id: item,
+                                time: item,
+                                text: '暂无歌词'
+                            }
+                        } else {
+                            store.state.play.currentLyricList[item] = {
+                                id: item,
+                                time: item,
+                                text: ''
+                            }
+                        }
+                    }
+                })
+            },
+
+            /**
+             * 格式化歌词
+             * @param lyric 原歌词数据
+             * @returns {*}
+             */
+            formatLyric (lyric) {
+                return lyric.replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')').replace(/&#10;/g, ' ').replace(/&#58;/g, ':').replace(/&#46;/g, '.').replace(/&#45;/g, '-').replace(/&#39;/g, '\'').replace(/&#13;/g, ' ')
+            },
+
+            // 更新CD动画状态
+            animationCD (delayTime) {
+                let recordStyle = document.getElementById('record').style
+                let _this = this
+                let store = _this.$store
+                let playStatus = store.state.play.status
+                setTimeout(function () {
+                    // 取消过渡
+                    recordStyle.transition = 'none'
+                    recordStyle.webkitTransition = 'none'
+                    // 转到对应进度的角度
+                    recordStyle.transform = 'rotate(' + playStatus.position * 5 + 'deg)'
+                    recordStyle.webkitTransform = 'rotate(' + playStatus.position * 5 + 'deg)'
+                    if (playStatus.playing) {
+                        //  如果是播放状态 再计算剩余时间 并过渡到最终角度
+                        setTimeout(function () {
+                            // 由于上方已经转到播放时间对应的角度  所以需要减去已经播放的时间作为过渡时间 使速度保持恒定
+                            // 开启过渡
+                            recordStyle.transition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
+                            recordStyle.webkitTransition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
+                            // 设定终止角度
+                            recordStyle.transform = 'rotate(' + playStatus.total * 5 + 'deg)'
+                            recordStyle.webkitTransform = 'rotate(' + playStatus.total * 5 + 'deg)'
+                        }, delayTime)
+                    }
+                }, delayTime)
             }
         },
         watch: {
             current (curr) {
                 let recordStyle = document.getElementById('record').style
                 let playStatus = this.$store.state.play.status
-                // 切换歌曲 动画的延迟生效
-                if (playStatus.playing) {
-                    recordStyle.transition = 'none'
-                    recordStyle.webkitTransition = 'none'
-                    recordStyle.transform = 'rotate(0deg)'
-                    recordStyle.webkitTransform = 'rotate(0deg)'
-                    setTimeout(function () {
+                // 切换歌曲 设置到初始位置 停止过渡动画
+                // todo  回归初始状态存在问题
+                recordStyle.transition = 'none'
+                recordStyle.webkitTransition = 'none'
+                recordStyle.transform = 'rotate(0deg)'
+                recordStyle.webkitTransform = 'rotate(0deg)'
+                setTimeout(function () {
+                    if (playStatus.playing) {
                         recordStyle.transition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
                         recordStyle.webkitTransition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
                         recordStyle.transform = 'rotate(' + playStatus.total * 5 + 'deg)'
                         recordStyle.webkitTransform = 'rotate(' + playStatus.total * 5 + 'deg)'
-                    }, 500)
-                }
+                    }
+                }, 500)
+
                 this.$store.dispatch('updateLyricList', {})
                 if (!curr.data.songid) {
                     return
                 }
-                try {
-                    let _this = this
-                    _this.lastLyricId = curr.data.songid
-                    sessionStorage.setItem('lastLyricId', _this.lastLyricId)
-                    console.log('获取歌词 watch')
-                    API.getLyric(curr.data.songid, function (response) {
-                        let sss = response.showapi_res_body.lyric
-                                .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
-                                .replace(/&#10;/g, ' ').replace(/&#58;/g, ':').replace(/&#46;/g, '.')
-                                .replace(/&#45;/g, '-').replace(/&#39;/g, '\'').replace(/&#13;/g, ' ')
-                        try {
-                            document.getElementById(this.currentLyric).classList.remove('current')
-                        } catch (e) {
-                        }
-                        _this.currentLyric = null
-                        let lyricLi = {}
-                        sss.split('[').slice(5).map((item) => {
-                            let time = item.split(']')[0]
-                            lyricLi[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
-                                id: _this.current.data.songid.toString() + '_' + (parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1])),
-                                time: time,
-                                text: item.split(']')[1]
-                            }
-                        })
-                        _this.$store.dispatch('updateLyricList', lyricLi)
-                    }, function (response) {
-                        console.log('获取歌词失败')
-                        let myArray = [0, 1, 2, 3, 4, 5, 6, 7]
-                        for (let item of myArray) {
-                            if (item === 7) {
-                                _this.$store.state.play.currentLyricList[item] = {
-                                    id: item,
-                                    time: item,
-                                    text: '暂无歌词'
-                                }
-                            } else {
-                                _this.$store.state.play.currentLyricList[item] = {
-                                    id: item,
-                                    time: item,
-                                    text: ''
-                                }
-                            }
-                        }
-                    })
-                } catch (e) {
-                    console.log(e)
-                }
+                let _this = this
+                _this.lastLyricId = curr.data.songid
+                sessionStorage.setItem('lastLyricId', _this.lastLyricId)
+                _this.getLyric()
                 this.value = parseInt(document.getElementById('volume').getAttribute('max')) * playStatus.volume
             },
+            // 播放状态改变
             playing (playing) {
                 let recordStyle = document.getElementById('record').style
                 let playStatus = this.$store.state.play.status
-                if (!document.getElementById('record')) {
+                if (!recordStyle) {
                     return
                 }
                 // 状态改变时  更改动画状态
                 if (playing) {
+
+                    // 设置剩余时间
                     recordStyle.transition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
                     recordStyle.webkitTransition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
+
+                    // 设置到达的角度
                     recordStyle.transform = 'rotate(' + playStatus.total * 5 + 'deg)'
                     recordStyle.webkitTransform = 'rotate(' + playStatus.total * 5 + 'deg)'
+
                 } else {
+
+                    // 停止过渡
                     recordStyle.transition = 'none'
                     recordStyle.webkitTransition = 'none'
+
+                    // 设置当前的角度
                     recordStyle.transform = 'rotate(' + playStatus.position * 5 + 'deg)'
                     recordStyle.webkitTransform = 'rotate(' + playStatus.position * 5 + 'deg)'
                 }
             },
+
             progress (pro) {
                 let time = 0
                 let id = null
@@ -299,6 +348,7 @@
                 } catch (e) {
 
                 }
+                //
                 if (this.$store.state.play.currentLyricList.hasOwnProperty(time) && id !== this.currentLyric) {
                     try {
                         let ele = $('#lyricBox').find('.current')
@@ -318,90 +368,35 @@
             volume (volume) {
                 this.value = parseInt(document.getElementById('volume').getAttribute('max')) * volume
             },
+
             isLike () {
                 storage.setL('likeList', this.$store.state.like.list)
             },
+            // 监听歌词显示状态变化 保存到缓存
             showLyric () {
                 storage.setL('playStatus', this.$store.state.play.status)
             }
         },
         mounted () {
             let _this = this
-            let recordStyle = document.getElementById('record').style
-            let playStatus = this.$store.state.play.status
-            _this.$store.dispatch('switchMusicContent', true)
-            _this.$store.dispatch('updateTitle', _this.$store.state.play.current.data.songname + '-' + _this.$store.state.play.current.data.singer[0].name)
+            let store = _this.$store
+            store.dispatch('switchMusicContent', true)
+            store.dispatch('updateTitle', store.state.play.current.data.songname + '-' + store.state.play.current.data.singer[0].name)
             // 动画的延迟生效
-            setTimeout(function () {
-                // 播放状态下
-                if (playStatus.playing) {
-                    recordStyle.transition = 'none'
-                    recordStyle.webkitTransition = 'none'
-                    recordStyle.transform = 'rotate(' + playStatus.position * 5 + 'deg)'
-                    recordStyle.webkitTransform = 'rotate(' + playStatus.position * 5 + 'deg)'
-                    setTimeout(function () {
-                        recordStyle.transition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
-                        recordStyle.webkitTransition = 'all ' + (playStatus.total - playStatus.position) + 's linear'
-                        recordStyle.transform = 'rotate(' + playStatus.total * 5 + 'deg)'
-                        recordStyle.webkitTransform = 'rotate(' + playStatus.total * 5 + 'deg)'
-                    }, 300)
-                } else {
-                    recordStyle.transition = 'none'
-                    recordStyle.webkitTransition = 'none'
-                    recordStyle.transform = 'rotate(' + playStatus.position * 5 + 'deg)'
-                    recordStyle.webkitTransform = 'rotate(' + playStatus.position * 5 + 'deg)'
-                }
-            }, 300)
+            _this.animationCD(300)
+
             _this.lastLyricId = sessionStorage.getItem('lastLyricId')
-            // 不是同一首歌不是同一首歌才加载歌词
-            if (parseInt(_this.lastLyricId) === parseInt(_this.$store.state.play.current.data.songid) && document.getElementById('lyricList').children.length > 0) {
+            // 不是同一首歌且歌词列表不为空  才加载歌词
+            if (parseInt(_this.lastLyricId) === parseInt(store.state.play.current.data.songid) && document.getElementById('lyricList').children.length > 0) {
                 return
             }
-            _this.lastLyricId = _this.$store.state.play.current.data.songid
+            _this.lastLyricId = store.state.play.current.data.songid
             sessionStorage.setItem('lastLyricId', _this.lastLyricId)
-            if (!this.$store.state.play.current.data.songid) {
+            if (!store.state.play.current.data.songid) {
                 return
             }
             console.log('获取歌词 mounted')
-            API.getLyric(this.$store.state.play.current.data.songid, function (response) {
-                let sss = response.showapi_res_body.lyric
-                        .replace(/&#32;/g, ' ').replace(/&#40;/g, '(').replace(/&#41;/g, ')')
-                        .replace(/&#10;/g, ' ').replace(/&#58;/g, ':').replace(/&#46;/g, '.')
-                        .replace(/&#45;/g, '-').replace(/&#39;/g, '\'').replace(/&#13;/g, ' ')
-                try {
-                    document.getElementById(this.currentLyric).classList.remove('current')
-                } catch (e) {
-                }
-                _this.currentLyric = null
-                let lyricLi = {}
-                sss.split('[').slice(5).map((item) => {
-                    let time = item.split(']')[0]
-                    lyricLi[(parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]))] = {
-                        id: _this.current.data.songid.toString() + '_' + (parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1])),
-                        time: time,
-                        text: item.split(']')[1]
-                    }
-                })
-                _this.$store.dispatch('updateLyricList', lyricLi)
-            }, function (response) {
-                console.log('获取歌词失败')
-                let myArray = [0, 1, 2, 3, 4, 5, 6, 7]
-                for (let item of myArray) {
-                    if (item === 7) {
-                        _this.$store.state.play.currentLyricList[item] = {
-                            id: item,
-                            time: item,
-                            text: '暂无歌词'
-                        }
-                    } else {
-                        _this.$store.state.play.currentLyricList[item] = {
-                            id: item,
-                            time: item,
-                            text: ''
-                        }
-                    }
-                }
-            })
+            _this.getLyric()
         }
     }
 </script>
